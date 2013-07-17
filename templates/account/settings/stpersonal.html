@@ -1,0 +1,117 @@
+<form name="frmPersonal" method="post" action="{$HREF_PAGE}"  >
+    <input type="hidden" name="action" value="view_info" />
+    <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="AutoNumber36" >
+        <tr><td><h3><font size="2" face="Tahoma" color="#800000">Your Current Secure Question Information</font></h3></td>
+        </tr>
+    </table>  
+    <table cellpadding="0" cellspacing="0" border="0" class="form_content" width="580" style="border-collapse: collapse" bordercolor="#111111">
+
+        <tr>
+            <td colspan="2"><font size="2" face="Tahoma">    
+                <br>
+                </font></td>
+        </tr>
+        <tr>
+            <td class="form_label" width="150"><font size="2" face="Tahoma">Security Question:</font></td>
+            
+            <td class="form_field"><font face="Tahoma">
+                {if !empty($view_security_question)}{$view_security_question}{else}****{/if}
+                </font></td> 
+        </tr>	
+        <tr>
+            <td class="form_label"><font size="2" face="Tahoma">Answer:</font></td>
+            <td class="form_field"><font face="Tahoma">
+                {if !empty($view_security_answer)}{$view_security_answer}{else}****{/if}
+                </font></td>
+        </tr>		  
+
+    </table>
+
+    <font size="2" face="Tahoma">    
+    <br>
+    </font>
+    <table cellpadding="0" cellspacing="0" border="0" class="form_content" width="580" style="border-collapse: collapse" bordercolor="#111111">
+        <tr>
+            <td class="form_label" width="150"><font size="2" face="Tahoma"><font color="#FF0000">*</font>Master Key</font></td>
+            <td class="form_field"><font face="Tahoma">
+                <input  type="password" name="master_key" value="" autocomplete="off" class="inputtext" size="5" maxlength="3"  /></font></td>
+        </tr>		  
+
+    </table>
+
+    <table border="0" cellSpacing="2" cellPadding="2" width="100%">
+        <tr>
+            <td class="contenButtons" align="middle">
+                <font face="Tahoma">
+                <input class="button" value="Get Information" type="submit" name="buttonUpdate"></font></td>
+        </tr>
+    </table>
+</form>
+<form name="frmPersonal" method="post" action="{$HREF_PAGE}"  >
+    <input type="hidden" name="action" value="update_account"  />
+    <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="AutoNumber36" >
+        <tr><td><h3><font size="2" face="Tahoma" color="#800000">Change Secure Question Information</font></h3></td>
+        </tr>
+    </table>  
+    <table cellpadding="0" cellspacing="0" border="0" class="form_content" width="580" style="border-collapse: collapse" bordercolor="#111111">
+        <tr>
+            <td colspan="2" valign="top" >
+                <font size="2" face="Tahoma">
+                Please input your secure question. The information is very important in case you lost your access information or Secure PIN
+                </font>
+
+            </td>
+        </tr>  
+        <tr>
+            <td colspan="2"><font size="2" face="Tahoma">    
+                <br>
+                </font></td>
+        </tr>
+        <tr>
+            <td class="form_label" width="150"><font size="2" face="Tahoma"><font color="#FF0000">*</font>Security Question:</font></td>
+            <td class="form_field"><font face="Tahoma"><select name="security_question" class="inputselect" onchange="checkSecurityQuestion(this.value);">
+                    {html_options options=$security_questions_array selected=$post_security_question}</select></font></td> </tr>	
+        <tr id="content_custom_question" {if $security_question!=-1} style="display: none;" {/if}>
+            <td class="form_label"><font size="2" face="Tahoma"><font color="#FF0000">*</font>or write your own:</font></td>
+            <td class="form_field"><font face="Tahoma">
+                <input  name="custom_question" type="text"  value="{$custom_question}"  class="inputtext" size="20"  /></font></td> 
+        </tr>	
+        <tr>
+            <td class="form_label"><font size="2" face="Tahoma"><font color="#FF0000">*</font>Answer:</font></td>
+            <td class="form_field"><font face="Tahoma">
+                <input  name="security_answer" type="text" autocomplete="off" value="{$post_security_answer}"  class="inputtext" size="20"  /></font></td>
+        </tr>		  
+
+    </table>
+
+    <font size="2" face="Tahoma">    
+    <br>
+    </font>
+    <table cellpadding="0" cellspacing="0" border="0" class="form_content" width="580" style="border-collapse: collapse" bordercolor="#111111">
+        <tr>
+            <td class="form_label" width="150"><font size="2" face="Tahoma"><font color="#FF0000">*</font>Master Key</font></td>
+            <td class="form_field"><font face="Tahoma">
+                <input  type="password" name="master_key" value="" autocomplete="off" class="inputtext" size="5" maxlength="3"  /></font></td>
+        </tr>		  
+
+    </table>
+
+    <table border="0" cellSpacing="2" cellPadding="2" width="100%">
+        <tr>
+            <td class="contenButtons" align="middle">
+                <font face="Tahoma">
+                <input class="button" value="Updated" type="submit" name="buttonUpdate"></font></td>
+        </tr>
+    </table>
+    {literal}
+    <script type="text/javascript">
+        function checkSecurityQuestion(security_question_id) {
+            if (security_question_id==-1) {
+                $("#content_custom_question").show();
+            } else {
+                $("#content_custom_question").hide();	
+            }
+        }
+    </script>
+    {/literal}
+</form>

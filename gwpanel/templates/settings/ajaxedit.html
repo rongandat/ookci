@@ -1,0 +1,17 @@
+<h4>{$langs.HEADING_EDIT_TITLE}</h4>
+<form name="frmedit" action="{$link_settings}" method="post">
+	<input type="hidden" value="update" name="action" />
+	<input type="hidden" value="{$configinfo.configuration_id}" name="cID" />	
+	<table width="100%" cellpadding="2" cellspacing="2" border="0" class="editContent">
+	<tr><td class="mainText" width="150">{$langs.TEXT_CONFIGURATION_TITLE}</td>
+		<td><strong>{$configinfo.configuration_title}</strong></td></tr>
+	<tr><td class="mainText">{$langs.TEXT_CONFIGURATION_DESC}</td>
+		<td><strong>{$configinfo.configuration_description}</strong></td></tr>
+	<tr><td class="mainText">{$langs.TEXT_CONFIGURATION_VALUE}</td>
+		<td>{$configuration_value_field_html}</td></tr>
+	<tr><td  colspan="2">
+	    <input type="submit" name="Submit" value="{$BUTTON_CONFIRM}" class="button">
+        <input type="button" name="btnCancel" value="{$BUTTON_CANCEL}" onclick="closeConfirmForm()"  class="button">
+	</td></tr>
+</table>
+</form>

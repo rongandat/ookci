@@ -1,0 +1,7 @@
+
+<form action="{$post_link}" method="POST">
+    {foreach from=$posts_value key=k item=foo}
+    <input type="hidden" name="{$k}" value="{$foo}">
+    {/foreach}
+    <input type="submit" />
+</form>

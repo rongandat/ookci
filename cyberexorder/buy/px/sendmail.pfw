@@ -1,0 +1,85 @@
+[prefrences]
+is_autoresponde=True
+is_csv=False
+php_des=C:\Documents and Settings\A03\My Documents\My Webs\cyberexjp\buy\px\sendmail.php
+script_name=sendmail.php
+des_folder=C:\Documents and Settings\A03\My Documents\My Webs\cyberexjp\buy\px\
+is_mysql=False
+is_email=True
+success_page=completed.htm
+success_path=C:\Documents and Settings\A03\My Documents\My Webs\cyberexjp\buy\px\completed.htm
+error_page=error.htm
+error_path=C:\Documents and Settings\A03\My Documents\My Webs\cyberexjp\buy\px\error.htm
+is_embeded_result_page=False
+header_path=
+footer_path=
+header_img=
+footer_img=
+is_upload=False
+is_header=False
+is_footer=False
+is_creditcard=False
+success_message=<p align='center'><font face='Arial' size='3' color='#FF0000'></font></p>
+txt_success_message=
+is_create_tble=False
+mysql_table=
+primary_key=
+ 
+[webpage]
+pagetype=0
+URL=
+path=C:\Documents and Settings\A03\My Documents\My Webs\cyberexjp\buy\px\index.htm
+nforms=1
+SelectedFormTitle=Form1
+is_date=True
+date_format=0
+is_convert_date=False
+ 
+[fields]
+nfields=4
+##AccountNumber;^True;^Please enter a valid accountnumber;^;^8;^text;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+##AccountName;^False;^Please enter a valid accountname;^;^8;^text;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+##Batch;^True;^Please enter a valid batch;^;^8;^text;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+##email;^True;^Please enter a valid email;^;^8;^text;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+ 
+[blocked ips]
+
+ 
+[email]
+sender=email
+is_GeneericEmail=False
+is_multiRecipients=False
+email_to=admin@cyberex.jp
+subject=Paid report Pecunix
+ 
+[auto-responde]
+sender=admin@cyberex.jp
+email_to=$email
+subject=Your order process has been Approved !!
+nLine=16
+Dear $name\n
+\n
+We review check in our Pecunix account. \n
+after your money received completed, will sent your request e-currency within 3-5 business day.\n
+\n
+To check your order status and transaction on this page\n
+\n
+https://cyberex.jp/tracking/\n
+\n
+\n
+Thanks and best regards\n
+\n
++--------------------------------------+\n
+ Cyber Exchange Service Japan\n
+ http://www.cyberex.jp/\n
++--------------------------------------+
+ 
+[CSV]
+separator=comma
+filename=
+format=*.csv
+EndLine=\r\n
+ 
+[MySQL]
+isConnect=False
+SuccessfullyConnected=False

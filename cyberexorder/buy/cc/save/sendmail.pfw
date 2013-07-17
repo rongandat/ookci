@@ -1,0 +1,124 @@
+[prefrences]
+is_autoresponde=True
+is_csv=False
+php_des=C:\Documents and Settings\anonny\My Documents\My Web Sites\cyberex\buy\cc\sendmail.php
+script_name=sendmail.php
+des_folder=C:\Documents and Settings\anonny\My Documents\My Web Sites\cyberex\buy\cc\
+is_mysql=False
+is_email=True
+success_page=completed.htm
+success_path=C:\Documents and Settings\anonny\My Documents\My Web Sites\cyberex\buy\cc\completed.htm
+error_page=error.htm
+error_path=C:\Documents and Settings\anonny\My Documents\My Web Sites\cyberex\buy\cc\error.htm
+is_embeded_result_page=False
+header_path=
+footer_path=
+header_img=
+footer_img=
+is_upload=False
+is_header=False
+is_footer=False
+is_creditcard=False
+success_message=<p align='center'><font face='Arial' size='3' color='#FF0000'></font></p>
+txt_success_message=
+is_create_tble=False
+mysql_table=
+primary_key=
+ 
+[webpage]
+pagetype=0
+URL=
+path=C:\Documents and Settings\anonny\My Documents\My Web Sites\cyberex\buy\cc\index.htm
+nforms=1
+SelectedFormTitle=Form1
+is_date=True
+date_format=0
+is_convert_date=False
+ 
+[fields]
+nfields=20
+##amount;^True;^Please enter a valid amount;^;^8;^text;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+##credit_card_type;^False;^Please enter a valid credit_card_type;^;^8;^radio;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+##card_name;^True;^Please enter a valid card_name;^;^8;^text;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+##card_no;^True;^Please enter a valid card_no;^;^8;^text;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+##mm;^False;^Please enter a valid mm;^;^8;^not specified;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+##yy;^False;^Please enter a valid yy;^;^8;^not specified;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+##csc;^True;^Please enter a valid csc;^;^8;^text;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+##firstname;^True;^Please enter a valid firstname;^;^8;^text;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+##lastname;^False;^Please enter a valid lastname;^;^8;^text;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+##co_name;^False;^Please enter a valid co_name;^;^8;^text;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+##street1;^True;^Please enter a valid street1;^;^8;^text;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+##street2;^False;^Please enter a valid street2;^;^8;^text;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+##city;^True;^Please enter a valid city;^;^8;^text;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+##state;^False;^Please enter a valid state;^;^8;^not specified;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+##zip;^True;^Please enter a valid zip;^;^8;^text;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+##country;^False;^Please enter a valid country;^;^8;^not specified;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+##phone_no;^True;^Please enter a valid phone_no;^;^8;^text;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+##email;^True;^Please enter a valid email;^;^8;^text;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+##ccmail;^False;^Please enter a valid ccmail;^;^8;^text;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+##ecurrency_number;^True;^Please enter a valid ecurrency_number;^;^8;^text;^0;^6;^6;^0;^0;^;^0;^0;^0;^6;^6;^True;^True;^0;^;^False;^http://;^;^;^;^;^[[]]
+ 
+[blocked ips]
+
+ 
+[email]
+sender=email
+is_GeneericEmail=False
+is_multiRecipients=False
+email_to=admin@cyberex.jp
+subject=Card payment information
+ 
+[auto-responde]
+sender=admin@cyberex.jp
+email_to=$email
+subject=Your order process has been Approved !!
+nLine=33
+Dear $lastname\n
+\n
+We review and make your card payment with your information. \n
+please remind and check again credit or Debit card payment notifications\n
+\n
+\n
+***** Important Notice **************\n
+\n
+Over $500 purchased transaction, need verification process following this steps\n
+\n
+1. Send FAX or Scan attached email to us your ID (Passport or Local government issued ID such as drivers license)\n
+\n
+2. Send FAX or Scan attached email to us your Credit or Debit card recent bill statement copy (within last 3 month). You may cover some card number and expire date important thinks etc.\n
+\n
+We will sent these verification instruction once your card transaction completed. if your verification process has not yet, we never sent e-currency and your exchange transaction has never completed. these process to block and charge back by third party fraudulent transaction. we hope you understand and cooperate. Thank you!!\n
+\n
+\n
+To check your order status and transaction on this page\n
+\n
+https://cyberex.jp/tracking/\n
+\n
+\n
+Thanks and best regards\n
+\n
++--------------------------------------+\n
+Escrow, Inc.\n
+Cyber Exchange Service Japan\n
+http://www.cyberex.jp/\n
+Japan E-gold Exchange Service\n
+http://www.e-goldex.jp/\n
+Phone: (+81)3-3835-3568\n
+Skype: e-goldex.jp  ICQ: 461063987\n
++--------------------------------------+\n
+ 
+[CSV]
+separator=comma
+filename=
+format=*.csv
+EndLine=\r\n
+ 
+[MySQL]
+isConnect=False
+SuccessfullyConnected=False
+host=localhost
+user=root
+pw=
+port=3306
+db=Select a database or type it's name
+table=Select a table or type it's name

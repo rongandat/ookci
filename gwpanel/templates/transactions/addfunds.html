@@ -1,0 +1,103 @@
+<h2>Add Funds</h2>
+<br />
+{include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }
+<div>
+<form action="{dev_get_admin_page_link page=PAGE_ADD_FUNDS}" method="post" name="frmNew" >
+	<input type="hidden"  name="action" value="process" />
+	<input type="hidden" name="step" value="{$step}"  />
+{if $step=='confirm'}
+ 	<table width="100%" cellpadding="2" cellspacing="2"  border="0">	
+		<tr><td>Please make sure you want to <strong>add funds</strong> to account <strong>{$transfer_info.account_number}</strong> with the follow informations:</td></tr>
+	</table>
+	<br />
+ 	<table width="100%" cellpadding="2" cellspacing="2"  border="0">	
+		<tr>
+			  <td width="120">Amount Name</td>
+			  <td>{$transfer_info.account_name}</td>
+		  </tr>			
+
+	<tr>
+			  <td>First Name</td>
+			  <td>{$transfer_info.firstname}</td>
+		  </tr>			
+
+	<tr>
+			  <td>Last Name</td>
+			  <td>{$transfer_info.lastname}</td>
+		  </tr>			
+	  <tr>	  
+	</table>
+	<br />
+	<h4>Transfer Informations</h4>
+ 	<table width="100%" cellpadding="2" cellspacing="2"  border="0">	
+	<td width="120">Account Number:</td>
+			  <td><strong>{$transfer_info.account_number}</strong></td>
+		  </tr>
+			<tr>
+			  <td>Balance Currency</td>
+			  <td><strong>{$transfer_info.balance_currency}</strong></td>
+		  </tr>	
+	<tr>
+			  <td>Amount(Funds)</td>
+			  <td><strong>{$transfer_info.amount}</strong></td>
+		  </tr>		
+	<tr>
+			  <td>Transaction Memo</td>
+			  <td><strong>{$transfer_info.transaction_memo}</strong></td>
+		  </tr>			  	
+	</table>
+	<br />
+ 	<table width="100%" cellpadding="2" cellspacing="2"  border="0">	
+	<tr>  <td>
+		    <input type="submit" name="btnTransfer" value="Transfer" class="button">
+	        <input type="button" name="btnCancel" value="{$BUTTON_CANCEL}" onClick="redirect('{dev_get_admin_page_link page=PAGE_ADD_FUNDS}');" class="button">
+		  </td>
+	  </tr>	
+	</table>
+	<input type="hidden" name="account_number" value="{$transfer_info.account_number}"  />
+	<input type="hidden" name="to_userid" value="{$transfer_info.user_id}"  />
+	<input type="hidden" name="amount" value="{$transfer_info.amount}"  />
+	<input type="hidden" name="transaction_memo" value="{$transfer_info.transaction_memo}"  />	
+	<input type="hidden" name="balance_currency"	value="{$transfer_info.balance_currency}"  />
+	
+{elseif $step=='completed'}	
+ 	<table width="100%" cellpadding="2" cellspacing="2"  border="0">	
+		<tr><td colspan="2" class="success">You have done add funds transaction to account number<strong>{$transaction_data.to_account}</strong> with the follow information:</td></tr>
+		<tr><td width="120">Amount</td><td>{$transaction_data.amount_text}</td></tr>
+		<tr><td>Batch Number#</td><td><strong>{$transaction_data.batch_number}</strong></td></tr>		
+		<tr><td colspan="2">
+	        <input type="button" name="btnBack" value="Transaction History" onClick="redirect('{dev_get_admin_page_link page=PAGE_TRANSACTIONS}');" class="button">
+		  </td>
+		</tr>  
+	</table>
+{else}
+ 	<table width="100%" cellpadding="2" cellspacing="2"  border="0">	
+			<tr>
+		  <td width="120">*Account Number:</td>
+		  <td><input name="account_number" type="text" id="account_number" value="{$account_number}" maxlength="8" size="10"> (please make sure you inputed correct account number that you want to add new funds to.)</td>
+	  </tr>
+		<tr>
+		  <td>*Balance Currency</td>
+		  <td><select name="balance_currency" >
+			{html_options options=$balance_currencies selected=$balance_currency}
+			</select></td>
+	  </tr>		
+	<tr>
+		  <td>*Amount</td>
+		  <td><input name="amount" type="text" id="amount" value="{$amount}" size="5" maxlength="5"></td>
+	  </tr>		
+<tr>
+		  <td>Transaction Memo(optional)</td>
+		  <td><textarea name="transaction_memo" type="text" id="transaction_memo" cols="50"  rows="3">{$transaction_memo}</textarea></td>
+	  </tr>		  	  		
+		<tr>
+		  <td>&nbsp;</td>
+		  <td>
+		    <input type="submit" name="Submit" value="{$BUTTON_SUBMIT}" class="button">
+	        <input type="button" name="btnCancel" value="{$BUTTON_CANCEL}" onClick="redirect('{dev_get_admin_page_link page=PAGE_TRANSACTIONS}');" class="button">
+		  </td>
+	  </tr>
+	</table>
+{/if}
+</form>	
+</div>

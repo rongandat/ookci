@@ -1,0 +1,59 @@
+<h2>Transactions History</h2>
+{include file="$_TEMPLATE_SOURCE_DIR/modules/feedback_messages.tpl" }
+<form name="frmSearch"  action="{dev_get_admin_page_link page=PAGE_TRANSACTIONS}"   method="post">
+<div  id="ajaxSearchContent" {if $action!='process_search'} style="display:none" {/if}>
+<h4>Search Filter</h4>
+<input type="hidden" name="action" value="process_search" >
+<table width="100%" cellpadding="2" cellspacing="2"  border="0">
+	<tr><td>From Date</td><td><select name="fromdateMonth" >{html_options options=$months_array selected=$fromdateMonth}</select>&nbsp;<select name="fromdateDay">{html_options options=$days_array selected=$fromdateDay}</select>&nbsp;&nbsp;
+<select name="fromdateYear">{html_options options=$years_array selected=$fromdateYear}</select>&nbsp;(mm/dd/yy)</td></tr>
+<tr><td>To Date</td><td><select name="todateMonth" >{html_options options=$months_array selected=$todateMonth}</select>&nbsp;<select name="todateDay">{html_options options=$days_array selected=$todateDay}</select>&nbsp;&nbsp;
+<select name="todateYear">{html_options options=$years_array selected=$todateYear}</select>&nbsp;(mm/dd/yy)</td></tr>
+<tr><td>&nbsp;</td><td><input name="search_date_filter"    type="checkbox" value="1"  {if $search_date_filter } checked="checked" {/if}> Search using dates filter</td></tr>
+<tr><td>Batch Number#</td><td><input name="batch_number"   size="12" maxlength="12"  value="{$batch_number}"  type="text"> </td></tr>
+<tr><td>From Account</td><td><input name="from_account"   type="text" value="{$from_account}" > </td></tr>
+<tr><td>To Account</td><td><input name="to_account"   type="text" value="{$to_account}"> </td></tr>
+<tr><td>Transaction Reference</td><td><input name="transaction_note"   value="{$transaction_note}" type="text" size="50"> </td></tr>
+</table>
+<br>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0"  border="0">
+	<tr><td><input type="button"  class="button" id="buttonSearch"  value="Search Transaction" /></td></tr>
+</table>
+<br>
+<div  id="ajaxDetailsContent" style="display:none"></div>
+<table width="100%" cellpadding="0" cellspacing="0"  border="0">
+<tr><td valign="top">
+		<table width="100%" cellpadding="0" cellspacing="0" >
+			<tr>
+			  <td height="28" class="tableHeading">Date</td>
+			  <td class="tableHeading">Batch#</td>
+			  <td class="tableHeading">From Account</td>			  
+			  <td class="tableHeading">To Account</td>			  
+			  <td class="tableHeading">Amount</td>			
+			  <td class="tableHeading">Fee</td>			
+			  <td class="tableHeading" align="center">Currency</td>			  			  			    			    			  			    
+			  <td class="tableHeading" align="center">{$TEXT_ACTION}</td>
+			  </tr>
+		{section name=transactionidx loop=$transactions}	
+			{if ($smarty.section.transactionidx.index  % 2) == 0 } {assign var="rowstyle"  value="tableNormalRow"} {else}  {assign var="rowstyle" value="tableAltRow"}  {/if}		  
+			<tr>
+			  <td width="22%" height="25"  class="{$rowstyle}">{$transactions[transactionidx].transaction_time|date_format:"%m/%d/%Y %l:%M %p" }</td>
+			  <td   class="{$rowstyle}">{$transactions[transactionidx].batch_number}</td>
+			  <td   class="{$rowstyle}">{$transactions[transactionidx].from_account}</td>			  			  
+			  <td   class="{$rowstyle}"><strong>{$transactions[transactionidx].to_account}</strong></td>			  			  
+			  <td   class="{$rowstyle}">{$transactions[transactionidx].amount_text}</td>			  
+			  <td class="{$rowstyle}">{$transactions[transactionidx].fee_text}&nbsp;</td>			  			  
+			  <td class="{$rowstyle}" align="center">{$transactions[transactionidx].transaction_currency}</td>			  			  			  
+			  <td width="17%"  class="{$rowstyle}"  align="center"><a href="javascript:getTransactionDetails({$transactions[transactionidx].transaction_id});" class="linkButton">{$ACTION_VIEW}</a>&nbsp;<a href="javascript:getProcessForm({$transactions[transactionidx].transaction_id});"  class="linkButton" >Process</a></td>
+		    </tr>
+		{/section}
+		</table>
+</td>
+</tr>
+</table>
+</div>
+{if count($transactions)>0} 
+<div align="center">{$TEXT_PAGES}{$page_links}</div>
+{/if}
+</form>

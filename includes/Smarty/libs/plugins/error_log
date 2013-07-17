@@ -1,0 +1,7 @@
+[17-Apr-2012 01:37:21] PHP Fatal error:  Call to a member function _get_plugin_filepath() on a non-object in /home/eglobal/public_html/includes/Smarty/libs/plugins/modifier.date_format.php on line 11
+[17-Apr-2012 03:09:24] PHP Fatal error:  Call to a member function _get_plugin_filepath() on a non-object in /home/eglobal/public_html/includes/Smarty/libs/plugins/modifier.date_format.php on line 11
+[17-Apr-2012 03:09:24] PHP Fatal error:  Call to a member function _get_plugin_filepath() on a non-object in /home/eglobal/public_html/includes/Smarty/libs/plugins/modifier.date_format.php on line 11
+[17-Apr-2012 03:09:25] PHP Fatal error:  Call to a member function _get_plugin_filepath() on a non-object in /home/eglobal/public_html/includes/Smarty/libs/plugins/modifier.date_format.php on line 11
+[17-Apr-2012 03:31:39] PHP Fatal error:  Call to a member function _get_plugin_filepath() on a non-object in /home/eglobal/public_html/includes/Smarty/libs/plugins/modifier.date_format.php on line 11
+[21-Dec-2012 05:05:49] PHP Fatal error:  Call to a member function _get_plugin_filepath() on a non-object in /home/eglobal/public_html/includes/Smarty/libs/plugins/modifier.date_format.php on line 11
+[08-Apr-2013 15:09:49] PHP Fatal error:  Call to a member function _get_plugin_filepath() on a non-object in /home/eglobal/public_html/includes/Smarty/libs/plugins/modifier.date_format.php on line 11

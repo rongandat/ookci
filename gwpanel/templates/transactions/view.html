@@ -1,0 +1,19 @@
+<h4>Transaction Details: #{$transaction_data.batch_number}</h4>
+<table width="100%" cellpadding="2" cellspacing="2"  border="0"   class="confirmContent">
+	<tr><td width="100">Batch Number#</td><td>{$transaction_data.batch_number}</td></tr>
+	<tr><td>Date</td><td>{$transaction_data.transaction_time|date_format:"%m/%d/%Y %l:%M %p"}</td></tr>	
+	<tr><td>From Account</td><td>{$transaction_data.from_account}</td></tr>		
+	<tr><td>To Account</td><td><strong>{$transaction_data.to_account}</strong></td></tr>			
+	<tr><td>Amount</td><td>{$transaction_data.amount_text}</td></tr>			
+	{if $transaction_data.fee_text !=''}
+	<tr><td>Fee</td><td>{$transaction_data.fee_text}</td></tr>					
+	{/if}
+	<tr><td>Transaction Status</td><td><strong>{$transaction_data.transaction_status}</strong></td></tr>						
+	{if $transaction_data.transaction_memo !=''}	
+	<tr><td>Transaction Memo</td><td>{$transaction_data.transaction_memo}</td></tr>							
+	{/if}
+</table>
+<br>
+<table width="100%" cellpadding="2" cellspacing="2"  border="0">
+<tr><td><a href="javascript: closeTransactionDetailsContent();" class="linkButton">Close</a></td></tr>
+</table>

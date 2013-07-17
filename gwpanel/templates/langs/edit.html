@@ -1,0 +1,46 @@
+<h2>{$langs.HEADING_EDITLANGUAGE}</h2>
+<br />
+{include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }
+<div>
+<form action="{$link_edit_language}" method="post" name="frmEdit" >
+	<input type="hidden"  name="action" value="process" />
+ 	<table width="100%" cellpadding="2" cellspacing="2" >
+	
+		<tr>
+		  <td width="120">{$langs.TEXT_LANGUAGE_NAME}*</td>
+		  <td><input name="language_name" type="text" id="language_name" value="{$language_name}"></td>
+	  </tr>
+		<tr>
+		  <td>{$langs.TEXT_LANGUAGE_CODE}*</td>
+		  <td><input name="language_code" type="text" id="language_code" value="{$language_code}" size="5" maxlength="5"></td>
+	  </tr>
+		
+		<tr>
+		  <td>{$langs.TEXT_LANGUAGE_DIRECTORY}*</td>
+		  <td><input name="language_directory" type="text" id="language_directory" value="{$language_directory}"  size="30"></td>
+	  </tr>
+		
+		<tr>
+		  <td>{$langs.TEXT_LANGUAGE_IMAGE}*</td>
+		  <td><input name="language_image" type="text" id="language_image" value="{$language_image}" size="30"></td>
+	  </tr>
+	
+		<tr>
+		  <td>{$langs.TEXT_LANGUAGE_SORT_ORDER}</td>
+		  <td><input name="sort_order" type="text" id="sort_order" value="{$sort_order}" size="5"></td>
+	  </tr>
+		<tr>
+		  <td>{$langs.TEXT_LANGUAGE_STATUS}</td>
+		  <td>{html_radios name="language_status" options=$status_options selected=$language_status separator="<br /><br />"}</td>
+	  </tr>    
+	  		
+		<tr>
+		  <td>&nbsp;</td>
+		  <td>
+		    <input type="submit" name="Submit" value="{$BUTTON_SUBMIT}" class="button">
+	        <input type="button" name="btnCancel" value="{$BUTTON_CANCEL}" onClick="window.location	='{$back_link}';" class="button">
+		  </td>
+	  </tr>
+	</table>
+</form>	
+</div>

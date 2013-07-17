@@ -1,0 +1,867 @@
+<?php /* Smarty version 2.6.18, created on 2012-05-22 15:07:51
+         compiled from home/merchants.html */ ?>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <div align="right">
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="650" id="AutoNumber35">
+	  <tr>
+		<td width="100%" height="20">&nbsp;</td>
+	  </tr>
+	  <tr>
+		<td width="100%" height="40" valign="top">
+			<font face="Tahoma" size="3" color="#800000"><b>Our 
+		Merchants</b>
+			</font></td>
+	  </tr>
+	  <tr>
+		<td width="100%" valign="top">
+		<blockquote>
+		  <font face="Tahoma" size="2">Payment or shopping available by 
+		  Global Cash amount, chose business category to find shop or 
+		  financial service</font>. 
+		</blockquote>
+		</td>
+	  </tr>
+	</table>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber36" height="173">
+	  <tr>
+		<td width="33%" valign="top" height="173">
+		<ul>
+		  <li><font size="2" face="Tahoma"><a href="#Advertising">Advertising</a></font></li>
+		  <li><font size="2" face="Tahoma"><a href="#Affiliate">Affiliate</a></font></li>
+		  <li><font size="2" face="Tahoma">
+		  <a href="#Adult Contents (Over 21 years only)">Adult Contents (Over 21 years 
+		  only)</a></font></li>
+		</ul>
+		</td>
+		<td width="33%" valign="top" height="173">
+		<ul>
+		  <li><font size="2" face="Tahoma"><a href="#Business Services">Business Services</a></font></li>
+		  <li><font size="2" face="Tahoma"><a href="#Debit Card">Debit Card</a></font></li>
+		  <li><font size="2" face="Tahoma"><a href="#Forex Trading">Forex Trading</a></font></li>
+		  <li><font face="Tahoma" size="2">
+		  <a href="#Financial Services">Financial Services</a></font></li>
+		  <li><font size="2" face="Tahoma"><a href="#Hosting & Domains">Hosting &amp; Domains</a></font></li>
+		</ul>
+		<p></td>
+		<td width="34%" valign="top" height="173">
+		<ul>
+		  <li><font size="2" face="Tahoma"><a href="#Offshore Service">Offshore Service</a></font></li>
+		  <li><font size="2" face="Tahoma">
+		  <a href="#Online Casino, Games, Sports Books">Online Casino, Games, Sports 
+		  Books</a></font></li>
+		</ul>
+		<p></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber38">
+	  <tr>
+		<td width="100%" height="30" valign="top"><b>
+		<font face="Tahoma" size="2" color="#800000">
+		<a name="Advertising">Advertising</a></font></b></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse" bordercolor="#808080" width="600" id="AutoNumber39">
+	  <tr>
+		<td width="16%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Web site name</b></font></td>
+		<td width="16%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Added</b></font></td>
+		<td width="17%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Payment</b></font></td>
+		<td width="17%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>GDCA</b></font></td>
+		<td width="17%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Service 
+		Descriptions</b></font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber40" height="36">
+	  <tr>
+		<td width="100%" height="30" valign="bottom">
+		<p align="right"><b><font face="Tahoma" size="2"><a href="#top">
+		Back to Top</a></font></b></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber41" height="105">
+	  <tr>
+		<td width="100%" height="50">&nbsp;</td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber42">
+	  <tr>
+		<td width="100%" height="30" valign="top"><b>
+		<font face="Tahoma" size="2" color="#800000">
+		<a name="Affiliate">Affiliate</a></font></b></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse" bordercolor="#808080" width="600" id="AutoNumber43">
+	  <tr>
+		<td width="16%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Web site name</b></font></td>
+		<td width="16%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Added</b></font></td>
+		<td width="17%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Payment</b></font></td>
+		<td width="17%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>GDCA</b></font></td>
+		<td width="17%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Service 
+		Descriptions</b></font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber44" height="36">
+	  <tr>
+		<td width="100%" height="30" valign="bottom">
+		<p align="right"><b><font face="Tahoma" size="2"><a href="#top">
+		Back to Top</a></font></b></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber45" height="105">
+	  <tr>
+		<td width="100%" height="50">&nbsp;</td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber46">
+	  <tr>
+		<td width="100%" height="30" valign="top"><b>
+		<font face="Tahoma" size="2" color="#800000">
+		<a name="Adult Contents (Over 21 years only)">Adult Contents 
+		(Over 21 years only)</a></font></b></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse" bordercolor="#808080" width="600" id="AutoNumber47">
+	  <tr>
+		<td width="16%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Web site name</b></font></td>
+		<td width="16%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Added</b></font></td>
+		<td width="17%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Payment</b></font></td>
+		<td width="17%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>GDCA</b></font></td>
+		<td width="17%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Service 
+		Descriptions</b></font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber48" height="36">
+	  <tr>
+		<td width="100%" height="30" valign="bottom">
+		<p align="right"><b><font face="Tahoma" size="2"><a href="#top">
+		Back to Top</a></font></b></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber49" height="105">
+	  <tr>
+		<td width="100%" height="50">&nbsp;</td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber50">
+	  <tr>
+		<td width="100%" height="30" valign="top"><b>
+		<font face="Tahoma" size="2" color="#800000">
+		<a name="Business Services">Business Services</a></font></b></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse" bordercolor="#808080" width="600" id="AutoNumber51">
+	  <tr>
+		<td width="16%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Web site name</b></font></td>
+		<td width="16%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Added</b></font></td>
+		<td width="17%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Payment</b></font></td>
+		<td width="17%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>GDCA</b></font></td>
+		<td width="17%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Service 
+		Descriptions</b></font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber52" height="36">
+	  <tr>
+		<td width="100%" height="30" valign="bottom">
+		<p align="right"><b><font face="Tahoma" size="2"><a href="#top">
+		Back to Top</a></font></b></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber53" height="105">
+	  <tr>
+		<td width="100%" height="50">&nbsp;</td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber54">
+	  <tr>
+		<td width="100%" height="30" valign="top"><b>
+		<font face="Tahoma" size="2" color="#800000">
+		<a name="Debit Card">Debit Card</a></font></b></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse" bordercolor="#808080" width="600" id="AutoNumber55">
+	  <tr>
+		<td width="16%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Web site name</b></font></td>
+		<td width="67%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Service 
+		Descriptions</b></font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top"><font size="2" face="Tahoma">
+        <a target="_blank" href="http://www.dwgcard.com/">DWG Card</a></font></td>
+		<td width="67%" valign="top"><font size="2" face="Tahoma">Digital Wealth 
+        Global Offshore Prepaid MasterCard Debit Card (DWG Card), the most 
+        comprehensive and lowest cost multiple e-currency offshore debit card on 
+        the internet.</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">
+        <a target="_blank" href="http://www.worldsend.ca/">
+        <font size="2" face="Tahoma">WorldSend.ca</font></a></td>
+		<td width="67%" valign="top"><font face="Tahoma" size="2">Debit card 
+        exclusively for e-cuurencys account holders.</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">
+        <a target="_blank" href="http://www.goldnow.st/">
+        <font size="2" face="Tahoma">GoldNow.st</font></a></td>
+		<td width="67%" valign="top"><font face="Tahoma" size="2">Popular 
+        exchanger offering Debit Cards for e-currency account holders.</font></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber56" height="36">
+	  <tr>
+		<td width="100%" height="30" valign="bottom">
+		<p align="right"><b><font face="Tahoma" size="2"><a href="#top">
+		Back to Top</a></font></b></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber57" height="105">
+	  <tr>
+		<td width="100%" height="50">&nbsp;</td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber58">
+	  <tr>
+		<td width="100%" height="30" valign="top"><b>
+		<font face="Tahoma" size="2" color="#800000">
+		<a name="Forex Trading">Forex Trading</a></font></b></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse" bordercolor="#808080" width="600" id="AutoNumber59">
+	  <tr>
+		<td width="16%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Web site name</b></font></td>
+		<td width="67%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Service 
+		Descriptions</b></font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">
+        <p align="center"><font size="2" face="Tahoma">
+        <a target="_blank" href="http://instaforex.com/">InstaForex</a></font></td>
+		<td width="67%" valign="top"><font size="2" face="Tahoma">Qualitative 
+        trading services on ForEx market</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">
+        <p align="center"><font size="2" face="Tahoma">
+        <a target="_blank" href="http://www.marketiva.com/">Marketiva.com</a></font></td>
+		<td width="67%" valign="top"><font size="2" face="Tahoma">Popular Forex 
+        company!</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">
+        <p align="center"><font size="2" face="Tahoma">
+        <a target="_blank" href="http://finexo.com/?pid=12549&mid=2209&cid=28113&zid=3959">
+        Finexo.com</a></font></td>
+		<td width="67%" valign="top"><font size="2" face="Tahoma">Trade Forex in 
+        seconds. Accounts from $25 to $100,000. Daily trade recommendations! 10% 
+        first deposit bonus.</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top"><font size="2" face="Tahoma">
+        <a target="_blank" href="http://system.referforex.com/processing/clickthrgh.asp?btag=a_3385b_2909">
+        ForexWebTrader.com</a></font></td>
+		<td width="67%" valign="top"><font size="2" face="Tahoma">Currency 
+        trading from $25. Web-based platform. 24hr support.</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">
+        <p align="center"><font size="2" face="Tahoma">
+        <a target="_blank" href="http://www.masterforex.org/en/">Masterforex.org</a></font></td>
+		<td width="67%" valign="top"><font size="2" face="Tahoma">Award winning 
+        forex</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">
+        <p align="center"><a href="http://invest-true.com/">
+        <font face="Tahoma" size="2">I</font></a><font face="Tahoma" size="2"><a href="http://invest-true.com/">nvest-true.com</a></font></td>
+		<td width="67%" valign="top"><font face="Tahoma" size="2">Invest-True 
+        HYIP</font></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber60" height="36">
+	  <tr>
+		<td width="100%" height="30" valign="bottom">
+		<p align="right"><b><font face="Tahoma" size="2"><a href="#top">
+		Back to Top</a></font></b></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber61" height="105">
+	  <tr>
+		<td width="100%" height="50">&nbsp;</td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber74">
+	  <tr>
+		<td width="100%" height="30" valign="top"><b>
+		<font face="Tahoma" size="2" color="#800000">
+		<a name="Financial Services">Financial Services</a></font></b></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse" bordercolor="#808080" width="600" id="AutoNumber75">
+	  <tr>
+		<td width="16%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Web site name</b></font></td>
+		<td width="67%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Service 
+		Descriptions</b></font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top" align="center">
+        <p align="center"><font size="2" face="Tahoma">
+        <a target="_blank" href="http://www.dwgcard.com/">DWG Card</a></font></td>
+		<td width="67%" valign="top"><font size="2" face="Tahoma">Digital Wealth 
+        Global Offshore Prepaid MasterCard Debit Card (DWG Card), the most 
+        comprehensive and lowest cost multiple e-currency offshore debit card on 
+        the internet.</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top" align="center">
+        <a target="_blank" href="http://www.worldsend.ca/">
+        <font size="2" face="Tahoma">WorldSend.ca</font></a></td>
+		<td width="67%" valign="top"><font face="Tahoma" size="2">Debit card 
+        exclusively for e-currency account holders.</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top" align="center">
+        <a target="_blank" href="http://www.goldnow.st/">
+        <font size="2" face="Tahoma">GoldNow.st</font></a></td>
+		<td width="67%" valign="top"><font face="Tahoma" size="2">Popular 
+        exchanger offering Debit Cards for e-currency account holders.</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top" align="center">
+        <a target="_blank" href="http://debitcards.webmoney.co.nz">
+        <font size="2" face="Tahoma">Webmoney.co.nz</font></a></td>
+		<td width="67%" valign="top"><font face="Tahoma" size="2">Popular 
+        exchange provider offering debit cards for Liberty Reserve users.</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top" align="center">
+        <a target="_blank" href="http://fuamari.com">
+        <font size="2" face="Tahoma">Fuamari Group</font></a></td>
+		<td width="67%" valign="top"><font face="Tahoma" size="2">Your trusted 
+        source for asset management and planning, world banking, financial 
+        consultations.</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top" align="center">
+        <a target="_blank" href="http://ecardone.com/">
+        <font size="2" face="Tahoma">eCardOne.com</font></a></td>
+		<td width="67%" valign="top"><font face="Tahoma" size="2">Official 
+        Liberty Reserve debit card provider</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top" align="center">
+        <a target="_blank" href="http://www.ptshamrock.com/">
+        <font size="2" face="Tahoma">ptshamrock.com</font></a></td>
+		<td width="67%" valign="top"><font face="Tahoma" size="2">Oldest &amp; Best 
+        Privacy Provider on the Internet!</font></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber76" height="36">
+	  <tr>
+		<td width="100%" height="30" valign="bottom">
+		<p align="right"><b><font face="Tahoma" size="2"><a href="#top">
+		Back to Top</a></font></b></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber77" height="105">
+	  <tr>
+		<td width="100%" height="50">&nbsp;</td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber62">
+	  <tr>
+		<td width="100%" height="30" valign="top"><b>
+		<font face="Tahoma" size="2" color="#800000">
+		<a name="Hosting &amp; Domains">Hosting &amp; Domains</a></font></b></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse" bordercolor="#808080" width="600" id="AutoNumber63">
+	  <tr>
+		<td width="16%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Web site name</b></font></td>
+		<td width="67%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Service 
+		Descriptions</b></font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">
+        <a target="_blank" href="http://www.thenynoc.com/">
+        <font size="2" face="Tahoma">thenynoc.com</font></a></td>
+		<td width="67%" valign="top"><font size="2" face="Tahoma">NYNOC Inc. is 
+        both a managed and unmanaged web hosting provider that accepts e-currencys.</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">
+        <a target="_blank" href="http://perfect-privacy.com/">
+        <font size="2" face="Tahoma">perfect-privacy.com</font></a></td>
+		<td width="67%" valign="top"><font size="2" face="Tahoma">Anonymous 
+        Internet Access through 256-bits encrypted offshore SSH Tunneling &amp; 
+        Secure VPN.</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">
+        <a target="_blank" href="http://www.lovingdomains.com/">
+        <font size="2" face="Tahoma">LovingDomains.com</font></a></td>
+		<td width="67%" valign="top"><font size="2" face="Tahoma">Loving Domains 
+        is a domain name registration provider company with web hosting</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">
+        <a target="_blank" href="http://lovinghosting.com/">
+        <font size="2" face="Tahoma">LovingHosting.com</font></a></td>
+		<td width="67%" valign="top"><font size="2" face="Tahoma">Web hosting 
+        company that accepts e-currencys.</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">
+        <a target="_blank" href="http://www.lowhost.org/">
+        <font size="2" face="Tahoma">LowHost.org</font></a></td>
+		<td width="67%" valign="top"><font size="2" face="Tahoma">We offer 
+        affordable hosting, dedicated web hosting and domain name registration. 
+        We host over 18,000+ domains. Plans start from $0.95.</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">
+        <a target="_blank" href="http://www.commercialnetworkservices.com/">
+        <font size="2" face="Tahoma">CommercialNetworkServices.com</font></a></td>
+		<td width="67%" valign="top"><font size="2" face="Tahoma">An online 
+        service provider. Virtual servers and desktops, including Trader&#39;s 
+        Desktops, streaming media, web hosting.</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">
+        <a target="_blank" href="http://trilightzone.org/">
+        <font size="2" face="Tahoma">TrilightZone.org</font></a></td>
+		<td width="67%" valign="top"><font size="2" face="Tahoma">Online privacy 
+        service providers: SSH privacy tunnel, secure e-mail, anonymous</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">
+        <a target="_blank" href="http://vanguard-hosting.com/">
+        <font size="2" face="Tahoma">Vanguard-Hosting.com</font></a></td>
+		<td width="67%" valign="top"><font size="2" face="Tahoma">Premium 99.9% 
+        Uptime 24x7 Toll Free Support Web Hosting &amp; Domain Registration.</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">
+        <a target="_blank" href="http://www.highhosting.net/">
+        <font size="2" face="Tahoma">HighHosting.net</font></a></td>
+		<td width="67%" valign="top"><font size="2" face="Tahoma">The best 
+        domain &amp; hosting provider with high quality &amp; low price!</font></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber64" height="36">
+	  <tr>
+		<td width="100%" height="30" valign="bottom">
+		<p align="right"><b><font face="Tahoma" size="2"><a href="#top">
+		Back to Top</a></font></b></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber65" height="105">
+	  <tr>
+		<td width="100%" height="50">&nbsp;</td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber66">
+	  <tr>
+		<td width="100%" height="30" valign="top"><b>
+		<font face="Tahoma" size="2" color="#800000">
+		<a name="Offshore Service">Offshore Service</a></font></b></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse" bordercolor="#808080" width="600" id="AutoNumber67">
+	  <tr>
+		<td width="16%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Web site name</b></font></td>
+		<td width="16%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Added</b></font></td>
+		<td width="17%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Payment</b></font></td>
+		<td width="17%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>GDCA</b></font></td>
+		<td width="17%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Service 
+		Descriptions</b></font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="16%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+		<td width="17%" valign="top">&nbsp;</td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber68" height="36">
+	  <tr>
+		<td width="100%" height="30" valign="bottom">
+		<p align="right"><b><font face="Tahoma" size="2"><a href="#top">
+		Back to Top</a></font></b></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber69" height="105">
+	  <tr>
+		<td width="100%" height="50">&nbsp;</td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber70">
+	  <tr>
+		<td width="100%" height="30" valign="top"><b>
+		<font face="Tahoma" size="2" color="#800000">
+		<a name="Online Casino, Games, Sports Books">Online Casino, 
+		Games, Sports Books</a></font></b></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse" bordercolor="#808080" width="600" id="AutoNumber71">
+	  <tr>
+		<td width="16%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Web site name</b></font></td>
+		<td width="67%" bgcolor="#333333" align="center" height="25">
+		<font color="#FFFFFF" face="Tahoma" size="2"><b>Service 
+		Descriptions</b></font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">
+        <a target="_blank" href="http://bet2now.com/">
+        <font size="2" face="Tahoma">Bet2now.com</font></a></td>
+		<td width="67%" valign="top"><font size="2" face="Tahoma">Online 
+        Betting.</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">
+        <a target="_blank" href="http://www.captainsgames.com/">
+        <font size="2" face="Tahoma">Captainsgames.com</font></a></td>
+		<td width="67%" valign="top"><font size="2" face="Tahoma">Popular 
+        on-line casino, instant payouts.</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">
+        <a target="_blank" href="http://www.goldfantasycasino.com/">
+        <font size="2" face="Tahoma">GoldFantasyCasino.com</font></a></td>
+		<td width="67%" valign="top">&nbsp;</td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">
+        <a target="_blank" href="http://1goldgame.com/liberty_headtail/">
+        <font size="2" face="Tahoma">1goldgame.com</font></a></td>
+		<td width="67%" valign="top"><font size="2" face="Tahoma">Head/Tail 
+        game.</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">
+        <a target="_blank" href="http://www.magikmoneycasino.com/">
+        <font size="2" face="Tahoma">MagikMoneyCasino.com</font></a></td>
+		<td width="67%" valign="top"><font size="2" face="Tahoma">An on-line 
+        casino accepting Liberty Reserve.</font></td>
+	  </tr>
+	  <tr>
+		<td width="16%" valign="top">
+        <a target="_blank" href="http://www.aurumage.com/">
+        <font size="2" face="Tahoma">Aurumage.com</font></a></td>
+		<td width="67%" valign="top"><font size="2" face="Tahoma">Popular 
+        on-line casino supporting major currencies</font></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber72" height="36">
+	  <tr>
+		<td width="100%" height="30" valign="bottom">
+		<p align="right"><b><font face="Tahoma" size="2"><a href="#top">
+		Back to Top</a></font></b></td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <div align="center">
+	<center>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="600" id="AutoNumber73" height="105">
+	  <tr>
+		<td width="100%" height="50">&nbsp;</td>
+	  </tr>
+	</table>
+	</center>
+  </div>
+  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber14">
+	<tr>
+	  <td width="100%">&nbsp;</td>
+	</tr>
+  </table>

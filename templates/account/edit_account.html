@@ -1,0 +1,166 @@
+<form name="frmPersonal" method="post" action="{dev_get_page_link page=PAGE_ACCOUNT_PERSONAL ssl=true}"  >
+    <input type="hidden" name="action" value="update_account"  />
+    <div align="center">
+        
+        
+        <div align="right">
+            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="650" id="AutoNumber38" height="20">
+                <tr>
+                    <td width="100%">&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+        <table border="0" cellPadding="2" width="580" style="border-collapse: collapse" bordercolor="#111111" cellspacing="0">
+            <tr>
+                <td class="pageHeading" height="53" valign="top"><b>
+                        <font face="Tahoma" color="#6666FF">Account Personal Information</font></b></td>
+            </tr>
+            <font size="2" face="Tahoma">{if $step=='updated'} </font> 
+            <tr>
+                <td valign="top"><font size="2" face="Tahoma" color="green"><strong>Your changes have been successfully saved.</strong></font></td>
+            </tr>
+            <font size="2" face="Tahoma">{/if} </font>
+            <tr>
+                <td valign="top"><font size="2" face="Tahoma">The following section can only be viewed after you enter your master key.</font></td>
+            </tr>
+            <tr>
+                <td valign="top"><font size="2" face="Tahoma">Fields 
+                    marked with asterisk (<font color="#FF0000">*</font>) are 
+                    required.</font></td>
+            </tr>
+            <tr>
+                <td><font size="2" face="Tahoma">{include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }</font></td>
+            </tr>    
+        </table>
+        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="AutoNumber37" height="30">
+            <tr>
+                <td width="100%">&nbsp;</td>
+            </tr>
+        </table>
+        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="AutoNumber36" >
+            <tr><td><h3><font size="2" face="Tahoma" color="#800000">Personal Information</font></h3></td>
+            </tr>
+        </table>  
+        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="AutoNumber36" >
+            <tr>
+                <td width="138" valign="top" >
+                    <font size="2" face="Tahoma"><font color="#FF0000">*</font>Account Name:</font></td>
+                <td valign="top" ><font face="Tahoma">
+                    <input type="text" name="account_name" value="{$account_name}" size="20"></font></td>
+            </tr>  
+            <tr>
+                <td  valign="top" >
+                    <font size="2" face="Tahoma"><font color="#FF0000">*</font>First Name:</font></td>
+                <td  valign="top" ><font face="Tahoma">
+                    <input type="text" name="firstname" value="{$firstname}" size="20"></font></td>
+            </tr>  
+            <tr>
+                <td  valign="top" >
+                    <font size="2" face="Tahoma"><font color="#FF0000">*</font>Last Name:</font></td>
+                <td  valign="top" ><font face="Tahoma">
+                    <input type="text" name="lastname" value="{$lastname}" size="20"></font></td>
+            </tr>      
+            <tr>
+                <td  valign="top" >
+                    <font size="2" face="Tahoma">Company Name:</font></td>
+                <td  valign="top" ><font face="Tahoma">
+                    <input type="text" name="company" value="{$company}" size="50"></font></td>
+            </tr>  
+            <tr>
+                <td  valign="top" >
+                    <font size="2" face="Tahoma"><font color="#FF0000">*</font>Phone:</font></td>
+                <td  valign="top" ><font face="Tahoma">
+                    <input type="text" name="phone" value="{$phone}" size="20"></font></td>
+            </tr>  
+            <tr>
+                <td  valign="top" >
+                    <font size="2" face="Tahoma">Mobile:</font></td>
+                <td  valign="top" ><font face="Tahoma">
+                    <input type="text" name="mobile"  value="{$mobile}" size="20"></font></td>
+            </tr>          
+        </table>
+
+        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="AutoNumber37" height="30">
+            <tr>
+                <td width="100%">&nbsp;</td>
+            </tr>
+        </table>
+
+        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="AutoNumber36" >
+            <tr><td><h3><font size="2" face="Tahoma" color="#800000">Contact Information</font></h3></td>
+            </tr>
+        </table>  
+        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="AutoNumber36" >
+            <tr>
+                <td width="138" valign="top" >
+                    <font size="2" face="Tahoma"><font color="#FF0000">*</font>Address:</font></td>
+                <td valign="top" ><font face="Tahoma">
+                    <input type="text" name="address" value="{$address}" size="50"></font></td>
+            </tr>  
+            <tr>
+                <td width="138" valign="top" >
+                    <font size="2" face="Tahoma"><font color="#FF0000">*</font>City:</font></td>
+                <td valign="top" ><font face="Tahoma">
+                    <input type="text" name="city" value="{$city}" size="50"></font></td>
+            </tr>    
+            <tr>
+                <td  valign="top" >
+                    <font size="2" face="Tahoma"><font color="#FF0000">*</font>Country:</font></td>
+                <td  valign="top" ><font face="Tahoma">
+                    <select name="country"  class="inputselect"  onchange="getStates(this.value);">
+                        {html_options options=$countries_array selected=$country}</select></font></td>
+            </tr>  
+            <tr>
+                <td  valign="top" >
+                    <font size="2" face="Tahoma"><font color="#FF0000">*</font>State:</font></td>
+                <td  valign="top" ><font face="Tahoma"><select name="state"  id="state" class="state" >
+                        {html_options options=$zones_array selected=$state}</select></font></td>
+            </tr>      
+            <tr>
+                <td  valign="top" >
+                    <font size="2" face="Tahoma"><font color="#FF0000">*</font>Zip/Postal Code:</font></td>
+                <td  valign="top" ><font face="Tahoma">
+                    <input type="text" name="postcode" value="{$postcode}" size="20"></font></td>
+            </tr>    
+        </table>
+
+        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="AutoNumber37" height="30">
+            <tr>
+                <td width="100%">&nbsp;</td>
+            </tr>
+        </table>
+
+        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="AutoNumber36" >
+            <tr><td><h3><font size="2" face="Tahoma" color="#800000">Additional Information</font></h3></td>
+            </tr>
+        </table>
+        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="AutoNumber36" >
+            <tr>
+                <td width="138" valign="top" >
+                    <font size="2" face="Tahoma">Additional Information:</font></td>
+                <td valign="top" ><font face="Tahoma">
+                    <textarea  name="additional_information" value="{$additional_information}" cols="40" rows="2">{$additional_information}</textarea></font></td>
+            </tr> 
+
+        </table>    
+        <font size="2" face="Tahoma">    
+        <br>
+        </font>
+        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="AutoNumber36" >
+            <tr>
+                <td width="138" valign="top" height="32">
+                    <font size="2" face="Tahoma"><font color="#FF0000">*</font>Master Key:</font></td>
+                <td width="442" valign="top" height="32"><font face="Tahoma">
+                    <input class="inputtext" type="password" name="master_key" size="5" maxlength="3"></font></td>
+            </tr>
+        </table>
+        <table border="0" cellSpacing="2" cellPadding="2" width="100%">
+            <tr>
+                <td class="contenButtons" align="middle">
+                    <font face="Tahoma">
+                    <input class="button" value="Apply Changes" type="submit" name="buttonUpdate"></font></td>
+            </tr>
+        </table>
+        </center>
+    </div>
+</form>

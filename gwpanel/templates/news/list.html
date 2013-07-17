@@ -1,0 +1,35 @@
+<h2>{$HEADING_LIST_NEWS}</h2><br />
+{include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }
+{include file="$_TEMPLATE_SOURCE_DIR/modules/feedback_messages.tpl" }
+<div> <a href="{$link_new_news}"  class="linkButton">{$LINK_NEW_NEWS}</a></div><br />
+<div>
+<div  id="ajaxContent" style="display:none"></div>
+<table width="100%" cellpadding="0" cellspacing="0" >
+<tr><td valign="top">
+		<form name="frmNews" action="{$action_news}" method="post" >
+
+		<table width="100%" cellpadding="0" cellspacing="0" >
+			<tr>
+			  <td height="28" class="tableHeading">{$HEADER_NEWS_TITLE}</td>
+			  <td class="tableHeading">{$HEADER_NEWS_TIME}</td>
+			  <td class="tableHeading"><div align="center">{$TEXT_ACTION}</div></td>
+			  </tr>
+		{section name=newsidx loop=$news}	  
+			{if ($smarty.section.newsidx.index  % 2) == 0 } {assign var="rowstyle"  value="tableNormalRow"} {else}  {assign var="rowstyle" value="tableAltRow"}  {/if}			
+			<tr>
+			  <td width="39%" height="20" class="{$rowstyle}"><a href="{$news[newsidx].news_url}" >{$news[newsidx].news_title}</a></td>
+			  <td width="34%" class="{$rowstyle}">{$news[newsidx].news_date}</td>
+			  <td width="27%" class="{$rowstyle}" align="center"><a href="{$news[newsidx].news_url}" class="linkButton">{$ACTION_EDIT}</a>&nbsp;<a href="javascript:getDeleteNewsConfirmForm({$news[newsidx].news_id});" class="linkButton">{$ACTION_DELETE}</a></td>
+		    </tr>
+		{/section}
+		</table>
+
+        </form>	
+
+</td>
+</tr>
+</table>
+</div>
+{if count($news)>0}
+<div align="center">{$TEXT_PAGES}{$page_links}</div>
+{/if}

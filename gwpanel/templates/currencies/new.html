@@ -1,0 +1,55 @@
+<h2>{$langs.HEADING_NEW_CURRENCY}</h2>
+<br />
+{include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }
+<div>
+<form action="{$link_new_currency}" method="post" name="frmNew" >
+	<input type="hidden"  name="action" value="process" />
+ 	<table width="100%" cellpadding="2" cellspacing="2" >
+	
+			<tr>
+		  <td width="120">{$langs.TEXT_CURRENCY_NAME}*</td>
+		  <td><input name="title" type="text" id="title" value="{$title}"></td>
+	  </tr>
+		<tr>
+		  <td>{$langs.TEXT_CURRENCY_CODE}*</td>
+		  <td><input name="code" type="text" id="code" value="{$code}" size="5" maxlength="5"></td>
+	  </tr>		
+	<tr>
+		  <td>{$langs.TEXT_CURRENCY_SYMBOL_LEFT}*</td>
+		  <td><input name="symbol_left" type="text" id="symbol_left" value="{$symbol_left}"></td>
+	  </tr>	
+	<tr>
+		  <td>{$langs.TEXT_CURRENCY_SYMBOL_RIGHT}*</td>
+		  <td><input name="symbol_right" type="text" id="symbol_right" value="{$symbol_right}" ></td>
+	  </tr>		
+	<tr>
+		  <td>{$langs.TEXT_CURRENCY_DECIMAL_POINT}*</td>
+		  <td><input name="decimal_point" type="text" id="decimal_point" value="{$decimal_point}" ></td>
+	  </tr>	
+	<tr>
+		  <td>{$langs.TEXT_CURRENCY_THOUSANDS_POINT}*</td>
+		  <td><input name="thousands_point" type="text" id="thousands_point" value="{$thousands_point}" ></td>
+	  </tr>		  	    	    
+<tr>
+		  <td>{$langs.TEXT_CURRENCY_DECIMAL_PLACES}*</td>
+		  <td><input name="decimal_places" type="text" id="decimal_places" value="{$decimal_places}" ></td>
+	  </tr>		  
+		<tr>
+		  <td>{$langs.TEXT_CURRENCY_SORT_ORDER}</td>
+		  <td><input name="sort_order" type="text" id="sort_order" value="{$sort_order}" size="5"></td>
+	  </tr>
+		<tr>
+		  <td>{$langs.TEXT_CURRENCY_STATUS}</td>
+		  <td>{html_radios name="status" options=$status_options selected=$status separator="<br /><br />"}</td>
+	  </tr>      
+	  		
+		<tr>
+		  <td>&nbsp;</td>
+		  <td>
+		    <input type="submit" name="Submit" value="{$BUTTON_SUBMIT}" class="button">
+	        <input type="button" name="btnCancel" value="{$BUTTON_CANCEL}" onClick="redirect('{$back_link}');" class="button">
+		  </td>
+	  </tr>
+	</table>
+</form>	
+</div>

@@ -1,0 +1,118 @@
+DEMO bang CI:
+
+http://eglobalcash.cyahost.com
+Your CyaCash account number: 31996355
+Password : X74S9mYLul
+Login Pin : 56550
+Master key :  745
+
+ci local
+
+Your CyaCash account number: 14176198
+Password : Gyyts3tWhz
+Login PIN : 62961
+Master key : 918
+Security Question : Highschool Name
+Answer : 3131 
+
+Local Host 
+Acount:   3156245
+Password: 	1234567
+Login PIN: 	12345
+Master Key: 	340
+Security Question: 	Mother's Miden Name
+Answer: 	53454
+ 
+
+CYA PAY
+Signup
+
+Account Number#:  8597068
+Account Secure PIN: 7159 
+
+
+
+
++===================================+
+| PMCART Account Info                  |
++===================================+
+| Domain: ookcash.cyahost.com
+| Ip: 174.132.53.206 (n)
+| HasCgi: y
+| UserName: ookcashc
+| PassWord: byz(izJseqxL
+| CpanelMod: x3
+| HomeRoot: /home
+| Quota: 1000 Meg
+| NameServer1: ns1133.websitewelcome.com
+| NameServer2: ns1134.websitewelcome.com
+| NameServer3: 
+| NameServer4: 
+| Contact Email: contact@cyasoft.com
+| Package: default
+| Feature List: default
+| Language: en
++===================================+
+
+
++===================================+
+| New Account Info                  |
++===================================+
+| Domain: e-globalcash.net
+| Ip: 216.131.127.29 (n)
+| HasCgi: y
+| UserName: eglobalc
+| PassWord: [EA%GJZp12$i
+| CpanelMod: x3
+| HomeRoot: /home
+| Quota: unlimited Meg
+| NameServer1: ns1.california.net
+| NameServer2: ns1.oakweb.com
+| NameServer3: 
+| NameServer4: 
+| Contact Email: eglobalcash@gmail.com
+| Package: default
+| Feature List: default
+| Language: en
++===================================+
+
+
+
++===================================+
+| Old Account Info                  |
++===================================+
+|Shared Plan:        Business
+       Your Control Panel: https://gator1674.hostgator.com:2083
+       Username:           eglobal
+       Domain:             e-globalcash.net
+       Password:           zLGRIEAnHTgb
+       1st Nameserver:     ns3347.hostgator.com
+       2nd Nameserver:     ns3348.hostgator.com
+       Server IP:          184.173.252.139
++===================================+
+
+
+You need the 'add-pkg-ip' priv to be able to create an account with a dedicated ip address.Dns Zone check is enabled.
++===================================+
+| Test Account Info                  |
++===================================+
+| Domain: egcash.cyahost.com
+| Ip: 174.121.3.251 (n)
+| HasCgi: y
+| UserName: egcashcy
+| PassWord: r{MMeKc_cFa3
+| CpanelMod: x3
+| HomeRoot: /home
+| Quota: 2000 Meg
+| NameServer1: ns1133.websitewelcome.com
+| NameServer2: ns1134.websitewelcome.com
+| NameServer3: 
+| NameServer4: 
+| Contact Email: contact@cyasoft.com
+
+Acount Test
+Password: 	di7HSb1
+Login PIN: 	29460
+Master Key: 	967
+Security Question: 	Mother's Miden Name
+Answer: 	test

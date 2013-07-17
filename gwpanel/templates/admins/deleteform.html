@@ -1,0 +1,10 @@
+<form name="frmdeleteconfirm" action="{$link_admins}&action=deleteconfirm&adminid={$admininfo.admin_id}" method="post">
+	<table width="100%" cellpadding="2" cellspacing="2" border="0"  class="confirmContent">
+		<tr><td class="maintext"><strong>{$admininfo.admin_username}</strong></td></tr>
+		<tr><td class="error">{$langs.TEXT_DELETE_CONFIRM_MESSAGE}</td></tr>
+		<tr><td>
+	    <input type="submit" name="Submit" value="{$langs.BUTTON_CONFIRM}" class="button">
+        <input type="button" name="btnCancel" value="{$langs.BUTTON_CANCEL}" onclick="closeConfirmForm()"  class="button">
+		</td></tr>
+	</table>	
+</form>

@@ -1,0 +1,71 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div align="center">
+  <center>
+  <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse" bordercolor="#111111" >
+	<tr>
+	  <td  class="pageHeading" valign="top">
+      <div align="right">
+        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="650" id="AutoNumber2" height="20">
+          <tr>
+            <td width="100%">&nbsp;</td>
+          </tr>
+        </table>
+      </div>
+      <div align="center">
+        <center>
+        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="AutoNumber1">
+          <tr>
+            <td width="100%" valign="top" height="53">
+            <p align="left"><b><font face="Tahoma" color="#6666FF">Login: Step 3</font></b></td>
+          </tr>
+          <tr>
+            <td width="100%" valign="top"><font face="Tahoma" size="2">You may use your 
+            Global Cash wallet to send payments more quickly without logging in to your main account.&nbsp; 
+            	<br>
+<strong>Wallet balances (wallet is disabled)</strong></font></td>
+          </tr>
+        </table>
+        </center>
+      </div>
+      </td>
+	</tr>
+	</table>
+  </center>
+</div>
+<br />
+<div align="center">
+  <center>
+<table cellpadding="0" cellspacing="0" border="0" width="580" style="border-collapse: collapse" bordercolor="#111111" >
+<tr ><td align="center"  class="contenButtons"><input  type="button" name="buttonPaywallet"  disabled="disabled"  class="button"  value="Pay from your wallet"></td></tr>
+</table>
+  </center>
+</div>
+<br />
+<div align="center">
+  <center>
+<table cellpadding="0" cellspacing="0" border="0" class="form_content" width="580" style="border-collapse: collapse" bordercolor="#111111" height="152">
+	<tr><td height="60" valign="top"><font face="Tahoma" size="2">To view your history, messages, change your settings, add funds to wallet or make payments please login to your main account.</font></td></tr>
+	<tr><td height="50" valign="top">
+      <font face="Tahoma" size="2" color="#800000"><strong><span class="contentTitle2">Main account balances</span></strong></font></td></tr>
+	<tr><td height="78">
+		<table width="100%" cellpadding="2" cellspacing="5"  border="0">
+		<font face="Tahoma" size="2">{section name=balanceidx loop=$balances}	
+			{if ($smarty.section.balanceidx.index  % 2) == 0 } {assign var="rowstyle"  value="tableNormalRow"} {else}  {assign var="rowstyle" value="tableAltRow"}  {/if}
+        </font>		  
+			<tr>
+			  <td class="{$rowstyle}" width="100"><font face="Tahoma" size="2"><strong>{$balances[balanceidx].balance_name}</strong></font></td>
+			  <td class="{$rowstyle}"><font face="Tahoma" size="2">{$balances[balanceidx].balance_text}</font></td>			 
+		    </tr>
+		<font face="Tahoma" size="2">{/section} </font>
+		</table>
+	</td></tr>	
+</table>
+  </center>
+</div>
+<br />
+<div align="center">
+  <center>
+<table cellpadding="2" cellspacing="0" border="0" width="580" style="border-collapse: collapse" bordercolor="#111111" height="100" >
+<tr ><td align="center"  class="contenButtons" height="100" valign="top"><input  type="button" id="buttonLoginPIN" class="button"  value="Login PIN" onclick="redirect('{dev_get_page_link page=PAGE_LOGIN_PIN ssl=true}');" />&nbsp;<input  type="button" name="buttonOneTime"  disabled="disabled"  class="button"  value="One Time PIN"></td></tr>
+</table></center>
+</div>

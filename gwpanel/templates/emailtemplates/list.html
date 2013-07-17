@@ -1,0 +1,34 @@
+<table width="100%" cellpadding="0" cellspacing="0"  border="0">
+<tr><td><h2>{$langs.HEADING_TITLE}</h2></td></tr>
+</table>
+<br />
+{include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }
+{include file="$_TEMPLATE_SOURCE_DIR/modules/feedback_messages.tpl" }
+<div> <a href="{dev_get_admin_page_link page=PAGE_EMAILTEMPLATE_NEW}" class="linkButton" >{$langs.LINK_NEW_EMAILTEMPLATE}</a></div><br /><div>
+<div  id="ajaxContent" style="display:none"></div>
+<table width="100%" cellpadding="0" cellspacing="0" >
+<tr><td valign="top">
+		<table width="100%" cellpadding="0" cellspacing="0" >
+			<tr>
+			  <td height="28" class="tableHeading">{$langs.TABLE_HEADING_EMAILTEMPLATE_NAME}</td>
+			  <td class="tableHeading">{$langs.TABLE_HREADING_EMAILTEMPLATE_STATUS}</td>		
+			  <td class="tableHeading">{$langs.TABLE_HREADING_EMAILTEMPLATE_IS_HTML_EMAIL}</td>			  			  	  
+			  <td class="tableHeading" align="center">{$TEXT_ACTION}</td>
+			  </tr>
+		{section name=emailtemplateidx loop=$emailtemplates}	
+			{if ($smarty.section.emailtemplateidx.index  % 2) == 0 } {assign var="rowstyle"  value="tableNormalRow"} {else}  {assign var="rowstyle" value="tableAltRow"}  {/if}		  
+			<tr height="20">
+			  <td width="40%"  class="{$rowstyle}">{$emailtemplates[emailtemplateidx].emailtemplate_title}</td>
+			  <td width="20%"  class="{$rowstyle}">{if $emailtemplates[emailtemplateidx].emailtemplate_status==1} {$TEXT_ACTIVE} {else} {$TEXT_INACTIVE} {/if}</td>			  			  <td width="20%"  class="{$rowstyle}" align="center">{$emailtemplates[emailtemplateidx].sort_order}</td>
+
+			  <td class="{$rowstyle}"  align="center" style="padding-right:10px"><a href="{dev_get_admin_page_link page= PAGE_EMAILTEMPLATE_EDIT}&emailtemplateID={$emailtemplates[emailtemplateidx].emailtemplates_id}" class="linkButton">{$ACTION_EDIT}</a>&nbsp;<a href="javascript:getDeleteConfirmForm({$emailtemplates[emailtemplateidx].emailtemplates_id});"  class="linkButton">{$ACTION_DELETE}</a></td>
+		    </tr>
+		{/section}
+		</table>
+</td>
+</tr>
+</table>
+<br />
+{if count($emailtemplates)>0}
+<div align="center">{$TEXT_PAGES}{$page_links}</div>
+{/if}

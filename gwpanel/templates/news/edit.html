@@ -1,0 +1,26 @@
+<h2>{$PAGE_HEADING}</h2>
+{include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }
+<div>
+<form action="{$action_link}" method="post" name="frmNews" >
+ 	<label>{$LABEL_NEWS_DATE}*</label> {html_select_date  prefix="news" end_year="+6" time=$news_date}<br /><br />
+	 <label>{$LABEL_NEWS_TITLE}*</label><input name="news_title" type="text" id="news_title" value="{$news_title}" size="50"><br />
+	 <label>{$LABEL_NEWS_DESCRIPTION}*</label><br /><br /><textarea name="news_description" cols="50" rows="20" id="news_description"  class="tinymce" >{$news_description}</textarea><br /><br />
+	 <label>{$LABEL_NEWS_PATH}*</label><input name="news_path" type="text" id="news_path" value="{$news_path}" size="50"><br /><br />
+	 <label>This is New news?</label><input type="checkbox" name="news_status"  value="1" {if $news_status} checked="checked" {/if} /><img src="images/new.gif"  alt="set this news to new" /><br /><br />	
+	 <label>{$LABEL_NEWS_TYPE}*</label><div style="float:left">{html_radios name="news_type" options=$news_type_options selected=$news_type separator="<br /><br />"}</div><br /><br /><br />
+	 <p >
+		    <input type="submit" name="Submit" value="{$BUTTON_SUBMIT}"  class="button">
+	        <input type="button" name="btnCancel" value="{$BUTTON_CANCEL}" onClick="window.location	=	'{$back_link}';"  class="button">
+		  </p>
+</form>	
+</div>
+<h3>{$HEADING_NEWS_LOG}</h3>
+<div id="news_log">
+{if count($news_log)>0}
+<ul>
+	{section name=newslogidx loop=$news_log}
+		<li><a href="{$news_log[newslogidx].news_url}" >{$news_log[newslogidx].news_title} - {$news_log[newslogidx].news_date}</a></li>
+	{/section}
+</ul>
+{/if}
+</div>

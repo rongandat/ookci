@@ -1,0 +1,42 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<table width="500" cellpadding="2" cellspacing="2" border="0"><tr>
+        {if $SETTING_PAGE=='stpersonal' }
+        <td><font size="2" face="Tahoma">Personal</font></td>
+        {else}
+        <td><a href="{dev_get_page_link page=PAGE_SETTING_PERSONAL ssl=true}">
+                <font size="2" face="Tahoma">Personal</font></a></td>
+        {/if}
+        {if $SETTING_PAGE=='stverification' }
+        <td><font size="2" face="Tahoma">Verification</font></td>
+        {else}
+        <td><a href="{dev_get_page_link page=PAGE_SETTING_VERIFICATION ssl=true}">
+                <font size="2" face="Tahoma">Verification</font></a></td>
+        {/if}
+        {if $SETTING_PAGE=='stcki_ipn' }
+        <td><font size="2" face="Tahoma">CKI/IPN</font></td>
+        {else}
+        <td><a href="{dev_get_page_link page=PAGE_SETTING_CKI_IPN ssl=true}">
+                <font size="2" face="Tahoma">CKI/IPN</font></a></td>
+        {/if}
+        {if $SETTING_PAGE=='stapi'}
+        <td><font size="2" face="Tahoma">API</font></td>
+        {else}
+        <td><a href="{dev_get_page_link page=PAGE_SETTING_API ssl=true}">
+                <font size="2" face="Tahoma">API</font></a></td>
+        {/if}
+        {if $SETTING_PAGE=='stchange_password'}
+        <td><font size="2" face="Tahoma">Password</font></td>
+        {else}
+        <td><a href="{dev_get_page_link page=PAGE_SETTING_PASSWORD ssl=true}">
+                <font size="2" face="Tahoma">Password</font></a></td>
+        {/if}
+        {if $SETTING_PAGE=='stsecure_pin'}
+        <td><font size="2" face="Tahoma">Secure PIN</font></td>
+        {else}
+        <td><a href="{dev_get_page_link page=PAGE_SETTING_SECURE_PIN ssl=true}">
+                <font size="2" face="Tahoma">Secure PIN</font></a></td>
+        {/if}
+    </tr>
+</table>

@@ -1,0 +1,5 @@
+[27-Feb-2010 04:30:26] PHP Warning:  Smarty error: unable to read resource: "transactions/addfunds.html" in /home/gwebcash/public_html/includes/Smarty/libs/Smarty.class.php on line 1095
+[27-Feb-2010 07:44:06] PHP Fatal error:  Class 'mime' not found in /home/gwebcash/public_html/includes/classes/email.php on line 202
+[28-Feb-2010 06:40:06] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2) in /home/gwebcash/public_html/includes/functions/database.php on line 9
+[28-Feb-2010 06:40:06] PHP Warning:  mysql_query(): supplied argument is not a valid MySQL-Link resource in /home/gwebcash/public_html/includes/functions/database.php on line 34
+[02-Mar-2010 01:47:01] PHP Fatal error:  Smarty error: [in users/view.html line 18]: syntax error: unrecognized tag 'dev_get_state_name' (Smarty_Compiler.class.php, line 590) in /home/gwebcash/public_html/includes/Smarty/libs/Smarty.class.php on line 1095

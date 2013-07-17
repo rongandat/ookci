@@ -1,0 +1,21 @@
+{include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }
+{if  $admin_id>0 }
+	<div>{$TEXT_LOGGED}</div>
+{else}
+	<div class="heading_title02">{$TEXT_LOGIN_NOTICE}</div>
+	<form name="frmLogin" action="{$action_login}" method="post" >
+			<table width="50%" cellpadding="2" cellspacing="2" >
+					<tr><td>{$LABEL_USERNAME}</td><td><input name="username"  value="{$username}" type="text" /></td></tr>
+					<tr><td>{$LABEL_PASSWORD}</td><td><input name="password"  type="password"/></td></tr>
+					<tr>
+					  <td>&nbsp;</td>
+					  <td><input type="checkbox" name="remember_me"  />{$LABEL_REMEMBER_ME}&nbsp;</td>
+			  </tr>
+					<tr>
+					  <td>&nbsp;</td>
+					  <td><input type="submit" name="btnlogin" value="{$LABEL_ACCESS_ADMIN_PANEL}"  class="button" />&nbsp;</td>
+			 		 </tr>
+			</table>
+	</form>
+{/if}
+

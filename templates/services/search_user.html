@@ -1,0 +1,186 @@
+<form name="frmSearchUser" action="{dev_get_page_link page=PAGE_SERVICE_SEARCH_USER}" method="post" >
+<input name="action" value="process" type="hidden" />
+          <div align="right">
+            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="650" id="AutoNumber35">
+              <tr>
+                <td width="100%" height="20">&nbsp;</td>
+              </tr>
+              </table>
+          </div>
+          <div align="center">
+            <center>
+            <table border="0" cellPadding="2" width="580" style="border-collapse: collapse" bordercolor="#111111" cellspacing="0" height="160">
+              <tr>
+                <td class="pageHeading" height="53" valign="top"><b>
+                <font face="Tahoma" color="#6666FF">Account Public Info</font></b></td>
+              </tr>
+              <tr>
+                <td height="49" valign="top"><font size="2" face="Tahoma">View public information of any account in our system. To edit your own information please login to your account and click on "Public Information Summary."</font></td>
+              </tr>
+              <tr>
+                <td height="46" valign="top"><font size="2" face="Tahoma">Fields 
+                marked with asterisk (<font color="#FF0000">*</font>) are 
+                required.</font></td>
+              </tr>
+			<tr>
+			  <td >{include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }</td>
+			</tr>			  
+            </table>
+            </center>
+          </div>
+	{if $found_account}		  
+		 <div align="center">
+            <center><font face="Tahoma" size="2"><font color="green"><strong>We have found the account.</strong></font></font></center></div>
+		<br />	
+	{/if}
+					  
+          <div align="center">
+            <center>
+            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" >
+              <tr>
+                <td width="138" valign="top" height="32"><font face="Tahoma">
+                <font size="2">*Account Number:</td>
+                <td width="442" valign="top" height="32"><font face="Tahoma">
+                <input class="inputtext" type="text" name="account_number" value="{$account_number}" size="20"></font></td>
+              </tr>
+            </table>
+            </center>
+          </div>
+          <div align="center">
+            <center>
+            </center>
+          </div>
+          <div align="center">
+            <center>
+            <table border="0" cellPadding="2" width="580" style="border-collapse: collapse" bordercolor="#111111" cellspacing="0" height="176">
+              <tr>
+                <td height="172" valign="top">
+                <p align="left"><font face="Tahoma"><strong><font size="2">Enter 
+                the code (turing number) shown on the image</font></strong><font size="2">
+                <br>
+                Cannot read the numbers? Click on it to get a new one.<br>
+                <a href="javascript: refreshSecureImage();">
+                <img id="secure_image" border="0" src="{dev_get_page_link page=PAGE_SECUREIMAGE}"></a><br>
+                </font><input class="inputtext" name="security_code" size="20"></font><font size="2" face="Tahoma">
+                <br>
+                <a class="link" href="{dev_get_page_link page=PAGE_CONTACT_US}">
+                Cannot see Turing number at all?</a> </font></td>
+              </tr>
+            </table>
+            </center>
+          </div>
+		  <div align="center">
+		  <center>
+          <table border="0" cellSpacing="2" cellPadding="2" width="100%">
+            <tr>
+              <td class="contenButtons" align="middle">
+              <input class="button" value="Submit" type="submit" name="buttonSearch"></td>
+            </tr>
+          </table>
+          <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber14">
+            <tr>
+              <td width="100%">&nbsp;</td>
+            </tr>
+          </table>
+		  </center>
+		  </div>
+	{if $found_account}				
+ <div align="center">
+            <center>
+            <table border="0" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="AutoNumber36">
+              <tr>
+                <td width="138" valign="top"><font face="Tahoma">
+                <font size="2">Account Name:</font></font></td>
+                <td ><font face="Tahoma">
+                <font size="2"><strong>{$account_info.account_name}</strong></font></font></td>
+              </tr>
+		      <tr>
+                <td  ><font face="Tahoma">
+                <font size="2">Account Type:</font></font></td>
+                <td  valign="top"> <font face="Tahoma">
+                <font size="2"><strong>{if $account_info.account_type=='user'}User{/if}</strong></font></font></td>
+              </tr>
+    <tr>
+                <td  ><font face="Tahoma">
+                <font size="2">Account Number:</font></font></td>
+                <td  valign="top"> <font face="Tahoma">
+                <font size="2"><strong>{$account_info.account_number}</strong></font></font></td>
+              </tr>			  			  
+ <tr>
+                <td  ><font face="Tahoma">
+                <font size="2">Created on:</font></font></td>
+                <td  valign="top"> <font face="Tahoma">
+                <font size="2"><strong>{$account_info.signup_date|date_format:"%m/%d/%Y %l:%M %p"}</strong></font></font></td>
+              </tr>		              
+            </table>
+            </center>
+          </div>      
+	<br />	  
+   <div align="center">
+            <center>
+            <table border="0" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="AutoNumber36">
+			{if $user_settings.name}
+              <tr>
+                <td width="138" valign="top"><font face="Tahoma">
+                <font size="2">Full Name:</font></font></td>
+                <td ><font face="Tahoma">
+                <font size="2">{$account_info.firstname} {$account_info.lastname}</font></font></td>
+              </tr>
+			{/if}
+			{if $user_settings.email}			
+		      <tr>
+                <td  ><font face="Tahoma">
+                <font size="2">E-mail:</font></font></td>
+                <td  valign="top"> <font face="Tahoma">
+                <font size="2">{$account_info.email}</font></font></td>
+              </tr>
+			{/if}
+			{if $user_settings.address}			
+		    <tr>
+                <td  ><font face="Tahoma">
+                <font size="2">Address:</font></font></td>
+                <td  valign="top"> <font face="Tahoma">
+                <font size="2">{$account_info.address},{$account_info.city} {$account_info.postcode} {dev_get_state_name state=$account_info.state} {dev_get_country_name country=$account_info.country}</font></font></td>
+              </tr>			
+			{/if}
+			{if $user_settings.company}			
+			 <tr>
+                <td  ><font face="Tahoma">
+                <font size="2">Company:</font></font></td>
+                <td  valign="top"> <font face="Tahoma">
+                <font size="2">{$account_info.company}</font></font></td>
+              </tr>					    			  
+			{/if}
+			{if $user_settings.phone}						
+			 <tr>
+                <td  ><font face="Tahoma">
+                <font size="2">Phone:</font></font></td>
+                <td  valign="top"> <font face="Tahoma">
+                <font size="2">{$account_info.phone}</font></font></td>
+              </tr>		         
+			{/if}			  
+			
+			{if $user_settings.mobile}									
+			 <tr>
+                <td  ><font face="Tahoma">
+                <font size="2">Mobile:</font></font></td>
+                <td  valign="top"> <font face="Tahoma">
+                <font size="2">{$account_info.mobile}</font></font></td>
+              </tr>				       
+			{/if}
+		{section name=balanceidx loop=$balances_list}	
+			{if in_array($balances_list[balanceidx].balance_code, $balance_settings) }
+				 <tr>
+                <td  ><font face="Tahoma">
+                <font size="2">Balance({$balances_list[balanceidx].balance_name}):</font></font></td>
+                <td  valign="top"> <font face="Tahoma">
+                <font size="2">{$balances_list[balanceidx].balance_text}</font></font></td>
+              </tr>			
+			{/if}
+		{/section}
+			  
+            </table>
+            </center>
+          </div> 		      	
+	{/if}
+</form>

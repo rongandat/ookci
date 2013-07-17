@@ -1,0 +1,10 @@
+.virtual-random-numeric-keyboard {
+  width: 133px;
+  padding: 4px 4px 4px 4px;
+}
+.virtual-random-numeric-keyboard input {
+  width: 25px;
+  height: 25px;
+  font-size: 11px;
+}
+

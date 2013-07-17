@@ -1,0 +1,37 @@
+<h2>{$HEADING_LIST_ADMIN_ACCOUNTS}</h2><br />
+{include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }
+{include file="$_TEMPLATE_SOURCE_DIR/modules/feedback_messages.tpl" }
+
+<div> <a href="{$link_new_admin}" class="linkButton" >{$LINK_NEW_ADMIN}</a></div><br /><div>
+<div  id="ajaxContent" style="display:none"></div>
+<table width="100%" cellpadding="0" cellspacing="0" >
+<tr><td valign="top">
+		<form name="frmAdmins" action="{$action_admins}" method="post" >
+
+		<table width="100%" cellpadding="0" cellspacing="0" >
+			<tr>
+			  <td height="28" class="tableHeading">{$HEADER_ADMIN_USERNAME}</td>
+			  <td class="tableHeading">{$HEADER_ADMIN_NAME}</td>
+			  <td class="tableHeading">{$HEADER_ADMIN_EMAIL}</td>
+			  <td class="tableHeading"><div align="center">{$TEXT_ACTION}</div></td>
+			  </tr>
+		{section name=adminidx loop=$admins}	
+			{if ($smarty.section.adminidx.index  % 2) == 0 } {assign var="rowstyle"  value="tableNormalRow"} {else}  {assign var="rowstyle" value="tableAltRow"}  {/if}		  
+			<tr>
+			  <td width="22%" height="20"  class="{$rowstyle}"><a href="{$admins[adminidx].admin_url}" >{$admins[adminidx].admin_username}</a></td>
+			  <td width="26%"  class="{$rowstyle}">{$admins[adminidx].admin_contactname}</td>
+			  <td width="35%"  class="{$rowstyle}">{$admins[adminidx].admin_email}</td>
+			  <td width="17%"  class="{$rowstyle}"  align="center"><a href="{$admins[adminidx].admin_url}" class="linkButton">{$ACTION_EDIT}</a>&nbsp;<a href="javascript:getDeleteConfirmForm({$admins[adminidx].admin_id});"  class="linkButton">{$ACTION_DELETE}</a></td>
+		    </tr>
+		{/section}
+		</table>
+
+        </form>	
+
+</td>
+</tr>
+</table>
+</div>
+{if count($admins)>0}
+<div align="center">{$TEXT_PAGES}{$page_links}</div>
+{/if}

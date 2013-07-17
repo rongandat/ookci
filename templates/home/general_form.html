@@ -1,0 +1,395 @@
+<div align="right">
+    <form action="" method="post">
+        <table width="650" height="445" cellspacing="0" cellpadding="0" bordercolor="#111111" border="0" id="AutoNumber35" style="border-collapse: collapse">
+            <tbody>
+                <tr>
+                    <td width="100%" height="20">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="100%" valign="top" height="30">
+                        <font size="3" face="Tahoma" color="#800000"><b>Global Checkout Button/Form Generator</b>
+                        </font></td>
+                </tr>
+                <tr>
+                    <td >{include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }</td>
+                </tr>	
+                <tr>
+                    <td width="100%" valign="top" height="3">
+                        <div align="center">
+                            <center>
+                                <table width="580" cellspacing="0" cellpadding="15" bordercolor="#111111" border="0" bgcolor="#CCCCCC" id="AutoNumber41" style="border-collapse: collapse">
+                                    <tbody>
+                                        <tr>
+                                            <td width="100%">
+                                                <table width="100%" cellspacing="0" cellpadding="0" bordercolor="#111111" border="0" id="AutoNumber42" style="border-collapse: collapse">
+                                                    <tbody><tr>
+                                                            <td width="100%" valign="top" height="30"><b>
+                                                                    <font size="2" face="Tahoma" color="#800000">
+                                                                    Checkout Information</font></b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="100%">
+                                                                <table class="text">
+                                                                    <tbody>
+
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font size="2" face="Tahoma">
+                                                                                Your Account Number<span class="required">*</span>
+                                                                                </font><br/>
+                                                                                <font size="1" face="Tahoma">
+                                                                                (please input your account number that you want customer pay to. The field is required. Examples: 6868688)
+                                                                                </font>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <input size="20" value="{$payee_account}" type="text" name="payee_account">
+                                                                            </td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font size="2" face="Tahoma">
+                                                                                Payer Account Number:
+                                                                                </font><br/>
+                                                                                <font size="1" face="Tahoma">
+                                                                                please input account number of who you want to receive money from. The field is not required, leave it empty if you want anyone can send you money. Example: 988888
+                                                                                </font>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <input size="20" value="{$payer_account}" type="text" name="payer_account">
+                                                                            </td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font size="2" face="Tahoma">
+                                                                                Amount:
+                                                                                </font><br/>    
+                                                                                <font size="1" face="Tahoma">
+                                                                                Amount is not required field, leave it empty if you want Payer pay any amount like donation. Example: 5,3.99
+                                                                                </font>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <input size="20"  type="text" name="checkout_amount" value="{$checkout_amount}">&nbsp;
+                                                                                <font size="2" face="Tahoma">
+                                                                                Currency:
+                                                                                </font>
+                                                                                <select id="" class="form" name="checkout_currency">
+                                                                                    {html_options options=$balance_currencies selected=$balance_currency}
+                                                                                </select>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font size="2" face="Tahoma">
+                                                                                Cancel URL:
+                                                                                </font><br/>
+                                                                                <font size="1" face="Tahoma">
+                                                                                The field is not required but if you input the value, when your customer cancel their order, our serivce will help you to redirect them back to your site. Example: http://yourwebsite.com/cancel.html?param1=value1¶m2=value2
+                                                                                </font>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <input size="80" value="{$cancel_url}"  type="text" name="cancel_url">
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font size="2" face="Tahoma">
+                                                                                Fail URL:
+                                                                                </font><br/>
+                                                                                <font size="1" face="Tahoma">
+                                                                                The field is not required but if you input a value, Payer will be redirect to Fail URL if any problem during progress on our service
+                                                                                </font>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <input size="80" value="{$fail_url}" type="text" name="fail_url">
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font size="2" face="Tahoma">
+                                                                                Success URL:
+                                                                                </font><br/>
+                                                                                <font size="1" face="Tahoma">
+                                                                                The field is not required but if the value is inputed, Payer will be redirect to the Success URL after he/she made payment
+                                                                                </font>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <input size="80" value="{$success_url}" type="text" name="success_url">
+                                                                            </td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font size="2" face="Tahoma">
+                                                                                Status URL:
+                                                                                </font><br/>
+                                                                                <font size="1" face="Tahoma">
+                                                                                The field is not required but it is very useful one. If you input the value, all of important transaction verification data will be reponse back to the URL to help you verify your order status on our service. This also help you to protect any frauds, hacking during business.
+                                                                                </font>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <input size="80" value="{$status_url}" type="text" name="status_url">
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font size="2" face="Tahoma">
+                                                                                Status Method:
+                                                                                </font>
+                                                                                <font size="1" face="Tahoma">
+                                                                                The field used to define the postback method that our service will use to POST/GET response data to your Status URL
+                                                                                </font>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <select name="status_method">
+                                                                                    <option {if $checkout_currency == 'GET'}selected{/if} value="GET">GET</option>
+                                                                                    <option {if $checkout_currency == 'POST'}selected{/if} value="POST">POST</option>
+                                                                                </select>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody></table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+
+
+                                    </tbody></table>
+                            </center>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td width="100%" valign="top" height="30">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="100%" valign="top" height="12">
+                        <div align="center">
+                            <center>
+                                <table border="0" cellpadding="15" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="">
+                                    <tr>
+                                        <td width="100%" bgcolor="#CCCCCC">
+<!--                                            <input name="action" value="process" type="hidden" />-->
+                                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber39">
+                                                <tr>
+                                                    <td width="100%" height="30" valign="top"><b>
+                                                            <font size="2" face="Tahoma" color="#800000"> Extra Fields:</font></b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="100%"><font size="2" face="Tahoma"> We provide some good addtional fields that you can define in your checkout form/button. 
+                                                        The fields and its values will be response back to your Status URL when your checkout transaction be processed immediately. </font></p>
+                                                        <div align="left">
+                                                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="350" id="AutoNumber40">
+                                                                <tr>
+                                                                    <td width="150">
+                                                                        <font size="2" face="Tahoma">Field Name</font>
+                                                                    <td width="50"></td>
+                                                                    <td width="150">
+                                                                        <font size="2" face="Tahoma">Field Value</font>
+                                                                    </td>
+                                                                </tr>
+                                                                {section name=foo start=0 loop=$fields_extra step=1}
+                                                                <tr>
+                                                                    <td width="150">
+                                                                        &nbsp;
+                                                                    <td width="50"></td>
+                                                                    <td width="150">
+                                                                        &nbsp;
+                                                                    </td>
+                                                                </tr>
+                                                                <tr><td><input type="text" name="extra_field[{$smarty.section.foo.index}]" value="{$extra_field[$smarty.section.foo.index]}"></td><td>=</td><td><input type="text" name="extra_value[{$smarty.section.foo.index}]" value="{$extra_value[$smarty.section.foo.index]}"></td></tr>
+                                                                {/section}
+                                                            </table>
+
+                                                        </div>
+                                                       
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="150">
+                                                        &nbsp;
+                                                    <td width="50"></td>
+                                                    <td width="150">
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p align="left">
+                                                            <input type="submit" value="Submit">
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </center>
+                        </div>
+                    </td>
+                </tr>
+
+
+                {if !empty($zend_code_link)}
+                <tr>
+                    <td width="100%" valign="top" height="30">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="100%" valign="top" height="12">
+                        <div align="center">
+                            <center>
+                                <table border="0" cellpadding="15" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="">
+                                    <tr>
+                                        <td width="100%" bgcolor="#CCCCCC">
+<!--                                            <input name="action" value="process" type="hidden" />-->
+                                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber39">
+                                                <tr>
+                                                    <td width="100%" height="30" valign="top"><b>
+                                                            <font size="2" face="Tahoma" color="#800000"> SCI Link:</font></b></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <textarea readonly="readonly" rows="8" cols="65">{$zend_code_link}</textarea>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </center>
+                        </div>
+                    </td>
+                </tr>
+                {/if}
+                {if !empty($zend_code_html)}
+                <tr>
+                    <td width="100%" valign="top" height="30">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="100%" valign="top" height="12">
+                        <div align="center">
+                            <center>
+                                <table border="0" cellpadding="15" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="">
+                                    <tr>
+                                        <td width="100%" bgcolor="#CCCCCC">
+<!--                                            <input name="action" value="process" type="hidden" />-->
+                                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber39">
+                                                <tr>
+                                                    <td width="100%" height="30" valign="top"><b>
+                                                            <font size="2" face="Tahoma" color="#800000"> SCI HTML:</font></b></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <textarea readonly="readonly" rows="8" cols="65">{$zend_code_html}</textarea>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </center>
+                        </div>
+                    </td>
+                </tr>
+                {/if}
+                {if !empty($zend_code_buton)}
+                <tr>
+                    <td width="100%" valign="top" height="30">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="100%" valign="top" height="12">
+                        <div align="center">
+                            <center>
+                                <table border="0" cellpadding="15" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="">
+                                    <tr>
+                                        <td width="100%" bgcolor="#CCCCCC">
+<!--                                            <input name="action" value="process" type="hidden" />-->
+                                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber39">
+                                                <tr>
+                                                    <td width="100%" height="30" valign="top"><b>
+                                                            <font size="2" face="Tahoma" color="#800000"> SCI Buttons:</font></b></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <textarea readonly="readonly" rows="8" cols="65">{$zend_code_buton}</textarea>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </center>
+                        </div>
+                    </td>
+                </tr>
+                {/if}
+                {if !empty($zend_code_form)}
+                <tr>
+                    <td width="100%" valign="top" height="30">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="100%" valign="top" height="12">
+                        <div align="center">
+                            <center>
+                                <table border="0" cellpadding="15" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="">
+                                    <tr>
+                                        <td width="100%" bgcolor="#CCCCCC">
+<!--                                            <input name="action" value="process" type="hidden" />-->
+                                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber39">
+                                                <tr>
+                                                    <td width="100%" height="30" valign="top"><b>
+                                                            <font size="2" face="Tahoma" color="#800000"> SCI Form:</font></b></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <textarea readonly="readonly" rows="8" cols="65">{$zend_code_form}</textarea>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </center>
+                        </div>
+                    </td>
+                </tr>
+                {/if}
+
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<div align="right">
+    <table width="650" cellspacing="0" cellpadding="0" bordercolor="#111111" border="0" id="AutoNumber43" style="border-collapse: collapse">
+        <tbody><tr>
+                <td width="100%" height="80">&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

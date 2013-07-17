@@ -1,0 +1,62 @@
+<h2>{$langs.HEADING_EDIT_FAQ}</h2>
+<br />
+{include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }
+<div>
+<form action="{$link_edit_faq}" method="post" name="frmEdit" >
+	<input type="hidden"  name="action" value="process" />
+ 	<table width="100%" cellpadding="2" cellspacing="2" >	
+		<tr>
+		  <td width="70">{$langs.TEXT_FAQ_SORT_ORDER}</td>
+		  <td><input name="sort_order" type="text" id="sort_order" value="{$sort_order}" size="5"></td>
+	  </tr>
+		<tr>
+		  <td>{$langs.TEXT_FAQ_STATUS}</td>
+		  <td>{html_radios name="faq_status" options=$status_options selected=$faq_status separator="<br /><br />"}</td>
+	  </tr>    
+	<tr>
+		  <td>{$langs.TEXT_FAQ_ISTOPIC}</td>
+		  <td>{html_radios name="is_topic" options=$yesno_status_options selected=$is_topic separator="<br /><br />"}</td>
+	  </tr>    	  
+	  <tr><td colspan="2">
+	  	<ul id="infotabs" class="shadetabs">
+		{section name=languageidx loop=$languages}	
+			<li><a href="#" rel="language{$languages[languageidx].id}" {if languageudx==0} class="selected" {/if} ><img src="{dev_get_image_source name=$languages[languageidx].image}"  alt="{$languages[languageidx].name}" border="0"/></a></li>
+		{/section}		
+	</ul>
+	
+	  	<div style="border: 1px solid green; padding: 10px; width: 100%; margin-bottom: 1em;">
+		{section name=languageidx loop=$languages}	
+		{assign var="langid" value=$languages[languageidx].id}
+		<div style="display: none;" id="language{$langid}" class="tabcontent">
+		 <table width="100%" border="0"  cellpadding="2" cellspacing="5">
+		     <tr><td class="main"  width="100">{$langs.TEXT_FAQ_NAME}*</td>
+			<td><input name="faqs_name[{$langid}]" type="text" value="{$faqs_name[$langid]}" size="30"  /></td></tr>		
+			<tr><td class="main">{$langs.TEXT_FAQ_DESCRIPTION}</td>
+				<td><textarea name="faqs_description[{$langid}]" cols="50" rows="15" id="faqs_description[{$langid}]"  class="tinymce" >{$faqs_description[$langid]}</textarea></td>
+			</tr>
+
+		</table>
+		</div>
+		{/section}
+		</div>
+	  </td></tr>
+	  		
+		<tr>
+		  <td>&nbsp;</td>
+		  <td>
+		    <input type="submit" name="Submit" value="{$BUTTON_SUBMIT}" class="button">
+	        <input type="button" name="btnCancel" value="{$BUTTON_CANCEL}" onClick="window.location	='{$back_link}';" class="button">
+		  </td>
+	  </tr>
+	</table>
+</form>	
+</div>
+
+{literal}
+<script type="text/javascript">
+var infos=new ddtabcontent("infotabs")
+	infos.setpersist(true)
+	infos.setselectedClassTarget("link") //"link" or "linkparent"
+	infos.init()
+</script>
+{/literal}

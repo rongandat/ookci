@@ -1,0 +1,94 @@
+@import url("common.css");
+
+body { background-image:url(../img/bottom-bg.gif); background-position:left bottom; background-repeat:repeat-x; }
+
+
+
+.top-menu a,
+.top-menu a:visited { color: #3D3D3D; }
+.top-menu a:hover { color:  #CE0701; }
+
+.top-customer-menu a,
+.top-customer-menu a:visited,
+.left-customer-menu a,
+.left-customer-menu a:visited { color: #385471; }
+
+.top-customer-menu a:hover,
+.left-customer-menu a:hover { color: #006600; }
+
+a.top-link { color: #62727f; }
+a.top-link:visited { color: #62727f; }
+a.top-link:hover { color: #62727f; }
+
+.middle-menu a,
+.middle-menu a:visited { color: #ffffff; }
+.middle-menu a:hover { color:  #ffffff; }
+
+.left-menu a,
+.left-menu a:visited { color: #4F5959; }
+.left-menu a:hover { color: #CE0701; }
+
+
+
+/* Blocks */
+
+.logo-block { padding-left: 35px; }
+
+.body-block { padding: 35px 35px 25px 60px; }
+
+.left-menu-block  { /*background-color: #F7F8F0; */padding: 35px 35px 35px 35px; }
+.left-menu-block-bg {background: url(../img/first-page/info-1/bg-r.gif) #FFFFFF left bottom repeat-x;}
+
+.top-menu-block { background-color: #DEDED1; padding-bottom: 0px;}
+
+td.timer-line {
+	color: #333333;
+	vertical-align: middle;
+	background-color: #eeeeee;
+	padding: 5px 10px 5px 35px;
+	height: 3px;
+}
+
+.separator-menu-block-l,
+.separator-menu-block-r,
+.separator-menu-customer-block-l,
+.separator-menu-customer-block-r { height: 20px; }
+
+
+.separator-menu-block-l,
+.separator-menu-block-r {	background-color: #CE0701; }
+
+.separator-menu-customer-block-l,
+.separator-menu-customer-block-r {background-color: #339900; }
+
+.gdca-block { padding-top: 35px; padding-left: 35px; text-align: left; vertical-align: top;}
+
+.join-now-block { background-color: #F1F3F5; }
+
+.copyright-block { padding: 0 0 45px 60px; }
+.copyright-block div { padding: 35px 35px 0 0; border-top: solid 3px #CE0701; }
+.copyright-block table td {	padding-right: 0.5em; }
+
+.info-block { padding: 35px; }
+
+
+
+
+
+/* Lists */
+
+table.top-menu td,
+table.top-customer-menu td {
+	font-weight: normal;
+	padding: 0 10px 0 0;
+	font-size: 11pt;
+	/*font-family: Tahoma, Arial, Helvetica, sans-serif;*/
+	white-space:nowrap;
+}
+
+ul.left-menu,
+ul.left-customer-menu { font-weight: bold; list-style: none; list-style-position: outside; list-style-image: none; margin: 0; padding: 0;}
+
+ul.left-menu li,
+ul.left-customer-menu li { padding: 0; margin-left: 0; }
+

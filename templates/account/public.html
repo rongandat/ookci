@@ -1,0 +1,129 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<form name="frmLogin" action="{dev_get_page_link page=PAGE_ACCOUNT_PUBLIC ssl=true}" method="post" >
+<input name="action" value="process" type="hidden" />
+          <div align="right">
+            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="650" id="AutoNumber37" height="20">
+              <tr>
+                <td width="100%">&nbsp;</td>
+              </tr>
+            </table>
+</div>
+          <div align="center">
+            <center>
+            <table border="0" cellPadding="2" width="580" style="border-collapse: collapse" bordercolor="#111111" cellspacing="0" >
+              <tr>
+                <td class="pageHeading" height="53" valign="top"><b>
+                <font face="Tahoma" color="#6666FF">Account Public Settings </font></b></td>
+              </tr>
+			<tr><td  height="49" valign="top"><font size="2" face="Tahoma">{include file='account/modules/account_header.html'}</font></td></tr>			  {if $updated} 
+	<tr><td  valign="top"> <font face="Tahoma" size="2"><font color="green"><strong>Your settings have been saved.</strong></font></font></td></tr>			
+	{/if}
+              <tr>
+                <td valign="top"><font face="Tahoma" size="2">Global Cash have a this function so that you can allow your account information be public and searchable.</font></td>
+              </tr>					  
+            </table>
+            </center>
+          </div>
+          <div align="center">
+            <center>
+            <table border="0" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="AutoNumber36">
+              <tr>
+                <td width="138" valign="top"><font face="Tahoma">
+                <font size="2">Account Name:</font></font></td>
+                <td ><font face="Tahoma">
+                <font size="2"><strong>{$account_info.account_name}</strong></font></font></td>
+              </tr>
+		      <tr>
+                <td  ><font face="Tahoma">
+                <font size="2">Account Type:</font></font></td>
+                <td  valign="top"> <font face="Tahoma">
+                <font size="2"><strong>{if $account_info.account_type=='user'}User{/if}</strong></font></font></td>
+              </tr>
+    <tr>
+                <td  ><font face="Tahoma">
+                <font size="2">Account Number:</font></font></td>
+                <td  valign="top"> <font face="Tahoma">
+                <font size="2"><strong>{$account_info.account_number}</strong></font></font></td>
+              </tr>			  			  
+ <tr>
+                <td  ><font face="Tahoma">
+                <font size="2">Created on:</font></font></td>
+                <td  valign="top"> <font face="Tahoma">
+                <font size="2"><strong>{$account_info.signup_date|date_format:"%m/%d/%Y %l:%M %p"}</strong></font></font></td>
+              </tr>		              
+            </table>
+            </center>
+          </div>      
+	<br />	  
+   <div align="center">
+            <center>
+            <table border="0" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="AutoNumber36">
+              <tr>
+                <td width="138" valign="top"><input type="checkbox" name="name" value="1" {if $name} checked="checked"{/if}/><font face="Tahoma">
+                <font size="2">Full Name:</font></font></td>
+                <td ><font face="Tahoma">
+                <font size="2">{$account_info.firstname} {$account_info.lastname}</font></font></td>
+              </tr>
+		      <tr>
+                <td  ><input type="checkbox" name="email" value="1" {if $email} checked="checked"{/if}/><font face="Tahoma">
+                <font size="2">E-mail:</font></font></td>
+                <td  valign="top"> <font face="Tahoma">
+                <font size="2">{$account_info.email}</font></font></td>
+              </tr>
+    <tr>
+                <td  ><font face="Tahoma">
+                <font size="2"><input type="checkbox" name="address" value="1" {if $address} checked="checked"{/if}/> Address:</font></font></td>
+                <td  valign="top"> <font face="Tahoma">
+                <font size="2">{$account_info.address},{$account_info.city} {$account_info.postcode} {dev_get_state_name state=$account_info.state} {dev_get_country_name country=$account_info.country}</font></font></td>
+              </tr>			
+ <tr>
+                <td  ><input type="checkbox" name="company" value="1" {if $company} checked="checked"{/if}/><font face="Tahoma">
+                <font size="2">Company:</font></font></td>
+                <td  valign="top"> <font face="Tahoma">
+                <font size="2">{$account_info.company}</font></font></td>
+              </tr>					    			  
+ <tr>
+                <td  ><input type="checkbox" name="phone" value="1" {if $phone} checked="checked"{/if}/><font face="Tahoma">
+                <font size="2">Phone:</font></font></td>
+                <td  valign="top"> <font face="Tahoma">
+                <font size="2">{$account_info.phone}</font></font></td>
+              </tr>		         
+ <tr>
+                <td  ><input type="checkbox" name="mobile" value="1" {if $mobile} checked="checked"{/if}/><font face="Tahoma">
+                <font size="2">Mobile:</font></font></td>
+                <td  valign="top"> <font face="Tahoma">
+                <font size="2">{$account_info.mobile}</font></font></td>
+              </tr>				       
+		{section name=balanceidx loop=$balances_list}	
+				 <tr>
+                <td  ><input type="checkbox" name="balance_settings[]" value="{$balances_list[balanceidx].balance_code}"  /><font face="Tahoma">
+                <font size="2">Balance({$balances_list[balanceidx].balance_name}):</font></font></td>
+                <td  valign="top"> <font face="Tahoma">
+                <font size="2">{$balances_list[balanceidx].balance_text}</font></font></td>
+              </tr>			
+		{/section}
+			  
+            </table>
+            </center>
+          </div> 		      
+          <table border="0" cellSpacing="2" cellPadding="2" width="100%" height="59">
+            <tr>
+              <td class="contenButtons" align="middle" height="53" valign="bottom">
+              <input class="button" value="Apply Changes" type="submit" name="buttonUpdate"></td>
+            </tr>
+          </table>
+          <div align="center">
+            <center>
+            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="650" id="AutoNumber34">
+              <tr>
+                <td width="100%">&nbsp;</td>
+              </tr>
+            </table>
+            </center>
+          </div>
+          <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber14">
+            <tr>
+              <td width="100%">&nbsp;</td>
+            </tr>
+          </table>
+</form>

@@ -1,0 +1,138 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<form name="frmSignup" method="post" action="{dev_get_page_link page=PAGE_SIGNUP}"  >
+<input type="hidden" name="action" value="process"  />
+<div align="right">
+  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="650" id="AutoNumber1">
+    <tr>
+      <td width="100%">&nbsp;</td>
+    </tr>
+  </table>
+</div>
+<div align="center">
+  <center>
+<table cellpadding="2" cellspacing="0" border="0" width="580" style="border-collapse: collapse" bordercolor="#111111" >
+	<tr>
+	  <td  class="pageHeading" height="50" valign="top"><b>
+      <font face="Tahoma" color="#6666FF">{$langs.signup.SIGNUP_PAGE_HEADING}</font></b></td>
+	</tr>
+	<tr><td><font size="2" face="Tahoma">Thank you for deciding to open a 
+      Global Cash account. Please follow directions carefully to avoid mistakes and delays during the registration process.</font></td></tr>
+	<tr><td><font size="2" face="Tahoma">Fields marked with asterisk (<font color="#FF0000">*</font>) are required.</font></td></tr>
+</table>
+  </center>
+</div>
+<div align="center">
+  <center>
+  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="AutoNumber2" height="30">
+    <tr>
+      <td width="100%">&nbsp;</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<div align="center">
+  <center>
+<table cellpadding="0" cellspacing="0" border="0" class="form_content" width="580" style="border-collapse: collapse" bordercolor="#111111">
+	<tr>
+	  <td  colspan="2"><font size="2" face="Tahoma">{include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }</font></td>
+	</tr>
+	<tr>
+	  <td class="form_label"><font size="2" face="Tahoma"><font color="#FF0000">*</font>First Name:</font></td>
+	  <td class="form_field"><font face="Tahoma">
+      <input  name="firstname" type="text"  value="{$firstname}"  class="inputtext" size="20"  /></font></td>
+	  </tr>	
+	<tr>
+	  <td class="form_label"><font size="2" face="Tahoma"><font color="#FF0000">*</font>Last Name:</font></td>
+	  <td class="form_field"><font face="Tahoma">
+      <input  name="lastname" type="text"  value="{$lastname}"  class="inputtext" size="20"  /></font></td>
+	  </tr>		  
+<tr>
+	  <td class="form_label"><font size="2" face="Tahoma"><font color="#FF0000">*</font>E-mail:</font></td>
+	  <td  class="form_field"><font face="Tahoma">
+      <input  name="email" type="text" id="email"  value="{$email}"   class="inputtext" size="20" /></font><font size="2" face="Tahoma">
+      </font> </td>
+	  </tr>	  
+<tr>
+	  <td class="form_label"><font size="2" face="Tahoma"><font color="#FF0000">*</font>Re-enter e-mail:</font></td>
+	  <td  class="form_field"><font face="Tahoma">
+      <input  name="confirm_email" type="text" id="confirm_email"  value="{$confirm_email}"   class="inputtext" size="20" /></font><font size="2" face="Tahoma">
+      </font> </td>
+	  </tr>	  	  
+</table>	
+  </center>
+</div>
+<div align="center">
+  <center>
+  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="AutoNumber3" height="30">
+    <tr>
+      <td width="100%">&nbsp;</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<div align="center">
+  <center>	
+<table cellpadding="2" cellspacing="0" border="0" width="580" style="border-collapse: collapse" bordercolor="#111111" >
+	<tr> <td  class="pageHeading" height="30" valign="top">
+      <font size="2" face="Tahoma">Security Information </font> </td></tr>
+	<tr><td height="30" valign="top"><font size="2" face="Tahoma">Password, login PIN and master key will be automatically generated for your account.
+      </font> </td></tr>
+</table>	
+  </center>
+</div>
+<div align="center">
+  <center>	
+<table cellpadding="0" cellspacing="0" border="0" class="form_content" width="580" style="border-collapse: collapse" bordercolor="#111111">
+	<tr>
+	  <td class="form_label"><font size="2" face="Tahoma"><font color="#FF0000">*</font>Security Question:</font></td>
+	  <td class="form_field"><font face="Tahoma"><select name="security_question" class="inputselect" onchange="checkSecurityQuestion(this.value);">
+      {html_options options=$security_questions_array selected=$security_question}</select></font></td> </tr>	
+	<tr id="content_custom_question" {if $security_question!=-1} style="display: none;" {/if}>
+	  <td class="form_label"><font size="2" face="Tahoma"><font color="#FF0000">*</font>or write your own:</font></td>
+	  <td class="form_field"><font face="Tahoma">
+      <input  name="custom_question" type="text"  value="{$custom_question}"  class="inputtext" size="20"  /></font></td> 
+	 </tr>	
+	<tr>
+	  <td class="form_label"><font size="2" face="Tahoma"><font color="#FF0000">*</font>Answer:</font></td>
+	  <td class="form_field"><font face="Tahoma">
+      <input  name="security_answer" type="text"  value="{$security_answer}"  class="inputtext" size="20"  /></font></td> </tr>		  
+	<tr>
+	  <td class="form_label"><font size="2" face="Tahoma"><font color="#FF0000">*</font>Personal welcome message:</font></td>
+	  <td class="form_field"><font face="Tahoma"><textarea  name="welcome_message" rows="3" cols="50" class="inputtextarea">{$welcome_message}</textarea></font></td> </tr>
+</table>	
+  </center>
+</div>
+<div align="center">
+  <center>
+  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="AutoNumber3" height="30">
+    <tr>
+      <td width="100%">&nbsp;</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<div align="center">
+  <center>	
+<table cellpadding="2" cellspacing="0" border="0" width="580" style="border-collapse: collapse" bordercolor="#111111" >
+	<tr> <td ><font face="Tahoma"><strong><font size="2">Enter the code (turing number) shown on the image</font></strong><font size="2">	
+<br />Cannot read the numbers? Click on it to get a new one.<br />
+<a href="javascript: refreshSecureImage();"><img src="{dev_get_page_link page=PAGE_SECUREIMAGE}"   border="0" id="secure_image" /></a><br />
+</font>
+<input   name="security_code"   class="inputtext" size="20"/></font><font size="2" face="Tahoma">
+<br /><a  href="{dev_get_page_link page=PAGE_CONTACT_US}" class="link">Cannot see Turing number at all?</a>
+</font> </td></tr>
+<tr><td height="30">&nbsp;</td></tr>
+<tr><td>
+  <p align="center"><font size="2" face="Tahoma">If you agree with <a href="{dev_get_page_link page=PAGE_TERMS}" target="_blank">Terms of Our Service</a> click "Agree" to continue the registration.</font></td></tr>
+</table>	
+      </center>
+    </div>
+    <font size="2" face="Tahoma">	
+<br />
+</font>
+<table cellpadding="2" cellspacing="2" border="0" width="100%" >
+<tr ><td align="center" class="contenButtons" ><font face="Tahoma"><input  type="submit" name="buttonAgree" class="button"  value="Agree" /></font><font size="2" face="Tahoma">&nbsp;</font><font face="Tahoma"><input  type="button" name="buttonDisagree" onclick="window.location='{dev_get_page_link page=PAGE_DEFAULT}';"  class="button"  value="Disagree"></font></td></tr>
+</table>
+</form>
+    <font size="2" face="Tahoma">
+<br /></font>

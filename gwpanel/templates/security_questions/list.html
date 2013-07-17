@@ -1,0 +1,34 @@
+<table width="100%" cellpadding="0" cellspacing="0"  border="0">
+<tr><td><h2>{$langs.HEADING_TITLE}</h2></td></tr>
+</table>
+<br />
+{include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }
+{include file="$_TEMPLATE_SOURCE_DIR/modules/feedback_messages.tpl" }
+<div> <a href="{$link_security_question_new}" class="linkButton" >{$langs.LINK_NEW_SECURITY_QUESTION}</a></div><br /><div>
+<div  id="ajaxContent" style="display:none"></div>
+<table width="100%" cellpadding="0" cellspacing="0" >
+<tr><td valign="top">
+		<table width="100%" cellpadding="0" cellspacing="0" >
+			<tr>
+			  <td height="28" class="tableHeading">{$langs.TABLE_HEADING_SECURITY_QUESTION_NAME}</td>
+			  <td class="tableHeading">{$langs.TABLE_HREADING_SECURITY_QUESTION_STATUS}</td>		
+			  <td class="tableHeading">{$langs.TABLE_HREADING_SECURITY_QUESTION_SORT_ORDER}</td>			  			  	  
+			  <td class="tableHeading" align="center">{$TEXT_ACTION}</td>
+			  </tr>
+		{section name=security_questionidx loop=$security_questions}	
+			{if ($smarty.section.security_questionidx.index  % 2) == 0 } {assign var="rowstyle"  value="tableNormalRow"} {else}  {assign var="rowstyle" value="tableAltRow"}  {/if}		  
+			<tr height="20">
+			  <td width="40%"  class="{$rowstyle}"><strong>{$security_questions[security_questionidx].question}</strong></td>
+			  <td width="20%"  class="{$rowstyle}">{if $security_questions[security_questionidx].status==1} {$TEXT_ACTIVE} {else} {$TEXT_INACTIVE} {/if}</td>			  			  <td width="20%"  class="{$rowstyle}" align="center">{$security_questions[security_questionidx].sort_order}</td>
+
+			  <td class="{$rowstyle}"  align="center" style="padding-right:10px"><a href="{$link_security_question_edit}&action=edit&security_questionID={$security_questions[security_questionidx].security_questions_id}" class="linkButton">{$ACTION_EDIT}</a>&nbsp;<a href="javascript:getDeleteConfirmForm({$security_questions[security_questionidx].security_questions_id});"  class="linkButton">{$ACTION_DELETE}</a></td>
+		    </tr>
+		{/section}
+		</table>
+</td>
+</tr>
+</table>
+{if count($security_questions)>0}
+<br />
+<div align="center">{$TEXT_PAGES}{$page_links}</div>
+{/if}

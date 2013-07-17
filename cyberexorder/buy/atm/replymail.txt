@@ -1,0 +1,46 @@
+Buy order e-gold by Western Union
+
+Order confirmation buy e-gold
+
+
+Dear #name#
+
+
+Thanks for your order to buy our e-gold. 
+Please make sure your order detail following these informations.
+
+Your sent amount - #amount#
+Type of currency - #currency#
+Your e-gold account no - #accountNo#
+Your e-gold name - #accountName#
+Your name - #name#
+Country - #country#
+Contact email - #email#
+Contact phone - #phone#
+
+here is Detail of Western Union money transfer instruction. 
+
+Receiver Name: Shinei Shibata 
+Receiver Country: Japan 
+Receiver Address: #204 5-18-5 Ueno Daito-ku Tokyo 110-0005
+ 
+After money transfer completed, please submit again at this payment report form. DO NOT FORGET FILL IN "MTCN" wich is issued by Western Union.
+
+http://www.e-goldex-jp.com/buy/wu/step3.htm
+
+After your payment receive us successfully, will sent e-gold to your account within 24 hours.
+
+To check your order status and transaction, feel free to ask from here
+
+http://www.e-goldex-jp.com/contactus.htm
+
+
+JEES support team
+
++------------------------------------+
+ Japan e-gold Exchange Service, Ltd.
+ http://www.e-goldex-jp.com/
+ Phone: (+81)3-3835-3568
+ Skype: e-goldex.jp  ICQ: 461063987
++------------------------------------+
+

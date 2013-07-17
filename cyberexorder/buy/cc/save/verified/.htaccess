@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Restricted Area"
+AuthUserFile "/home/egoldex/.htpasswds/public_html/buy/cc/verified/passwd"
+require valid-user

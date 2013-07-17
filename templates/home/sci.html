@@ -1,0 +1,125 @@
+<div align="right">
+    <table width="650" cellspacing="0" cellpadding="0" bordercolor="#111111" border="0" id="AutoNumber35" style="border-collapse: collapse">
+        <tbody><tr>
+                <td width="100%" height="20">&nbsp;</td>
+            </tr>
+            
+            {if empty($errors)}
+            <tr>
+                <td width="100%" valign="top" height="70">
+                    <font size="3" face="Tahoma" color="#800000"><b>Pay with a Eglobalcash Account</b>
+                    </font></td>
+            </tr>
+            <tr>
+                <td width="100%" valign="top" height="13">
+                    <div align="center">
+                        <center>
+                            <table width="580" cellspacing="0" cellpadding="15" bordercolor="#111111" border="0" id="AutoNumber36" style="border-collapse: collapse">
+                                <tbody><tr>
+                                        <td width="100%" valign="top" bgcolor="#CCCCCC" rowspan="6">
+                                            <input type="hidden" value="process" name="action">		  
+                                            <table width="100%" height="53" cellspacing="0" cellpadding="0" bordercolor="#111111" border="0" id="AutoNumber37" style="border-collapse: collapse">
+                                                <tbody>
+                                                    <tr>
+                                                        <td width="100%" valign="top" height="19">
+                                                            <font size="2" face="Tahoma">Eglobalcash is the secure payment processor for your merchant.</font>
+
+                                                            <div align="center">
+                                                                <form action="{dev_get_page_link page=PAGE_LOGIN ssl=true}" method="post">
+                                                                    <center>
+                                                                        <table width="350" cellspacing="0" cellpadding="0" bordercolor="#111111" border="0" id="AutoNumber40" style="border-collapse: collapse">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td width="100">
+                                                                                        <font size="2" face="Tahoma" color="#800000">Pay to account</font>
+                                                                                    </td>
+                                                                                    <td width="250">
+                                                                                        <font size="2" face="Tahoma" color="#800000">{$user_info.account_number}({$user_info.firstname} {$user_info.lastname})</font>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td width="100">
+                                                                                        <font size="2" face="Tahoma" color="#800000">Amount</font>
+                                                                                    </td>
+                                                                                    <td width="250">
+                                                                                        <font size="2" face="Tahoma" color="#800000">{$amount}</font>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td width="100">
+                                                                                        <button type="submit">Login</button>
+                                                                                    </td>
+                                                                                    <td width="250">
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </center>
+                                                                </form>
+                                                            </div>			  
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </center>
+                    </div>
+                </td>
+            </tr>
+            {else}
+            <tr>
+                <td width="100%" valign="top" height="70">
+                    <font size="3" face="Tahoma" color="#800000"><b>Errors:</b>
+                    </font></td>
+            </tr>
+            <tr>
+                <td width="100%" valign="top" height="57">
+                    <div align="center">
+                        <center>
+                            <table width="580" cellspacing="0" cellpadding="15" bordercolor="#111111" border="0" id="" style="border-collapse: collapse">
+                                <tbody><tr>
+                                        <td width="100%" bgcolor="#CCCCCC">
+                                            <input type="hidden" value="process" name="action">
+                                            <table width="100%" cellspacing="0" cellpadding="0" bordercolor="#111111" border="0" id="AutoNumber39" style="border-collapse: collapse">
+                                                <tbody>
+                                                    <tr>
+                                                        <td width="100%"><font size="2" face="Tahoma"> <div align="left">
+                                                                <table width="350" cellspacing="0" cellpadding="0" bordercolor="#111111" border="0" id="AutoNumber40" style="border-collapse: collapse">
+                                                                    <tbody>
+                                                                        {foreach from=$errors item=foo}
+                                                                        <tr>
+                                                                            <td width="100%">
+                                                                                <font size="2" face="Tahoma" style="color: red">{$error_code[$foo]}</font>
+                                                                            </td>
+                                                                        </tr>
+                                                                        
+                                                                        {/foreach}
+                                                                    </tbody></table>
+
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                </tbody></table>
+                                        </td>
+                                    </tr>
+                                </tbody></table>
+                        </center>
+                    </div>
+                </td>
+            </tr>
+            {/if}
+        </tbody></table>
+</div>
+<div align="right">
+    <table width="650" cellspacing="0" cellpadding="0" bordercolor="#111111" border="0" style="border-collapse: collapse" id="AutoNumber43">
+        <tbody><tr>
+                <td width="100%" height="80">&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

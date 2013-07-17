@@ -1,0 +1,52 @@
+<h2>Users</h2>
+{include file="$_TEMPLATE_SOURCE_DIR/modules/feedback_messages.tpl" }
+<form name="frmSearch"  action="{dev_get_admin_page_link page=PAGE_USERS}"   method="post">
+<div  id="ajaxSearchContent" {if $action!='process_search'} style="display:none" {/if}>
+<h4>Search Filter</h4>
+<input type="hidden" name="action" value="process_search" >
+<table width="100%" cellpadding="2" cellspacing="2"  border="0">
+<tr><td width="100">Account Number</td><td><input name="account_number"   size="12" maxlength="12"   type="text"> </td></tr>
+<tr><td>Keyword</td><td><input name="keyword"   type="text"  size="50" > </td></tr>
+</table>
+<br>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0"  border="0">
+	<tr><td><input type="button"  class="button" id="buttonSearch"  value="Search User" /></td></tr>
+</table>
+<br>
+<div  id="ajaxDetailsContent" style="display:none"></div>
+
+{if $feedback_message } 	
+	<p><span class="success" >{$feedback_message}</span></p>
+{/if}
+<table width="100%" cellpadding="0" cellspacing="0"  border="0">
+<tr><td valign="top">
+		<table width="100%" cellpadding="0" cellspacing="0" >
+			<tr>
+			  <td height="28" class="tableHeading">First Name#</td>
+			  <td class="tableHeading">Last Name </td>			  
+			  <td class="tableHeading">Account Number </td>			  
+			  <td class="tableHeading">Account Name </td>			
+			  <td class="tableHeading">Signup Date </td>			
+			  <td class="tableHeading" align="center">{$TEXT_ACTION}</td>
+		  </tr>
+		{section name=useridx loop=$users}	
+			{if ($smarty.section.useridx.index  % 2) == 0 } {assign var="rowstyle"  value="tableNormalRow"} {else}  {assign var="rowstyle" value="tableAltRow"}  {/if}		  
+			<tr>
+			  <td height="25"   class="{$rowstyle}">{$users[useridx].firstname}</td>
+			  <td   class="{$rowstyle}">{$users[useridx].lastname}</td>			  			  
+			  <td   class="{$rowstyle}"><strong>{$users[useridx].account_number}</strong></td>			  			  
+			  <td   class="{$rowstyle}">{$users[useridx].account_name}</td>			  
+			  <td class="{$rowstyle}">{$users[useridx].signup_date|date_format:"%m/%d/%Y %l:%M %p" }</td>			  			  
+			  <td width="17%"  class="{$rowstyle}"  align="center"><a href="javascript:editUser({$users[useridx].user_id});" class="linkButton">Edit</a>&nbsp;<a href="javascript:getUserDetails({$users[useridx].user_id});" class="linkButton">{$ACTION_VIEW}</a>&nbsp;<a href="javascript:getProcessForm({$users[useridx].user_id});"  class="linkButton" >Change</a></td>
+		    </tr>
+		{/section}
+		</table>
+</td>
+</tr>
+</table>
+</div>
+{if count($users)>0} 
+<div align="center">{$TEXT_PAGES}{$page_links}</div>
+{/if}
+</form>

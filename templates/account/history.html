@@ -1,0 +1,121 @@
+<div align="right">
+  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="650" id="AutoNumber1" height="20">
+    <tr>
+      <td width="100%">&nbsp;</td>
+    </tr>
+  </table>
+</div>
+<div align="center">
+  <center>
+  <table cellpadding="2" cellspacing="0" border="0" width="580" style="border-collapse: collapse" bordercolor="#111111" >
+	<tr> <td  class="pageHeading" height="50" valign="top"><b>
+      <font face="Tahoma" color="#6666FF">Transaction History</font></b></td></tr>
+</table>
+  </center>
+</div>
+<form name="frmSearch"  action="{dev_get_page_link page=PAGE_ACCOUNT_TRANSACTIONS ssl=true}"   method="post">
+<div  id="ajaxSearchContent" {if $action!='process_search'} style="display:none" {/if}>
+<div align="center">
+  <center>
+  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="AutoNumber2">
+    <tr>
+      <td width="100%" height="30" valign="top"><b><font size="2" face="Tahoma">Search Filter</font></b></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<font face="Tahoma">
+<input type="hidden" name="action" value="process_search" >
+</font>
+<div align="center">
+  <center>
+<table width="580" cellpadding="2" cellspacing="0"  border="0" style="border-collapse: collapse" bordercolor="#111111">
+	<tr><td><font size="2" face="Tahoma">From Date</font></td><td>
+      <font face="Tahoma"><select name="fromdateMonth" >
+      {html_options options=$months_array selected=$fromdateMonth}</select></font><font size="2" face="Tahoma">&nbsp;</font><font face="Tahoma"><select name="fromdateDay">
+      {html_options options=$days_array selected=$fromdateDay}</select></font><font size="2" face="Tahoma">&nbsp;&nbsp;
+      </font><font face="Tahoma">
+<select name="fromdateYear">
+{html_options options=$years_array selected=$fromdateYear}</select></font><font size="2" face="Tahoma">&nbsp;(mm/dd/yy)</font></td></tr>
+<tr><td><font size="2" face="Tahoma">To Date</font></td><td><font face="Tahoma"><select name="todateMonth" >
+  {html_options options=$months_array selected=$todateMonth}</select></font><font size="2" face="Tahoma">&nbsp;</font><font face="Tahoma"><select name="todateDay">
+  {html_options options=$days_array selected=$todateDay}</select></font><font size="2" face="Tahoma">&nbsp;&nbsp;
+  </font><font face="Tahoma">
+<select name="todateYear">
+{html_options options=$years_array selected=$todateYear}</select></font><font size="2" face="Tahoma">&nbsp;(mm/dd/yy)</font></td></tr>
+<tr><td>&nbsp;</td><td><font face="Tahoma"><input name="search_date_filter"    type="checkbox" value="1"  {if $search_date_filter } checked="checked" {/if}></font><font size="2" face="Tahoma"> Search using dates filter</font></td></tr>
+<tr><td><font size="2" face="Tahoma">Batch Number#</font></td><td>
+  <font face="Tahoma"><input name="batch_number"   size="12" maxlength="12"  value="{$batch_number}"  type="text"></font><font size="2" face="Tahoma">
+  </font> </td></tr>
+<tr><td><font size="2" face="Tahoma">From Account</font></td><td>
+  <font face="Tahoma">
+  <input name="from_account"   type="text" value="{$from_account}" size="20" ></font><font size="2" face="Tahoma">
+  </font> </td></tr>
+<tr><td><font size="2" face="Tahoma">To Account</font></td><td>
+  <font face="Tahoma">
+  <input name="to_account"   type="text" value="{$to_account}" size="20"></font><font size="2" face="Tahoma">
+  </font> </td></tr>
+<tr><td><font size="2" face="Tahoma">Transaction Reference</font></td><td>
+  <font face="Tahoma"><input name="transaction_note"   value="{$transaction_note}" type="text" size="50"></font><font size="2" face="Tahoma">
+  </font> </td></tr>
+</table>
+  </center>
+</div>
+<p><font size="2" face="Tahoma">
+<br>
+</font>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0"  border="0">
+	<tr><td>
+      <p align="center"><font face="Tahoma"><input type="button"  class="button" id="buttonSearch"  value="Search Transaction" /></font></td></tr>
+</table>
+<font size="2" face="Tahoma">
+<br>
+</font>
+<div align="center">
+<center>
+<div  id="ajaxDetailsContent" style="display:none"  ></div>
+</center></div>
+<div align="right">
+<table width="650" cellpadding="0" cellspacing="0"  border="0" style="border-collapse: collapse" bordercolor="#111111">
+<tr><td valign="top">
+		&nbsp;<table width="100%" cellpadding="0" cellspacing="0" >
+			<tr>
+			  <td height="28" class="tableHeading"><font size="2" face="Tahoma">Date</font></td>
+			  <td class="tableHeading"><font size="2" face="Tahoma">Batch#</font></td>
+			  <td class="tableHeading"><font size="2" face="Tahoma">From Account</font></td>			  			  
+			  <td class="tableHeading"><font size="2" face="Tahoma">To Account</font></td>			  
+			  <td class="tableHeading"><font size="2" face="Tahoma">Amount</font></td>			
+			  <td class="tableHeading"><font size="2" face="Tahoma">Fee</font></td>			
+			  <td class="tableHeading" align="center">
+              <font size="2" face="Tahoma">Currency</font></td>			  			  			    			    			  			    
+			  <td class="tableHeading" align="center">
+              <font size="2" face="Tahoma">{$TEXT_ACTION}</font></td>
+			  </tr>
+		    <font size="2" face="Tahoma">{section name=transactionidx loop=$transactions}	
+			{if ($smarty.section.transactionidx.index  % 2) == 0 } {assign var="rowstyle"  value="tableNormalRow"} {else}  {assign var="rowstyle" value="tableAltRow"}  {/if}
+            </font>		  
+			<tr>
+			  <td width="22%" height="25"  class="{$rowstyle}">
+              <font size="2" face="Tahoma">{$transactions[transactionidx].transaction_time|date_format:"%m/%d/%Y %l:%M %p" }</font></td>
+			  <td   class="{$rowstyle}"><font size="2" face="Tahoma">{$transactions[transactionidx].batch_number}</font></td>
+			  <td   class="{$rowstyle}"><font size="2" face="Tahoma">{$transactions[transactionidx].from_account}</font></td>			  			  			  
+			  <td   class="{$rowstyle}"><strong><font size="2" face="Tahoma">{$transactions[transactionidx].to_account}</font></strong></td>			  			  
+			  <td   class="{$rowstyle}"><font face="Tahoma"><font size="2">{if $transactions[transactionidx].from_userid == $smarty.session.login_userid}<font color="red">-{$transactions[transactionidx].amount_text}</font>{else}</font><font size="2" color="green"> +{$transactions[transactionidx].amount_text}{/if}</font></font></td>			  
+			  <td class="{$rowstyle}"><font size="2" face="Tahoma">{$transactions[transactionidx].fee_text}&nbsp;</font></td>			  			  
+			  <td class="{$rowstyle}" align="center">
+              <font size="2" face="Tahoma">{$transactions[transactionidx].transaction_currency}</font></td>			  			  			  
+			  <td width="17%"  class="{$rowstyle}"  align="center"><a href="javascript:getTransactionDetails({$transactions[transactionidx].transaction_id});" class="linkButton">
+              <font size="2" face="Tahoma">Details</font></a></td>
+		    </tr>
+		    <font size="2" face="Tahoma">{/section} </font>
+		</table>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<font size="2" face="Tahoma">{if count($transactions)>0} </font> 
+<div align="center"><font size="2" face="Tahoma">{$TEXT_PAGES}{$page_links}</font></div>
+<font size="2" face="Tahoma">{/if} </font>
+</form>

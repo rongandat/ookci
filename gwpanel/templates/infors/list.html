@@ -1,0 +1,31 @@
+<div align="center" class="pageHeading">{$HEADING_LIST_INFORS}</div><br />
+<div> <a href="{$link_new_info}" >{$LINK_NEW_INFO}</a></div><br />
+<div>
+<table width="100%" cellpadding="0" cellspacing="0" >
+<tr><td valign="top">
+		<form name="frmFriends" action="{$action_infors}" method="post" >
+
+		<table width="100%" cellpadding="0" cellspacing="0" >
+			<tr>
+			  <td height="28" class="tableHeading">{$HEADER_INFO_KEY}</td>
+			  <td class="tableHeading">{$HEADER_INFO_TITLE}</td>
+			  <td class="tableHeading"><div align="center">{$TEXT_ACTION}</div></td>
+			  </tr>
+		{section name=inforidx loop=$infors}	  
+			<tr>
+			  <td width="30%" height="20"><a href="{$infors[inforidx].info_url}" >{$infors[inforidx].info_key}</a></td>
+			  <td width="48%" >{$infors[inforidx].info_title}</td>
+			  <td width="22%"><div align="center"><a href="{$infors[inforidx].info_url}">{$ACTION_EDIT_INFO}</a> | <a href="{$link_infos}&action=delete&info_id={$infors[inforidx].info_id}" onClick="return confirm('{$WARNING_DELETE_CONFIRM_MESSAGE}');">{$ACTION_DELETE_INFO}</a></div></td>
+		    </tr>
+		{/section}
+		</table>
+
+	        </form>	
+
+</td>
+</tr>
+</table>
+{if count($infors)>0}
+</div>
+<div align="center">{$TEXT_PAGES}{$page_links}</div>
+{/if}

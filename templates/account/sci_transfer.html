@@ -1,0 +1,188 @@
+{if $step_value == 'confirm'}
+<form name="frmTransfer" method="post" action="{dev_get_page_link page=PAGE_SCI_TRANSFER ssl=true}"  >
+    <input type="hidden" name="action" value="process"  />
+    <input type="hidden" name="step" id="step" value="complete"  />
+    <input  name="master_key" type="hidden" id="master_key"  value="{$master_key}"  size="4"  maxlength="3"/>
+    <div align="right">
+        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="650" id="AutoNumber1" height="20">
+            <tr>
+                <td width="100%">&nbsp;</td>
+            </tr>
+        </table>
+    </div>
+    <div align="center">
+        <center>
+            <table cellpadding="2" cellspacing="0" border="0" width="580" style="border-collapse: collapse" bordercolor="#111111" >
+                <tr>
+                    <td  class="pageHeading"><b><font size="2" face="Tahoma" color="#800000">Transfer Confirmation</font></b></td>
+                </tr>
+            </table>
+        </center>
+    </div>
+    <font size="2" face="Tahoma">
+    <br />
+    </font>
+    <div align="center">
+        <center>
+            <table cellpadding="0" cellspacing="0" border="0" class="form_content" style="border-collapse: collapse" bordercolor="#111111">
+                <tr>
+                    <td class="form_label"><font size="2" face="Tahoma">From Account:</font></td>
+                    <td class="form_field"><font size="2" face="Tahoma">{$smarty.session.login_account_number}(<strong>{$user_transfer.account_name}</strong>)</font></td>
+                </tr>	
+                <tr>
+                    <td class="form_label"><font size="2" face="Tahoma">To Account:</font></td>
+                    <td class="form_field"><font size="2" face="Tahoma">{$user_to_info.account_number}(<strong>{$user_to_info.account_name}</strong>)</font></td>
+                </tr>	
+                <tr>
+                    <td class="form_label"><font size="2" face="Tahoma">Amount:</font></td>
+                    <td class="form_field"><font size="2" face="Tahoma">{$amount}</font></td>
+                </tr>	
+                <tr>
+                    <td class="form_label"><font size="2" face="Tahoma">Fee:</font></td>
+                    <td class="form_field"><font size="2" face="Tahoma">{$fees_text}</font></td>
+                </tr>  
+                <font size="2" face="Tahoma">{if $transaction_memo !=''}
+                </font>  
+                <tr>
+                    <td class="form_label"><font size="2" face="Tahoma">Transaction Memo:</font></td>
+                    <td class="form_field"><font size="2" face="Tahoma">{$transaction_memo}</font></td>
+                </tr>  
+                <font size="2" face="Tahoma">{/if} </font>  
+                <textarea name="transaction_memo" style="display: none">{$transaction_memo}</textarea>
+                <input type="hidden" name="master_key" value="{$master_key}"/>
+            </table>	  
+        </center>
+    </div>
+    <font face="Tahoma">	  
+
+    </font><font size="2" face="Tahoma">
+    <br />
+    </font>
+    <div align="center">
+        <center>
+            <table width="580"	  cellspacing="0" cellpadding="2" border="0" style="border-collapse: collapse" bordercolor="#111111">
+                <tr><td><font size="2" face="Tahoma">Please be aware that all GWebcash payments are instant and irreversible. GWebcash is not associated directly or indirectly with any other company or business. Our liability is limited to delivering your funds on time to the account of your choice specified above. Any issues that you may encounter as a result of this transaction that are not related to the transaction itself will have to be addressed and resolved with the recipient of your payment directly. Please confirm your payment details ONLY if you UNDERSTAND and AGREE with statements made in this paragraph and ACCEPT our <a href="{dev_get_page_link page=PAGE_TERMS ssl=true}" target="_blank">Terms Of Service</a>.
+                        </font> </td></tr>
+            </table>
+        </center>
+    </div>
+    <font size="2" face="Tahoma">
+    <br />
+    </font>
+    <table cellpadding="2" cellspacing="2" border="0" width="100%" >
+        <tr >
+            <td align="center" class="contenButtons" >
+                <font face="Tahoma"><input  type="submit" name="buttonConfirm" class="button"  value="Confirm" /></font>.
+                {if !empty($cancel_url)}
+                <font size="2" face="Tahoma">&nbsp;</font><font face="Tahoma"><input  type="button" name="buttonCancel" class="button"  value="Cancel" onclick="redirect('{$cancel_url}');" /></font></td></tr>
+        {/if}
+    </table>	
+</form>
+
+{elseif $step_value == 'complete'}
+<tr>
+    <td width="100%" valign="top" height="70">
+        <font size="3" face="Tahoma" color="#800000"><b>Errors:</b>
+        </font></td>
+</tr>
+<tr>
+    <td width="100%" valign="top" height="57">
+        <div align="center">
+            <center>
+                <table width="580" cellspacing="0" cellpadding="15" bordercolor="#111111" border="0" id="" style="border-collapse: collapse">
+                    <tbody><tr>
+                            <td width="100%" bgcolor="#CCCCCC">
+                                <input type="hidden" value="process" name="action">
+                                <table width="100%" cellspacing="0" cellpadding="0" bordercolor="#111111" border="0" id="AutoNumber39" style="border-collapse: collapse">
+                                    <tbody>
+                                        <tr>
+                                            <td width="100%"><font size="2" face="Tahoma"> <div align="left">
+                                                    <table width="350" cellspacing="0" cellpadding="0" bordercolor="#111111" border="0" id="AutoNumber40" style="border-collapse: collapse">
+                                                        <tbody>
+                                                            {foreach from=$errors item=foo}
+                                                            <tr>
+                                                                <td width="100%">
+                                                                    <font size="2" face="Tahoma" style="color: red">{$error_code[$foo]}</font>
+                                                                </td>
+                                                            </tr>
+
+                                                            {/foreach}
+                                                        </tbody></table>
+
+                                                </div>
+
+                                            </td>
+                                        </tr>
+
+                                    </tbody></table>
+                            </td>
+                        </tr>
+                    </tbody></table>
+            </center>
+        </div>
+    </td>
+</tr>
+{else}
+<form name="frmTransfer" method="post" action="{dev_get_page_link page=PAGE_SCI_TRANSFER ssl=true}"  >
+    <input type="hidden" name="action" value="process"  />
+    <input type="hidden" name="step" id="step" value="confirm"  />
+    <div align="right">
+        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="650" id="AutoNumber1" height="20">
+            <tr>
+                <td width="100%">&nbsp;</td>
+            </tr>
+        </table>
+    </div>
+    <div align="center">
+        <center>
+            <table cellpadding="2" cellspacing="0" border="0" width="580" style="border-collapse: collapse" bordercolor="#111111" >
+                <tr>
+                    <td  class="pageHeading" height="50" valign="top"><b>
+                            <font face="Tahoma" color="#6666FF">Transfer</font></b></td>
+                </tr>
+                <tr><td><font size="2" face="Tahoma">Please use this form to transfer funds from your Gwebcash to another member.</font></td></tr>
+                <tr><td><font size="2" face="Tahoma">Fields marked with asterisk (*) are required.</font></td></tr>
+            </table>
+        </center>
+    </div>
+    <font size="2" face="Tahoma">
+    <br />
+    </font>
+    <div align="center">
+        <center>
+            <table cellpadding="0" cellspacing="0" border="0" class="form_content" style="border-collapse: collapse" bordercolor="#111111">
+                <tr>
+                    <td  colspan="2"><font size="2" face="Tahoma">{include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }</font></td>
+                </tr>
+
+                <tr>
+                    <td class="form_label"><font size="2" face="Tahoma">*To Account:</font></td>
+                    <td class="form_field"><font face="Tahoma">
+                        {$to_acount}
+                </tr>		  
+                <tr>
+                    <td class="form_label"><font size="2" face="Tahoma">*Amount</font></td>
+                    <td  class="form_field">
+                        <font face="Tahoma">{$amount}</font>
+                    </td>
+                </tr>	  
+                <tr>
+                    <td class="form_label"><font size="2" face="Tahoma">Transaction Memo:</font></td>
+                    <td  class="form_field"><font face="Tahoma"><textarea name="transaction_memo"  cols="50" rows="3">{$transaction_memo}</textarea></font> </td>
+                </tr>
+                <tr>
+                    <td class="form_label"><font size="2" face="Tahoma">*Master Key:</font></td>
+                    <td  class="form_field"><font face="Tahoma"><input  name="master_key" type="text" id="master_key"  value="{$master_key}"  size="4"  maxlength="3"/></font><font size="2" face="Tahoma"> (3 digits)</font></td>
+                </tr>		  	  	  
+            </table>	
+        </center>
+    </div>
+    <font size="2" face="Tahoma">	
+    <br />
+    </font>
+    <table cellpadding="2" cellspacing="2" border="0" width="100%" >
+        <tr ><td align="center" class="contenButtons" ><font face="Tahoma"><input  type="submit" name="buttonPreview" class="button"  value="Preview" /></font></td></tr>
+    </table>
+</form>
+{/if}
+

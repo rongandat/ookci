@@ -1,0 +1,33 @@
+<font size="2" face="Tahoma"><strong>Transaction Details: #{$transaction_data.batch_number}</strong></font>
+<table cellpadding="2" cellspacing="2"  border="0"   class="confirmContent">
+	<tr><td width="120"><font size="2" face="Tahoma">Batch Number#</font></td><td>
+      <font size="2" face="Tahoma">{$transaction_data.batch_number}</font></td></tr>
+	<tr><td><font size="2" face="Tahoma">Date</font></td><td>
+      <font size="2" face="Tahoma">{$transaction_data.transaction_time|date_format:"%m/%d/%Y %l:%M %p"}</font></td></tr>	
+	<tr><td><font size="2" face="Tahoma">From Account</font></td><td><strong>
+      <font size="2" face="Tahoma">{$transaction_data.from_account}</font></strong></td></tr>						
+	<tr><td><font size="2" face="Tahoma">To Account</font></td><td><strong>
+      <font size="2" face="Tahoma">{$transaction_data.to_account}</font></strong></td></tr>			
+	<tr><td><font size="2" face="Tahoma">Balance Currency</font></td><td>
+      <font size="2" face="Tahoma">{$transaction_data.transaction_currency}</font></td></tr>				
+	<tr><td><font size="2" face="Tahoma">Amount</font></td><td>
+      <font face="Tahoma"><font size="2">{if $transaction_data.from_userid == $smarty.session.login_userid}<font color="red">-{$transaction_data.amount_text}</font>{else}</font><font size="2" color="green"> +{$transaction_data.amount_text}{/if}</font></font></td></tr>			
+	<font size="2" face="Tahoma">{if $transaction_data.fee_text !=''} </font>
+	<tr><td><font size="2" face="Tahoma">Fee</font></td><td>
+      <font size="2" face="Tahoma">{$transaction_data.fee_text}</font></td></tr>					
+	<font size="2" face="Tahoma">{/if} </font>
+	<tr><td><font size="2" face="Tahoma">Transaction Status</font></td><td><strong>
+      <font size="2" face="Tahoma">{$transaction_data.transaction_status}</font></strong></td></tr>						
+	<font size="2" face="Tahoma">{if $transaction_data.transaction_memo !=''}
+    </font>	
+	<tr><td><font size="2" face="Tahoma">Transaction Memo</font></td><td>
+      <font size="2" face="Tahoma">{$transaction_data.transaction_memo}</font></td></tr>							
+	<font size="2" face="Tahoma">{/if} </font>
+</table>
+<font size="2" face="Tahoma">
+<br>
+</font>
+<table width="100%" cellpadding="2" cellspacing="2"  border="0">
+<tr><td><a href="javascript: closeTransactionDetailsContent();" class="linkButton">
+  <font size="2" face="Tahoma">Close</font></a></td></tr>
+</table>

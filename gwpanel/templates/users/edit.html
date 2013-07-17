@@ -1,0 +1,21 @@
+<h4>User Details: #{$user_data.account_number}</h4>
+<form name="frmEdit" action="{dev_get_admin_page_link page=PAGE_USERS}" method="post" >
+<input type="hidden" name="action" value="save"  />
+<input type="hidden" value="{$user_data.user_id}" name="user_id" />
+<input type="hidden" value="{$user_data.account_number}" name="account_number" />
+
+<table width="100%" cellpadding="2" cellspacing="2"  border="0">
+	<tr><td width="7%">First Name</td><td width="93%"><input name="firstname" value="{$user_data.firstname}" type="input"  /></td></tr>
+	<tr><td>Last Name</td><td><input name="lastname" value="{$user_data.lastname}" type="input"  /></td></tr>
+ 	<tr><td>E-mail</td><td><input name="email" value="{$user_data.email}" type="input"  /></td></tr>
+	<tr><td>Mobile</td><td><input name="mobile" value="{$user_data.mobile}" type="input"  /></td></tr>
+	<tr><td>Phone</td><td><input name="phone" value="{$user_data.phone}" type="input"  /></td></tr>
+  	<tr><td colspan="2">Additional Information<br /><textarea name="additional_information" rows="3"  cols="80">{$user_data.additional_information}</textarea></td></tr>
+ 
+	<tr><td colspan="2"><input class="button" type="submit" value="Save"  /></td></tr>
+</table>
+</form>
+<br>
+<table width="100%" cellpadding="2" cellspacing="2"  border="0">
+<tr><td><a href="javascript: closeUserDetailsContent();" class="linkButton">Close</a></td></tr>
+</table>
