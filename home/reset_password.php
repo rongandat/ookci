@@ -26,6 +26,11 @@ if ($_POST['action'] == 'process') {
 
     if (count($validator->errors) == 0) {   // found email => send account number to the email
         $account_info = db_fetch_array(db_query($sql_check_info));
+        
+        $session_account_number = $account_number;
+        $session_email = $email;
+        tep_session_register('session_account_number');
+        tep_session_register('session_email');
 
         $email_info = get_email_template('RESET_PASSWORD_CODE');
 
@@ -78,6 +83,7 @@ if ($_POST['action'] == 'process2') { //step 2/3
         $account = db_fetch_array(db_query($sql));
         $smarty->assign('email', $email);
         $smarty->assign('account_number', $account['account_number']);
+        
         /* $smarty->assign('security_question',$account['security_question']); */
         //--------------------------------------------------------------------
         $_html_main_content = $smarty->fetch('home/reset_password03.html');
@@ -101,16 +107,13 @@ if ($_POST['action'] == 'process3') { //update new pasword
     $password = db_prepare_input($_POST['Password']);
     $password2 = db_prepare_input($_POST['Password2']);
 
-    $LoginPinCode = db_prepare_input($_POST['LoginPinCode']);
-    $LoginPinCode2 = db_prepare_input($_POST['LoginPinCode2']);
-
-    $MasterKeyCode == db_prepare_input($_POST['MasterKeyCode']);
-    $MasterKeyCode2 = db_prepare_input($_POST['MasterKeyCode2']);
-
     $resetcode_sent = true;
+    
+    if(empty($session_email) || empty($session_account_number)){
+        tep_redirect(get_href_link(PAGE_RESET_PASSWORD));
+    }
 
-    $sql = "SELECT user_id, firstname, lastname,security_question,account_number FROM " . _TABLE_USERS . " WHERE (email='" . $email . "') and (account_number='" . $account_number . "')";
-
+    $sql = "SELECT user_id, firstname, lastname,security_question,account_number FROM " . _TABLE_USERS . " WHERE (email='" . $session_email . "') and (account_number='" . $session_account_number . "')";
     $account = db_fetch_array(db_query($sql));
     $user_id = $account['user_id'];
 
@@ -124,28 +127,12 @@ if ($_POST['action'] == 'process3') { //update new pasword
         
     }
 
-    if ($validator->validateEqual('PIN', $LoginPinCode, $LoginPinCode2, _ERROR_PIN)) {
-        
-    }
-
-    if ($validator->validateLength('PIN', $LoginPinCode, 4, 5, _ERROR_PIN_LENGTH)) {
-        
-    }
-
-    if ($validator->validateEqual('Master Key', $MasterKeyCode, $MasterKeyCode2, _ERROR_MASTER_KEY)) {
-        
-    }
-
-    if ($validator->validateMinLength('Master Key', $MasterKeyCode, 3, _ERROR_KEY_MIN_LENGTH)) {
-        
-    }
 
     if (count($validator->errors) == 0) {
 
         $ok = true;
 
-        $q = db_query("UPDATE  users SET  password =  '" . encrypt_password($password) . "',login_pin= '" . $LoginPinCode . "',master_key='" . $MasterKeyCode . "' WHERE user_id = $user_id");
-
+        $q = db_query("UPDATE  users SET  password =  '" . encrypt_password($password) . "' WHERE user_id = $user_id");
         $_html_main_content = $smarty->fetch('home/reset_password_success.html');
     } else {
         //	postAssign($smarty);			

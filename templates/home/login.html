@@ -6,27 +6,28 @@
         <p>{$TEXT_LOGIN_WANNING}</p>
         {include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }
         <div class="line"></div>
-
         <div class="st-form-line">
-            <span class="st-labeltext">{$ENTRY_ACOUNT_NUMBER}</span>
-            <input type="text" value="" id="account_number" class="st-forminput medium" size="20" name="account_number">
+            <span class="st-labeltext">{$ENTRY_ACOUNT_NUMBER} <a href="{dev_get_page_link page=PAGE_ACCOUNT_REMIND ssl=true}">(forgot it?)</a></span>
+            <input type="text" value="" autocomplete="off" id="account_number" class="st-forminput medium" size="20" name="account_number">
             <div class="clear"></div>
         </div>
         <div class="st-form-line">
-            <span class="st-labeltext">{$ENTRY_ACOUNT_PASSWORD}</span>
-            <input type="password" value="" id="password" class="st-forminput medium" size="20" name="password">
+            <span class="st-labeltext">{$ENTRY_ACOUNT_PASSWORD} <a href="{dev_get_page_link page=PAGE_RESET_PASSWORD ssl=true}">(forgot it?)</a></span>
+            <input type="password" value="" autocomplete="off" id="password" class="st-forminput medium" size="20" name="password">
             <div class="clear"></div>
         </div>
+        {if $error_log_login > 3}
         <div class="st-form-line captcha">
             <span class="st-labeltext">{$ENTRY_ACOUNT_CODE}</span>
-            <a href="javascript: refreshSecureImage();">
-                <img id="secure_image" border="0" src="{dev_get_page_link page=PAGE_SECUREIMAGE ssl=true}">
-            </a>
-            <input type="text" value="" id="security_code" class="st-forminput medium" name="security_code">
+            <div class="captcha-form">
+                <a href="javascript: refreshSecureImage();">
+                    <img id="secure_image" autocomplete="off" border="0" src="{dev_get_page_link page=PAGE_SECUREIMAGE ssl=true}">
+                </a>
+                <input type="text" value="" id="security_code" class="st-forminput medium" name="security_code">
+            </div>
             <div class="clear"></div>
-
         </div>
-
+        {/if}
         <div class="st-form-line captcha">
             <span class="st-labeltext"></span>
             <input class="button" type="submit" value="Login" />

@@ -1,62 +1,188 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<font face="Tahoma" size="2">{if $smarty.session.login_main_account_info} </font>	
-<div align="center">
-  <center>
-  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="830" id="AutoNumber2">
-	<tr><td width="100" align="center">
-		<table cellpadding="2" cellspacing="2" border="0" width="400">		
-		<tr>
-			<font face="Tahoma" size="2">{if $CURRENT_MODULE == 'account' AND $CURRENT_PAGE == 'account' }
-            </font>
-			<td><font face="Tahoma" size="2">Account</font></td>		
-			<font face="Tahoma" size="2">{else} </font>
-				<td><a href="{dev_get_page_link page=PAGE_ACCOUNT ssl=true}" >
-                <font face="Tahoma" size="2">Account</font></a></td>
-			<font face="Tahoma" size="2">{/if}
-			{if $CURRENT_MODULE == 'account' AND $CURRENT_PAGE == 'personal' }
-            </font>
-			<td><font face="Tahoma" size="2">Profile</font></td>		
-			<font face="Tahoma" size="2">{else} </font>
-				<td><a href="{dev_get_page_link page=PAGE_ACCOUNT_PERSONAL ssl=true}" >
-                <font face="Tahoma" size="2">Profile</font></a></td>
-			<font face="Tahoma" size="2">{/if}
-			{if $CURRENT_MODULE == 'account' AND $CURRENT_PAGE == 'history' }
-            </font>
-			<td><font face="Tahoma" size="2">History</font></td>		
-			<font face="Tahoma" size="2">{else} </font>
-				<td><a href="{dev_get_page_link page=PAGE_ACCOUNT_TRANSACTIONS ssl=true}" >
-                <font face="Tahoma" size="2">History</font></a></td>
-			<font face="Tahoma" size="2">{/if}			
-			{if $CURRENT_MODULE == 'account' AND $CURRENT_PAGE == 'transfer' }
-            </font>
-			<td><font face="Tahoma" size="2">Transfer</font></td>		
-			<font face="Tahoma" size="2">{else} </font>
-				<td><a href="{dev_get_page_link page=PAGE_ACCOUNT_TRANSFER ssl=true}" >
-                <font face="Tahoma" size="2">Transfer</font></a></td>
-			<font face="Tahoma" size="2">{/if} </font>			
+{if $smarty.session.login_main_account_info}
+<div id="header-login">
+    <div class="top-header">
+        <a class="logo" href="{dev_get_page_link page=PAGE_DEFAULT ssl=true}"><img src="images/logo.png"/></a>
+        <ul class="top-nav">
+            <li>
+                Welcome <strong>{$smarty.session.login_main_account_info.firstname}&nbsp;{$smarty.session.login_main_account_info.lastname}</strong>
+            </li>
+            <li>
+                <strong>{$smarty.session.login_account_number} ({$smarty.session.login_main_account_info.account_name})</strong>
+            </li>
+            <li><a href="{dev_get_page_link page=PAGE_LOGOUT ssl=true}">Logout</a> </li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="nav">
+        <div class="nav-content">
+            <ul>
+                <li>
+                    <a href="{dev_get_page_link page=PAGE_DEFAULT ssl=true}" {if ($smarty.get.page == 'index') && empty($smarty.get.module)} class="active" {/if}>Home</a>
+                </li>
+                <li>
+                    {if $CURRENT_MODULE == 'account' AND $CURRENT_PAGE == 'account' }
+                    <a class="active" href="{dev_get_page_link page=PAGE_ACCOUNT ssl=true}" >
+                        Account
+                    </a>
+                    {else}
+                    <a href="{dev_get_page_link page=PAGE_ACCOUNT ssl=true}" >
+                        Account
+                    </a>
+                    {/if}
+                </li>
+                <li>
+                    {if $CURRENT_MODULE == 'account' AND $CURRENT_PAGE == 'personal' }
+                    <a class="active" href="{dev_get_page_link page=PAGE_ACCOUNT_PERSONAL ssl=true}" >
+                        Profile
+                    </a>
+                    {else}
+                    <a href="{dev_get_page_link page=PAGE_ACCOUNT_PERSONAL ssl=true}" >
+                        Profile
+                    </a>
+                    {/if}
+                </li>
+                <li>
+                    {if $CURRENT_MODULE == 'account' AND $CURRENT_PAGE == 'history' }
+                    <a class="active" href="{dev_get_page_link page=PAGE_ACCOUNT_TRANSACTIONS ssl=true}" >
+                        History
+                    </a>
+                    {else}
+                    <a href="{dev_get_page_link page=PAGE_ACCOUNT_TRANSACTIONS ssl=true}" >
+                        History
+                    </a>
+                    {/if}
+                </li>
+                <li>
+                    {if $CURRENT_MODULE == 'account' AND $CURRENT_PAGE == 'transfer' }
+                    <a class="active" href="{dev_get_page_link page=PAGE_ACCOUNT_TRANSFER ssl=true}" >
+                        Transfer
+                    </a>
+                    {else}
+                    <a href="{dev_get_page_link page=PAGE_ACCOUNT_TRANSFER ssl=true}" >
+                        Transfer
+                    </a>
+                    {/if}
+                </li>
 
-		</tr>
-	</table></td></tr>	
-	<tr><td headers="50">&nbsp;</td></tr>
-  </table>
-  </center>
+            </ul>
+            <div class="search">
+                <form method="GET" action="">
+                    <span>Search</span>
+                    <input type="text" name="search" class="search-inut"/>
+                    <input type="submit" value="Go" class="btn-search"/>
+                </form>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
 </div>
-<div align="center">
-  <center>
-  <table border="0" cellpadding="10" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="830" id="AutoNumber3">
-    <tr>
-      <td width="100%"><font face="Tahoma" size="2">{/if}	
-{if $smarty.session.login_userid != '' AND $smarty.session.login_account_number!='' AND $smarty.session.login_main_account_info}
-      </font></td>
-    </tr>
-  </table>
-  </center>
+
+{else}
+{if ($smarty.get.page == 'index') && empty($smarty.get.module)}
+<div id="header">
+    <div class="top-header">
+        <a href="{dev_get_page_link page=PAGE_DEFAULT ssl=true}" class="logo"><img src="images/logo.png"/></a>
+        <ul class="top-nav">
+            <li>
+                <a href="{dev_get_page_link page=PAGE_DEFAULT ssl=true}">Home</a>
+            </li>
+            <li>
+                <a href="{dev_get_page_link page=PAGE_SIGNUP ssl=true}">Create Account</a>
+            </li>
+            <li>
+                <a href="{dev_get_page_link page=PAGE_LOGIN ssl=true}">Log in</a>
+            </li>
+        </ul>
+    </div>
+    <div class="nav">
+        <div class="nav-content">
+            <ul>
+                <li><a href="{dev_get_page_link page=PAGE_DEFAULT ssl=true}" {if ($smarty.get.page == 'index') && empty($smarty.get.module)} class="active" {/if}>Home</a></li>
+
+                <li><a href="#">Business</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Make money</a></li>
+            </ul>
+            <div class="search">
+                <form method="GET" action="">
+                    <span>Search</span>
+                    <input type="text" name="search" class="search-inut"/>
+                    <input type="submit" value="Go" class="btn-search"/>
+                </form>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="banner">
+        <div class="content-banner">
+            <div class="left-banner">
+                <h1>OOKCA$H Payment Gateway</h1>
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
+                </p>
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                </p>
+                <a href="{dev_get_page_link page=PAGE_SIGNUP ssl=true}" class="button-create-acount">Create free acount</a>
+            </div>
+            <div class="right-banner">
+                <form action="{dev_get_page_link page=PAGE_LOGIN ssl=true}" method="post" > 
+                    <div class="heading blue">
+                        Member login
+                    </div>
+                    <div class="login-form-header">
+                        <input type="hidden" value="process" name="action">
+                        <input type="text" name="account_number" id="account_number" autocomplete="off" placeholder="Acount number" class="input-login"/>
+                        <input type="password" name="password" size="20" autocomplete="off" placeholder="Password" class="input-login"/>
+                        <a class="forgot" href="{dev_get_page_link page=PAGE_RESET_PASSWORD ssl=true}">Forgot password?</a>
+                        <input type="submit" class="btn-login" value="Login"/>
+                    </div>
+                </form>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
 </div>
-<div align="center">
-  <center>
-   <table border="0" cellpadding="10" cellspacing="0"  bgcolor="#EEEEEE"  width="830" style="border-collapse: collapse" bordercolor="#111111">
-    <tr><td><font face="Tahoma" size="2">Welcome <strong>{$smarty.session.login_main_account_info.firstname}&nbsp;{$smarty.session.login_main_account_info.lastname}</strong>! You are now logged in to <strong>{$smarty.session.login_account_number} ({$smarty.session.login_main_account_info.account_name})</strong> | <a href="{dev_get_page_link page=PAGE_LOGOUT ssl=true}"><font color="red"><strong>Logout</strong></font></a></font></td></tr>
-</table>	 
-  </center>
-</div>  
-<font face="Tahoma" size="2">{/if}</font>
+{else}
+<div id="header-login">
+    <div class="top-header">
+        <a href="{dev_get_page_link page=PAGE_DEFAULT ssl=true}" class="logo"><img src="images/logo.png"/></a>
+        <ul class="top-nav">
+            <li>
+                <a href="{dev_get_page_link page=PAGE_DEFAULT ssl=true}">Home</a>
+            </li>
+            <li>
+                <a href="{dev_get_page_link page=PAGE_SIGNUP ssl=true}">Create Account</a>
+            </li>
+            <li>
+                <a href="{dev_get_page_link page=PAGE_LOGIN ssl=true}">Log in</a>
+            </li>
+        </ul>
+    </div>
+    <div class="nav">
+        <div class="nav-content">
+            <ul>
+                <li><a href="{dev_get_page_link page=PAGE_DEFAULT ssl=true}" {if ($smarty.get.page == 'index') && empty($smarty.get.module)} class="active" {/if}>Home</a></li>
+
+                <li><a href="#">Business</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Make money</a></li>
+            </ul>
+            <div class="search">
+                <form method="GET" action="">
+                    <span>Search</span>
+                    <input type="text" name="search" class="search-inut"/>
+                    <input type="submit" value="Go" class="btn-search"/>
+                </form>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    
+</div>
+{/if}
+{/if}
+
+

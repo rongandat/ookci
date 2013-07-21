@@ -13,7 +13,7 @@ $welcome_message = $account_info['welcome_message']; //db_fetch_array(db_query("
 $smarty->assign('personal_welcome_message', $welcome_message['welcome_message']);
 
 $current_ip = get_client_ip();
-$mss_flag = true;
+$mss_flag = FALSE;
 if (($account_info['verification_status'] == 1) && ($current_ip != $account_info['verification_ip'])) {
     $mss_flag = true;
 }

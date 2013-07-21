@@ -1,7 +1,8 @@
 <?php
+
 $all_define = get_defined_constants(true);
-foreach($all_define['user'] as $key =>$lang){
-    $smarty->assign($key,$lang);
+foreach ($all_define['user'] as $key => $lang) {
+    $smarty->assign($key, $lang);
 }
 $smarty->assign('action_login', get_href_link(PAGE_LOGIN, 'action=login'));
 if ($_POST['action'] == 'process') {
@@ -9,12 +10,15 @@ if ($_POST['action'] == 'process') {
     $login_password = db_prepare_input($_POST['password']);
     $security_code = db_prepare_input($_POST['security_code']);
 
-    if ($security_code == $secure_image_hash_string) {
-        $validator->validateGeneral('Account Number', $account_number, _ERROR_FIELD_EMPTY);
-        $validator->validateGeneral('Password', $login_password, _ERROR_FIELD_EMPTY);
-    } else {
-        $validator->addError('Turing Number', ERROR_SECURE_CODE_WRONG);
+    if (!empty($error_log_login) && $error_log_login > 3) {
+        if ($security_code != $secure_image_hash_string)
+            $validator->addError('Turing Number', ERROR_SECURE_CODE_WRONG);
     }
+    
+    $smarty->assign('error_log_login',$error_log_login);
+
+    $validator->validateGeneral('Account Number', $account_number, _ERROR_FIELD_EMPTY);
+    $validator->validateGeneral('Password', $login_password, _ERROR_FIELD_EMPTY);
 
     if (count($validator->errors) == 0) {
 
@@ -36,7 +40,7 @@ if ($_POST['action'] == 'process') {
                 tep_session_register('login_userid');
                 tep_session_register('login_account_number');
                 tep_session_register('login_useremail');
-
+               
                 // set cookies for autologin
 
                 if ($_POST['remember_me']) {
@@ -87,6 +91,14 @@ if ($_POST['action'] == 'process') {
         } else {
             postAssign($smarty);
             $smarty->assign('validerrors', $validator->errors);
+        }
+    } else {
+        if (empty($error_log_login)) {
+            $error_log_login = 1;
+            tep_session_register('error_log_login');
+        } else {
+            $error_log_login++;
+            tep_session_register('error_log_login');
         }
     }
 }

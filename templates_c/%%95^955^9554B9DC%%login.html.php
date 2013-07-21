@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-16 12:50:24
+<?php /* Smarty version 2.6.18, created on 2013-07-19 06:14:57
          compiled from home/login.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'home/login.html', 1, false),)), $this); ?>
@@ -18,31 +18,34 @@ $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
         <div class="line"></div>
-
         <div class="st-form-line">
             <span class="st-labeltext"><?php echo $this->_tpl_vars['ENTRY_ACOUNT_NUMBER']; ?>
-</span>
-            <input type="text" value="" id="account_number" class="st-forminput medium" size="20" name="account_number">
+ <a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_ACCOUNT_REMIND','ssl' => true), $this);?>
+">(forgot it?)</a></span>
+            <input type="text" value="" autocomplete="off" id="account_number" class="st-forminput medium" size="20" name="account_number">
             <div class="clear"></div>
         </div>
         <div class="st-form-line">
             <span class="st-labeltext"><?php echo $this->_tpl_vars['ENTRY_ACOUNT_PASSWORD']; ?>
-</span>
-            <input type="password" value="" id="password" class="st-forminput medium" size="20" name="password">
+ <a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_RESET_PASSWORD','ssl' => true), $this);?>
+">(forgot it?)</a></span>
+            <input type="password" value="" autocomplete="off" id="password" class="st-forminput medium" size="20" name="password">
             <div class="clear"></div>
         </div>
+        <?php if ($this->_tpl_vars['error_log_login'] > 3): ?>
         <div class="st-form-line captcha">
             <span class="st-labeltext"><?php echo $this->_tpl_vars['ENTRY_ACOUNT_CODE']; ?>
 </span>
-            <a href="javascript: refreshSecureImage();">
-                <img id="secure_image" border="0" src="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_SECUREIMAGE','ssl' => true), $this);?>
+            <div class="captcha-form">
+                <a href="javascript: refreshSecureImage();">
+                    <img id="secure_image" autocomplete="off" border="0" src="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_SECUREIMAGE','ssl' => true), $this);?>
 ">
-            </a>
-            <input type="text" value="" id="security_code" class="st-forminput medium" name="security_code">
+                </a>
+                <input type="text" value="" id="security_code" class="st-forminput medium" name="security_code">
+            </div>
             <div class="clear"></div>
-
         </div>
-
+        <?php endif; ?>
         <div class="st-form-line captcha">
             <span class="st-labeltext"></span>
             <input class="button" type="submit" value="Login" />

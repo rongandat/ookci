@@ -96,7 +96,7 @@ class Validator {
 		
  // Validate min length of a string
      function validateMinLength($fieldname='',$theinput,$minlength,$description = '',$invalidfieldname=''){
-        if (strlen($theinput)>=$minlength) {//edit by donghp 28/03/2012
+         if (strlen($theinput)>=$minlength) {//edit by donghp 28/03/2012
             return true; 
         }else{
             $this->errors[] = array('field'=>$fieldname,'message'=>$description);

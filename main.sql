@@ -3,7 +3,7 @@
 -- Server version:               5.5.16 - MySQL Community Server (GPL)
 -- Server OS:                    Win32
 -- HeidiSQL version:             7.0.0.4053
--- Date/time:                    2013-07-16 15:13:13
+-- Date/time:                    2013-07-19 14:09:28
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -433,7 +433,7 @@ CREATE TABLE IF NOT EXISTS `emailtemplates` (
   PRIMARY KEY (`emailtemplates_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=ujis;
 
--- Dumping data for table pmcart_main.emailtemplates: 5 rows
+-- Dumping data for table pmcart_main.emailtemplates: 6 rows
 /*!40000 ALTER TABLE `emailtemplates` DISABLE KEYS */;
 INSERT INTO `emailtemplates` (`emailtemplates_id`, `emailtemplate_key`, `is_html_email`, `emailtemplate_status`) VALUES
 	(1, 'SIGNUP_EMAIL', 0, 1),
@@ -457,7 +457,7 @@ CREATE TABLE IF NOT EXISTS `emailtemplates_description` (
   PRIMARY KEY (`emailtemplates_id`,`language_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
--- Dumping data for table pmcart_main.emailtemplates_description: 5 rows
+-- Dumping data for table pmcart_main.emailtemplates_description: 6 rows
 /*!40000 ALTER TABLE `emailtemplates_description` DISABLE KEYS */;
 INSERT INTO `emailtemplates_description` (`emailtemplates_id`, `language_id`, `emailtemplate_title`, `emailtemplate_content`, `emailtemplate_usage`, `emailtemplate_subject`) VALUES
 	(1, 1, 'Signup Email', '<div id="\\&quot;:5u\\&quot;" class="\\&quot;gt">\r\n<p>Dear [firstname],</p>\r\n<p>Your registration is NOT yet complete! You must login to your account to activate it and complete your registration!</p>\r\n<p>============================================</p>\r\n<p><br />Your Global Cash account number: <strong>[account_number]</strong></p>\r\n<p>============================================</p>\r\n<p>Reminder: You must login to your account in order to activate it.</p>\r\n<p>For inqueries and support please use our contact form.</p>\r\n<p>Thank you.</p>\r\n<p>Global Cash Network Support Team</p>\r\n<p><br /><a href="../">http://www.e-globalcash.net</a></p>\r\n<p>============================================</p>\r\n<p><br />Keep your account secure by following these simple rules:<br />Do NOT click on any links!<br />We will always address you by your first name.<br />We will never send you attached files or ask you to update your login information.<br />Contact us if you are unsure about an email you received.</p>\r\n<p><br />============================================</p>\r\n</div>', '', 'Successful Global Cash Registration'),
@@ -628,11 +628,12 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   PRIMARY KEY (`sesskey`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
--- Dumping data for table pmcart_main.sessions: 1 rows
+-- Dumping data for table pmcart_main.sessions: 2 rows
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
 INSERT INTO `sessions` (`sesskey`, `expiry`, `value`) VALUES
-	('8bkt5fbev107rdjk5c7b65log3', 1373962459, 'languages_id|i:1;secure_image_hash_string|s:5:"69808";navigation|O:17:"navigationHistory":2:{s:4:"path";a:1:{i:0;a:4:{s:4:"page";s:0:"";s:4:"mode";s:6:"NONSSL";s:3:"get";N;s:4:"post";N;}}s:8:"snapshot";a:0:{}}login_userid|s:3:"211";login_account_number|s:7:"3156245";login_useremail|s:19:"rongandat@gmail.com";'),
-	('ghtgdu3tg2p1toqinkb7934e63', 1373960769, 'navigation|O:17:"navigationHistory":2:{s:4:"path";a:1:{i:0;a:4:{s:4:"page";s:0:"";s:4:"mode";s:6:"NONSSL";s:3:"get";N;s:4:"post";N;}}s:8:"snapshot";a:0:{}}languages_id|i:1;admin_login_id|s:1:"2";admin_login_username|s:6:"minhmt";');
+	('gdmv4sufn2silafucqecmctqh2', 1374208960, 'languages_id|i:1;navigation|O:17:"navigationHistory":2:{s:4:"path";a:1:{i:0;a:4:{s:4:"page";s:0:"";s:4:"mode";s:6:"NONSSL";s:3:"get";N;s:4:"post";N;}}s:8:"snapshot";a:4:{s:4:"page";s:0:"";s:4:"mode";s:6:"NONSSL";s:3:"get";N;s:4:"post";N;}}error_log_login|i:2;secure_image_hash_string|s:5:"05443";'),
+	('kb3jfq2scjnatcor0or17cv944', 1374218829, 'navigation|O:17:"navigationHistory":2:{s:4:"path";a:1:{i:0;a:4:{s:4:"page";s:0:"";s:4:"mode";s:6:"NONSSL";s:3:"get";N;s:4:"post";N;}}s:8:"snapshot";a:0:{}}languages_id|i:1;login_userid|s:3:"211";login_account_number|s:7:"3156245";login_useremail|s:19:"rongandat@gmail.com";login_main_account_info|a:4:{s:12:"account_name";s:9:"rongandat";s:9:"firstname";s:5:"Khiem";s:8:"lastname";s:4:"Pham";s:18:"activity_clock_log";a:2:{s:4:"mins";i:15;s:3:"sec";i:59;}}'),
+	('75o78s3g8p8evf30dit0m90ud7', 1374211513, 'navigation|O:17:"navigationHistory":2:{s:4:"path";a:1:{i:0;a:4:{s:4:"page";s:0:"";s:4:"mode";s:6:"NONSSL";s:3:"get";N;s:4:"post";N;}}s:8:"snapshot";a:0:{}}languages_id|i:1;');
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 
 
@@ -654,9 +655,9 @@ CREATE TABLE IF NOT EXISTS `transactions` (
   `fee` float NOT NULL,
   `fee_text` varchar(32) NOT NULL,
   PRIMARY KEY (`transaction_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=186 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=189 DEFAULT CHARSET=latin1;
 
--- Dumping data for table pmcart_main.transactions: 168 rows
+-- Dumping data for table pmcart_main.transactions: 171 rows
 /*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
 INSERT INTO `transactions` (`transaction_id`, `batch_number`, `from_userid`, `to_userid`, `amount`, `transaction_time`, `transaction_memo`, `from_account`, `to_account`, `transaction_status`, `transaction_currency`, `amount_text`, `fee`, `fee_text`) VALUES
 	(17, '00448984283', -1, 3, 1000, '2010-02-26 21:33:56', 'my first test transaction from admin', 'GWebcash Service', '8072229', 'completed', 'JPY', 'JPY10001000', 0, ''),
@@ -826,7 +827,10 @@ INSERT INTO `transactions` (`transaction_id`, `batch_number`, `from_userid`, `to
 	(181, '97406921492', 211, 197, 20, '2013-07-02 09:45:30', '', '3156245', '9073297', 'completed', 'USD', '$20.00', 0, ''),
 	(183, '71748849885', 211, 27, 10, '2013-07-02 12:39:46', '', '3156245', '2876676', 'completed', 'USD', '$10.00', 0, ''),
 	(184, '03497484553', 211, 197, 10, '2013-07-03 09:14:59', '', '3156245', '9073297', 'completed', 'USD', '$10.00', 0, ''),
-	(185, '32077865298', 211, 197, 10, '2013-07-03 09:19:30', '', '3156245', '9073297', 'completed', 'USD', '$10.00', 0, '');
+	(185, '32077865298', 211, 197, 10, '2013-07-03 09:19:30', '', '3156245', '9073297', 'completed', 'USD', '$10.00', 0, ''),
+	(186, '96635092416', 211, 27, 20, '2013-07-18 04:47:17', 'test', '3156245', '2876676', 'completed', 'USD', '$20.00', 0, ''),
+	(187, '13538458715', 211, 27, 20, '2013-07-18 04:50:06', 'test', '3156245', '2876676', 'completed', 'USD', '$20.00', 0, ''),
+	(188, '08728422237', 211, 27, 20, '2013-07-18 04:50:28', 'test', '3156245', '2876676', 'completed', 'USD', '$20.00', 0, '');
 /*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
 
 
@@ -1112,7 +1116,7 @@ INSERT INTO `users` (`user_id`, `account_name`, `password`, `email`, `status`, `
 	(208, 'globalfund', '64cb853f1256aebe1a454d8352b29540:87', 'shs10776@daum.net', 0, '2013-06-13 01:09:30', '1936-06-13', '1234 seoul', 'alex', 'shin', 'seoul', 1918, 113, 'happy', 'en', '07075793340', '', '', '', 'Mother\'s Miden Name', 'ha', '21425', '640', '5430784', 'user', 0, '', '', 0, NULL, NULL),
 	(209, 'freeman', '6753583b41841a57e7595d1fde9ee485:ec', 'vmonitor7@gmail.com', 0, '2013-06-21 23:52:08', '1979-02-04', 'korea', 'jae hoon', 'cha', 'korea', 1918, 113, 'hi', 'en', '821055163377', '', '', '', 'City Of Birth', 'korea', '92328', '961', '3578696', 'user', 0, '', '', 0, NULL, NULL),
 	(210, 'Wilmar', '405888b5b220b165ca1e72402d4ed262:d7', 'Wrendon87@gmail.com', 0, '2013-06-27 10:30:11', '1987-02-25', '5702 40th place', 'Wilmar', 'Rendon', 'Hyattsville', 31, 223, 'Welcome one four', 'en', '2027090894', '', '', '', 'Mother\'s Miden Name', 'Ramirez', '20280', '056', '7987933', 'user', 0, '', '', 0, NULL, NULL),
-	(211, 'rongandat', '1c1162f3065aec0e6c12f4170dee4c4e:bc', 'rongandat@gmail.com', 0, '2013-07-02 09:38:59', '1940-02-16', 'Ha Noi', 'Khiem', 'Pham', 'Ha Noi', 499, 19, '54554353', 'en', '01694046627', '0122555222', '', 'CYA', 'Favorite Pet', 'cat', '12345', '340', '3156245', 'user', 0, '', '', 1, '127.0.0.1', '3848187764');
+	(211, 'rongandat', 'f72572b61dd2d51c2ed4351a1ddd7e2c:8d', 'rongandat@gmail.com', 0, '2013-07-02 09:38:59', '1940-02-16', 'Ha Noi', 'Khiem', 'Pham', 'Ha Noi', 499, 19, '54554353', 'en', '01694046627', '0122555222', '', 'CYA', 'Favorite Pet', 'cat', '12345', '340', '3156245', 'user', 0, '', '3857814991', 1, '127.0.0.1', '4055032945');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 
@@ -1137,7 +1141,7 @@ INSERT INTO `user_balance` (`user_id`, `currency_code`, `balance`, `last_updated
 	(1, 'GPB', 180, '2010-02-28 09:24:15'),
 	(3, 'GPB', 20, '2010-02-28 09:24:15'),
 	(1, 'USD', 5, '2012-03-28 02:14:12'),
-	(211, 'USD', 40701.3, '2013-07-03 09:19:30'),
+	(211, 'USD', 40641.3, '2013-07-18 04:50:28'),
 	(7, 'JPY', 5000, '2010-03-11 18:07:09'),
 	(11, 'USD', 300, '2010-09-08 20:55:22'),
 	(34, 'USD', 200, '2010-09-08 20:55:22'),
@@ -1252,7 +1256,7 @@ INSERT INTO `user_balance` (`user_id`, `currency_code`, `balance`, `last_updated
 	(200, 'USD', 1000, '2013-04-23 11:55:43'),
 	(203, 'USD', 81.78, '2013-05-27 08:28:19'),
 	(197, 'USD', 60, '2013-07-03 09:19:30'),
-	(27, 'USD', 10, '2013-07-02 12:39:46');
+	(27, 'USD', 70, '2013-07-18 04:50:28');
 /*!40000 ALTER TABLE `user_balance` ENABLE KEYS */;
 
 

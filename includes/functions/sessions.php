@@ -65,9 +65,8 @@
 
   function tep_session_start() {
     global $HTTP_GET_VARS, $HTTP_POST_VARS, $HTTP_COOKIE_VARS;
-
     $sane_session_id = true;
-
+    ini_set('session.save_path',_INCLUDES_DIR .'/session_store');
     if (isset($HTTP_GET_VARS[tep_session_name()])) {
       if (preg_match('/^[a-zA-Z0-9]+$/', $HTTP_GET_VARS[tep_session_name()]) == false) {
         unset($HTTP_GET_VARS[tep_session_name()]);

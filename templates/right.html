@@ -1,0 +1,93 @@
+{if $smarty.session.login_main_account_info}
+<div class="box blue">
+    <div class="heading-title">
+        Acount Setting
+    </div>
+    <div class="content">
+        <ul>
+            <li>
+                <a href="{dev_get_page_link page=PAGE_ACCOUNT ssl=true}" {if $CURRENT_PAGE=='account' } class="active" {/if}>Account Summary</a>
+            </li>
+            <li>
+                <a href="{dev_get_page_link page=PAGE_ACCOUNT_PERSONAL ssl=true}" {if $CURRENT_PAGE=='personal' } class="active" {/if}>Personal Information</a>
+            </li>
+            <li>
+                <a href="{dev_get_page_link page=PAGE_ACCOUNT_SETTINGS ssl=true}" {if $CURRENT_PAGE=='settings' } class="active" {/if}>Settings</a>
+                <ul>
+                    <li>
+                        <a href="{dev_get_page_link page=PAGE_SETTING_PERSONAL ssl=true}" {if $SETTING_PAGE=='stpersonal' } class="active" {/if}>Personal</a>
+                    </li>
+                    <li>
+                        <a href="{dev_get_page_link page=PAGE_SETTING_VERIFICATION ssl=true}" {if $SETTING_PAGE=='stverification' } class="active" {/if}>Verification</a>
+                    </li>
+                    <li>
+                        <!--<a href="{dev_get_page_link page=PAGE_SETTING_CKI_IPN ssl=true}" {if $SETTING_PAGE=='stcki_ipn' } class="active" {/if}>CKI/IPN</a>-->
+                    </li>
+                    <li>
+                        <a href="{dev_get_page_link page=PAGE_SETTING_API ssl=true}" {if $SETTING_PAGE=='stapi' } class="active" {/if}>API</a>
+                    </li>
+                    <li>
+                        <a href="{dev_get_page_link page=PAGE_SETTING_PASSWORD ssl=true}" {if $SETTING_PAGE=='stchange_password' } class="active" {/if}>Password</a>
+                    </li>
+                    <li>
+                        <a href="{dev_get_page_link page=PAGE_SETTING_SECURE_PIN ssl=true}" {if $SETTING_PAGE=='stsecure_pin' } class="active" {/if}>Secure PIN</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="{dev_get_page_link page=PAGE_ACCOUNT_PUBLIC ssl=true}" {if $CURRENT_PAGE=='public' } class="active" {/if}>Public Information</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+{/if}
+<div class="box red">
+    <div class="heading-title">
+        Merchan tool
+    </div>
+    <div class="content">
+        <ul>
+            <li>
+                <a href="#">Checkout Interface (CI)</a>
+            </li>
+            <li>
+                <a href="{dev_get_page_link page=PAGE_GENERAL_FORM ssl=true}">CI Form/Button Generate</a>
+            </li>
+            <li>
+                <a href="#">Merchant API</a>
+            </li>
+            <li>
+                <a href="#">API Test Key</a>
+            </li>
+            <li>
+                <a href="#">Intergration Resouces</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="box blue">
+    <div class="heading-title">
+        Payment
+    </div>
+    <div class="content">
+        <ul>
+            <li>
+                <a href="{dev_get_page_link page=PAGE_ACCOUNT_TRANSACTIONS ssl=true}" {if $CURRENT_MODULE == 'account' AND $CURRENT_PAGE == 'history' } class="active" {/if}>Transaction History</a>
+            </li>
+            <li>
+                <a href="#">Deposit Money</a>
+            </li>
+            <li>
+                <a href="{dev_get_page_link page=PAGE_ACCOUNT_TRANSFER ssl=true}" {if $CURRENT_MODULE == 'account' AND $CURRENT_PAGE == 'transfer' } class="active" {/if}>Transfer Money</a>
+            </li>
+            <li>
+                <a href="#">Escrow Money</a>
+            </li>
+            <li>
+                <a href="#">Withdraw Money</a>
+            </li>
+        </ul>
+    </div>
+</div>

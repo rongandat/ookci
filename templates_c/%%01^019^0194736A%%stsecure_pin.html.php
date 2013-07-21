@@ -1,67 +1,46 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-16 05:59:12
+<?php /* Smarty version 2.6.18, created on 2013-07-19 04:50:18
          compiled from account/settings/stsecure_pin.html */ ?>
-<?php echo '
-<style type="text/css">
-
-    a.linkAction {
-        background-color: #009900;
-        border: 1px solid #006600;
-        color: #FFFFFF;
-        font-size: 11px;
-        padding: 3px;
-        text-decoration: none;
-    }
-    td.form_field{
-        padding: 5px 0
-    }
-</style>
-'; ?>
 
 <form name="frmPersonal" method="post" action="<?php echo $this->_tpl_vars['HREF_PAGE']; ?>
 "  >
     <input type="hidden" name="action" value="update_account"  />
-    <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="580" id="AutoNumber36" >
-        <tr><td><h3><font size="2" face="Tahoma" color="#800000">Change Secure PIN</font></h3></td>
-        </tr>
-    </table>  
-    <table cellpadding="0" cellspacing="0" border="0" class="form_content" width="580" style="border-collapse: collapse" bordercolor="#111111">
-
+    <h3>Change Secure PIN</h3>
+    
+    <table class="form">
         <tr>
-            <td class="form_label" width="200"><font size="2" face="Tahoma">Secure Question:</font></td>
-            <td class="form_field" ><font face="Tahoma">
+            <td class="form_label" width="200">Secure Question:</td>
+            <td class="form_field" >
                 <?php echo $this->_tpl_vars['account_info']['security_question']; ?>
 
-                </font>
+                
             </td>
         </tr>		  
         <tr>
-            <td class="form_label" width="200"><font size="2" face="Tahoma"><font size="2" face="Tahoma"><font color="#FF0000">*</font>Your Secure Answer:</font></td>
-            <td class="form_field" ><font face="Tahoma">
+            <td class="form_label" width="200"><i>*</i>Your Secure Answer:</td>
+            <td class="form_field" >
                 <input  name="answer" type="text" autocomplete="off" value="" size="40" class="inputtext" />
-                </font>
+                
             </td>
         </tr>		  
         <tr>
-            <td class="form_label" width="200"><font size="2" face="Tahoma"><font color="#FF0000">*</font>Master Key</font></td>
-            <td class="form_field"><font face="Tahoma">
-                <input  type="password" name="master_key" value="" autocomplete="off" class="inputtext" size="5" maxlength="3"  /></font></td>
+            <td class="form_label" width="200"><i>*</i>Master Key</td>
+            <td class="form_field">
+                <input  type="password" name="master_key" value="" autocomplete="off" class="inputtext" size="5" maxlength="3"  /></td>
         </tr>		  
         <tr>
-            <td class="form_label" width="200"><font size="2" face="Tahoma"><font color="#FF0000">*</font>New Secure PIN</font></td>
-            <td class="form_field"><font face="Tahoma">
-                <input  type="text" name="pin" value="" autocomplete="off" class="inputtext" size="10" maxlength="10"  /></font></td>
+            <td class="form_label" width="200"><i>*</i>New Secure PIN</td>
+            <td class="form_field">
+                <input  type="text" name="pin" value="" autocomplete="off" class="inputtext" size="10" maxlength="10"  /></td>
+        </tr>		  
+        <tr>
+            <td class="form_label" width="200"></td>
+            <td class="form_field">
+                <input class="button" value="Updated" type="submit" name="buttonUpdate"></td>
         </tr>		  
     </table>
 
 
 
-    <table border="0" cellSpacing="2" cellPadding="2" width="100%">
-        <tr>
-            <td class="contenButtons" align="middle">
-                <font face="Tahoma">
-                <input class="button" value="Updated" type="submit" name="buttonUpdate"></font></td>
-        </tr>
-    </table>
     <?php echo '
     <script type="text/javascript">
         function checkSecurityQuestion(security_question_id) {
