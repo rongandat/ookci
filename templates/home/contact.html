@@ -1,4 +1,4 @@
-<form method="POST" action="https://e-globalcash.net/contact.php">
+<form method="POST" action="">
     <input name="action" value="process" type="hidden" />
     <div class="simple-form">
         <h1>Contact Us</h1>
@@ -7,6 +7,12 @@
         </p>
         <div class="line"></div>
         {include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }
+        {if !empty($success)}
+        <div class="success">
+            <strong>Thanks for your contact us.</strong><br/>
+            One of our representative person will reach to you by email within 48 hours
+        </div>
+        {/if}
         <div class="st-form-line">
             <span class="st-labeltext"><i>*</i> Your Name:</span>
             <input id="ctl00_cp1_tbName0" class="st-forminput large" name="Name" AUTOCOMPLETE="OFF" size="20">
