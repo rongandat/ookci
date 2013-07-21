@@ -35,7 +35,6 @@ if ($_POST['action'] == 'process') {
     $mobile = (int) $_POST['mobile'];
     $company = (int) $_POST['company'];
     $balance_settings = (array) $_POST['balance_settings'];
-    print_r($balance_settings);
 
     $user_settings_data = array('name' => $name,
         'address' => $address,

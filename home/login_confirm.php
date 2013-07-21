@@ -10,7 +10,7 @@ $smarty->assign('account_info', $account_info);
 
 
 $welcome_message = $account_info['welcome_message']; //db_fetch_array(db_query("SELECT welcome_message FROM " . _TABLE_USERS . " WHERE account_number='" . $login_account_number . "'"));
-$smarty->assign('personal_welcome_message', $welcome_message['welcome_message']);
+$smarty->assign('personal_welcome_message', $welcome_message);
 
 $current_ip = get_client_ip();
 $mss_flag = FALSE;
@@ -19,13 +19,6 @@ if (($account_info['verification_status'] == 1) && ($current_ip != $account_info
 }
 
 $smarty->assign('mss_flag', $mss_flag);
-
-
-
-//if($mss_flag){
-//    
-//}
-
 
 
 if ($_POST['action'] == 'process') {
