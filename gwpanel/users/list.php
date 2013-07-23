@@ -28,7 +28,8 @@ switch ($action) {
         $phone = $_POST['phone'];
         $additional_information = $_POST['additional_information'];
 
-        $user_data_array = array('firstname' => db_prepare_input($firstname),
+        $user_data_array = array(
+            'firstname' => db_prepare_input($firstname),
             'lastname' => db_prepare_input($lastname),
             'email' => db_prepare_input($email),
             'mobile' => $mobile,

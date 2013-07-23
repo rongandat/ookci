@@ -1,2 +1,2 @@
-INSERT INTO `configuration` (`configuration_title`, `configuration_key`, `configuration_value`, `configuration_description`, `configuration_group_id`) VALUES ('Transfer fees', 'TRANSFER_FEES', '5', 'transfer fees (%)', 103);
-INSERT INTO `configuration` (`configuration_title`, `configuration_key`, `configuration_value`, `configuration_description`, `configuration_group_id`) VALUES ('Private transfer fees', 'PREVATE_TRANSFER_FEES', '1', 'Private transfer fees(fix amount)', 1);
+ALTER TABLE `users`
+	CHANGE COLUMN `status` `status` TINYINT(4) NOT NULL DEFAULT '1' AFTER `email`;

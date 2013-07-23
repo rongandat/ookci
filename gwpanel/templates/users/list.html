@@ -70,6 +70,7 @@
                     <td class="tableHeading">Account Number </td>			  
                     <td class="tableHeading">Account Name </td>			
                     <td class="tableHeading">Signup Date </td>			
+                    <td class="tableHeading">Status</td>			
                     <td class="tableHeading" align="center">{$TEXT_ACTION}</td>
                 </tr>
                 {section name=useridx loop=$users}	
@@ -80,12 +81,25 @@
                     <td   class="{$rowstyle}"><strong>{$users[useridx].account_number}</strong></td>			  			  
                     <td   class="{$rowstyle}">{$users[useridx].account_name}</td>			  
                     <td class="{$rowstyle}">{$users[useridx].signup_date|date_format:"%m/%d/%Y %l:%M %p" }</td>			  			  
-                    <td width="17%"  class="{$rowstyle}"  align="center"><a href="javascript:editUser({$users[useridx].user_id});" class="linkButton">Edit</a>&nbsp;<a href="javascript:getUserDetails({$users[useridx].user_id});" class="linkButton">{$ACTION_VIEW}</a>&nbsp;<a href="javascript:getProcessForm({$users[useridx].user_id});"  class="linkButton" >Change</a></td>
-                </tr>
-                {/section}
-            </table>
+                    <td   class="{$rowstyle}" id="status-{$users[useridx].user_id}">
+                        {$users[useridx].status|status_user}
+                    </td>
+                    <td width="17%"  class="{$rowstyle}"  align="center"><a href="javascript:editUser({$users[useridx].user_id});" class="linkButton">Edit</a>&nbsp;<a href="javascript:getUserDetails({$users[useridx].user_id});" class="linkButton">{$ACTION_VIEW}</a>
+                        &nbsp;
+                        <span id="action-user-{$users[useridx].user_id}">
+                            {if $users[useridx].status == 1}
+
+                            <a class="linkButton" id="" href="javascript:deactiveUser({$users[useridx].user_id});" >De-active</a></td>
+                    {else}
+                <a class="linkButton" href="javascript:activeUser({$users[useridx].user_id});" >Active</a>
+                </span>
         </td>
+        {/if}
     </tr>
+    {/section}
+</table>
+</td>
+</tr>
 </table>
 </div>
 {if count($users)>0} 

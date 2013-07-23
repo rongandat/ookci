@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-22 18:46:48
+<?php /* Smarty version 2.6.18, created on 2013-07-23 09:55:26
          compiled from users/list.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_admin_page_link', 'users/list.html', 3, false),array('function', 'html_options', 'users/list.html', 40, false),array('modifier', 'date_format', 'users/list.html', 82, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_admin_page_link', 'users/list.html', 3, false),array('function', 'html_options', 'users/list.html', 40, false),array('modifier', 'date_format', 'users/list.html', 83, false),array('modifier', 'status_user', 'users/list.html', 85, false),)), $this); ?>
 <h2>Users</h2>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => ($this->_tpl_vars['_TEMPLATE_SOURCE_DIR'])."/modules/feedback_messages.tpl", 'smarty_include_vars' => array()));
@@ -96,6 +96,7 @@ unset($_smarty_tpl_vars);
                     <td class="tableHeading">Account Number </td>			  
                     <td class="tableHeading">Account Name </td>			
                     <td class="tableHeading">Signup Date </td>			
+                    <td class="tableHeading">Status</td>			
                     <td class="tableHeading" align="center"><?php echo $this->_tpl_vars['TEXT_ACTION']; ?>
 </td>
                 </tr>
@@ -140,17 +141,35 @@ $this->_sections['useridx']['last']       = ($this->_sections['useridx']['iterat
                     <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 "><?php echo ((is_array($_tmp=$this->_tpl_vars['users'][$this->_sections['useridx']['index']]['signup_date'])) ? $this->_run_mod_handler('date_format', true, $_tmp, "%m/%d/%Y %l:%M %p") : smarty_modifier_date_format($_tmp, "%m/%d/%Y %l:%M %p")); ?>
 </td>			  			  
+                    <td   class="<?php echo $this->_tpl_vars['rowstyle']; ?>
+" id="status-<?php echo $this->_tpl_vars['users'][$this->_sections['useridx']['index']]['user_id']; ?>
+">
+                        <?php echo ((is_array($_tmp=$this->_tpl_vars['users'][$this->_sections['useridx']['index']]['status'])) ? $this->_run_mod_handler('status_user', true, $_tmp) : smarty_modifier_status_user($_tmp)); ?>
+
+                    </td>
                     <td width="17%"  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 "  align="center"><a href="javascript:editUser(<?php echo $this->_tpl_vars['users'][$this->_sections['useridx']['index']]['user_id']; ?>
 );" class="linkButton">Edit</a>&nbsp;<a href="javascript:getUserDetails(<?php echo $this->_tpl_vars['users'][$this->_sections['useridx']['index']]['user_id']; ?>
 );" class="linkButton"><?php echo $this->_tpl_vars['ACTION_VIEW']; ?>
-</a>&nbsp;<a href="javascript:getProcessForm(<?php echo $this->_tpl_vars['users'][$this->_sections['useridx']['index']]['user_id']; ?>
-);"  class="linkButton" >Change</a></td>
-                </tr>
-                <?php endfor; endif; ?>
-            </table>
+</a>
+                        &nbsp;
+                        <span id="action-user-<?php echo $this->_tpl_vars['users'][$this->_sections['useridx']['index']]['user_id']; ?>
+">
+                            <?php if ($this->_tpl_vars['users'][$this->_sections['useridx']['index']]['status'] == 1): ?>
+
+                            <a class="linkButton" id="" href="javascript:deactiveUser(<?php echo $this->_tpl_vars['users'][$this->_sections['useridx']['index']]['user_id']; ?>
+);" >De-active</a></td>
+                    <?php else: ?>
+                <a class="linkButton" href="javascript:activeUser(<?php echo $this->_tpl_vars['users'][$this->_sections['useridx']['index']]['user_id']; ?>
+);" >Active</a>
+                </span>
         </td>
+        <?php endif; ?>
     </tr>
+    <?php endfor; endif; ?>
+</table>
+</td>
+</tr>
 </table>
 </div>
 <?php if (count ( $this->_tpl_vars['users'] ) > 0): ?> 
