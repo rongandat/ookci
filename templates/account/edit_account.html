@@ -8,6 +8,9 @@
             required.</p>
         <div class="line"></div>
         {include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }
+        {if $success}
+        <div class="success">Your acount information hava been updated successfully</div>
+        {/if}
         <h3>Personal Information</h3>
         <table class="form">
             <tr>

@@ -19,8 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $pfw_header = "From: $email\n"
                 . "Reply-To: $email\n";
         $pfw_subject = "Contact Form";
-//    $pfw_email_to = SITE_CONTACT_EMAIL;
-        $pfw_email_to = "rongandat@gmail.com";
+        $pfw_email_to = SITE_CONTACT_EMAIL;
         $pfw_message = "Visitor's IP: $pfw_ip\n"
                 . "Name: $Name\n"
                 . "email: $email\n"

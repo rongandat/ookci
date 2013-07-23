@@ -5,7 +5,9 @@
         <input type="hidden" name="step" id="step" value="complete"  />
         <input  name="master_key" type="hidden" id="master_key"  value="{$master_key}"  size="4"  maxlength="3"/>
         <h1>Transfer Confirmation</h1>
+        
         <div class="line"></div>
+        
         <table cellpadding="0" cellspacing="0" border="0" class="form_content" style="border-collapse: collapse" bordercolor="#111111">
             <tr>
                 <td class="form_label">From Account:</td>
@@ -18,6 +20,7 @@
             <tr>
                 <td class="form_label">Amount:</td>
                 <td class="form_field">{$amount}</td>
+
             </tr>	
             <tr>
                 <td class="form_label">Fee:</td>
@@ -71,10 +74,12 @@
                         {$to_acount}
                 </tr>		  
                 <tr>
-                    <td class="form_label"><i>*</i> Amount</td>
-                    <td  class="form_field">
-                        {$amount}
-                    </td>
+                    <td class="form_label"><i>*</i> Amount ({$currency})</td>
+                    {if empty($checkout_amount)}
+                    <td class="form_field"><input type="text" name="checkout_amount" class="inputtext"/></td>
+                    {else}
+                    <td class="form_field">{$amount}</td>
+                    {/if}
                 </tr>	  
                 <tr>
                     <td class="form_label">Transaction Memo:</td>

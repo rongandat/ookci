@@ -12,6 +12,13 @@ while ($balance = db_fetch_array($balances_query)) {
     $balances_array[$balance['currency_code']] = $balance['balance'];
 }
 
+
+$sql_login_user = "SELECT * FROM " . _TABLE_USERS . " WHERE user_id='" . $login_userid . "'";
+$login_user_query = db_query($sql_login_user);
+$user_login = db_fetch_array($login_user_query);
+$smarty->assign('user_login', $user_login);
+
+
 foreach ($currencies_array as $currency_code => $currency_info) {
     $balance_currencies[$currency_code] = $currency_info['title'] . ' (' . get_currency_value_format($balances_array[$currency_code], $currency_info) . ')';
 }
@@ -30,9 +37,15 @@ if ($_POST['action'] == 'process') {
         $transaction_memo = db_prepare_input($_POST['transaction_memo']);
         $amount = (float) $_POST['amount'];
 
+
+        $sql_to_user_user = "SELECT * FROM " . _TABLE_USERS . " WHERE user_id='" . $to_userid . "'";
+        $user_to_query = db_query($sql_to_user_user);
+        $user_to = db_fetch_array($user_to_query);
+        $smarty->assign('user_to', $user_to);
+
         $fees = $amount * TRANSFER_FEES / 100;
-        
-        
+
+
         $balance_currency = $_POST['balance_currency']; //dv tien
 
         $batch_number = tep_create_random_value(11, 'digits');
@@ -129,9 +142,9 @@ if ($_POST['action'] == 'process') {
         $check_account_query = db_query("SELECT account_number, firstname, lastname, account_name , user_id FROM " . _TABLE_USERS . " WHERE account_number='" . trim($to_account) . "' and account_number <>'" . $login_account_number . "'");
         if (db_num_rows($check_account_query) == 0) {
             $validator->addError('Account Number', 'Invalid account number. Please input correct account number of the user that you want to transfer to.');
-        } elseif(trim($to_account) == $login_account_number){
+        } elseif (trim($to_account) == $login_account_number) {
             $validator->addError('Account Number', 'Invalid account number. Please input correct account number of the user that you want to transfer to.');
-        }else {
+        } else {
             $check_master_key = getMasterKey();
             // check master KEy
             if ($master_key != $check_master_key) {

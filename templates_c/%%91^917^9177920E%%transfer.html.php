@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-22 12:17:46
+<?php /* Smarty version 2.6.18, created on 2013-07-23 05:16:04
          compiled from account/transfer.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'account/transfer.html', 1, false),array('function', 'html_options', 'account/transfer.html', 110, false),)), $this); ?>
@@ -14,7 +14,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
         <div class="st-form-line">
             <span class="st-labeltext">From Account:</span>
             <span class="transfer_info"><?php echo $_SESSION['login_account_number']; ?>
-(<strong><?php echo $this->_tpl_vars['transfer_info']['login_account_name']; ?>
+(<strong><?php echo $this->_tpl_vars['user_login']['account_name']; ?>
 </strong>)</span>
             <div class="clear"></div>
         </div>
@@ -104,7 +104,8 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
             <tr>
                 <td class="form_label">To:</td>
                 <td class="form_field"><?php echo $this->_tpl_vars['transaction_data']['to_account']; ?>
-</td>
+(<strong><?php echo $this->_tpl_vars['user_to']['account_name']; ?>
+</strong>)</td>
             </tr>	 
             <tr>
                 <td class="form_label">Amount:</td>
@@ -118,7 +119,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
             </tr>	       
         </table>  
         <p>
-            Thank you for choosing e-globalcash!
+            Thank you for choosing OOKCASH!
         </p>
         <div class="buttons">
             <input  type="button" name="buttonNew" class="button"  value="New Transfer"  onclick="redirect('<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_ACCOUNT_TRANSFER','ssl' => true), $this);?>
@@ -129,7 +130,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
     <?php else: ?>
     <div class="simple-form">
         <h1>Transfer</h1>
-        <p>Please use this form to transfer funds from your Gwebcash to another member.</p>
+        <p>Please use this form to transfer funds from your OOKCASH to another member.</p>
         <p>Fields marked with asterisk (<i>*</i>) are required.</p>
         <div class="line"></div>
         <?php $_smarty_tpl_vars = $this->_tpl_vars;

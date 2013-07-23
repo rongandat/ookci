@@ -26,15 +26,15 @@ if (empty($requests['payee_account'])) {
         $error_code[] = 'ERR_002';
     }
 }
-
-if (empty($requests['checkout_amount'])) {
-    $error_code[] = 'ERR_003';
-}
-else{
-        if (!is_numeric($requests['checkout_amount']) || $requests['checkout_amount'] < 0) {
-            $error_code[] = 'ERR_009';
-    }
-}
+//
+//if (empty($requests['checkout_amount'])) {
+//    $error_code[] = 'ERR_003';
+//}
+//else{
+//        if (!is_numeric($requests['checkout_amount']) || $requests['checkout_amount'] < 0) {
+//            $error_code[] = 'ERR_009';
+//    }
+//}
 
 if (empty($requests['checkout_currency'])) {
     $error_code[] = 'ERR_006';

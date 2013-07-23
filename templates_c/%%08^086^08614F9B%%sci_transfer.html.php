@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-21 17:27:34
+<?php /* Smarty version 2.6.18, created on 2013-07-23 06:18:24
          compiled from account/sci_transfer.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'account/sci_transfer.html', 3, false),)), $this); ?>
@@ -11,7 +11,9 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
         <input  name="master_key" type="hidden" id="master_key"  value="<?php echo $this->_tpl_vars['master_key']; ?>
 "  size="4"  maxlength="3"/>
         <h1>Transfer Confirmation</h1>
+        
         <div class="line"></div>
+        
         <table cellpadding="0" cellspacing="0" border="0" class="form_content" style="border-collapse: collapse" bordercolor="#111111">
             <tr>
                 <td class="form_label">From Account:</td>
@@ -29,6 +31,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
                 <td class="form_label">Amount:</td>
                 <td class="form_field"><?php echo $this->_tpl_vars['amount']; ?>
 </td>
+
             </tr>	
             <tr>
                 <td class="form_label">Fee:</td>
@@ -98,10 +101,12 @@ unset($_smarty_tpl_vars);
                 </tr>		  
                 <tr>
                     <td class="form_label"><i>*</i> Amount</td>
-                    <td  class="form_field">
-                        <?php echo $this->_tpl_vars['amount']; ?>
-
-                    </td>
+                    <?php if (empty ( $this->_tpl_vars['checkout_amount'] )): ?>
+                    <td class="form_field"><input type="text" name="checkout_amount" class="inputtext"/></td>
+                    <?php else: ?>
+                    <td class="form_field"><?php echo $this->_tpl_vars['amount']; ?>
+</td>
+                    <?php endif; ?>
                 </tr>	  
                 <tr>
                     <td class="form_label">Transaction Memo:</td>
@@ -110,7 +115,7 @@ unset($_smarty_tpl_vars);
                 </tr>
                 <tr>
                     <td class="form_label"><i>*</i> Master Key:</td>
-                    <td  class="form_field"><input  name="master_key" type="text" id="master_key"  value="<?php echo $this->_tpl_vars['master_key']; ?>
+                    <td  class="form_field"><input  name="master_key" type="password" id="master_key"  value="<?php echo $this->_tpl_vars['master_key']; ?>
 "  size="4"  maxlength="3"/> (3 digits)</td>
                 </tr>		  	  	  
                 <tr>

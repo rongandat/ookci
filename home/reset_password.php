@@ -26,7 +26,6 @@ if ($_POST['action'] == 'process') {
 
     if (count($validator->errors) == 0) {   // found email => send account number to the email
         $account_info = db_fetch_array(db_query($sql_check_info));
-        
         $session_account_number = $account_number;
         $session_email = $email;
         tep_session_register('session_account_number');

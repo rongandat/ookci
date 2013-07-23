@@ -1,4 +1,5 @@
 <?php
+
 userLoginCheck();
 
 $action = $_POST['action'];
@@ -72,7 +73,13 @@ if ($action == 'process') {
             'postcode' => $postcode,
             'additional_information' => $additional_information
         );
+        
+        $login_main_account_info['account_name'] = $account_name;
+        $login_main_account_info['firstname'] = $firstname;
+        $login_main_account_info['lastname'] = $lastname;
+        
         db_perform(_TABLE_USERS, $signup_data_array, 'update', " user_id='" . $login_userid . "' ");
+        $smarty->assign('success', true);
         $smarty->assign('step', 'updated');
         postAssign($smarty);
     } else {

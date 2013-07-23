@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-18 19:45:24
+<?php /* Smarty version 2.6.18, created on 2013-07-23 05:48:48
          compiled from account/edit_account.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'account/edit_account.html', 1, false),array('function', 'html_options', 'account/edit_account.html', 70, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'account/edit_account.html', 1, false),array('function', 'html_options', 'account/edit_account.html', 73, false),)), $this); ?>
 <form name="frmPersonal" method="post" action="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_ACCOUNT_PERSONAL','ssl' => true), $this);?>
 "  >
     <input class="inputtext" type="hidden" name="action" value="update_account"  />
@@ -17,6 +17,9 @@ $this->_smarty_include(array('smarty_include_tpl_file' => ($this->_tpl_vars['_TE
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
+        <?php if ($this->_tpl_vars['success']): ?>
+        <div class="success">Your acount information hava been updated successfully</div>
+        <?php endif; ?>
         <h3>Personal Information</h3>
         <table class="form">
             <tr>

@@ -3,6 +3,7 @@
 userLoginCheck();
 if (!tep_session_is_registered('payee_account') && tep_not_null($payee_account))
     tep_redirect(get_href_link(PAGE_TRANSFER));
+
 //bof: get currencies
 $currency = get_currency($checkout_currency);
 $balance = get_currency_value_format($checkout_amount, $currency);
@@ -11,6 +12,8 @@ $fees = $checkout_amount * TRANSFER_FEES / 100;
 $fees_text = get_currency_value_format($fees, $currency);
 
 $smarty->assign('amount', $balance);
+$smarty->assign('currency', $currency['title']);
+$smarty->assign('checkout_amount', $checkout_amount);
 $smarty->assign('fees_text', $fees_text);
 $smarty->assign('success_url', $success_url);
 $smarty->assign('fail_url', $fail_url);
@@ -43,9 +46,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $smarty->assign('user_transfer', $user_transfer);
 
 
-    if (db_num_rows($user_check) > 0) {
-        $step = db_prepare_input($_POST['step']);
+    if ((int) $checkout_amount <= 0) {
+        $amount = $_POST['checkout_amount'];
+        if ($validator->validateNumber('Amount', $amount, _ERROR_FIELD_NOT_NUMBER)) {
+            $checkout_amount = $amount;
+            $currency = get_currency($checkout_currency);
+            $balance = get_currency_value_format($checkout_amount, $currency);
 
+            $fees = $checkout_amount * TRANSFER_FEES / 100;
+            $fees_text = get_currency_value_format($fees, $currency);
+            $smarty->assign('amount', $balance);
+            $smarty->assign('checkout_amount', $checkout_amount);
+            $smarty->assign('fees_text', $fees_text);
+        }
+    }
+
+    if (db_num_rows($user_check) == 0)
+        $validator->addError('Master Key', 'Invalid master key entered. Master Key is a three digit number you have selected at the time of registration. Please try again.');
+    if (count($validator->errors) == 0) {
+        $step = db_prepare_input($_POST['step']);
         if ($step == 'confirm') {
             $smarty->assign('master_key', $master_key);
             //get banlance
@@ -182,8 +201,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $smarty->assign('master_key', $master_key);
         }
     } else {
+        $smarty->assign('validerrors', $validator->errors);
         postAssign($smarty);
-        $validator->addError('Master Key', 'Invalid master key entered. Master Key is a three digit number you have selected at the time of registration. Please try again.');
     }
 }
 $smarty->assign('validerrors', $validator->errors);
