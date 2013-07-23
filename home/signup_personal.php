@@ -1,7 +1,7 @@
 <?php
 
 if (!tep_session_is_registered('signup_info'))
-    tep_redirect(get_href_link(PAGE_SIGNUP));
+    tep_redirect(get_href_link(PAGE_SIGNUP,'','SSL'));
 $signup_finished = false;
 
 if ($_POST['action'] == 'process') {

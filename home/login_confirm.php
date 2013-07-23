@@ -1,7 +1,7 @@
 <?php
 
 if (!tep_session_is_registered('login_account_number') && tep_not_null($login_account_number))
-    tep_redirect(get_href_link(PAGE_LOGIN));
+    tep_redirect(get_href_link(PAGE_LOGIN,'','SSL'));
 // get persional Welcome Message
 
 
@@ -27,7 +27,7 @@ if ($_POST['action'] == 'process') {
     }
     if (count($validator->errors) == 0)
         if ($_POST['confirm_message'] == 1) { //make sure correct personal welcome message 
-            tep_redirect(get_href_link(PAGE_LOGIN_BALANCE));
+            tep_redirect(get_href_link(PAGE_LOGIN_BALANCE,'','SSL'));
         }
 }
 

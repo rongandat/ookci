@@ -49,7 +49,7 @@ if ($_POST['action'] == 'process') {
             'security_answer' => $security_answer
         );
 
-        tep_redirect(get_href_link(PAGE_SIGNUP_PERSONAL));
+        tep_redirect(get_href_link(PAGE_SIGNUP_PERSONAL,'','SSL'));
     } else {
         postAssign($smarty);
     }

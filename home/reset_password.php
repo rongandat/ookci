@@ -110,7 +110,7 @@ if ($_POST['action'] == 'process3') { //update new pasword
     $resetcode_sent = true;
     
     if(empty($session_email) || empty($session_account_number)){
-        tep_redirect(get_href_link(PAGE_RESET_PASSWORD));
+        tep_redirect(get_href_link(PAGE_RESET_PASSWORD,'','SSL'));
     }
 
     $sql = "SELECT user_id, firstname, lastname,security_question,account_number FROM " . _TABLE_USERS . " WHERE (email='" . $session_email . "') and (account_number='" . $session_account_number . "')";

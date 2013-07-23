@@ -1,7 +1,7 @@
 <?php
 
 if (!tep_session_is_registered('login_account_number') && tep_not_null($login_account_number))
-    tep_redirect(get_href_link(PAGE_LOGIN));
+    tep_redirect(get_href_link(PAGE_LOGIN,'','SSL'));
 if (tep_session_is_registered('login_main_account_info'))
     tep_session_unregister('login_main_account_info');
 
@@ -17,7 +17,7 @@ if ($_POST['action'] == 'process') {
         );
         tep_session_register('login_main_account_info');
 
-        tep_redirect(get_href_link(PAGE_ACCOUNT));
+        tep_redirect(get_href_link(PAGE_ACCOUNT,'','SSL'));
     } else { // invalid login pin
         $validator->addError('Login PIN', 'Invalid Login Pin.');
     }

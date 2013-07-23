@@ -78,9 +78,9 @@ if ($_POST['action'] == 'process') {
 
                     $origin_href = get_href_link($navigation->snapshot['page'], tep_array_to_string($navigation->snapshot['get'], array(tep_session_name())), $navigation->snapshot['mode']);
                     $navigation->clear_snapshot();
-                    tep_redirect($origin_href);
+                    tep_redirect($origin_href,'','SSL');
                 } else {
-                    tep_redirect(get_href_link(PAGE_LOGIN_CONFIRM));
+                    tep_redirect(get_href_link(PAGE_LOGIN_CONFIRM,'','SSL'));
                 }
             }
         } else {
