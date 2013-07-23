@@ -52,7 +52,7 @@ exit;
 $pfw_header = "From: $email\n"
   . "Reply-To: $email\n";
 $pfw_subject = "Partner forms";
-$pfw_email_to = "admin@e-globalcash.net";
+$pfw_email_to = "admin@ookcash.com";
 $pfw_message = "Visitor's IP: $pfw_ip\n"
 . "Website: $Website\n"
 . "Description: $Description\n"
@@ -63,8 +63,8 @@ $pfw_message = "Visitor's IP: $pfw_ip\n"
 @mail($pfw_email_to, $pfw_subject ,$pfw_message ,$pfw_header ) ;
 
 //Sending auto respond Email to visitor
-$pfw_header = "From: admin@e-globalcash.net\n"
-  . "Reply-To: admin@e-globalcash.net\n";
+$pfw_header = "From: admin@ookcash.com\n"
+  . "Reply-To: admin@ookcash.com\n";
 $pfw_subject = "Thanks for your join our members";
 $pfw_email_to = "$email";
 $pfw_message = "Dear $Name\n"
@@ -74,15 +74,15 @@ $pfw_message = "Dear $Name\n"
 . "We review your business description and will get back to you after on the listing in our pages\n"
 . "\n"
 . "Our Exchangers\n"
-. "http://e-globalcash.net/index.php?page=exchangers\n"
+. "http://ookcash.com/index.php?page=exchangers\n"
 . "\n"
 . "Our Merchants\n"
-. "http://e-globalcash.net/index.php?page=merchants\n"
+. "http://ookcash.com/index.php?page=merchants\n"
 . "\n"
-. "Please make sure you have a reciprocal link on your website's index page BEFORE adding your listing. The e-Global Cash banners can be found here\n"
-. "http://www.e-globalcash.net/partners.htm\n"
+. "Please make sure you have a reciprocal link on your website's index page BEFORE adding your listing. The OOKCASH banners can be found here\n"
+. "http://www.ookcash.com/partners.htm\n"
 . "\n"
-. "e-Global Cash Support Team";
+. "OOKCASH Support Team";
 @mail($pfw_email_to, $pfw_subject ,$pfw_message ,$pfw_header ) ;
 
 header("Location: partners_completad.htm");

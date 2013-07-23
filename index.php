@@ -29,6 +29,9 @@ if (is_file(_CURRENT_MODULE . '/' . _CURRENT_PAGE . _PAGE_EXTENDSION)) {
         <script type="text/javascript" src="../includes/js/jquery.min.js"></script>
 
         <link rel="stylesheet" type="text/css" href="style.css" />
+        <!--[if IE]>
+        <link rel="stylesheet" type="text/css" href="ie.css" />
+        <![endif]-->
         <?php
 //module header settings load
         include('includes/module_header_load.php');

@@ -11,7 +11,7 @@
             <li>
                 <a href="{dev_get_page_link page=PAGE_ACCOUNT_PERSONAL ssl=true}" {if $CURRENT_PAGE=='personal' } class="active" {/if}>Personal Information</a>
             </li>
-            <li>
+            <li {if $CURRENT_PAGE=='settings' } class="active" {/if}>
                 <a href="{dev_get_page_link page=PAGE_ACCOUNT_SETTINGS ssl=true}" {if $CURRENT_PAGE=='settings' } class="active" {/if}>Settings</a>
                 <ul>
                     <li>
@@ -20,9 +20,9 @@
                     <li>
                         <a href="{dev_get_page_link page=PAGE_SETTING_VERIFICATION ssl=true}" {if $SETTING_PAGE=='stverification' } class="active" {/if}>Verification</a>
                     </li>
-                    <li>
-                        <!--<a href="{dev_get_page_link page=PAGE_SETTING_CKI_IPN ssl=true}" {if $SETTING_PAGE=='stcki_ipn' } class="active" {/if}>CKI/IPN</a>-->
-                    </li>
+                   <!-- <li>
+                        <a href="{dev_get_page_link page=PAGE_SETTING_CKI_IPN ssl=true}" {if $SETTING_PAGE=='stcki_ipn' } class="active" {/if}>CKI/IPN</a>
+                    </li>-->
                     <li>
                         <a href="{dev_get_page_link page=PAGE_SETTING_API ssl=true}" {if $SETTING_PAGE=='stapi' } class="active" {/if}>API</a>
                     </li>
@@ -44,7 +44,7 @@
 {/if}
 <div class="box red">
     <div class="heading-title">
-        Merchan tool
+        Merchant tool
     </div>
     <div class="content">
         <ul>

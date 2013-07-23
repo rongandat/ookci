@@ -7,7 +7,7 @@
                 Welcome <strong>{$smarty.session.login_main_account_info.firstname}&nbsp;{$smarty.session.login_main_account_info.lastname}</strong>
             </li>
             <li>
-                <strong>{$smarty.session.login_account_number} ({$smarty.session.login_main_account_info.account_name})</strong>
+                <a href="{dev_get_page_link page=PAGE_ACCOUNT ssl=true}"> <strong>{$smarty.session.login_account_number} </strong></a>({$smarty.session.login_main_account_info.account_name})
             </li>
             <li><a href="{dev_get_page_link page=PAGE_LOGOUT ssl=true}">Logout</a> </li>
         </ul>
@@ -78,7 +78,7 @@
 </div>
 
 {else}
-{if ($smarty.get.page == 'index') && empty($smarty.get.module)}
+{if empty($smarty.get.page) || (($smarty.get.page == 'index') && empty($smarty.get.module))}
 <div id="header">
     <div class="top-header">
         <a href="{dev_get_page_link page=PAGE_DEFAULT ssl=true}" class="logo"><img src="images/logo.png"/></a>

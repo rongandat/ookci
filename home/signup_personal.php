@@ -46,7 +46,7 @@ if ($_POST['action'] == 'process') {
         $password = tep_create_random_value(7);
         $login_pin = tep_create_random_value(5, 'digits');
         $master_key = tep_create_random_value(3, 'digits');
-        $account_number = generate_account_number();
+        $account_number = 'U' . generate_account_number();
 
         // create user data
         $signup_data_array = array('firstname' => $signup_info['firstname'],

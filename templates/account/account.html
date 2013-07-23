@@ -1,37 +1,37 @@
 <div class="simple-form">
     <h1>Account</h1>
     <div class="line"></div>
-    <table border="0" cellSpacing="0" cellPadding="0" width="100%" style="border-collapse: collapse" bordercolor="#111111">
+    <table class="form">
         <tr>
-            <td height="25" valign="top"><span class="contentTitle3">
-                    <font size="2" face="Tahoma">Summary</font></span></td>
+            <td  valign="top"><span class="contentTitle3">
+                    Summary</span></td>
         </tr>
         <tr>
             <td>
-                <table border="0" cellSpacing="0" cellPadding="0" width="434">
+                <table class="form">
                     <tr>
-                        <td class="form_label" height="25" valign="top" width="117">
-                            <font size="2" face="Tahoma">Account Number</font></td>
-                        <td class="form_field" height="25" valign="top" width="317"><strong>
-                                <font size="2" face="Tahoma">{$smarty.session.login_account_number}</font></strong></td>
+                        <td class="form_label">
+                            Account Number</td>
+                        <td class="form_field" ><strong>
+                                {$smarty.session.login_account_number}</strong></td>
                     </tr>
                     <tr>
-                        <td class="form_label" height="25" valign="top" width="117">
-                            <font size="2" face="Tahoma">Account Name</font></td>
-                        <td class="form_field" height="25" valign="top" width="317"><strong>
-                                <font size="2" face="Tahoma">{$account_info.account_name}</font></strong></td>
+                        <td class="form_label">
+                            Account Name</td>
+                        <td class="form_field" ><strong>
+                                {$account_info.account_name}</strong></td>
                     </tr>
                     <tr>
-                        <td class="form_label" height="25" valign="top" width="117">
-                            <font size="2" face="Tahoma">Account Type</font></td>
-                        <td class="form_field" height="25" valign="top" width="317"><strong>
-                                <font size="2" face="Tahoma">{if $account_info.account_type eq 'user'} User {/if}</font></strong></td>
+                        <td class="form_label">
+                            Account Type</td>
+                        <td class="form_field" ><strong>
+                                {if $account_info.account_type eq 'user'} User {/if}</strong></td>
                     </tr>
                     <tr>
-                        <td class="form_label" height="25" valign="top" width="117">
-                            <font size="2" face="Tahoma">Referral Count </font></td>
-                        <td class="form_field" height="25" valign="top" width="317"><strong>
-                                <font size="2" face="Tahoma">{$account_info.referral_count}</font></strong></td>
+                        <td class="form_label">
+                            Referral Count </td>
+                        <td class="form_field" ><strong>
+                                {$account_info.referral_count}</strong></td>
                     </tr>
                 </table>
             </td>
@@ -41,30 +41,30 @@
     <table class="list">
         <thead>
             <tr>
-                <td height="25">&nbsp;</td>
+                <td >&nbsp;</td>
                 {section name=balanceidx loop=$balances}	
-                <td><font size="2" face="Tahoma"><strong>{$balances[balanceidx].balance_code}</strong></font></td>
+                <td><strong>{$balances[balanceidx].balance_code}</strong></td>
                 {/section}
             </tr>
         </thead>
 
         <tbody>
             <tr>
-                <td height="25"><font size="2" face="Tahoma">Account</font></td>
+                <td >Account</td>
                 {section name=balanceidx loop=$balances}	
-                <td><font size="2" face="Tahoma">{$balances[balanceidx].balance_text}</font></td>
+                <td>{$balances[balanceidx].balance_text}</td>
                 {/section}
             </tr>
             <tr>
-                <td height="25"><font size="2" face="Tahoma">Wallet</font></td>
+                <td >Wallet</td>
                 {section name=walletidx loop=$wallets}	
-                <td><font size="2" face="Tahoma">{$wallets[walletidx].balance_text}</font></td>
+                <td>{$wallets[walletidx].balance_text}</td>
                 {/section}	
             </tr>
             <tr>
-                <td height="25"><font size="2" face="Tahoma"><strong>Totals</strong></font></td>
+                <td ><strong>Totals</strong></td>
                 {section name=totalidx loop=$totals}	
-                <td><font size="2" face="Tahoma"><strong>{$totals[totalidx].balance_text}</strong></font></td>
+                <td><strong>{$totals[totalidx].balance_text}</strong></td>
                 {/section}	
             </tr>
         </tbody>

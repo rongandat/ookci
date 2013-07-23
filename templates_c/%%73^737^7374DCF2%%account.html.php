@@ -1,44 +1,44 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-18 19:14:17
+<?php /* Smarty version 2.6.18, created on 2013-07-22 12:16:33
          compiled from account/account.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'account/account.html', 74, false),)), $this); ?>
 <div class="simple-form">
     <h1>Account</h1>
     <div class="line"></div>
-    <table border="0" cellSpacing="0" cellPadding="0" width="100%" style="border-collapse: collapse" bordercolor="#111111">
+    <table class="form">
         <tr>
-            <td height="25" valign="top"><span class="contentTitle3">
-                    <font size="2" face="Tahoma">Summary</font></span></td>
+            <td  valign="top"><span class="contentTitle3">
+                    Summary</span></td>
         </tr>
         <tr>
             <td>
-                <table border="0" cellSpacing="0" cellPadding="0" width="434">
+                <table class="form">
                     <tr>
-                        <td class="form_label" height="25" valign="top" width="117">
-                            <font size="2" face="Tahoma">Account Number</font></td>
-                        <td class="form_field" height="25" valign="top" width="317"><strong>
-                                <font size="2" face="Tahoma"><?php echo $_SESSION['login_account_number']; ?>
-</font></strong></td>
+                        <td class="form_label">
+                            Account Number</td>
+                        <td class="form_field" ><strong>
+                                <?php echo $_SESSION['login_account_number']; ?>
+</strong></td>
                     </tr>
                     <tr>
-                        <td class="form_label" height="25" valign="top" width="117">
-                            <font size="2" face="Tahoma">Account Name</font></td>
-                        <td class="form_field" height="25" valign="top" width="317"><strong>
-                                <font size="2" face="Tahoma"><?php echo $this->_tpl_vars['account_info']['account_name']; ?>
-</font></strong></td>
+                        <td class="form_label">
+                            Account Name</td>
+                        <td class="form_field" ><strong>
+                                <?php echo $this->_tpl_vars['account_info']['account_name']; ?>
+</strong></td>
                     </tr>
                     <tr>
-                        <td class="form_label" height="25" valign="top" width="117">
-                            <font size="2" face="Tahoma">Account Type</font></td>
-                        <td class="form_field" height="25" valign="top" width="317"><strong>
-                                <font size="2" face="Tahoma"><?php if ($this->_tpl_vars['account_info']['account_type'] == 'user'): ?> User <?php endif; ?></font></strong></td>
+                        <td class="form_label">
+                            Account Type</td>
+                        <td class="form_field" ><strong>
+                                <?php if ($this->_tpl_vars['account_info']['account_type'] == 'user'): ?> User <?php endif; ?></strong></td>
                     </tr>
                     <tr>
-                        <td class="form_label" height="25" valign="top" width="117">
-                            <font size="2" face="Tahoma">Referral Count </font></td>
-                        <td class="form_field" height="25" valign="top" width="317"><strong>
-                                <font size="2" face="Tahoma"><?php echo $this->_tpl_vars['account_info']['referral_count']; ?>
-</font></strong></td>
+                        <td class="form_label">
+                            Referral Count </td>
+                        <td class="form_field" ><strong>
+                                <?php echo $this->_tpl_vars['account_info']['referral_count']; ?>
+</strong></td>
                     </tr>
                 </table>
             </td>
@@ -48,7 +48,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
     <table class="list">
         <thead>
             <tr>
-                <td height="25">&nbsp;</td>
+                <td >&nbsp;</td>
                 <?php unset($this->_sections['balanceidx']);
 $this->_sections['balanceidx']['name'] = 'balanceidx';
 $this->_sections['balanceidx']['loop'] = is_array($_loop=$this->_tpl_vars['balances']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
@@ -73,15 +73,15 @@ $this->_sections['balanceidx']['index_next'] = $this->_sections['balanceidx']['i
 $this->_sections['balanceidx']['first']      = ($this->_sections['balanceidx']['iteration'] == 1);
 $this->_sections['balanceidx']['last']       = ($this->_sections['balanceidx']['iteration'] == $this->_sections['balanceidx']['total']);
 ?>	
-                <td><font size="2" face="Tahoma"><strong><?php echo $this->_tpl_vars['balances'][$this->_sections['balanceidx']['index']]['balance_code']; ?>
-</strong></font></td>
+                <td><strong><?php echo $this->_tpl_vars['balances'][$this->_sections['balanceidx']['index']]['balance_code']; ?>
+</strong></td>
                 <?php endfor; endif; ?>
             </tr>
         </thead>
 
         <tbody>
             <tr>
-                <td height="25"><font size="2" face="Tahoma">Account</font></td>
+                <td >Account</td>
                 <?php unset($this->_sections['balanceidx']);
 $this->_sections['balanceidx']['name'] = 'balanceidx';
 $this->_sections['balanceidx']['loop'] = is_array($_loop=$this->_tpl_vars['balances']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
@@ -106,12 +106,12 @@ $this->_sections['balanceidx']['index_next'] = $this->_sections['balanceidx']['i
 $this->_sections['balanceidx']['first']      = ($this->_sections['balanceidx']['iteration'] == 1);
 $this->_sections['balanceidx']['last']       = ($this->_sections['balanceidx']['iteration'] == $this->_sections['balanceidx']['total']);
 ?>	
-                <td><font size="2" face="Tahoma"><?php echo $this->_tpl_vars['balances'][$this->_sections['balanceidx']['index']]['balance_text']; ?>
-</font></td>
+                <td><?php echo $this->_tpl_vars['balances'][$this->_sections['balanceidx']['index']]['balance_text']; ?>
+</td>
                 <?php endfor; endif; ?>
             </tr>
             <tr>
-                <td height="25"><font size="2" face="Tahoma">Wallet</font></td>
+                <td >Wallet</td>
                 <?php unset($this->_sections['walletidx']);
 $this->_sections['walletidx']['name'] = 'walletidx';
 $this->_sections['walletidx']['loop'] = is_array($_loop=$this->_tpl_vars['wallets']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
@@ -136,12 +136,12 @@ $this->_sections['walletidx']['index_next'] = $this->_sections['walletidx']['ind
 $this->_sections['walletidx']['first']      = ($this->_sections['walletidx']['iteration'] == 1);
 $this->_sections['walletidx']['last']       = ($this->_sections['walletidx']['iteration'] == $this->_sections['walletidx']['total']);
 ?>	
-                <td><font size="2" face="Tahoma"><?php echo $this->_tpl_vars['wallets'][$this->_sections['walletidx']['index']]['balance_text']; ?>
-</font></td>
+                <td><?php echo $this->_tpl_vars['wallets'][$this->_sections['walletidx']['index']]['balance_text']; ?>
+</td>
                 <?php endfor; endif; ?>	
             </tr>
             <tr>
-                <td height="25"><font size="2" face="Tahoma"><strong>Totals</strong></font></td>
+                <td ><strong>Totals</strong></td>
                 <?php unset($this->_sections['totalidx']);
 $this->_sections['totalidx']['name'] = 'totalidx';
 $this->_sections['totalidx']['loop'] = is_array($_loop=$this->_tpl_vars['totals']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
@@ -166,8 +166,8 @@ $this->_sections['totalidx']['index_next'] = $this->_sections['totalidx']['index
 $this->_sections['totalidx']['first']      = ($this->_sections['totalidx']['iteration'] == 1);
 $this->_sections['totalidx']['last']       = ($this->_sections['totalidx']['iteration'] == $this->_sections['totalidx']['total']);
 ?>	
-                <td><font size="2" face="Tahoma"><strong><?php echo $this->_tpl_vars['totals'][$this->_sections['totalidx']['index']]['balance_text']; ?>
-</strong></font></td>
+                <td><strong><?php echo $this->_tpl_vars['totals'][$this->_sections['totalidx']['index']]['balance_text']; ?>
+</strong></td>
                 <?php endfor; endif; ?>	
             </tr>
         </tbody>

@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $zend_code_link = _HTTP_SITE_ROOT . '/index.php?' . PAGE_PROCESS . $string_input;
 
-        $zend_code_html = '<a href="' . $zend_code_link . '">Pay With E-globalcash Reserve!</a>';
+        $zend_code_html = '<a href="' . $zend_code_link . '">Pay With OOKCASH Reserve!</a>';
 
         $zend_code_buton = '<a href="' . $zend_code_link . '"><img src="' . _HTTP_SITE_ROOT . '/images/scilogo.png"/></a>';
         $smarty->assign('posts_value', $posts_value);

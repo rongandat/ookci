@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-21 11:06:07
+<?php /* Smarty version 2.6.18, created on 2013-07-22 04:26:23
          compiled from header.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'header.html', 4, false),)), $this); ?>
@@ -14,9 +14,10 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
 </strong>
             </li>
             <li>
-                <strong><?php echo $_SESSION['login_account_number']; ?>
- (<?php echo $_SESSION['login_main_account_info']['account_name']; ?>
-)</strong>
+                <a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_ACCOUNT','ssl' => true), $this);?>
+"> <strong><?php echo $_SESSION['login_account_number']; ?>
+ </strong></a>(<?php echo $_SESSION['login_main_account_info']['account_name']; ?>
+)
             </li>
             <li><a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_LOGOUT','ssl' => true), $this);?>
 ">Logout</a> </li>
@@ -97,7 +98,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
 </div>
 
 <?php else: ?>
-<?php if (( $_GET['page'] == 'index' ) && empty ( $_GET['module'] )): ?>
+<?php if (empty ( $_GET['page'] ) || ( ( $_GET['page'] == 'index' ) && empty ( $_GET['module'] ) )): ?>
 <div id="header">
     <div class="top-header">
         <a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_DEFAULT','ssl' => true), $this);?>

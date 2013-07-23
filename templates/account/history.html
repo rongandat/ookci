@@ -48,50 +48,46 @@
             </tr>
         </table>
     </form>
+
+
+    <div  id="ajaxDetailsContent" style="display:none"  ></div>
+    <table width="100%" class="list">
+        <thead>
+            <tr>
+                <td height="28" class="tableHeading">Date</td>
+                <td class="tableHeading">Batch#</td>
+                <td class="tableHeading">From Account</td>			  			  
+                <td class="tableHeading">To Account</td>			  
+                <td class="tableHeading">Amount</td>			
+                <td class="tableHeading">Fee</td>			
+                <td class="tableHeading" align="center">
+                    Currency</td>			  			  			    			    			  			    
+                <td class="tableHeading" align="center">
+                    {$TEXT_ACTION}</td>
+            </tr>
+        </thead>
+        <tbody>
+            {section name=transactionidx loop=$transactions}	
+            {if ($smarty.section.transactionidx.index  % 2) == 0 } {assign var="rowstyle"  value="tableNormalRow"} {else}  {assign var="rowstyle" value="tableAltRow"}  {/if}
+
+            <tr>
+                <td width="22%" height="25"  class="{$rowstyle}">
+                    {$transactions[transactionidx].transaction_time|date_format:"%m/%d/%Y %l:%M %p" }</td>
+                <td class="{$rowstyle}">{$transactions[transactionidx].batch_number}</td>
+                <td class="{$rowstyle}">{$transactions[transactionidx].from_account}</td>			  			  			  
+                <td class="{$rowstyle}"><strong>{$transactions[transactionidx].to_account}</strong></td>			  			  
+                <td class="{$rowstyle} currentcy" >{if $transactions[transactionidx].from_userid == $smarty.session.login_userid}<span class="red">-{$transactions[transactionidx].amount_text}</span>{else} <span class="green">+{$transactions[transactionidx].amount_text}</span>{/if}</td>			  
+                <td class="{$rowstyle} currentcy" >{$transactions[transactionidx].fee_text}&nbsp;</td>			  			  
+                <td class="{$rowstyle}" align="center">
+                    {$transactions[transactionidx].transaction_currency}</td>			  			  			  
+                <td width="17%"  class="{$rowstyle}"  align="center"><a href="javascript:getTransactionDetails({$transactions[transactionidx].transaction_id});" class="linkButton">
+                        Details</a></td>
+            </tr>
+            {/section} 
+        </tbody>
+    </table>
+
+    {if count($transactions)>0}  
+    <div align="center">{$TEXT_PAGES}{$page_links}</div>
+    {/if} 
 </div>
-
-
-
-<br>
-
-<div  id="ajaxDetailsContent" style="display:none"  ></div>
-<table width="100%" class="list">
-    <thead>
-        <tr>
-            <td height="28" class="tableHeading">Date</td>
-            <td class="tableHeading">Batch#</td>
-            <td class="tableHeading">From Account</td>			  			  
-            <td class="tableHeading">To Account</td>			  
-            <td class="tableHeading">Amount</td>			
-            <td class="tableHeading">Fee</td>			
-            <td class="tableHeading" align="center">
-                Currency</td>			  			  			    			    			  			    
-            <td class="tableHeading" align="center">
-                {$TEXT_ACTION}</td>
-        </tr>
-    </thead>
-    <tbody>
-        {section name=transactionidx loop=$transactions}	
-        {if ($smarty.section.transactionidx.index  % 2) == 0 } {assign var="rowstyle"  value="tableNormalRow"} {else}  {assign var="rowstyle" value="tableAltRow"}  {/if}
-
-        <tr>
-            <td width="22%" height="25"  class="{$rowstyle}">
-                {$transactions[transactionidx].transaction_time|date_format:"%m/%d/%Y %l:%M %p" }</td>
-            <td class="{$rowstyle}">{$transactions[transactionidx].batch_number}</td>
-            <td class="{$rowstyle}">{$transactions[transactionidx].from_account}</td>			  			  			  
-            <td class="{$rowstyle}"><strong>{$transactions[transactionidx].to_account}</strong></td>			  			  
-            <td class="{$rowstyle} currentcy" >{if $transactions[transactionidx].from_userid == $smarty.session.login_userid}-{$transactions[transactionidx].amount_text}{else} +{$transactions[transactionidx].amount_text}{/if}</td>			  
-            <td class="{$rowstyle} currentcy" >{$transactions[transactionidx].fee_text}&nbsp;</td>			  			  
-            <td class="{$rowstyle}" align="center">
-                {$transactions[transactionidx].transaction_currency}</td>			  			  			  
-            <td width="17%"  class="{$rowstyle}"  align="center"><a href="javascript:getTransactionDetails({$transactions[transactionidx].transaction_id});" class="linkButton">
-                    Details</a></td>
-        </tr>
-        {/section} 
-    </tbody>
-</table>
-
-{if count($transactions)>0}  
-<div align="center">{$TEXT_PAGES}{$page_links}</div>
-{/if} 
-</form>

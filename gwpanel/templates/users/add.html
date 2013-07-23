@@ -1,0 +1,28 @@
+
+<form name="frmEdit" action="{dev_get_admin_page_link page=PAGE_USERS}" method="post" >
+<input type="hidden" name="action" value="add"  />
+
+<table width="100%" cellpadding="2" cellspacing="2"  border="0">
+	<tr><td width="20%">First Name</td><td width="93%"><input name="firstname" value="{$user_data_array.firstname}" type="input"  /></td></tr>
+	<tr><td>Last Name</td><td><input name="lastname" value="{$user_data_array.lastname}" type="input"  /></td></tr>
+ 	<tr><td>E-mail</td><td><input name="email" value="{$user_data_array.email}" type="input"  /></td></tr>
+	<tr><td>Mobile</td><td><input name="mobile" value="{$user_data_array.mobile}" type="input"  /></td></tr>
+	<tr><td>Phone</td><td><input name="phone" value="{$user_data_array.phone}" type="input"  /></td></tr>
+        <tr><td>Security Question</td><td><select name="security_question" class="inputselect" onchange="checkSecurityQuestion(this.value);">
+                        {html_options options=$security_questions_array}</select></td></tr>
+        
+        <tr><td>Answer</td><td><input name="security_answer" value="{$user_data_array.security_answer}" type="input"  /></td></tr>
+        <tr><td>Acount name</td><td><input name="account_name" value="{$user_data_array.account_name}" type="input"  /></td></tr>
+        <tr><td>Distributors</td><td><select name="distributors" class="inputselect">
+                        {html_options options=$whosale}</select></td></tr>
+        <tr><td colspan="2">Personal welcome message<br/><textarea name="welcome_message" rows="3"  cols="80">{$user_data_array.welcome_message}</textarea></td></tr>
+
+        <tr><td colspan="2">Additional Information<br /><textarea name="additional_information" rows="3"  cols="80">{$user_data_array.additional_information}</textarea></td></tr>
+ 
+	<tr><td colspan="2"><input class="button" type="submit" value="Save"  /></td></tr>
+</table>
+</form>
+<br>
+<table width="100%" cellpadding="2" cellspacing="2"  border="0">
+<tr><td><a href="javascript: closeUserDetailsContent();" class="linkButton">Close</a></td></tr>
+</table>

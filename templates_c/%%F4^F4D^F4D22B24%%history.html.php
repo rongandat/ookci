@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-19 05:50:17
+<?php /* Smarty version 2.6.18, created on 2013-07-22 11:12:59
          compiled from account/history.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'account/history.html', 5, false),array('function', 'html_options', 'account/history.html', 15, false),array('modifier', 'date_format', 'account/history.html', 79, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'account/history.html', 5, false),array('function', 'html_options', 'account/history.html', 15, false),array('modifier', 'date_format', 'account/history.html', 75, false),)), $this); ?>
 <div class="simple-form">
     <h1>Transaction History</h1>
     <div class="line"></div>
@@ -63,31 +63,27 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
             </tr>
         </table>
     </form>
-</div>
 
 
-
-<br>
-
-<div  id="ajaxDetailsContent" style="display:none"  ></div>
-<table width="100%" class="list">
-    <thead>
-        <tr>
-            <td height="28" class="tableHeading">Date</td>
-            <td class="tableHeading">Batch#</td>
-            <td class="tableHeading">From Account</td>			  			  
-            <td class="tableHeading">To Account</td>			  
-            <td class="tableHeading">Amount</td>			
-            <td class="tableHeading">Fee</td>			
-            <td class="tableHeading" align="center">
-                Currency</td>			  			  			    			    			  			    
-            <td class="tableHeading" align="center">
-                <?php echo $this->_tpl_vars['TEXT_ACTION']; ?>
+    <div  id="ajaxDetailsContent" style="display:none"  ></div>
+    <table width="100%" class="list">
+        <thead>
+            <tr>
+                <td height="28" class="tableHeading">Date</td>
+                <td class="tableHeading">Batch#</td>
+                <td class="tableHeading">From Account</td>			  			  
+                <td class="tableHeading">To Account</td>			  
+                <td class="tableHeading">Amount</td>			
+                <td class="tableHeading">Fee</td>			
+                <td class="tableHeading" align="center">
+                    Currency</td>			  			  			    			    			  			    
+                <td class="tableHeading" align="center">
+                    <?php echo $this->_tpl_vars['TEXT_ACTION']; ?>
 </td>
-        </tr>
-    </thead>
-    <tbody>
-        <?php unset($this->_sections['transactionidx']);
+            </tr>
+        </thead>
+        <tbody>
+            <?php unset($this->_sections['transactionidx']);
 $this->_sections['transactionidx']['name'] = 'transactionidx';
 $this->_sections['transactionidx']['loop'] = is_array($_loop=$this->_tpl_vars['transactions']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
 $this->_sections['transactionidx']['show'] = true;
@@ -111,45 +107,45 @@ $this->_sections['transactionidx']['index_next'] = $this->_sections['transaction
 $this->_sections['transactionidx']['first']      = ($this->_sections['transactionidx']['iteration'] == 1);
 $this->_sections['transactionidx']['last']       = ($this->_sections['transactionidx']['iteration'] == $this->_sections['transactionidx']['total']);
 ?>	
-        <?php if (( $this->_sections['transactionidx']['index'] % 2 ) == 0): ?> <?php $this->assign('rowstyle', 'tableNormalRow'); ?> <?php else: ?>  <?php $this->assign('rowstyle', 'tableAltRow'); ?>  <?php endif; ?>
+            <?php if (( $this->_sections['transactionidx']['index'] % 2 ) == 0): ?> <?php $this->assign('rowstyle', 'tableNormalRow'); ?> <?php else: ?>  <?php $this->assign('rowstyle', 'tableAltRow'); ?>  <?php endif; ?>
 
-        <tr>
-            <td width="22%" height="25"  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
+            <tr>
+                <td width="22%" height="25"  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 ">
-                <?php echo ((is_array($_tmp=$this->_tpl_vars['transactions'][$this->_sections['transactionidx']['index']]['transaction_time'])) ? $this->_run_mod_handler('date_format', true, $_tmp, "%m/%d/%Y %l:%M %p") : smarty_modifier_date_format($_tmp, "%m/%d/%Y %l:%M %p")); ?>
+                    <?php echo ((is_array($_tmp=$this->_tpl_vars['transactions'][$this->_sections['transactionidx']['index']]['transaction_time'])) ? $this->_run_mod_handler('date_format', true, $_tmp, "%m/%d/%Y %l:%M %p") : smarty_modifier_date_format($_tmp, "%m/%d/%Y %l:%M %p")); ?>
 </td>
-            <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
+                <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 "><?php echo $this->_tpl_vars['transactions'][$this->_sections['transactionidx']['index']]['batch_number']; ?>
 </td>
-            <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
+                <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 "><?php echo $this->_tpl_vars['transactions'][$this->_sections['transactionidx']['index']]['from_account']; ?>
 </td>			  			  			  
-            <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
+                <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 "><strong><?php echo $this->_tpl_vars['transactions'][$this->_sections['transactionidx']['index']]['to_account']; ?>
 </strong></td>			  			  
-            <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
- currentcy" ><?php if ($this->_tpl_vars['transactions'][$this->_sections['transactionidx']['index']]['from_userid'] == $_SESSION['login_userid']): ?>-<?php echo $this->_tpl_vars['transactions'][$this->_sections['transactionidx']['index']]['amount_text']; ?>
-<?php else: ?> +<?php echo $this->_tpl_vars['transactions'][$this->_sections['transactionidx']['index']]['amount_text']; ?>
-<?php endif; ?></td>			  
-            <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
+                <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
+ currentcy" ><?php if ($this->_tpl_vars['transactions'][$this->_sections['transactionidx']['index']]['from_userid'] == $_SESSION['login_userid']): ?><span class="red">-<?php echo $this->_tpl_vars['transactions'][$this->_sections['transactionidx']['index']]['amount_text']; ?>
+</span><?php else: ?> <span class="green">+<?php echo $this->_tpl_vars['transactions'][$this->_sections['transactionidx']['index']]['amount_text']; ?>
+</span><?php endif; ?></td>			  
+                <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
  currentcy" ><?php echo $this->_tpl_vars['transactions'][$this->_sections['transactionidx']['index']]['fee_text']; ?>
 &nbsp;</td>			  			  
-            <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
+                <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 " align="center">
-                <?php echo $this->_tpl_vars['transactions'][$this->_sections['transactionidx']['index']]['transaction_currency']; ?>
+                    <?php echo $this->_tpl_vars['transactions'][$this->_sections['transactionidx']['index']]['transaction_currency']; ?>
 </td>			  			  			  
-            <td width="17%"  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
+                <td width="17%"  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 "  align="center"><a href="javascript:getTransactionDetails(<?php echo $this->_tpl_vars['transactions'][$this->_sections['transactionidx']['index']]['transaction_id']; ?>
 );" class="linkButton">
-                    Details</a></td>
-        </tr>
-        <?php endfor; endif; ?> 
-    </tbody>
-</table>
+                        Details</a></td>
+            </tr>
+            <?php endfor; endif; ?> 
+        </tbody>
+    </table>
 
-<?php if (count ( $this->_tpl_vars['transactions'] ) > 0): ?>  
-<div align="center"><?php echo $this->_tpl_vars['TEXT_PAGES']; ?>
+    <?php if (count ( $this->_tpl_vars['transactions'] ) > 0): ?>  
+    <div align="center"><?php echo $this->_tpl_vars['TEXT_PAGES']; ?>
 <?php echo $this->_tpl_vars['page_links']; ?>
 </div>
-<?php endif; ?> 
-</form>
+    <?php endif; ?> 
+</div>

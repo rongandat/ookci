@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-17 12:14:33
+<?php /* Smarty version 2.6.18, created on 2013-07-23 03:24:07
          compiled from home/login_confirm.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'home/login_confirm.html', 1, false),)), $this); ?>
@@ -33,7 +33,7 @@ unset($_smarty_tpl_vars);
             </fieldset>           
         </div>
         <div class="one-third-big last" style="z-index: 870;">
-            <p>Only E-Globalcash knows your custom welcome message. Fake web sites that want you to enter your login information on their fake login pages will not be able to show it.</p><br>    
+            <p>Only OOKCASH knows your custom welcome message. Fake web sites that want you to enter your login information on their fake login pages will not be able to show it.</p><br>    
             <p>Close your browser and scan your computer for viruses if you do not see your custom welcome message during the login process</p>
         </div>
     </div>

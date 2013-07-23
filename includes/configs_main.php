@@ -8,7 +8,7 @@ define('DB_DATABASE', 'ookcash_main');
 
 
 define('HTTP_SERVER', 'http://ookcash.com');
-define('HTTPS_SERVER', 'http://ookcash.com');
+define('HTTPS_SERVER', 'https://ookcash.com');
 define('ENABLE_SSL', 'true');
 define('HTTP_COOKIE_DOMAIN', 'ookcash.com');
 define('HTTPS_COOKIE_DOMAIN', 'ookcash.com');
@@ -29,7 +29,7 @@ define('_BOXES_DIR', _INCLUDES_DIR . 'boxes/');
 define('_IMAGES_WS_DIR', 'images/');
 define('_IMAGES_ROOT', _SITE_ROOT . _IMAGES_WS_DIR);
 define('_IMAGE_SITE_URL', _HTTP_SITE_ROOT . '/images/');
-
+define('_IMAGESSL_SITE_URL', _HTTPS_SITE_ROOT . '/images/');
 
 define('_PAGE_EXTENDSION', '.php');
 define('_TEMPLATE_EXTENDSION', '.html');

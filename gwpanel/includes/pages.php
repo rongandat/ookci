@@ -58,5 +58,6 @@
 	//Users
 	define('PAGE_USERS','module=users&page=list');
 	define('PAGE_USER_AJAX','module=users&page=ajax');
+	define('PAGE_USER_AJAX_ADD','module=users&page=ajax_add');
 	
 ?>

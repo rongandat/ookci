@@ -43,6 +43,8 @@ function get_html_link($page = '', $parameters = '', $connection = 'NONSSL', $ad
 
 // generate src
 function getHtmlImageSource($imagename) {
+    if(ENABLE_SSL == true)
+        return _IMAGESSL_SITE_URL . $imagename;
     return _IMAGE_SITE_URL . $imagename;
 }
 

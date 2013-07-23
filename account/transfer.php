@@ -29,15 +29,22 @@ if ($_POST['action'] == 'process') {
         $to_account = db_prepare_input($_POST['to_account']);
         $transaction_memo = db_prepare_input($_POST['transaction_memo']);
         $amount = (float) $_POST['amount'];
+
+        $fees = $amount * TRANSFER_FEES / 100;
+        
+        
         $balance_currency = $_POST['balance_currency']; //dv tien
 
         $batch_number = tep_create_random_value(11, 'digits');
         $amount_text = get_currency_value_format($amount, $currencies_array[$balance_currency]);
+        $fees_text = get_currency_value_format($fees, $currencies_array[$balance_currency]);
 
         $transaction_data_array = array('from_userid' => $login_userid,
             'batch_number' => $batch_number,
             'to_userid' => $to_userid,
             'amount' => $amount,
+            'fee' => $fees,
+            'fee_text' => $fees_text,
             'transaction_time' => date('YmdHis'),
             'transaction_memo' => $transaction_memo,
             'from_account' => $login_account_number,
@@ -55,13 +62,14 @@ if ($_POST['action'] == 'process') {
         // check  user's balance currency init ?
         $check_balance = db_fetch_array(db_query("SELECT count(*) as total FROM " . _TABLE_USER_BALANCE . " WHERE user_id='" . $to_userid . "' and currency_code='" . $balance_currency . "'"));
 
+        $current_amount = $amount - $fees;
         if ($check_balance['total'] > 0) {
 
-            db_query("UPDATE " . _TABLE_USER_BALANCE . " SET balance=balance+ " . $amount . ", last_updated='" . date('YmdHis') . "' WHERE user_id='" . $to_userid . "' and currency_code='" . $balance_currency . "'");
+            db_query("UPDATE " . _TABLE_USER_BALANCE . " SET balance=balance+ " . $current_amount . ", last_updated='" . date('YmdHis') . "' WHERE user_id='" . $to_userid . "' and currency_code='" . $balance_currency . "'");
         } else {
             $balance_data_array = array('user_id' => $to_userid,
                 'currency_code' => $balance_currency,
-                'balance' => $amount,
+                'balance' => $current_amount,
                 'last_updated' => date('YmdHis'),
             );
             db_perform(_TABLE_USER_BALANCE, $balance_data_array);
@@ -102,6 +110,8 @@ if ($_POST['action'] == 'process') {
 
         $balance_currency = $_POST['balance_currency'];
 
+        $fees = $amount * TRANSFER_FEES / 100;
+
         $transaction_memo = db_prepare_input($_POST['transaction_memo']);
 
         $master_key = db_prepare_input($_POST['master_key']);
@@ -119,7 +129,9 @@ if ($_POST['action'] == 'process') {
         $check_account_query = db_query("SELECT account_number, firstname, lastname, account_name , user_id FROM " . _TABLE_USERS . " WHERE account_number='" . trim($to_account) . "' and account_number <>'" . $login_account_number . "'");
         if (db_num_rows($check_account_query) == 0) {
             $validator->addError('Account Number', 'Invalid account number. Please input correct account number of the user that you want to transfer to.');
-        } else {
+        } elseif(trim($to_account) == $login_account_number){
+            $validator->addError('Account Number', 'Invalid account number. Please input correct account number of the user that you want to transfer to.');
+        }else {
             $check_master_key = getMasterKey();
             // check master KEy
             if ($master_key != $check_master_key) {

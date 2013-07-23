@@ -1,7 +1,7 @@
 <form name="frmTransfer" method="post" action="{dev_get_page_link page=PAGE_ACCOUNT_TRANSFER ssl=true}"  >
     <input type="hidden" name="action" value="process"  />
     <input type="hidden" name="step" id="step" value="{$step}"  />
-
+    
     {if $step=='confirm'}
     <div class="simple-form">
         <h1>Transfer Confirmation</h1>
@@ -32,10 +32,9 @@
             <div class="clear"></div>
         </div>
         {/if}
-        <div class="st-form-line">
-            <span>Please be aware that all GWebcash payments are instant and irreversible. GWebcash is not associated directly or indirectly with any other company or business. Our liability is limited to delivering your funds on time to the account of your choice specified above. Any issues that you may encounter as a result of this transaction that are not related to the transaction itself will have to be addressed and resolved with the recipient of your payment directly. Please confirm your payment details ONLY if you UNDERSTAND and AGREE with statements made in this paragraph and ACCEPT our <a href="{dev_get_page_link page=PAGE_TERMS ssl=true}" target="_blank">Terms Of Service</a></span>
-            <div class="clear"></div>
-        </div>
+        <p>
+            Please be aware that all GWebcash payments are instant and irreversible. GWebcash is not associated directly or indirectly with any other company or business. Our liability is limited to delivering your funds on time to the account of your choice specified above. Any issues that you may encounter as a result of this transaction that are not related to the transaction itself will have to be addressed and resolved with the recipient of your payment directly. Please confirm your payment details ONLY if you UNDERSTAND and AGREE with statements made in this paragraph and ACCEPT our <a href="{dev_get_page_link page=PAGE_TERMS ssl=true}" target="_blank">Terms Of Service</a>
+        </p>
 
         <input type="hidden" name="to_account" value="{$transfer_info.account_number}"  />
         <input type="hidden" name="to_userid" value="{$transfer_info.user_id}"  />
@@ -66,28 +65,28 @@
         <div class="line"></div>
         <table cellpadding="0" cellspacing="0" border="0" class="form_content" style="border-collapse: collapse" bordercolor="#111111">
             <tr>
-                <td class="form_label"><font size="2" face="Tahoma">Date:</font></td>
-                <td class="form_field"><font size="2" face="Tahoma">{$transaction_data.transaction_time}</font></td>
+                <td class="form_label">Date:</td>
+                <td class="form_field">{$transaction_data.transaction_time}</td>
             </tr>	
             <tr>
-                <td class="form_label"><font size="2" face="Tahoma">Batch Number#:</font></td>
-                <td class="form_field"><font size="2" face="Tahoma">{$transaction_data.batch_number}</font></td>
+                <td class="form_label">Batch Number#:</td>
+                <td class="form_field">{$transaction_data.batch_number}</td>
             </tr>	
             <tr>
-                <td class="form_label"><font size="2" face="Tahoma">From:</font></td>
-                <td class="form_field"><font size="2" face="Tahoma">{$smarty.session.login_account_number}(<strong>{$smarty.session.login_main_account_info.account_name}</strong>)</font></td>
+                <td class="form_label">From:</td>
+                <td class="form_field">{$smarty.session.login_account_number}(<strong>{$smarty.session.login_main_account_info.account_name}</strong>)</td>
             </tr>	    
             <tr>
-                <td class="form_label"><font size="2" face="Tahoma">To:</font></td>
-                <td class="form_field"><font size="2" face="Tahoma">{$transaction_data.to_account}</font></td>
+                <td class="form_label">To:</td>
+                <td class="form_field">{$transaction_data.to_account}</td>
             </tr>	 
             <tr>
-                <td class="form_label"><font size="2" face="Tahoma">Amount:</font></td>
-                <td class="form_field"><font size="2" face="Tahoma">{$transaction_data.amount_text}</font></td>
+                <td class="form_label">Amount:</td>
+                <td class="form_field">{$transaction_data.amount_text}</td>
             </tr>	 
             <tr>
-                <td class="form_label"><font size="2" face="Tahoma">Transaction Memo:</font></td>
-                <td class="form_field"><font size="2" face="Tahoma">{$transaction_data.memo}</font></td>
+                <td class="form_label">Transaction Memo:</td>
+                <td class="form_field">{$transaction_data.memo}</td>
             </tr>	       
         </table>  
         <p>
@@ -130,7 +129,7 @@
         <tr>
         <div class="st-form-line">
             <span class="st-labeltext"><i>*</i> Master Key(3 digits)</span>
-            <input  name="master_key" type="text" id="master_key"  value="{$master_key}"  size="4"  maxlength="3"/> 
+            <input  name="master_key" type="password" id="master_key"  value="{$master_key}"  size="4"  maxlength="3"/> 
             <div class="clear"></div>
         </div>
         <div class="st-form-line captcha">

@@ -6,7 +6,9 @@ if (!tep_session_is_registered('payee_account') && tep_not_null($payee_account))
 //bof: get currencies
 $currency = get_currency($checkout_currency);
 $balance = get_currency_value_format($checkout_amount, $currency);
-$transfer_info['fees_text'] = get_currency_value_format($fees, $currency);
+
+$fees = $checkout_amount * TRANSFER_FEES / 100;
+$fees_text = get_currency_value_format($fees, $currency);
 
 $smarty->assign('amount', $balance);
 $smarty->assign('fees_text', $fees_text);
@@ -77,12 +79,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $smarty->assign('errors', $error_code);
                 $smarty->assign('error_code', $__ERROR_CODE);
             } else {
-
                 $transaction_data_array = array(
                     'from_userid' => $login_userid,
                     'batch_number' => $batch_number,
                     'to_userid' => $to_userid,
                     'amount' => $amount,
+                    'fee' => $fees,
+                    'fee_text' => $fees_text,
                     'transaction_time' => date('YmdHis'),
                     'transaction_memo' => $transaction_memo,
                     'from_account' => $login_account_number,
@@ -101,6 +104,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     'transaction_id' => $transaction_id,
                     'to_userid' => $to_userid,
                     'amount' => $amount,
+                    'fee' => $fees,
+                    'fee_text' => $fees_text,
                     'transaction_time' => date('YmdHis'),
                     'transaction_memo' => $transaction_memo,
                     'from_account' => $login_account_number,
@@ -129,14 +134,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // add balance to the account
                 // check  user's balance currency init ?
                 $check_balance = db_fetch_array(db_query("SELECT count(*) as total FROM " . _TABLE_USER_BALANCE . " WHERE user_id='" . $to_userid . "' and currency_code='" . $balance_currency . "'"));
-
+                $current_amount = $amount - $fees;
                 if ($check_balance['total'] > 0) {
-
-                    db_query("UPDATE " . _TABLE_USER_BALANCE . " SET balance=balance+ " . $amount . ", last_updated='" . date('YmdHis') . "' WHERE user_id='" . $to_userid . "' and currency_code='" . $balance_currency . "'");
+                    db_query("UPDATE " . _TABLE_USER_BALANCE . " SET balance=balance+ " . $current_amount . ", last_updated='" . date('YmdHis') . "' WHERE user_id='" . $to_userid . "' and currency_code='" . $balance_currency . "'");
                 } else {
                     $balance_data_array = array('user_id' => $to_userid,
                         'currency_code' => $balance_currency,
-                        'balance' => $amount,
+                        'balance' => $current_amount,
                         'last_updated' => date('YmdHis'),
                     );
                     db_perform(_TABLE_USER_BALANCE, $balance_data_array);

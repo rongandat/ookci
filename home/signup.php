@@ -25,7 +25,7 @@ if ($_POST['action'] == 'process') {
                 // check if the email avaible
                 $sql_check_email = "SELECT user_id	FROM " . _TABLE_USERS . " WHERE email='" . $email . "'";
                 if (db_num_rows(db_query($sql_check_email)) > 0) { // email existed
-                    $validator->addError('Email', 'This e-mail already exists in our database. Please use a different e-mail address or login if you already have an e-globalcash account. ');
+                    $validator->addError('Email', 'This e-mail already exists in our database. Please use a different e-mail address or login if you already have an OOKCASH account. ');
                 }
             }
         }

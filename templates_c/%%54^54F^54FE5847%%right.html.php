@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-20 06:05:22
+<?php /* Smarty version 2.6.18, created on 2013-07-22 11:03:47
          compiled from right.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'right.html', 9, false),)), $this); ?>
@@ -17,7 +17,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
                 <a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_ACCOUNT_PERSONAL','ssl' => true), $this);?>
 " <?php if ($this->_tpl_vars['CURRENT_PAGE'] == 'personal'): ?> class="active" <?php endif; ?>>Personal Information</a>
             </li>
-            <li>
+            <li <?php if ($this->_tpl_vars['CURRENT_PAGE'] == 'settings'): ?> class="active" <?php endif; ?>>
                 <a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_ACCOUNT_SETTINGS','ssl' => true), $this);?>
 " <?php if ($this->_tpl_vars['CURRENT_PAGE'] == 'settings'): ?> class="active" <?php endif; ?>>Settings</a>
                 <ul>
@@ -29,10 +29,10 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
                         <a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_SETTING_VERIFICATION','ssl' => true), $this);?>
 " <?php if ($this->_tpl_vars['SETTING_PAGE'] == 'stverification'): ?> class="active" <?php endif; ?>>Verification</a>
                     </li>
-                    <li>
-                        <!--<a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_SETTING_CKI_IPN','ssl' => true), $this);?>
-" <?php if ($this->_tpl_vars['SETTING_PAGE'] == 'stcki_ipn'): ?> class="active" <?php endif; ?>>CKI/IPN</a>-->
-                    </li>
+                   <!-- <li>
+                        <a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_SETTING_CKI_IPN','ssl' => true), $this);?>
+" <?php if ($this->_tpl_vars['SETTING_PAGE'] == 'stcki_ipn'): ?> class="active" <?php endif; ?>>CKI/IPN</a>
+                    </li>-->
                     <li>
                         <a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_SETTING_API','ssl' => true), $this);?>
 " <?php if ($this->_tpl_vars['SETTING_PAGE'] == 'stapi'): ?> class="active" <?php endif; ?>>API</a>
@@ -58,7 +58,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
 <?php endif; ?>
 <div class="box red">
     <div class="heading-title">
-        Merchan tool
+        Merchant tool
     </div>
     <div class="content">
         <ul>

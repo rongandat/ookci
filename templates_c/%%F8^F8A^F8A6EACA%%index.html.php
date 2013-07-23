@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-20 05:03:07
+<?php /* Smarty version 2.6.18, created on 2013-07-22 05:52:54
          compiled from home/index.html */ ?>
 <div class="product">
     <div class="heading">
@@ -15,7 +15,7 @@
     <a href="#" class="learn_more green">learn more amount deposit money / funds</a>
 </div>
 
-<div class="product">
+<div class="product padding-right0">
     <div class="heading">
         <div class="image">
             <img src="images/escrow.png"/>
@@ -45,7 +45,7 @@
     <a href="#" class="learn_more butterfly_blue">learn more amount deposit money / funds</a>
 </div>
 
-<div class="product">
+<div class="product padding-right0">
     <div class="heading">
         <div class="image">
             <img src="images/withdraw.png"/>
@@ -57,5 +57,5 @@
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
     </div>
-    <a href="#" class="learn_more green">learn more amount deposit money / funds</a>
+    <a href="#" class="learn_more red">learn more amount deposit money / funds</a>
 </div>

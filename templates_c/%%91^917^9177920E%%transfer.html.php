@@ -1,13 +1,13 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-18 04:50:29
+<?php /* Smarty version 2.6.18, created on 2013-07-22 12:17:46
          compiled from account/transfer.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'account/transfer.html', 1, false),array('function', 'html_options', 'account/transfer.html', 111, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'account/transfer.html', 1, false),array('function', 'html_options', 'account/transfer.html', 110, false),)), $this); ?>
 <form name="frmTransfer" method="post" action="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_ACCOUNT_TRANSFER','ssl' => true), $this);?>
 "  >
     <input type="hidden" name="action" value="process"  />
     <input type="hidden" name="step" id="step" value="<?php echo $this->_tpl_vars['step']; ?>
 "  />
-
+    
     <?php if ($this->_tpl_vars['step'] == 'confirm'): ?>
     <div class="simple-form">
         <h1>Transfer Confirmation</h1>
@@ -45,11 +45,10 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
             <div class="clear"></div>
         </div>
         <?php endif; ?>
-        <div class="st-form-line">
-            <span>Please be aware that all GWebcash payments are instant and irreversible. GWebcash is not associated directly or indirectly with any other company or business. Our liability is limited to delivering your funds on time to the account of your choice specified above. Any issues that you may encounter as a result of this transaction that are not related to the transaction itself will have to be addressed and resolved with the recipient of your payment directly. Please confirm your payment details ONLY if you UNDERSTAND and AGREE with statements made in this paragraph and ACCEPT our <a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_TERMS','ssl' => true), $this);?>
-" target="_blank">Terms Of Service</a></span>
-            <div class="clear"></div>
-        </div>
+        <p>
+            Please be aware that all GWebcash payments are instant and irreversible. GWebcash is not associated directly or indirectly with any other company or business. Our liability is limited to delivering your funds on time to the account of your choice specified above. Any issues that you may encounter as a result of this transaction that are not related to the transaction itself will have to be addressed and resolved with the recipient of your payment directly. Please confirm your payment details ONLY if you UNDERSTAND and AGREE with statements made in this paragraph and ACCEPT our <a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_TERMS','ssl' => true), $this);?>
+" target="_blank">Terms Of Service</a>
+        </p>
 
         <input type="hidden" name="to_account" value="<?php echo $this->_tpl_vars['transfer_info']['account_number']; ?>
 "  />
@@ -87,35 +86,35 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
         <div class="line"></div>
         <table cellpadding="0" cellspacing="0" border="0" class="form_content" style="border-collapse: collapse" bordercolor="#111111">
             <tr>
-                <td class="form_label"><font size="2" face="Tahoma">Date:</font></td>
-                <td class="form_field"><font size="2" face="Tahoma"><?php echo $this->_tpl_vars['transaction_data']['transaction_time']; ?>
-</font></td>
+                <td class="form_label">Date:</td>
+                <td class="form_field"><?php echo $this->_tpl_vars['transaction_data']['transaction_time']; ?>
+</td>
             </tr>	
             <tr>
-                <td class="form_label"><font size="2" face="Tahoma">Batch Number#:</font></td>
-                <td class="form_field"><font size="2" face="Tahoma"><?php echo $this->_tpl_vars['transaction_data']['batch_number']; ?>
-</font></td>
+                <td class="form_label">Batch Number#:</td>
+                <td class="form_field"><?php echo $this->_tpl_vars['transaction_data']['batch_number']; ?>
+</td>
             </tr>	
             <tr>
-                <td class="form_label"><font size="2" face="Tahoma">From:</font></td>
-                <td class="form_field"><font size="2" face="Tahoma"><?php echo $_SESSION['login_account_number']; ?>
+                <td class="form_label">From:</td>
+                <td class="form_field"><?php echo $_SESSION['login_account_number']; ?>
 (<strong><?php echo $_SESSION['login_main_account_info']['account_name']; ?>
-</strong>)</font></td>
+</strong>)</td>
             </tr>	    
             <tr>
-                <td class="form_label"><font size="2" face="Tahoma">To:</font></td>
-                <td class="form_field"><font size="2" face="Tahoma"><?php echo $this->_tpl_vars['transaction_data']['to_account']; ?>
-</font></td>
+                <td class="form_label">To:</td>
+                <td class="form_field"><?php echo $this->_tpl_vars['transaction_data']['to_account']; ?>
+</td>
             </tr>	 
             <tr>
-                <td class="form_label"><font size="2" face="Tahoma">Amount:</font></td>
-                <td class="form_field"><font size="2" face="Tahoma"><?php echo $this->_tpl_vars['transaction_data']['amount_text']; ?>
-</font></td>
+                <td class="form_label">Amount:</td>
+                <td class="form_field"><?php echo $this->_tpl_vars['transaction_data']['amount_text']; ?>
+</td>
             </tr>	 
             <tr>
-                <td class="form_label"><font size="2" face="Tahoma">Transaction Memo:</font></td>
-                <td class="form_field"><font size="2" face="Tahoma"><?php echo $this->_tpl_vars['transaction_data']['memo']; ?>
-</font></td>
+                <td class="form_label">Transaction Memo:</td>
+                <td class="form_field"><?php echo $this->_tpl_vars['transaction_data']['memo']; ?>
+</td>
             </tr>	       
         </table>  
         <p>
@@ -168,7 +167,7 @@ unset($_smarty_tpl_vars);
         <tr>
         <div class="st-form-line">
             <span class="st-labeltext"><i>*</i> Master Key(3 digits)</span>
-            <input  name="master_key" type="text" id="master_key"  value="<?php echo $this->_tpl_vars['master_key']; ?>
+            <input  name="master_key" type="password" id="master_key"  value="<?php echo $this->_tpl_vars['master_key']; ?>
 "  size="4"  maxlength="3"/> 
             <div class="clear"></div>
         </div>

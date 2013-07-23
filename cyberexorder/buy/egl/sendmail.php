@@ -37,7 +37,7 @@ exit;
 //Sending Email to form owner
 $pfw_header = "From: $email\n"
   . "Reply-To: $email\n";
-$pfw_subject = "Paid report e-Globalcash";
+$pfw_subject = "Paid report OOKCASH";
 $pfw_email_to = "admin@cyberex.jp";
 $pfw_message = "Visitor's IP: $pfw_ip\n"
 . "AccountNumber: $AccountNumber\n"
@@ -53,7 +53,7 @@ $pfw_subject = "Your order process has been Approved !!";
 $pfw_email_to = "$email";
 $pfw_message = "Dear $name\n"
 . "\n"
-. "We review check in our e-Globalcash account. \n"
+. "We review check in our OOKCASH account. \n"
 . "after your money received completed, will sent your request e-currency within 3-5 business day.\n"
 . "\n"
 . "To check your order status and transaction on this page\n"

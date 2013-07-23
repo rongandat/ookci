@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-17 09:57:19
+<?php /* Smarty version 2.6.18, created on 2013-07-23 03:26:33
          compiled from home/login_balance.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'home/login_balance.html', 22, false),)), $this); ?>
@@ -10,7 +10,7 @@ $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
     <div class="loginbalance">
-        <p>You may use your Global Cash wallet to send payments more quickly without logging in to your main account. </p>
+        <p>You may use your OOKCASH wallet to send payments more quickly without logging in to your main account. </p>
         <p><strong>Wallet balances (wallet is disabled)</strong></p>
         <div class="buttons">
             <input type="button" value="Pay from your wallet" class="button" disabled="disabled" name="buttonPaywallet">
