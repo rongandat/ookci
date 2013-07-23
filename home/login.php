@@ -22,7 +22,7 @@ if ($_POST['action'] == 'process') {
 
     if (count($validator->errors) == 0) {
 
-        $sql_user = "SELECT user_id,  email,password,verification_status,verification_ip,verification_key,firstname,lastname FROM " . _TABLE_USERS . " WHERE account_number='" . $account_number . "'";
+        $sql_user = "SELECT user_id,  email,password,verification_status,verification_ip,verification_key,firstname,lastname FROM " . _TABLE_USERS . " WHERE account_number='" . $account_number . "' AND status=1";
         $user_query = db_query($sql_user);
         if (db_num_rows($user_query) > 0) { // email passed
             // check password

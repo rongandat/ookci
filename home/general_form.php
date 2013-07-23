@@ -44,15 +44,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     
     if (count($validator->errors) == 0) {
+        
+        $site_root = (ENABLE_SSL == true)?_HTTP_SITE_ROOT:_HTTPS_SITE_ROOT;
 
-        $zend_code_link = _HTTP_SITE_ROOT . '/index.php?' . PAGE_PROCESS . $string_input;
+        $zend_code_link = $site_root . '/index.php?' . PAGE_PROCESS . $string_input;
 
         $zend_code_html = '<a href="' . $zend_code_link . '">Pay With OOKCASH Reserve!</a>';
 
-        $zend_code_buton = '<a href="' . $zend_code_link . '"><img src="' . _HTTP_SITE_ROOT . '/images/scilogo.png"/></a>';
+        $zend_code_buton = '<a href="' . $zend_code_link . '"><img src="' . $site_root . '/images/ookcash-button.png"/></a>';
         $smarty->assign('posts_value', $posts_value);
         $smarty->assign('posts', $posts);
-        $smarty->assign('post_link', _HTTP_SITE_ROOT . '/index.php?' . PAGE_PROCESS);
+        $smarty->assign('post_link', $site_root . '/index.php?' . PAGE_PROCESS);
         $smarty->assign('zend_code_link', $zend_code_link);
         $smarty->assign('zend_code_html', $zend_code_html);
         $smarty->assign('zend_code_buton', $zend_code_buton);
