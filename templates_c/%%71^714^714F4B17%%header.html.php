@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-22 04:26:23
+<?php /* Smarty version 2.6.18, created on 2013-07-24 04:02:13
          compiled from header.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'header.html', 4, false),)), $this); ?>
@@ -124,14 +124,14 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
                 <li><a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_DEFAULT','ssl' => true), $this);?>
 " <?php if (( $_GET['page'] == 'index' ) && empty ( $_GET['module'] )): ?> class="active" <?php endif; ?>>Home</a></li>
 
-                <li><a href="#">Business</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Make money</a></li>
+                <li><a href="http://docs.ookcash.com/exchangers">Exchangers</a></li>
+                <li><a href="http://docs.ookcash.com/products">Products</a></li>
+                <li><a href="http://docs.ookcash.com">Help</a></li>
             </ul>
             <div class="search">
-                <form method="GET" action="">
+                <form method="GET" action="http://docs.ookcash.com">
                     <span>Search</span>
-                    <input type="text" name="search" class="search-inut"/>
+                    <input type="text" name="s" class="search-inut"/>
                     <input type="submit" value="Go" class="btn-search"/>
                 </form>
             </div>
@@ -199,14 +199,14 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
                 <li><a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_DEFAULT','ssl' => true), $this);?>
 " <?php if (( $_GET['page'] == 'index' ) && empty ( $_GET['module'] )): ?> class="active" <?php endif; ?>>Home</a></li>
 
-                <li><a href="#">Business</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Make money</a></li>
+                <li><a href="http://docs.ookcash.com/exchangers">Exchangers</a></li>
+                <li><a href="http://docs.ookcash.com/products">Products</a></li>
+                <li><a href="http://docs.ookcash.com">Help</a></li>
             </ul>
             <div class="search">
-                <form method="GET" action="">
+                <form method="GET" action="http://docs.ookcash.com">
                     <span>Search</span>
-                    <input type="text" name="search" class="search-inut"/>
+                    <input type="text" name="s" class="search-inut"/>
                     <input type="submit" value="Go" class="btn-search"/>
                 </form>
             </div>

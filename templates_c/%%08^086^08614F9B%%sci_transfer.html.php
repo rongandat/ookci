@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-23 06:18:24
+<?php /* Smarty version 2.6.18, created on 2013-07-24 04:18:56
          compiled from account/sci_transfer.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'account/sci_transfer.html', 3, false),)), $this); ?>
@@ -52,8 +52,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
 "/>
         </table>	  
 
-        <p>Please be aware that all OOKCASH payments are instant and irreversible. OOKCASH is not associated directly or indirectly with any other company or business. Our liability is limited to delivering your funds on time to the account of your choice specified above. Any issues that you may encounter as a result of this transaction that are not related to the transaction itself will have to be addressed and resolved with the recipient of your payment directly. Please confirm your payment details ONLY if you UNDERSTAND and AGREE with statements made in this paragraph and ACCEPT our <a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_TERMS','ssl' => true), $this);?>
-" target="_blank">Terms Of Service</a></p>
+        <p>Please be aware that all OOKCASH payments are instant and irreversible. OOKCASH is not associated directly or indirectly with any other company or business. Our liability is limited to delivering your funds on time to the account of your choice specified above. Any issues that you may encounter as a result of this transaction that are not related to the transaction itself will have to be addressed and resolved with the recipient of your payment directly. Please confirm your payment details ONLY if you UNDERSTAND and AGREE with statements made in this paragraph and ACCEPT our <a href="http://docs.ookcash.com/tos/" target="_blank">Terms Of Service</a></p>
         <div class="buttons">
             <input  type="submit" name="buttonConfirm" class="button"  value="Confirm" />.
             <?php if (! empty ( $this->_tpl_vars['cancel_url'] )): ?>
@@ -100,7 +99,8 @@ unset($_smarty_tpl_vars);
 
                 </tr>		  
                 <tr>
-                    <td class="form_label"><i>*</i> Amount</td>
+                    <td class="form_label"><i>*</i> Amount (<?php echo $this->_tpl_vars['currency']; ?>
+)</td>
                     <?php if (empty ( $this->_tpl_vars['checkout_amount'] )): ?>
                     <td class="form_field"><input type="text" name="checkout_amount" class="inputtext"/></td>
                     <?php else: ?>

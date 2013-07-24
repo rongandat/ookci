@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-23 05:16:04
+<?php /* Smarty version 2.6.18, created on 2013-07-24 05:32:32
          compiled from account/transfer.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'account/transfer.html', 1, false),array('function', 'html_options', 'account/transfer.html', 110, false),)), $this); ?>
@@ -46,8 +46,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
         </div>
         <?php endif; ?>
         <p>
-            Please be aware that all GWebcash payments are instant and irreversible. GWebcash is not associated directly or indirectly with any other company or business. Our liability is limited to delivering your funds on time to the account of your choice specified above. Any issues that you may encounter as a result of this transaction that are not related to the transaction itself will have to be addressed and resolved with the recipient of your payment directly. Please confirm your payment details ONLY if you UNDERSTAND and AGREE with statements made in this paragraph and ACCEPT our <a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_TERMS','ssl' => true), $this);?>
-" target="_blank">Terms Of Service</a>
+            Please be aware that all GWebcash payments are instant and irreversible. GWebcash is not associated directly or indirectly with any other company or business. Our liability is limited to delivering your funds on time to the account of your choice specified above. Any issues that you may encounter as a result of this transaction that are not related to the transaction itself will have to be addressed and resolved with the recipient of your payment directly. Please confirm your payment details ONLY if you UNDERSTAND and AGREE with statements made in this paragraph and ACCEPT our <a href="http://docs.ookcash.com/tos/" target="_blank">Terms Of Service</a>
         </p>
 
         <input type="hidden" name="to_account" value="<?php echo $this->_tpl_vars['transfer_info']['account_number']; ?>

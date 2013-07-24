@@ -1,7 +1,7 @@
 <?php
 
 //set POST variables
-$url = 'http://egcash.cyahost.com/sci_validate.php';
+$url = 'https://ookcash.com/sci_validate.php';
 //$url = 'http://global.lc/sci_validate.php';
 foreach ($_REQUEST as $key => $post) {
     $fields[$key] = urldecode($post);
@@ -13,6 +13,7 @@ $validateField .= trim($fields['checkout_amount']);
 $validateField .= trim($fields['transaction_currency']);
 $validateField .= trim($fields['batch_number']);
 $validateField .= trim($fields['transaction_status']);
+
 $fields_string = 'validate=' . md5($validateField);
 
 rtrim($fields_string, '&');

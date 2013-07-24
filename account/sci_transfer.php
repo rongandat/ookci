@@ -147,6 +147,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $smarty->assign('transaction', $transaction_history_array);
 
 
+                //admin transfer
+                $batch_number_admin = tep_create_random_value(11, 'digits');
+                $transaction_data_array_admin = array('from_userid' => $to_userid,
+                    'batch_number' => $batch_number_admin,
+                    'to_userid' => 1,
+                    'amount' => $fees,
+                    'fee' => 0,
+                    'transaction_time' => date('YmdHis'),
+                    'transaction_memo' => 'transaction fees #' . $batch_number,
+                    'from_account' => $to_account,
+                    'to_account' => 'OOKCASH',
+                    'transaction_currency' => $balance_currency,
+                    'amount_text' => $transaction_data_array['fee_text'],
+                    'transaction_status' => 'completed',
+                );
+                db_perform(_TABLE_TRANSACTIONS, $transaction_data_array_admin);
+                transfer_admin($transaction_data_array_admin);
+                
+
 
                 // deduce balance of the from account
                 db_query("UPDATE " . _TABLE_USER_BALANCE . " SET balance=balance- " . $amount . ", last_updated='" . date('YmdHis') . "' WHERE user_id='" . $login_userid . "' and currency_code='" . $balance_currency . "'");

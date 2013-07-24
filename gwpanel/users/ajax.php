@@ -15,7 +15,7 @@ switch ($doajax) {
         $currencies_array = get_currencies();
 
 // get main account balances
-        $sql_balances = "SELECT currency_code, balance FROM " . _TABLE_USER_BALANCE . " WHERE user_id='" . $login_userid . "'";
+        $sql_balances = "SELECT currency_code, balance FROM " . _TABLE_USER_BALANCE . " WHERE user_id='" . $user_id . "'";
         $balances_query = db_query($sql_balances);
         while ($balance = db_fetch_array($balances_query)) {
             $balances_array[$balance['currency_code']] = $balance['balance'];
@@ -31,7 +31,7 @@ switch ($doajax) {
         $smarty->assign('balances', $balance_info_array);
 
 // get wallet balances
-        $sql_wallets = "SELECT currency_code, balance FROM " . _TABLE_USER_WALLET . " WHERE user_id='" . $login_userid . "'";
+        $sql_wallets = "SELECT currency_code, balance FROM " . _TABLE_USER_WALLET . " WHERE user_id='" . $user_id . "'";
         $wallets_query = db_query($sql_wallets);
         while ($wallet = db_fetch_array($wallets_query)) {
             $wallets_array[$balance['currency_code']] = $wallet['balance'];

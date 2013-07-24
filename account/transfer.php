@@ -117,6 +117,24 @@ if ($_POST['action'] == 'process') {
         //	echo $msg_content."<br>";
 
         tep_mail($firstname, $user_info['email'], $msg_subject, $msg_content, SITE_NAME, SITE_CONTACT_EMAIL);
+
+        //admin transfer
+        $batch_number_admin = tep_create_random_value(11, 'digits');
+        $transaction_data_array_admin = array('from_userid' => $to_userid,
+            'batch_number' => $batch_number_admin,
+            'to_userid' => 1,
+            'amount' => $fees,
+            'fee' => 0,
+            'transaction_time' => date('YmdHis'),
+            'transaction_memo' => 'transaction fees #' . $batch_number,
+            'from_account' => $to_account,
+            'to_account' => 'OOKCASH',
+            'transaction_currency' => $balance_currency,
+            'amount_text' => $transaction_data_array['fee_text'],
+            'transaction_status' => 'completed',
+        );
+        db_perform(_TABLE_TRANSACTIONS, $transaction_data_array_admin);
+        transfer_admin($transaction_data_array_admin);
     } else { // normal form
         $to_account = db_prepare_input($_POST['to_account']);
         $amount = (float) $_POST['amount'];
