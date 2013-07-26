@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-24 04:02:13
+<?php /* Smarty version 2.6.18, created on 2013-07-24 10:21:21
          compiled from header.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'header.html', 4, false),)), $this); ?>
@@ -141,15 +141,10 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
     <div class="banner">
         <div class="content-banner">
             <div class="left-banner">
-                <h1>OOKCA$H Payment Gateway</h1>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
-                </p>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                </p>
+                <h1><?php echo $this->_tpl_vars['post_info']['title']; ?>
+</h1>
+                <?php echo $this->_tpl_vars['post_info']['content']; ?>
+
                 <a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_SIGNUP','ssl' => true), $this);?>
 " class="button-create-acount">Create free acount</a>
             </div>

@@ -68,7 +68,7 @@ if ($i > FIELDS_EXTRA_SCI_LIMIT) {
 
 if (empty($error_code)) {
     $payee_account = db_prepare_input($requests['payee_account']);
-    $sql_user = "SELECT user_id,  account_number, firstname, lastname FROM " . _TABLE_USERS . " WHERE account_number='" . $payee_account . "'";
+    $sql_user = "SELECT user_id,  account_number,account_name, firstname, lastname FROM " . _TABLE_USERS . " WHERE account_number='" . $payee_account . "'";
     $user_query = db_query($sql_user);
 
     if (db_num_rows($user_query) > 0) {

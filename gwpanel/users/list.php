@@ -90,7 +90,7 @@ switch ($action) {
                 'security_question' => db_prepare_input($security_question),
                 'security_answer' => db_prepare_input($security_answer),
                 'language' => 'en',
-                'status' => 0, // inactive by default	,
+                'status' => 1, // inactive by default	,
                 'account_number' => $account_number,
                 'login_pin' => $login_pin,
                 'master_key' => $master_key,

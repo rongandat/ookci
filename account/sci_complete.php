@@ -61,6 +61,7 @@ if ($history['transaction_status'] == 'completed') {
             $results = curl_get($history['status_url'], $dataPost);
         else
             $results = curl_post($history['status_url'], $dataPost);
+        
         if ($results) {
             $sql_delete = "DELETE  FROM " . _TABLE_TRANSACTIONS_HISTOTY . " WHERE history_id='" . $history_id . "'";
             db_query($sql_delete);

@@ -2,7 +2,6 @@
 
 //set POST variables
 $url = 'https://ookcash.com/sci_validate.php';
-//$url = 'http://global.lc/sci_validate.php';
 foreach ($_REQUEST as $key => $post) {
     $fields[$key] = urldecode($post);
 }

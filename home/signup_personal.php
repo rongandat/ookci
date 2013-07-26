@@ -65,7 +65,7 @@ if ($_POST['action'] == 'process') {
             'phone' => $phone,
             'mobile' => $mobile,
             'language' => 'en',
-            'status' => 0, // inactive by default	,
+            'status' => 1, // inactive by default	,
             'account_number' => $account_number,
             'login_pin' => $login_pin,
             'master_key' => $master_key,

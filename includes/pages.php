@@ -24,6 +24,7 @@
 	define('PAGE_SETTING_API','module=account&page=settings&psettings=stapi');
 	define('PAGE_SETTING_PASSWORD','module=account&page=settings&psettings=stchange_password');
 	define('PAGE_SETTING_SECURE_PIN','module=account&page=settings&psettings=stsecure_pin');
+	define('PAGE_SETTING_SECURE_CODE','module=account&page=settings&psettings=security_code');
 	
         
         

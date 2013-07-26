@@ -834,9 +834,10 @@ a.learn_more.red {
 }
 
 #footer .copyright{
-    margin: 0 120px 0 0;
+    margin: 0 110px 0 0;
     color: #fff;
-    float: left
+    float: left;
+    line-height: 1.2;
 }
 
 #footer .footer-info{

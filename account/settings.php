@@ -53,6 +53,10 @@ switch ($psettings) {
         include_once 'settings/stsecure_pin.php';
         $smarty->assign('HREF_PAGE', get_href_link(PAGE_SETTING_SECURE_PIN));
         break;
+    case 'security_code':
+        include_once 'settings/security_code.php';
+        $smarty->assign('HREF_PAGE', get_href_link(PAGE_SETTING_SECURE_CODE));
+        break;
     default:
         break;
 }

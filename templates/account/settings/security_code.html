@@ -1,0 +1,60 @@
+<form name="frmPersonal" method="post" action="{$HREF_PAGE}"  >
+    <input type="hidden" name="action" value="view_info" />
+    <h3>Your Current Secure Question Information</h3>
+    <table class="form">
+        <tr>
+            <td class="form_label" >Security Question:</td>
+
+            <td class="form_field">
+                {if !empty($view_security_question)}{$view_security_question}{else}****{/if}
+            </td> 
+        </tr>	
+        <tr>
+            <td class="form_label">Answer:</td>
+            <td class="form_field">
+                {if !empty($view_security_answer)}{$view_security_answer}{else}****{/if}
+            </td>
+        </tr>		  
+        <tr>
+            <td class="form_label" ><i>*</i>Master Key</td>
+            <td class="form_field">
+                <input  type="password" name="master_key" value="" autocomplete="off" class="inputtext" size="5" maxlength="3"  /></td>
+        </tr>	
+        <tr>
+            <td></td>
+            <td class="contenButtons">
+
+                <input class="button" value="Get Information" type="submit" name="buttonUpdate"></td>
+        </tr>
+    </table>
+
+</form>
+
+<form name="frmPersonal" method="post" action="{$HREF_PAGE}"  >
+    <input type="hidden" name="action" value="update_account"  />
+    <h3>Security Code</h3>
+
+    <table class="form">
+
+        <tr>
+            <td class="form_label" >Security Code</td>
+
+            <td class="form_field">
+                <input type="text" name="security_code" value="{$security_code}"/>
+
+            </td> 
+        </tr>	
+        <tr>
+            <td class="form_label" ><i>*</i>Master Key</td>
+            <td class="form_field">
+                <input  type="password" name="master_key" value="" autocomplete="off" class="inputtext" size="5" maxlength="3"  /></td>
+        </tr>
+        <tr>
+            <td class="form_label" ></td>
+            <td class="form_field">
+                <input class="button" value="Updated" type="submit" name="buttonUpdate">    
+            </td>
+        </tr>
+    </table>
+
+</form>

@@ -1,60 +1,31 @@
-<div class="product">
+{foreach from=$posts key=k item=post}
+{assign var="i" value=$k%4}
+{assign var="odd" value=$k%2}
+
+
+<div class="product {if $odd == 1}padding-right0{/if}">
     <div class="heading">
         <div class="image">
-            <img src="images/deposit_funny.png"/>
+            <img src="{$post.thumbnail}"/>
         </div>
-        <h1>Deposit<br/> money / funds</h1>
+        <h1>{$post.title}</h1>
         <div class="clear"></div>
     </div>
     <div class="content">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
+        {$post.content}...
     </div>
-    <a href="#" class="learn_more green">learn more amount deposit money / funds</a>
+
+
+    {if $i == 0}
+    <a href="{$post.href}" class="learn_more green">learn more about {$post.title}</a>
+    {elseif $i == 1}
+    <a href="{$post.href}" class="learn_more yellow">learn more about {$post.title}</a>
+    {elseif $i == 2}
+    <a href="{$post.href}" class="learn_more butterfly_blue">learn more about {$post.title}</a>
+    {else}
+    <a href="{$post.href}" class="learn_more red">learn more about {$post.title}</a>
+    {/if}
+
 </div>
 
-<div class="product padding-right0">
-    <div class="heading">
-        <div class="image">
-            <img src="images/escrow.png"/>
-        </div>
-        <h1>Escrow<br/> payments</h1>
-        <div class="clear"></div>
-    </div>
-    <div class="content">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
-    </div>
-    <a href="#" class="learn_more yellow">learn more amount deposit money / funds</a>
-</div>
-
-<div class="product">
-    <div class="heading">
-        <div class="image">
-            <img src="images/transfer.png"/>
-        </div>
-        <h1>Transfer<br/> money / funds</h1>
-        <div class="clear"></div>
-    </div>
-    <div class="content">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
-    </div>
-    <a href="#" class="learn_more butterfly_blue">learn more amount deposit money / funds</a>
-</div>
-
-<div class="product padding-right0">
-    <div class="heading">
-        <div class="image">
-            <img src="images/withdraw.png"/>
-        </div>
-        <h1>Withdraw<br/> money / funds</h1>
-        <div class="clear"></div>
-    </div>
-    <div class="content">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
-    </div>
-    <a href="#" class="learn_more red">learn more amount deposit money / funds</a>
-</div>
-
+{/foreach}

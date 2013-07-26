@@ -75,12 +75,11 @@ function curl_get($url, $fields) {
     foreach ($fields as $key => $value) {
         $fields_string .= $key . '=' . $value . '&';
     }
-    rtrim($fields_string, '&');
-
+    $fields_string = rtrim($fields_string, '&');
+    
 //open connection
     $ch = curl_init();
     $url .= '?' . $fields_string;
-
 //set the url, number of POST vars, POST data
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_TIMEOUT, 60);
