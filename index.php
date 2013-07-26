@@ -32,6 +32,11 @@ if (is_file(_CURRENT_MODULE . '/' . _CURRENT_PAGE . _PAGE_EXTENDSION)) {
         <!--[if IE]>
         <link rel="stylesheet" type="text/css" href="ie.css" />
         <![endif]-->
+
+        <!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="ie7.css" />
+<![endif]-->
+        <!--[if IE 8]><html class="ie8"><link rel="stylesheet" type="text/css" href="ie8.css" /><![endif]-->
         <?php
 //module header settings load
         include('includes/module_header_load.php');

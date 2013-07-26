@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-18 19:45:21
+<?php /* Smarty version 2.6.18, created on 2013-07-26 05:52:44
          compiled from account/personal.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'account/personal.html', 1, false),)), $this); ?>
@@ -17,6 +17,7 @@ $this->_smarty_include(array('smarty_include_tpl_file' => ($this->_tpl_vars['_TE
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
+        
         <div class="st-form-line">
             <span class="st-labeltext"><i>*</i>Master Key:</span>
             <input type="password" autocomplete="off" name="master_key" size="5" maxlength="3" class="st-forminput medium">

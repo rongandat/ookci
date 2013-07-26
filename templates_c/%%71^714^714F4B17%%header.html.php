@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-24 10:21:21
+<?php /* Smarty version 2.6.18, created on 2013-07-26 06:04:41
          compiled from header.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'header.html', 4, false),)), $this); ?>
@@ -15,9 +15,9 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
             </li>
             <li>
                 <a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_ACCOUNT','ssl' => true), $this);?>
-"> <strong><?php echo $_SESSION['login_account_number']; ?>
- </strong></a>(<?php echo $_SESSION['login_main_account_info']['account_name']; ?>
-)
+" style="text-transform: none"><strong><?php echo $_SESSION['login_account_number']; ?>
+ </strong>(<?php echo $_SESSION['login_main_account_info']['account_name']; ?>
+)</a> 
             </li>
             <li><a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_LOGOUT','ssl' => true), $this);?>
 ">Logout</a> </li>
@@ -146,7 +146,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
                 <?php echo $this->_tpl_vars['post_info']['content']; ?>
 
                 <a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_SIGNUP','ssl' => true), $this);?>
-" class="button-create-acount">Create free acount</a>
+" class="button-create-acount">Create free account</a>
             </div>
             <div class="right-banner">
                 <form action="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_LOGIN','ssl' => true), $this);?>

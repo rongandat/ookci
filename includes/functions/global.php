@@ -216,22 +216,6 @@ function transfer_admin($transaction_data_array) {
     );
 
 
-    $step = 'completed';
-    // Send Transaction Notify 	Email to User
-    $email_info = get_email_template('TRANSFER_EMAIL');
-    $user_info = db_fetch_array(db_query("SELECT firstname, email FROM " . _TABLE_USERS . " WHERE user_id='" . $to_userid . "'"));
-    $firstname = $user_info['firstname'];
-
-    $msg_subject = $email_info['emailtemplate_subject'];
-
-    //	echo "amount_text = $amount_text <br>";
-
-
-    $msg_content = str_replace(array('[firstname]', '[amount_text]', '[batch_number]', '[balance_currency]', '[from_account]'), array($firstname, $amount_text, $batch_number, $balance_currency, $from_account_number), $email_info['emailtemplate_content']);
-
-    $msg_content = html_entity_decode($msg_content);
-
-    tep_mail($firstname, $user_info['email'], $msg_subject, $msg_content, SITE_NAME, SITE_CONTACT_EMAIL);
 }
 
 ?>

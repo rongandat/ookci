@@ -126,6 +126,11 @@ if (empty($error_code)) {
 
         $smarty->assign('amount', $balance);
 
+        $smarty->assign('success_url', $success_url);
+        $smarty->assign('fail_url', $fail_url);
+        $smarty->assign('cancel_url', $cancel_url);
+        $smarty->assign('status_url', $status_url);
+
         $user_info = db_fetch_array($user_query);
         $smarty->assign('user_info', $user_info);
         $smarty->assign('requests', $requests);

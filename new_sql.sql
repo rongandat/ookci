@@ -1,3 +1,2 @@
-INSERT INTO `configuration` (`configuration_title`, `configuration_key`, `configuration_value`, `configuration_description`, `configuration_group_id`) VALUES ('API post in home page', 'API_POST_HOMEPAGE', 'information-2', 'API post in home page', 1);
-
-INSERT INTO `configuration` (`configuration_title`, `configuration_key`, `configuration_value`, `configuration_description`, `configuration_group_id`) VALUES ('API post in banner', 'API_POST_BANNER', 'ookcah-payment-gateway', 'API post in banner', 1);
+ALTER TABLE `transactions`
+	ADD COLUMN `status` TINYINT NOT NULL DEFAULT '1' AFTER `fee_text`;

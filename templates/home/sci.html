@@ -8,26 +8,31 @@
         <table class="form">
             <tbody>
                 <tr>
-                    <td width="100">
+                    <td >
                         Pay to account
                     </td>
-                    <td width="250">
+                    <td >
                         {$user_info.account_number}(<strong>{$user_info.account_name}</strong>)
                     </td>
                 </tr>
                 <tr>
-                    <td width="100">
+                    <td >
                         Amount
                     </td>
-                    <td width="250">
+                    <td >
                         {$amount}
                     </td>
                 </tr>
                 <tr>
-                    <td width="100">
-                        <input class="button" type="submit" value="Login">
+                    <td >
+                        <div class="buttons">
+                            <input class="button" type="submit" value="Login">
+                            {if !empty($cancel_url)}
+                            <input  type="button" name="buttonCancel" class="button"  value="Cancel" onclick="redirect('{$cancel_url}');" />
+                            {/if}
+                        </div>
                     </td>
-                    <td width="250">
+                    <td >
                     </td>
                 </tr>
             </tbody>

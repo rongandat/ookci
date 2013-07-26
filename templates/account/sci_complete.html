@@ -12,7 +12,7 @@
         {if !empty($url)}
         <p>you will redirect within 10 seconds.</p>
         {/if}
-        <table cellspacing="0" cellpadding="0" bordercolor="#111111" border="0" style="border-collapse: collapse" class="form_content">
+        <table class="form">
             <tbody><tr>
                     <td class="form_label"><font size="2" face="Tahoma">Date:</font></td>
                     <td class="form_field"><font size="2" face="Tahoma">{$transaction.transaction_time}</font></td>
@@ -58,7 +58,7 @@
 
                 </td>
                 <td class="">
-                    <button type="submit">Return</button>
+                    <button type="submit" class="button">Return</button>
                 </td>
             </tr>
         </table>

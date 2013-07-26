@@ -1,87 +1,4 @@
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
-    border: 0 none;
-    margin: 0;
-    outline: 0 none;
-    padding: 0;
-    text-decoration: none;
-    font-family: arial;
-    font-size: 13px;
-}
-
-body {
-    line-height: 1;
-}
-ol, ul {
-    list-style: none outside none;
-}
-
-.clear {
-    clear: both;
-}
-.clear-l {
-    clear: left;
-}
-.clear-r {
-    clear: right;
-}
-
-.fl {
-    float: left;
-}
-.fr {
-    float: right;
-}
-.clr {
-    clear: both;
-}
-.wrapper {
-    /*    margin: 0 auto;
-        width: 1024px;*/
-
-    background: #f5f5f5;
-    text-align: center;
-}
-
-#header{
-    height: 417px;
-    background: url(images/banner.jpg) no-repeat center top; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/banner.jpg', sizingMethod='scale');
-    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/banner.jpg', sizingMethod='scale')";
-    background-size: cover;
-    position: relative;
-    text-align: center;
-
-}
-
-#header .top-header{
-    height: 90px;
-    position: relative;
-    text-align: left;
-}
-
-
-
-#header .top-header .logo{
-    display: block;
-    float: left;
-    padding: 20px 0 0 185px;
-
-}
-
-#header .top-header .top-nav{
-    float: right;
-    background: #053771;
-    padding-right: 188px; 
-    margin: 25px 0;
-    position: absolute;
-    right: 0;
-    min-width: 250px;
-}
-
 
 
 
@@ -149,6 +66,89 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     font-family: arial;
     font-size: 13px;
 }
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    border: 0 none;
+    margin: 0;
+    outline: 0 none;
+    padding: 0;
+    text-decoration: none;
+    font-family: arial;
+    font-size: 13px;
+}
+
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none outside none;
+}
+
+.clear {
+    clear: both;
+}
+.clear-l {
+    clear: left;
+}
+.clear-r {
+    clear: right;
+}
+
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.clr {
+    clear: both;
+}
+.wrapper {
+    /*    margin: 0 auto;
+        width: 1024px;*/
+
+    background: #f5f5f5;
+    text-align: center;
+}
+
+#header{
+    height: 417px;
+    background: url(images/banner.jpg) no-repeat center top; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/banner.jpg', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/banner.jpg', sizingMethod='scale')";
+    background-size: cover;
+    text-align: center;
+    
+}
+
+#header .top-header{
+    height: 90px;
+    position: relative;
+    text-align: left;
+    
+}
+
+
+
+#header .top-header .logo{
+    display: block;
+    float: left;
+    padding: 20px 0 0 185px;
+
+}
+
+#header .top-header .top-nav{
+    float: right;
+    background: #053771;
+    padding-right: 188px; 
+    margin: 25px 0;
+    position: absolute;
+    right: 0;
+    min-width: 250px;
+}
+
 
 #header .nav{
     background:  url(images/bg_menu.png) repeat-x center top; 
@@ -254,6 +254,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 #header .banner .right-banner{
+    
     float: right;
     padding-top: 30px;
     width: 204px;
@@ -345,42 +346,47 @@ a:hover{
 #header-login{
     height: 128px;
     background: url(images/banner_login.png) no-repeat center top; 
-    -webkit-background-size: cover;
+     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/banner_login.png', sizingMethod='scale');
     -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/banner_login.png', sizingMethod='scale')";
     background-size: cover;
-    min-width: 100%;
+    text-align: center;
+    
 }
+
 
 #header-login .top-header{
-    height: 93px;
+    height: 94px;
+    position: relative;
+    text-align: left;
+    
 }
 
-/*#header-login .top-header .logo{
+
+
+#header-login .top-header .logo{
     display: block;
     float: left;
     padding: 20px 0 0 185px;
-}*/
 
-
-#header-login .top-header .logo {
-    display: block;
-    float: left;
-    padding: 20px 0 0 185px;
 }
 
 #header-login .top-header .top-nav{
     float: right;
     background: #053771;
-    padding-right: 180px; 
+    padding-right: 188px; 
     margin: 25px 0;
+    position: absolute;
+    right: 0;
+    min-width: 250px;
 }
+
 
 #header-login .nav{
     background:  url(images/bg_menu.png) repeat-x center top; 
-    padding: 0 185px;
+
     height: 34px;
 }
 
@@ -390,9 +396,17 @@ a:hover{
 
 }
 
-#header-login .nav .search{
+#header-login .nav .nav-content{
+    width: 960px;
+    margin: 0 auto;
+    position: relative;
+}
+#header-login .nav .search {
     float: right;
-    padding: 7px 0 0;   
+    padding: 7px 0 0;
+    position: absolute;
+    right: 0;
+    top:0;
 }
 
 #header-login .nav .search span{
@@ -403,7 +417,8 @@ a:hover{
 
 #header-login .nav .search input.search-inut{
     background: #5692d6;
-    padding: 2px;
+    /*padding: 2px;*/
+    height: 21px;
     border: none;
     color: #fff;
     width: 220px;
@@ -426,19 +441,26 @@ a:hover{
     text-transform: uppercase;
 }
 
-#header-login .nav ul li:hover a,#header-login .nav ul li a.active,.nav-content a:hover{
+#header-login .nav ul li:hover a,#header-login .nav ul li a.active,#header-login .nav a:hover{
     background: #011f49;
 }
 
 #header-login .banner{
-    padding: 0 215px;
     color: #fff;
+    text-align: center
+}
+#header-login .banner .content-banner{
+    margin: 0 auto!important;
+    position: relative;
+    width: 960px;
+    text-align: left;
 }
 
 #header-login .banner .left-banner{
-    padding-top: 40px;
+    padding: 40px 0 0 0;
     width: 395px;
     float: left;
+
 
 }
 
@@ -454,51 +476,49 @@ a:hover{
     line-height: 18px;
 }
 
-/*.left-banner a.button-create-acount {
-    border-bottom: 35px solid #011F49;
-    border-right: 15px solid transparent;
+.left-banner a.button-create-acount {
+    background: url(images/mblogin.png) no-repeat scroll left top transparent;
     color: #FFFFFF;
     display: block;
     font-weight: bold;
-    height: 18px;
-    line-height: 67px;
+    height: 36px;
+    line-height: 36px;
+    margin-top: 20px;
     padding: 0 20px;
-    width: 159px;
     text-transform: uppercase
-}*/
-
-.left-banner a.button-create-acount {
-    background: url("images/create_acount.png") no-repeat scroll left top transparent;
-    cursor: pointer;
-    width: 222px;
 }
 
 #header-login .banner .right-banner{
     float: right;
     padding-top: 30px;
     width: 204px;
+    position: absolute;
+    right: 0;
 }
 
 
 #header-login .banner .heading.blue {
-    border-bottom: 35px solid #053780;
-    border-right: 15px solid transparent;
+    background: url(images/mblogin.png) no-repeat scroll left top transparent;
     color: #FFFFFF;
     font-weight: bold;
     height: 0;
     line-height: 30px;
     padding: 0 15px;
-    width: 159px;
+    width: 218px;
+    height: 35px;
+
 }
 
-#header-login .banner .right-banner .login-form-header-login{
-    background: url(images/bg_right_banner.png) repeat-x top left;
-    padding: 14px 0 25px 0;
+#header-login .banner .right-banner .login-form-header{
+    background: url("images/bg_right_banner.png") repeat-x scroll left top transparent;
+    clear: both;
     height: 124px;
+    padding: 14px 0 25px;
+    width: 218px;
 
 }
 
-#header-login .banner .right-banner .login-form-header-login input.input-login{
+#header-login .banner .right-banner .login-form-header input.input-login{
     background: #d2e4f5;
     margin: 0 15px 10px 15px;
     display: block;
@@ -510,29 +530,29 @@ a:hover{
     float: left;
 }
 
-#header-login .banner .right-banner .login-form-header-login a.forgot{
+#header-login .banner .right-banner .login-form-header a.forgot{
     display: block;
     float: left;
     padding: 10px 0 0 25px;
-    color: #000;
+    color: #011F49;
     font-size: 11px;
 }
 
-#header-login .banner .right-banner .login-form-header-login input.btn-login{
+#header-login .banner .right-banner .login-form-header input.btn-login{
     float: right;
-    padding: 5px 10px;
+    padding: 5px 5px;
     background: #00327b;
     border: none;
     color: #87b6f8;
     text-transform: uppercase;
-    margin-right: 15px;
+    margin: 0 27px 0 0;
 }
 
 #header-login .top-header ul li{
     display: block;
     float: left;
     padding: 15px 0 15px 35px; 
-    color: #fff;
+    color: #fff
 }
 
 #header-login .top-header ul li a{
@@ -540,6 +560,22 @@ a:hover{
     text-transform: uppercase;
 
 }
+a:hover{
+    color:#ED7839;
+}
+#header-login .top-header ul li:hover a{
+    color:#ED7839;
+    text-transform: uppercase;
+
+}
+#header-login .top-header ul li span{
+    color:#ED7839;
+    text-transform: uppercase;
+
+}
+
+
+
 a:hover{
     color:#ED7839;
 }
@@ -1170,7 +1206,7 @@ a img { border:0;}
     position: relative;
     text-decoration: none;
     text-transform: uppercase;
-    z-index: 6;
+    
     color: #fff
 }
 .menu > ul > li:hover > a {
@@ -1192,7 +1228,7 @@ a img { border:0;}
     position: relative;
     text-decoration: none;
     text-transform: uppercase;
-    z-index: 6;
+    
     color: #fff
 }
 
@@ -1204,7 +1240,7 @@ a img { border:0;}
     padding: 0;
     position: relative;
     text-align: center;
-    z-index: 20;
+    
 }
 
 .menu ul li{

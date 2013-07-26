@@ -9,7 +9,7 @@
         {include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }
         <h3>Personal Information</h3>
         <table class="form">
-         
+
             <tr>
                 <td class="form_label"><i>*</i>Account Name:</td>
                 <td class="form_field">
@@ -25,23 +25,19 @@
                 <td class="form_field">
                     <input  name="address" type="text"  value="{$address}"  class="inputtext" size="20"  /></td>
             </tr>	
-            <tr>
-                <td class="form_label"><i>*</i>City:</td>
-                <td class="form_field">
-                    <input  name="city" type="text"  value="{$city}"  class="inputtext" size="20"  /></td>
-            </tr>		   
+
             <tr> <td class="form_label">
                     <i>*</i>Country:</td>	  
                 <td class="form_field"><select name="country_id"  class="inputselect"  onchange="getStates(this.value);">
                         {html_options options=$countries_array selected=$country_id}</select>
-                    
+
                 </td></tr>	
-            <tr> <td class="form_label">
-                    <i>*</i>State/Region:</td>	  
-                <td class="form_field"><select name="state"  id="state" class="state" >
-                        {html_options options=$zones_array selected=$state}</select>
-                    
-                </td></tr>	  
+            <tr>
+                <td class="form_label"><i>*</i>City:</td>
+                <td class="form_field">
+                    <input  name="city" type="text"  value="{$city}"  class="inputtext" size="20"  /></td>
+            </tr>	
+
             <tr>
                 <td class="form_label"><i>*</i>Zip/Post Code:</td>
                 <td class="form_field">
@@ -52,10 +48,10 @@
                 <td  class="form_field"><select name="dobMonth" class="inputselect">
                         {html_options options=$months_array selected=$dobMonth}</select>&nbsp;<select name="dobDay" class="inputselect">
                         {html_options options=$days_array selected=$dobDay}</select>&nbsp;&nbsp;
-                    
+
                     <select name="dobYear" class="inputselect">
                         {html_options options=$years_array selected=$dobYear}</select>&nbsp;(mm/dd/yy)
-                    
+
                 </td></tr>	 	  		
             <tr>
                 <td class="form_label"><i>*</i>Phone:</td>
@@ -73,4 +69,3 @@
             </tr>
         </table>
     </div>
-    

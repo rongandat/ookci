@@ -36,7 +36,7 @@
 				
 		
 	//eof: date
-			
+	$where_filter .= 'AND status = 1 ';		
 	switch ($action) {	
 		case 'process_search':			
 			$batch_number	=	db_prepare_input($_POST['batch_number']);

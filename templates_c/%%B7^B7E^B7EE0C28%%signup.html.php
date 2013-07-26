@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-20 05:03:36
+<?php /* Smarty version 2.6.18, created on 2013-07-26 05:57:02
          compiled from home/signup.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'home/signup.html', 1, false),array('function', 'html_options', 'home/signup.html', 44, false),)), $this); ?>
@@ -92,8 +92,7 @@ unset($_smarty_tpl_vars);
             <tr>
                 <td></td>
                 <td>
-                    If you agree with <a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_TERMS'), $this);?>
-" target="_blank">Terms of Our Service</a> click "Agree" to continue the registration.
+                    If you agree with <a href="http://docs.ookcash.com/tos/" target="_blank">Terms of Our Service</a> click "Agree" to continue the registration.
                 </td>
 
             </tr>

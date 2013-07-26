@@ -7,7 +7,7 @@
                 Welcome <strong>{$smarty.session.login_main_account_info.firstname}&nbsp;{$smarty.session.login_main_account_info.lastname}</strong>
             </li>
             <li>
-                <a href="{dev_get_page_link page=PAGE_ACCOUNT ssl=true}"> <strong>{$smarty.session.login_account_number} </strong></a>({$smarty.session.login_main_account_info.account_name})
+                <a href="{dev_get_page_link page=PAGE_ACCOUNT ssl=true}" style="text-transform: none"><strong>{$smarty.session.login_account_number} </strong>({$smarty.session.login_main_account_info.account_name})</a> 
             </li>
             <li><a href="{dev_get_page_link page=PAGE_LOGOUT ssl=true}">Logout</a> </li>
         </ul>
@@ -99,7 +99,7 @@
             <ul>
                 <li><a href="{dev_get_page_link page=PAGE_DEFAULT ssl=true}" {if ($smarty.get.page == 'index') && empty($smarty.get.module)} class="active" {/if}>Home</a></li>
 
-                <li><a href="http://docs.ookcash.com/exchangers">Exchangers</a></li>
+                <li><a href="http://docs.ookcash.com/category/exchangers/">Exchangers</a></li>
                 <li><a href="http://docs.ookcash.com/products">Products</a></li>
                 <li><a href="http://docs.ookcash.com">Help</a></li>
             </ul>
@@ -118,7 +118,7 @@
             <div class="left-banner">
                 <h1>{$post_info.title}</h1>
                 {$post_info.content}
-                <a href="{dev_get_page_link page=PAGE_SIGNUP ssl=true}" class="button-create-acount">Create free acount</a>
+                <a href="{dev_get_page_link page=PAGE_SIGNUP ssl=true}" class="button-create-acount">Create free account</a>
             </div>
             <div class="right-banner">
                 <form action="{dev_get_page_link page=PAGE_LOGIN ssl=true}" method="post" > 
@@ -159,7 +159,7 @@
             <ul>
                 <li><a href="{dev_get_page_link page=PAGE_DEFAULT ssl=true}" {if ($smarty.get.page == 'index') && empty($smarty.get.module)} class="active" {/if}>Home</a></li>
 
-                <li><a href="http://docs.ookcash.com/exchangers">Exchangers</a></li>
+                <li><a href="http://docs.ookcash.com/category/exchangers/">Exchangers</a></li>
                 <li><a href="http://docs.ookcash.com/products">Products</a></li>
                 <li><a href="http://docs.ookcash.com">Help</a></li>
             </ul>

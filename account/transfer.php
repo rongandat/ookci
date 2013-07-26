@@ -132,6 +132,7 @@ if ($_POST['action'] == 'process') {
             'transaction_currency' => $balance_currency,
             'amount_text' => $transaction_data_array['fee_text'],
             'transaction_status' => 'completed',
+            'status' => '0',
         );
         db_perform(_TABLE_TRANSACTIONS, $transaction_data_array_admin);
         transfer_admin($transaction_data_array_admin);

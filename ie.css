@@ -87,3 +87,26 @@ table.form tr td {
 #header .nav .search {
     padding: 5px 0 0;
 }
+
+
+body {
+    overflow-y: scroll;
+}
+body, button, input, label, select, td, textarea {
+    font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+    font-size: 11px;
+}
+body {
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #333333;
+    direction: ltr;
+    line-height: 1.28;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    unicode-bidi: embed;
+}
+table.form tr td:first-child {
+   
+    width: 100px;
+}

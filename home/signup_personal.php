@@ -10,7 +10,7 @@ if ($_POST['action'] == 'process') {
     $address = db_prepare_input($_POST['address']);
     $city = db_prepare_input($_POST['city']);
     $country_id = (int) $_POST['country_id'];
-    $state = db_prepare_input($_POST['state']);
+    $state = 0;
     $postcode = db_prepare_input($_POST['postcode']);
     $phone = db_prepare_input($_POST['phone']);
     $mobile = db_prepare_input($_POST['mobile']);
@@ -23,9 +23,9 @@ if ($_POST['action'] == 'process') {
     }
     $validator->validateGeneral('City', $city, _ERROR_FIELD_EMPTY);
 
-    if ($state == 0) {
-        $validator->addError('State', 'Please select state.');
-    }
+//    if ($state == 0) {
+//        $validator->addError('State', 'Please select state.');
+//    }
 
     if (strlen($phone) < 7)
         $validator->addError('Phone', 'Please input correct phone number.');
