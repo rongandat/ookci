@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-29 09:47:35
+<?php /* Smarty version 2.6.18, created on 2013-07-29 11:07:24
          compiled from sidebar.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_admin_page_link', 'sidebar.html', 18, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_admin_page_link', 'sidebar.html', 17, false),)), $this); ?>
 <!-- START SIDEBAR -->
 <div id="sidebar">
 
@@ -18,7 +18,8 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_adm
     <!-- start sidemenu -->
     <div id="sidemenu">
         <ul>
-            <li <?php if (( $_GET['module'] == 'home' ) && empty ( $_GET['page'] )): ?>class="active"<?php endif; ?>><a href="#"><img src="includes/img/icons/sidemenu/laptop.png" width="16" height="16" alt="icon"/>Dashboard</a></li>
+            <li <?php if (( $_GET['module'] == 'home' ) && empty ( $_GET['page'] )): ?>class="active"<?php endif; ?>><a href="<?php echo smarty_function_dev_get_admin_page_link(array('page' => 'PAGE_DEFAULT','ssl' => true), $this);?>
+"><img src="includes/img/icons/sidemenu/laptop.png" width="16" height="16" alt="icon"/>Dashboard</a></li>
              <li <?php if ($_GET['module'] == 'admins'): ?>class="active"<?php endif; ?>><a href="<?php echo smarty_function_dev_get_admin_page_link(array('page' => 'PAGE_ADMIN_ACCOUNTS','ssl' => true), $this);?>
 "><img src="includes/img/icons/sidemenu/user.png" width="16" height="16" alt="icon"/>Admin Accounts</a></li>
              <li <?php if ($_GET['module'] == 'settings'): ?>class="active"<?php endif; ?>><a href="<?php echo smarty_function_dev_get_admin_page_link(array('page' => 'PAGE_SETTINGS','ssl' => true), $this);?>

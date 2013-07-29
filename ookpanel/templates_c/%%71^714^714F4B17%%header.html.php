@@ -1,14 +1,15 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-26 11:45:53
+<?php /* Smarty version 2.6.18, created on 2013-07-29 11:01:06
          compiled from header.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_admin_page_link', 'header.html', 36, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_admin_page_link', 'header.html', 7, false),)), $this); ?>
 <?php if (! empty ( $_SESSION['admin_login_username'] )): ?>
 <!-- START HEADER -->
 <div id="header">
 
 
     <!-- logo -->
-    <div class="logo">	<a href="index.html"><img src="images/logo.png" width="112" height="35" alt="logo"/></a>	</div>
+    <div class="logo">	<a href="<?php echo smarty_function_dev_get_admin_page_link(array('page' => 'PAGE_DEFAULT','ssl' => true), $this);?>
+"><img src="images/logo.png" width="112" height="35" alt="logo"/></a>	</div>
 
 
     <!-- notifications -->

@@ -14,7 +14,7 @@
     <!-- start sidemenu -->
     <div id="sidemenu">
         <ul>
-            <li {if ($smarty.get.module == 'home') && empty($smarty.get.page)}class="active"{/if}><a href="#"><img src="includes/img/icons/sidemenu/laptop.png" width="16" height="16" alt="icon"/>Dashboard</a></li>
+            <li {if ($smarty.get.module == 'home') && empty($smarty.get.page)}class="active"{/if}><a href="{dev_get_admin_page_link page=PAGE_DEFAULT ssl=true}"><img src="includes/img/icons/sidemenu/laptop.png" width="16" height="16" alt="icon"/>Dashboard</a></li>
              <li {if $smarty.get.module == 'admins'}class="active"{/if}><a href="{dev_get_admin_page_link page=PAGE_ADMIN_ACCOUNTS ssl=true}"><img src="includes/img/icons/sidemenu/user.png" width="16" height="16" alt="icon"/>Admin Accounts</a></li>
              <li {if $smarty.get.module == 'settings'}class="active"{/if}><a href="{dev_get_admin_page_link page=PAGE_SETTINGS ssl=true}"><img src="includes/img/icons/sidemenu/star.png" width="16" height="16" alt="icon"/>Settings</a></li>
              <li {if $smarty.get.module == 'langs'}class="active"{/if}><a href="{dev_get_admin_page_link page=PAGE_LANGUAGES ssl=true}"><img src="includes/img/icons/sidemenu/copy.png" width="16" height="16" alt="icon"/>Languages</a></li>
