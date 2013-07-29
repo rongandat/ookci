@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-26 06:04:41
+<?php /* Smarty version 2.6.18, created on 2013-07-27 04:19:03
          compiled from header.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'header.html', 4, false),)), $this); ?>
@@ -124,7 +124,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
                 <li><a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_DEFAULT','ssl' => true), $this);?>
 " <?php if (( $_GET['page'] == 'index' ) && empty ( $_GET['module'] )): ?> class="active" <?php endif; ?>>Home</a></li>
 
-                <li><a href="http://docs.ookcash.com/exchangers">Exchangers</a></li>
+                <li><a href="http://docs.ookcash.com/category/exchangers/">Exchangers</a></li>
                 <li><a href="http://docs.ookcash.com/products">Products</a></li>
                 <li><a href="http://docs.ookcash.com">Help</a></li>
             </ul>
@@ -194,7 +194,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
                 <li><a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_DEFAULT','ssl' => true), $this);?>
 " <?php if (( $_GET['page'] == 'index' ) && empty ( $_GET['module'] )): ?> class="active" <?php endif; ?>>Home</a></li>
 
-                <li><a href="http://docs.ookcash.com/exchangers">Exchangers</a></li>
+                <li><a href="http://docs.ookcash.com/category/exchangers/">Exchangers</a></li>
                 <li><a href="http://docs.ookcash.com/products">Products</a></li>
                 <li><a href="http://docs.ookcash.com">Help</a></li>
             </ul>

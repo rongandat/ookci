@@ -1,0 +1,17 @@
+<div class="loginform">
+    <span class="success"><strong>{$TEXT_LOGOUT_SUCCESS}</strong></span>
+    {if  $admin_id>0 }
+    <div>{$TEXT_LOGGED}</div>
+    {/if}
+    <div class="title"> <img src="images/logo.png" width="112" height="35" /></div>
+    <div class="body">
+        {include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }
+        <form id="form1" name="form1" method="post" action="{$action_login}">
+            <label class="log-lab">Username</label>
+            <input name="username"  value="{$username}" type="text" class="login-input-user"/>
+            <label class="log-lab">Password</label>
+            <input name="password"  type="password" type="password" class="login-input-pass"/>
+            <input type="submit" name="button" id="button" value="Login" class="button"/>
+        </form>
+    </div>
+</div>

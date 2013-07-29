@@ -1,0 +1,32 @@
+<!-- START SIDEBAR -->
+<div id="sidebar">
+
+    <!-- start searchbox -->
+    <div id="searchbox">
+        <div class="in">
+            <form id="form1" name="form1" method="post" action="">
+                <input name="textfield" type="text" class="input" id="textfield" onfocus="$(this).attr('class','input-hover')" onblur="$(this).attr('class','input')"  />
+            </form>
+        </div>
+    </div>
+    <!-- end searchbox -->
+
+    <!-- start sidemenu -->
+    <div id="sidemenu">
+        <ul>
+            <li {if ($smarty.get.module == 'home') && empty($smarty.get.page)}class="active"{/if}><a href="#"><img src="includes/img/icons/sidemenu/laptop.png" width="16" height="16" alt="icon"/>Dashboard</a></li>
+             <li {if $smarty.get.module == 'admins'}class="active"{/if}><a href="{dev_get_admin_page_link page=PAGE_ADMIN_ACCOUNTS ssl=true}"><img src="includes/img/icons/sidemenu/user.png" width="16" height="16" alt="icon"/>Admin Accounts</a></li>
+             <li {if $smarty.get.module == 'settings'}class="active"{/if}><a href="{dev_get_admin_page_link page=PAGE_SETTINGS ssl=true}"><img src="includes/img/icons/sidemenu/star.png" width="16" height="16" alt="icon"/>Settings</a></li>
+             <li {if $smarty.get.module == 'langs'}class="active"{/if}><a href="{dev_get_admin_page_link page=PAGE_LANGUAGES ssl=true}"><img src="includes/img/icons/sidemenu/copy.png" width="16" height="16" alt="icon"/>Languages</a></li>
+             <li {if $smarty.get.module == 'emailtemplates'}class="active"{/if}><a href="{dev_get_admin_page_link page=PAGE_EMAILTEMPLATES ssl=true}"><img src="includes/img/icons/sidemenu/attach.png" width="16" height="16" alt="icon"/>Email Template</a></li>
+             <li {if $smarty.get.module == 'security_questions'}class="active"{/if}><a href="{dev_get_admin_page_link page=PAGE_SECURITY_QUESTIONS ssl=true}"><img src="includes/img/icons/sidemenu/file_edit.png" width="16" height="16" alt="icon"/>Security Question</a></li>
+             <li {if $smarty.get.module == 'users'}class="active"{/if}><a href="{dev_get_admin_page_link page=PAGE_USERS ssl=true}"><img src="includes/img/icons/sidemenu/user.png" width="16" height="16" alt="icon"/>Users</a></li>
+             <li {if $smarty.get.module == 'currencies'}class="active"{/if}><a href="{dev_get_admin_page_link page=PAGE_CURRENCIES ssl=true}"><img src="includes/img/icons/sidemenu/download.png" width="16" height="16" alt="icon"/>Currencies</a></li>
+             <li {if ($smarty.get.module == 'transactions') && ($smarty.get.page == 'addfunds')} class="active"{/if}><a href="{dev_get_admin_page_link page=PAGE_ADD_FUNDS ssl=true}"><img src="includes/img/icons/sidemenu/comment.png" width="16" height="16" alt="icon"/>Add Funds</a></li>
+             <li {if $smarty.get.module == 'transactions' && ($smarty.get.page == 'history')} class="active"{/if}><a href="{dev_get_admin_page_link page=PAGE_TRANSACTIONS ssl=true}"><img src="includes/img/icons/sidemenu/calendar.png" width="16" height="16" alt="icon"/>Transactions</a></li>
+        </ul>
+    </div>
+    <!-- end sidemenu -->
+
+</div>
+<!-- END SIDEBAR -->

@@ -1,0 +1,77 @@
+<div class="page-title" style="z-index: 780;">
+    <div class="in" style="z-index: 770;">
+        <div class="titlebar" style="z-index: 760;">	
+            <h2>Transactions History</h2>	
+        </div>
+        <div class="shortcuts-icons" style="z-index: 480;">
+            <a href="{$link_new_language}" class="shortcut tips" original-title="{$langs.LINK_NEW_LANGUAGE}"><img width="25" height="25" alt="icon" src="includes/img/icons/shortcut/plus.png"></a>
+            <a href="javascript:void(0)" class="shortcut tips" id="buttonSearch" original-title="Search User"><img width="25" height="25" alt="icon" src="includes/img/icons/shortcut/search.png"></a>
+        </div>
+        <div class="clear" style="z-index: 740;"></div>
+    </div>
+
+</div>
+<div class="content" style="z-index: 730;">
+    {include file="$_TEMPLATE_SOURCE_DIR/modules/feedback_messages.tpl" }
+
+    <form name="frmSearch"  action="{dev_get_admin_page_link page=PAGE_TRANSACTIONS}"   method="post">
+        <div  id="ajaxSearchContent" {if $action!='process_search'} style="display:none" {/if}>
+              <h4>Search Filter</h4>
+            <input type="hidden" name="action" value="process_search" >
+            <table class="form">
+                <tr><td>From Date</td><td><select name="fromdateMonth" >{html_options options=$months_array selected=$fromdateMonth}</select>&nbsp;<select name="fromdateDay">{html_options options=$days_array selected=$fromdateDay}</select>&nbsp;&nbsp;
+                        <select name="fromdateYear">{html_options options=$years_array selected=$fromdateYear}</select>&nbsp;(mm/dd/yy)</td></tr>
+                <tr><td>To Date</td><td><select name="todateMonth" >{html_options options=$months_array selected=$todateMonth}</select>&nbsp;<select name="todateDay">{html_options options=$days_array selected=$todateDay}</select>&nbsp;&nbsp;
+                        <select name="todateYear">{html_options options=$years_array selected=$todateYear}</select>&nbsp;(mm/dd/yy)</td></tr>
+                <tr><td>&nbsp;</td><td><input name="search_date_filter"    type="checkbox" value="1"  {if $search_date_filter } checked="checked" {/if}> Search using dates filter</td></tr>
+                <tr><td>Batch Number#</td><td><input name="batch_number"   size="12" maxlength="12"  value="{$batch_number}"  type="text"> </td></tr>
+                <tr><td>From Account</td><td><input name="from_account"   type="text" value="{$from_account}" > </td></tr>
+                <tr><td>To Account</td><td><input name="to_account"   type="text" value="{$to_account}"> </td></tr>
+                <tr><td>Transaction Reference</td><td><input name="transaction_note"   value="{$transaction_note}" type="text" size="50"> </td></tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <input type="submit" name="Submit" value="Save" class="st-button">
+                        <input type="button" name="btnCancel" value="{$BUTTON_CANCEL}" onClick="closeTransactionDetailsContent();" class="st-clear">
+                    </td>
+                </tr>
+            </table>
+            <br>
+        </div>
+       
+        <div  id="ajaxDetailsContent" style="display:none"></div>
+
+        <table class="tablesorter" >
+            <thead> 
+                <tr>
+                    <th>Date</th>
+                    <th>Batch#</th>
+                    <th>From Account</th>			  
+                    <th>To Account</th>			  
+                    <th>Amount</th>			
+                    <th>Fee</th>			
+                    <th>Currency</th>			  			  			    			    			  			    
+                    <th>{$TEXT_ACTION}</th>
+                </tr>
+            </thead>
+
+            {section name=transactionidx loop=$transactions}	
+            {if ($smarty.section.transactionidx.index  % 2) == 0 } {assign var="rowstyle"  value="tableNormalRow"} {else}  {assign var="rowstyle" value="tableAltRow"}  {/if}		  
+            <tr>
+                <td width="22%" height="25"  class="{$rowstyle}">{$transactions[transactionidx].transaction_time|date_format:"%m/%d/%Y %l:%M %p" }</td>
+                <td   class="{$rowstyle}">{$transactions[transactionidx].batch_number}</td>
+                <td   class="{$rowstyle}">{$transactions[transactionidx].from_account}</td>			  			  
+                <td   class="{$rowstyle}"><strong>{$transactions[transactionidx].to_account}</strong></td>			  			  
+                <td   class="{$rowstyle}">{$transactions[transactionidx].amount_text}</td>			  
+                <td class="{$rowstyle}">{$transactions[transactionidx].fee_text}&nbsp;</td>			  			  
+                <td class="{$rowstyle}">{$transactions[transactionidx].transaction_currency}</td>			  			  			  
+                <td width="17%"  class="{$rowstyle}" ><a href="javascript:getTransactionDetails({$transactions[transactionidx].transaction_id});" class="linkButton">{$ACTION_VIEW}</a>&nbsp;<a href="javascript:getProcessForm({$transactions[transactionidx].transaction_id});"  class="linkButton" >Process</a></td>
+            </tr>
+            {/section}
+        </table>
+        {if count($transactions)>0} 
+        <div>{$TEXT_PAGES}{$page_links}</div>
+        {/if}
+    </form>
+</div>
+

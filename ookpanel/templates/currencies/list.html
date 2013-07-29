@@ -1,0 +1,42 @@
+<div class="page-title" style="z-index: 780;">
+    <div class="in" style="z-index: 770;">
+        <div class="titlebar" style="z-index: 760;">	
+            <h2>{$langs.HEADING_TITLE}</h2>
+        </div>
+        <div class="shortcuts-icons" style="z-index: 480;">
+            <a href="{$link_new_currency}" class="shortcut tips" original-title="{$langs.LINK_NEW_CURRENCY}"><img width="25" height="25" alt="icon" src="includes/img/icons/shortcut/plus.png"></a>
+        </div>
+        <div class="clear" style="z-index: 740;"></div>
+    </div>
+
+</div>
+<div class="content" style="z-index: 730;">
+    {include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }
+    {include file="$_TEMPLATE_SOURCE_DIR/modules/feedback_messages.tpl" }
+    <div  id="ajaxContent" style="display:none"></div>
+    <table class="tablesorter">
+        <thead> 
+            <tr>
+                <th>{$langs.HEADER_CURRENCY_CODE}</th>
+                <th>{$langs.HEADER_CURRENCY_SYMBOL}</th>
+                <th>{$langs.HEADER_CURRENCY_STATUS}</th>			  
+                <th>{$langs.HEADER_CURRENCY_STATUS}</th>			  
+                <th>{$TEXT_ACTION}</th>
+            </tr>
+        </thead>
+
+        {section name=currencyidx loop=$currencies}	
+        {if ($smarty.section.currencyidx.index  % 2) == 0 } {assign var="rowstyle"  value="tableNormalRow"} {else}  {assign var="rowstyle" value="tableAltRow"}  {/if}		  
+        <tr>
+            <td width="22%" height="20"  class="{$rowstyle}">{$currencies[currencyidx].title}</td>
+            <td width="26%"  class="{$rowstyle}">{$currencies[currencyidx].code}</td>
+            <td width="26%"  class="{$rowstyle}">{if $currencies[currencyidx].symbol_left!=''} {$currencies[currencyidx].symbol_left} {else} {$currencies[currencyidx].symbol_right} {/if}&nbsp;</td>			  
+            <td width="26%"  class="{$rowstyle}">{if $currencies[currencyidx].status==1} {$langs.TEXT_ACTIVE} {else} {$langs.TEXT_INACTIVE} {/if} </td>			  
+            <td width="17%"  class="{$rowstyle}"  align="center"><a href="{$link_currency_edit}&cID={$currencies[currencyidx].currencies_id}" class="linkButton">{$ACTION_EDIT}</a>&nbsp;<a href="javascript:getDeleteConfirmForm({$currencies[currencyidx].currencies_id});"  class="linkButton">{$ACTION_DELETE}</a></td>
+        </tr>
+        {/section}
+    </table>
+    {if count($currencies)>0} 
+    <div align="center">{$TEXT_PAGES}{$page_links}</div>
+    {/if}
+</div>

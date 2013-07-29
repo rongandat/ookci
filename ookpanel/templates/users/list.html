@@ -1,0 +1,130 @@
+<div class="page-title" style="z-index: 780;">
+    <div class="in" style="z-index: 770;">
+        <div class="titlebar" style="z-index: 760;">	
+            <h2>Users</h2>	
+        </div>
+        <div style="z-index: 810;" class="shortcuts-icons">
+
+            <a original-title="Add User" class="shortcut tips" href="javascript:addUser()"><img width="25" height="25" src="includes/img/icons/shortcut/plus.png" alt="icon"></a>
+            <a href="javascript:void(0)" class="shortcut tips" id="buttonSearch" original-title="Search User"><img width="25" height="25" alt="icon" src="includes/img/icons/shortcut/search.png"></a>
+        </div>
+    </div>
+</div>
+<div class="content" style="z-index: 730;">
+    {include file="$_TEMPLATE_SOURCE_DIR/modules/feedback_messages.tpl" }
+    {if $feedback_message } 	
+    <p><span class="success" >{$feedback_message}</span></p>
+    {/if}
+    <form name="frmSearch"  action="{dev_get_admin_page_link page=PAGE_USERS}"   method="post">
+        <div  id="ajaxSearchContent" {if $action!='process_search'} style="display:none" {/if}>
+              <h2>Search Filter</h2>
+            <input type="hidden" name="action" value="process_search" >
+            <table class="form">
+                <tr><td width="100">Account Number</td><td><input name="account_number"   size="12" maxlength="12"   type="text"> </td></tr>
+                <tr><td>Keyword</td><td><input name="keyword"   type="text"  size="50" > </td></tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <input type="submit" name="Submit" value="Search" class="st-button">
+                        <input type="button" name="btnCancel" value="{$BUTTON_CANCEL}" onClick="closeUserDetailsContent();" class="st-clear">
+                    </td>
+                </tr>
+            </table>
+            <br>
+        </div>
+    </form>
+    <div  id="ajaxDetailsContent" style="display:none"></div>
+
+    <div  id="ajaxDetailsAddContent" {if empty($user_data_array)} style="display:none" {/if}>
+          {if $feedback_err } 	
+          <div class="validErrors" id="validErrorPanel">
+            <ul>
+                {foreach from=$feedback_err item=err key=k }
+                <li><strong>{$k}:</strong> {$err}</li>
+                {/foreach}
+            </ul>
+        </div>
+        {/if}
+        <form name="frmAdd" action="{dev_get_admin_page_link page=PAGE_USERS}" method="post" >
+            <input type="hidden" name="action" value="add"  />
+
+            <table class="form">
+                <tr><td width="20%">First Name</td><td width="93%"><input size="50" name="firstname" value="{$user_data_array.firstname}" type="input"  /></td></tr>
+                <tr><td>Last Name</td><td><input size="50" name="lastname" value="{$user_data_array.lastname}" type="input"  /></td></tr>
+                <tr><td>E-mail</td><td><input size="50" name="email" value="{$user_data_array.email}" type="input"  /></td></tr>
+                <tr><td>Mobile</td><td><input size="50" name="mobile" value="{$user_data_array.mobile}" type="input"  /></td></tr>
+                <tr><td>Phone</td><td><input size="50" name="phone" value="{$user_data_array.phone}" type="input"  /></td></tr>
+                <tr><td>Security Question</td><td><select name="security_question" class="inputselect" onchange="checkSecurityQuestion(this.value);">
+                            {html_options options=$security_questions_array selected=$user_data_array.security_question}</select></td></tr>
+
+                <tr><td>Answer</td><td><input size="50" name="security_answer" value="{$user_data_array.security_answer}" type="input"  /></td></tr>
+                <tr><td>Acount name</td><td><input size="50" name="account_name" value="{$user_data_array.account_name}" type="input"  /></td></tr>
+                <tr><td>Distributors</td><td><select name="distributors" class="inputselect">
+                            {html_options options=$whosale selected=$user_data_array.distributors}</select></td></tr>
+                <tr><td colspan="2">Personal welcome message<br/><textarea name="welcome_message" rows="3"  cols="80">{$user_data_array.welcome_message}</textarea></td></tr>
+
+                <tr><td colspan="2">Additional Information<br /><textarea name="additional_information" rows="3"  cols="80">{$user_data_array.additional_information}</textarea></td></tr>
+
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <input type="submit" name="Submit" value="Save" class="st-button">
+                        <input type="button" name="btnCancel" value="{$BUTTON_CANCEL}" onClick="closeUserDetailsContent();" class="st-clear">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <br>
+
+    </div>
+
+
+
+    <table class="dataTables_wrapper simplebox grid740">
+        <tr>
+            <td valign="top">
+                <table class="tablesorter">
+                    <thead> 
+                        <tr>
+                            <th>First Name#</th>
+                            <th>Last Name </th>			  
+                            <th>Account Number </th>			  
+                            <th>Account Name </th>			
+                            <th>Signup Date </th>			
+                            <th>Status</th>			
+                            <th>{$TEXT_ACTION}</th>
+                        </tr>
+                    </thead>
+
+                    {section name=useridx loop=$users}	
+                    {if ($smarty.section.useridx.index  % 2) == 0 } {assign var="rowstyle"  value="tableNormalRow"} {else}  {assign var="rowstyle" value="tableAltRow"}  {/if}		  
+                    <tr>
+                        <td height="25"   class="{$rowstyle}">{$users[useridx].firstname}</td>
+                        <td   class="{$rowstyle}">{$users[useridx].lastname}</td>			  			  
+                        <td   class="{$rowstyle}"><strong>{$users[useridx].account_number}</strong></td>			  			  
+                        <td   class="{$rowstyle}">{$users[useridx].account_name}</td>			  
+                        <td class="{$rowstyle}">{$users[useridx].signup_date|date_format:"%m/%d/%Y %l:%M %p" }</td>			  			  
+                        <td   class="{$rowstyle}" id="status-{$users[useridx].user_id}">
+                            {$users[useridx].status|status_user}
+                        </td>
+                        <td width="17%"  class="{$rowstyle}"  align="center"><a href="javascript:editUser({$users[useridx].user_id});" class="linkButton">Edit</a>&nbsp;<a href="javascript:getUserDetails({$users[useridx].user_id});" class="linkButton">{$ACTION_VIEW}</a>
+                            &nbsp;
+                            <span id="action-user-{$users[useridx].user_id}">
+                                {if $users[useridx].status == 1}
+
+                                <a class="linkButton" id="" href="javascript:deactiveUser({$users[useridx].user_id});" >De-active</a></td>
+                        {else}
+                    <a class="linkButton" href="javascript:activeUser({$users[useridx].user_id});" >Active</a>
+                    </span>
+            </td>
+            {/if}
+        </tr>
+        {/section}
+    </table>
+</td>
+</tr>
+</table>
+{if count($users)>0} 
+<div align="center">{$TEXT_PAGES}{$page_links}</div>
+{/if}
+</div>

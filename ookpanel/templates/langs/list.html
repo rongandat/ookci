@@ -1,0 +1,53 @@
+<div class="page-title" style="z-index: 780;">
+    <div class="in" style="z-index: 770;">
+        <div class="titlebar" style="z-index: 760;">	
+            <h2>{$langs.HEADING_TITLE}</h2>	
+        </div>
+        <div class="shortcuts-icons" style="z-index: 480;">
+            <a href="{$link_new_language}" class="shortcut tips" original-title="{$langs.LINK_NEW_LANGUAGE}"><img width="25" height="25" alt="icon" src="includes/img/icons/shortcut/plus.png"></a>
+        </div>
+        <div class="clear" style="z-index: 740;"></div>
+    </div>
+
+</div>
+<div class="content" style="z-index: 730;">
+    {include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }
+    {include file="$_TEMPLATE_SOURCE_DIR/modules/feedback_messages.tpl" }
+
+    <table class="dataTables_wrapper simplebox grid740">
+        <tr>
+            <td valign="top">
+                <form name="frmAdmins" action="{$action_settings}" method="post" >
+
+                    <div class="titleh" style="z-index: 460;">
+                        <h3>{$langs.HEADING_TITLE}</h3>
+                    </div>
+
+                    <table class="tablesorter" >
+                        <thead> 
+                            <tr>
+                                <th>{$langs.HEADER_LANGUAGE_NAME}</th>
+                                <th>{$langs.HEADER_LANGUAGE_CODE}</th>
+                                <th>{$langs.HEADER_LANGUAGE_IMAGE}</th>			  
+                                <th>{$langs.HEADER_LANGUAGE_STATUS}</th>
+                                <th>{$TEXT_ACTION}</th>
+                            </tr>
+                        </thead>
+                        {section name=languageidx loop=$languages}	
+                        {if ($smarty.section.languageidx.index  % 2) == 0 } {assign var="rowstyle"  value="tableNormalRow"} {else}  {assign var="rowstyle" value="tableAltRow"}  {/if}		  
+                        <tr>
+                            <td width="22%" height="20"  class="{$rowstyle}">{$languages[languageidx].language_name}</td>
+                            <td width="26%"  class="{$rowstyle}">{$languages[languageidx].language_code}</td>
+                            <td width="35%"  class="{$rowstyle}"><img src="{dev_get_image_source name=$languages[languageidx].language_image}"  alt="{$languages[languageidx].language_name}"/></td>
+                            <td width="26%"  class="{$rowstyle}">{if $languages[languageidx].language_status==1} {$langs.TEXT_ACTIVE} {else} {$langs.TEXT_INACTIVE} {/if} </td>			  
+                            <td width="17%"  class="{$rowstyle}"  align="center"><a href="{$link_language_edit}&lID={$languages[languageidx].language_id}" class="linkButton">{$ACTION_EDIT}</a>&nbsp;<a href="javascript:getDeleteConfirmForm({$languages[languageidx].language_id});"  class="linkButton">{$ACTION_DELETE}</a></td>
+                        </tr>
+                        {/section}
+                    </table>
+
+                </form>	
+            </td>
+        </tr>
+    </table>
+    <div align="center">{$TEXT_PAGES}{$page_links}</div>
+</div>

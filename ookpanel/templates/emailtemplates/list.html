@@ -1,0 +1,49 @@
+<div class="page-title" style="z-index: 780;">
+    <div class="in" style="z-index: 770;">
+        <div class="titlebar" style="z-index: 760;">	
+            <h2>{$langs.HEADING_TITLE}</h2>	
+        </div>
+        <div style="z-index: 810;" class="shortcuts-icons">
+            <a original-title="Add Email Template" class="shortcut tips" href="{dev_get_admin_page_link page=PAGE_EMAILTEMPLATE_NEW}"><img width="25" height="25" src="includes/img/icons/shortcut/plus.png" alt="icon"></a>
+        </div>
+    </div>
+
+</div>
+<div class="content" style="z-index: 730;">
+    {include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }
+    {include file="$_TEMPLATE_SOURCE_DIR/modules/feedback_messages.tpl" }
+    <table class="dataTables_wrapper simplebox grid740">
+        <tr>
+            <td valign="top">
+                <form name="frmAdmins" action="{$action_settings}" method="post" >
+
+                    <div class="titleh" style="z-index: 460;">
+                        <h3>{$langs.HEADING_TITLE}</h3>
+                    </div>
+
+                    <table class="tablesorter" >
+                        <thead> 
+                            <tr>
+                                <th>{$langs.TABLE_HEADING_EMAILTEMPLATE_NAME}</th>
+                                <th>{$langs.TABLE_HREADING_EMAILTEMPLATE_STATUS}</th>
+                                <th>{$TEXT_ACTION}</th>
+                            </tr>
+                        </thead>
+                        {section name=emailtemplateidx loop=$emailtemplates}	
+                        {if ($smarty.section.emailtemplateidx.index  % 2) == 0 } {assign var="rowstyle"  value="tableNormalRow"} {else}  {assign var="rowstyle" value="tableAltRow"}  {/if}		  
+                        <tr >
+                            <td class="{$rowstyle}">{$emailtemplates[emailtemplateidx].emailtemplate_title}</td>
+                            <td class="{$rowstyle}">{if $emailtemplates[emailtemplateidx].emailtemplate_status==1} {$TEXT_ACTIVE} {else} {$TEXT_INACTIVE} {/if}</td>	
+                            <td class="{$rowstyle}"  align="center" style="padding-right:10px"><a href="{dev_get_admin_page_link page= PAGE_EMAILTEMPLATE_EDIT}&emailtemplateID={$emailtemplates[emailtemplateidx].emailtemplates_id}" class="linkButton">{$ACTION_EDIT}</a>&nbsp;<a href="javascript:getDeleteConfirmForm({$emailtemplates[emailtemplateidx].emailtemplates_id});"  class="linkButton">{$ACTION_DELETE}</a></td>
+                        </tr>
+                        {/section}
+                    </table>
+
+                </form>	
+            </td>
+        </tr>
+    </table>
+    {if count($emailtemplates)>0}
+    <div align="center">{$TEXT_PAGES}{$page_links}</div>
+    {/if}
+</div>
