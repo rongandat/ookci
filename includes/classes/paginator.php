@@ -205,25 +205,26 @@ class Paginator {
         if ($this->getCurrent() == 1) {
             $first = "";
         } else {
-            $first = ' <a href="' . $this->getPageName() . "&" . $this->page_param_name . "=" . $this->getFirst() . '" ><img src="' . getHtmlImageSource('icon_page_first.gif') . '" title="Navigate to the first page" border="0" /></a>';
+            $first = ' <a class="pagerPage" href="' . $this->getPageName() . "&" . $this->page_param_name . "=" . $this->getFirst() . '" >First</a>';
+            
         }
 
         if ($this->getPrevious()) {
-            $prev = ' <a href="' . $this->getPageName() . "&" . $this->page_param_name . "=" . $this->getPrevious() . '" ><img src="' . getHtmlImageSource('icon_page_prev.gif') . '" border="0" /></a>';
+            $prev = ' <a class="pagerPage" href="' . $this->getPageName() . "&" . $this->page_param_name . "=" . $this->getPrevious() . '" >Previous</a>';
         } else {
-            $prev = '<img src="' . getHtmlImageSource('icon_page_prev.gif') . '" title="Navigate to the next page" border="0" />';
+            $next = ' <a class="pagerCurrentPage">Previous</a> ';
         }
 
         if ($this->getNext()) {
-            $next = ' <a href="' . $this->getPageName() . "&" . $this->page_param_name . "=" . $this->getNext() . '" ><img src="' . getHtmlImageSource('icon_page_next.gif') . '" border="0" /></a> | ';
+            $next = ' <a class="pagerPage" href="' . $this->getPageName() . "&" . $this->page_param_name . "=" . $this->getNext() . '" >Next</a> | ';
         } else {
-            $next = '<img src="' . getHtmlImageSource('icon_page_next.gif') . '" title="Navigate to the previous page" />';
+            $next = ' <a class="pagerCurrentPage">Next</a> ';
         }
 
         if ($this->getLast()) {
-            $last = ' <a href="' . $this->getPageName() . "&" . $this->page_param_name . "=" . $this->getLast() . '"> <img src="' . getHtmlImageSource('icon_page_last.gif') . '"  border="0" /></a>';
+            $last = ' <a class="pagerPage" href="' . $this->getPageName() . "&" . $this->page_param_name . "=" . $this->getLast() . '"> Last</a>';
         } else {
-            $last = '<img src="' . getHtmlImageSource('icon_page_last.gif') . '" title="Navigate to the last page" />';
+            $last = ' <a class="pagerCurrentPage">Last</a> ';
         }
 
 

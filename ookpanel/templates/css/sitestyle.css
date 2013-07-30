@@ -183,11 +183,3 @@ a {
 	list-style-type: disc;	
 }
 
-.pagerPage {
-	color: #FFFFFF;
-	background-color: #3b5998;	
-}
-
-.pagerCurrentPage {
-	background-color: #FFCC00;	
-}

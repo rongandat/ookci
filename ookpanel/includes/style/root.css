@@ -1082,3 +1082,40 @@ table.form td:first-child{
 table.form td input[type=text],table.form td input[type=password]{
     width: 300px;
 }
+
+.pagerPage {
+    background: url("../img/button-blue.png") repeat-x scroll center top #3E7CAC;
+    border: 1px solid #33668C;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 1px 1px #EDEDED;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin-left: 4px;
+    padding: 3px 8px;	
+    margin-right: -0.1em !important;
+    cursor: pointer;
+    display: inline-block;
+    overflow: visible;
+    position: relative;
+    text-align: center;
+    text-decoration: none !important;
+}
+
+.pagerCurrentPage {
+     background: url("../img/button-blue.png") repeat-x scroll center top #3E7CAC;
+    border: 1px solid #33668C;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 1px 1px #EDEDED;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin-left: 4px;
+    padding: 3px 8px;	
+    margin-right: -0.1em !important;
+    cursor: pointer;
+    display: inline-block;
+    overflow: visible;
+    position: relative;
+    text-align: center;
+    text-decoration: none !important;
+    opacity: 0.35;
+}
