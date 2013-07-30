@@ -1102,7 +1102,7 @@ table.form td input[type=text],table.form td input[type=password]{
 }
 
 .pagerCurrentPage {
-     background: url("../img/button-blue.png") repeat-x scroll center top #3E7CAC;
+    background: url("../img/button-blue.png") repeat-x scroll center top #3E7CAC;
     border: 1px solid #33668C;
     border-radius: 3px 3px 3px 3px;
     box-shadow: 0 1px 1px #EDEDED;
@@ -1118,4 +1118,10 @@ table.form td input[type=text],table.form td input[type=password]{
     text-align: center;
     text-decoration: none !important;
     opacity: 0.35;
+}
+
+div.pages{
+float: right;
+margin: 5px 0;
+
 }

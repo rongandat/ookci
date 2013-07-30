@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-29 10:00:58
+<?php /* Smarty version 2.6.18, created on 2013-07-30 09:27:48
          compiled from transactions/history.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_admin_page_link', 'transactions/history.html', 17, false),array('function', 'html_options', 'transactions/history.html', 22, false),array('modifier', 'date_format', 'transactions/history.html', 61, false),)), $this); ?>
@@ -134,7 +134,7 @@ $this->_sections['transactionidx']['last']       = ($this->_sections['transactio
             <?php endfor; endif; ?>
         </table>
         <?php if (count ( $this->_tpl_vars['transactions'] ) > 0): ?> 
-        <div><?php echo $this->_tpl_vars['TEXT_PAGES']; ?>
+        <div class="pages"><?php echo $this->_tpl_vars['TEXT_PAGES']; ?>
 <?php echo $this->_tpl_vars['page_links']; ?>
 </div>
         <?php endif; ?>

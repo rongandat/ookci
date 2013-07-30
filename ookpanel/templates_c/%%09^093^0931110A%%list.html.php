@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-29 09:25:07
+<?php /* Smarty version 2.6.18, created on 2013-07-30 09:33:15
          compiled from users/list.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_admin_page_link', 'users/list.html', 18, false),array('function', 'html_options', 'users/list.html', 58, false),array('modifier', 'date_format', 'users/list.html', 106, false),array('modifier', 'status_user', 'users/list.html', 108, false),)), $this); ?>
@@ -197,7 +197,7 @@ $this->_sections['useridx']['last']       = ($this->_sections['useridx']['iterat
 </tr>
 </table>
 <?php if (count ( $this->_tpl_vars['users'] ) > 0): ?> 
-<div align="center"><?php echo $this->_tpl_vars['TEXT_PAGES']; ?>
+<div class="pages"><?php echo $this->_tpl_vars['TEXT_PAGES']; ?>
 <?php echo $this->_tpl_vars['page_links']; ?>
 </div>
 <?php endif; ?>

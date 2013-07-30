@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-29 09:37:55
+<?php /* Smarty version 2.6.18, created on 2013-07-30 09:29:53
          compiled from currencies/list.html */ ?>
 <div class="page-title" style="z-index: 780;">
     <div class="in" style="z-index: 770;">
@@ -94,7 +94,7 @@ $this->_sections['currencyidx']['last']       = ($this->_sections['currencyidx']
         <?php endfor; endif; ?>
     </table>
     <?php if (count ( $this->_tpl_vars['currencies'] ) > 0): ?> 
-    <div align="center"><?php echo $this->_tpl_vars['TEXT_PAGES']; ?>
+    <div class="pages"><?php echo $this->_tpl_vars['TEXT_PAGES']; ?>
 <?php echo $this->_tpl_vars['page_links']; ?>
 </div>
     <?php endif; ?>
