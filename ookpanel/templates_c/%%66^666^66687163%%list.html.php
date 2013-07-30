@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-27 05:35:47
+<?php /* Smarty version 2.6.18, created on 2013-07-30 09:59:12
          compiled from admins/list.html */ ?>
 <div class="page-title" style="z-index: 780;">
     <div class="in" style="z-index: 770;">
@@ -91,10 +91,11 @@ $this->_sections['adminidx']['last']       = ($this->_sections['adminidx']['iter
 "><?php echo $this->_tpl_vars['admins'][$this->_sections['adminidx']['index']]['admin_email']; ?>
 </td>
                     <td width="17%"  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
-"  align="center"><a href="<?php echo $this->_tpl_vars['admins'][$this->_sections['adminidx']['index']]['admin_url']; ?>
-" class="linkButton"><?php echo $this->_tpl_vars['ACTION_EDIT']; ?>
+"  align="center">
+                        <a href="<?php echo $this->_tpl_vars['admins'][$this->_sections['adminidx']['index']]['admin_url']; ?>
+" class="linkButtonEdit"><?php echo $this->_tpl_vars['ACTION_EDIT']; ?>
 </a>&nbsp;<a href="javascript:getDeleteConfirmForm(<?php echo $this->_tpl_vars['admins'][$this->_sections['adminidx']['index']]['admin_id']; ?>
-);"  class="linkButton"><?php echo $this->_tpl_vars['ACTION_DELETE']; ?>
+);"  class="linkButtonDelete"><?php echo $this->_tpl_vars['ACTION_DELETE']; ?>
 </a></td>
                 </tr>
                 <?php endfor; endif; ?>
@@ -104,7 +105,7 @@ $this->_sections['adminidx']['last']       = ($this->_sections['adminidx']['iter
         </table>
         <div class="fg-toolbar ui-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix">
             <?php if (count ( $this->_tpl_vars['admins'] ) > 0): ?>
-            <div align="center"><?php echo $this->_tpl_vars['TEXT_PAGES']; ?>
+            <div class="pages"><?php echo $this->_tpl_vars['TEXT_PAGES']; ?>
 <?php echo $this->_tpl_vars['page_links']; ?>
 </div>
             <?php endif; ?>

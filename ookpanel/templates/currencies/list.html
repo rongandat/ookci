@@ -32,7 +32,7 @@
             <td width="26%"  class="{$rowstyle}">{$currencies[currencyidx].code}</td>
             <td width="26%"  class="{$rowstyle}">{if $currencies[currencyidx].symbol_left!=''} {$currencies[currencyidx].symbol_left} {else} {$currencies[currencyidx].symbol_right} {/if}&nbsp;</td>			  
             <td width="26%"  class="{$rowstyle}">{if $currencies[currencyidx].status==1} {$langs.TEXT_ACTIVE} {else} {$langs.TEXT_INACTIVE} {/if} </td>			  
-            <td width="17%"  class="{$rowstyle}"  align="center"><a href="{$link_currency_edit}&cID={$currencies[currencyidx].currencies_id}" class="linkButton">{$ACTION_EDIT}</a>&nbsp;<a href="javascript:getDeleteConfirmForm({$currencies[currencyidx].currencies_id});"  class="linkButton">{$ACTION_DELETE}</a></td>
+            <td width="17%"  class="{$rowstyle}"  align="center"><a href="{$link_currency_edit}&cID={$currencies[currencyidx].currencies_id}" class="linkButtonEdit">{$ACTION_EDIT}</a>&nbsp;<a href="javascript:getDeleteConfirmForm({$currencies[currencyidx].currencies_id});"  class="linkButtonDelete">{$ACTION_DELETE}</a></td>
         </tr>
         {/section}
     </table>

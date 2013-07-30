@@ -68,7 +68,7 @@
                 type: "POST",
                 success: function(json) {		
                     $('#status-'+userid).html('Active')
-                    $('#action-user-'+userid).html('<a class="linkButton" id="" href="javascript:deactiveUser('+ userid +');" >De-active</a>')
+                    $('#action-user-'+userid).html('<a class="linkButtonDeActive" id="" href="javascript:deactiveUser('+ userid +');" >De-active</a>')
                 }
         });
     }
@@ -84,7 +84,7 @@
                 type: "POST",
                 success: function(json) {		
                     $('#status-'+userid).html('Deactive')
-                    $('#action-user-'+userid).html('<a class="linkButton" id="" href="javascript:activeUser('+ userid +');" >Active</a>')
+                    $('#action-user-'+userid).html('<a class="linkButtonActive" id="" href="javascript:activeUser('+ userid +');" >Active</a>')
                 }
         });
     }

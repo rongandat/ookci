@@ -65,7 +65,7 @@
                 <td   class="{$rowstyle}">{$transactions[transactionidx].amount_text}</td>			  
                 <td class="{$rowstyle}">{$transactions[transactionidx].fee_text}&nbsp;</td>			  			  
                 <td class="{$rowstyle}">{$transactions[transactionidx].transaction_currency}</td>			  			  			  
-                <td width="17%"  class="{$rowstyle}" ><a href="javascript:getTransactionDetails({$transactions[transactionidx].transaction_id});" class="linkButton">{$ACTION_VIEW}</a>&nbsp;<a href="javascript:getProcessForm({$transactions[transactionidx].transaction_id});"  class="linkButton" >Process</a></td>
+                <td width="17%"  class="{$rowstyle}" ><a href="javascript:getTransactionDetails({$transactions[transactionidx].transaction_id});" class="linkButtonView">{$ACTION_VIEW}</a>&nbsp;<a href="javascript:getProcessForm({$transactions[transactionidx].transaction_id});"  class="linkButtonProcess" >Process</a></td>
             </tr>
             {/section}
         </table>

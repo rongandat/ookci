@@ -1121,7 +1121,56 @@ table.form td input[type=text],table.form td input[type=password]{
 }
 
 div.pages{
-float: right;
-margin: 5px 0;
+    float: right;
+    margin: 5px 0;
 
+}
+
+a.linkButtonEdit{
+    background: url('../img/Pencil-icon.png') no-repeat top left;
+    width: 16px;
+    height: 16px;
+    text-indent: -9999px;
+    display:inline-block;
+    padding: 0 2px;
+}
+a.linkButtonDelete{
+    background: url('../img/Button-Close-icon.png') no-repeat top left;
+    width: 16px;
+    height: 16px;
+    text-indent: -9999px;
+    padding: 0 2px;
+    display:inline-block
+}
+a.linkButtonActive{
+    background: url('../img/folder-add-icon.png') no-repeat top left;
+    width: 16px;
+    height: 16px;
+    text-indent: -9999px;
+    padding: 0 2px;
+    display:inline-block
+}
+a.linkButtonDeActive{
+    background: url('../img/delete-file-icon.png') no-repeat top left;
+    width: 16px;
+    height: 16px;
+    text-indent: -9999px;
+    padding: 0 2px;
+    display:inline-block
+}
+a.linkButtonProcess{
+    background: url('../img/process-ok-icon.png') no-repeat top left;
+    width: 16px;
+    height: 16px;
+    padding: 0 2px;
+    text-indent: -9999px;
+    display:inline-block
+}
+a.linkButtonView{
+    background: url('../img/view.png') no-repeat top left;
+    width: 16px;
+    height: 16px;
+    text-indent: -9999px;
+    padding: 0 2px;
+    display:inline-block
 }

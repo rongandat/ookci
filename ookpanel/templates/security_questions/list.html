@@ -36,7 +36,7 @@
                             <td width="40%"  class="{$rowstyle}"><strong>{$security_questions[security_questionidx].question}</strong></td>
                             <td width="20%"  class="{$rowstyle}">{if $security_questions[security_questionidx].status==1} {$TEXT_ACTIVE} {else} {$TEXT_INACTIVE} {/if}</td>			  			  <td width="20%"  class="{$rowstyle}" align="center">{$security_questions[security_questionidx].sort_order}</td>
 
-                            <td class="{$rowstyle}"  align="center" style="padding-right:10px"><a href="{$link_security_question_edit}&action=edit&security_questionID={$security_questions[security_questionidx].security_questions_id}" class="linkButton">{$ACTION_EDIT}</a>&nbsp;<a href="javascript:getDeleteConfirmForm({$security_questions[security_questionidx].security_questions_id});"  class="linkButton">{$ACTION_DELETE}</a></td>
+                            <td class="{$rowstyle}"  align="center" style="padding-right:10px"><a href="{$link_security_question_edit}&action=edit&security_questionID={$security_questions[security_questionidx].security_questions_id}" class="linkButtonEdit">{$ACTION_EDIT}</a>&nbsp;<a href="javascript:getDeleteConfirmForm({$security_questions[security_questionidx].security_questions_id});"  class="linkButtonDelete">{$ACTION_DELETE}</a></td>
                         </tr>
                         {/section}
                     </table>

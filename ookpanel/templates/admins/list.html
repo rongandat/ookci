@@ -40,7 +40,8 @@
                     <td width="22%" height="20"  class="{$rowstyle}"><a href="{$admins[adminidx].admin_url}" >{$admins[adminidx].admin_username}</a></td>
                     <td width="26%"  class="{$rowstyle}">{$admins[adminidx].admin_contactname}</td>
                     <td width="35%"  class="{$rowstyle}">{$admins[adminidx].admin_email}</td>
-                    <td width="17%"  class="{$rowstyle}"  align="center"><a href="{$admins[adminidx].admin_url}" class="linkButton">{$ACTION_EDIT}</a>&nbsp;<a href="javascript:getDeleteConfirmForm({$admins[adminidx].admin_id});"  class="linkButton">{$ACTION_DELETE}</a></td>
+                    <td width="17%"  class="{$rowstyle}"  align="center">
+                        <a href="{$admins[adminidx].admin_url}" class="linkButtonEdit">{$ACTION_EDIT}</a>&nbsp;<a href="javascript:getDeleteConfirmForm({$admins[adminidx].admin_id});"  class="linkButtonDelete">{$ACTION_DELETE}</a></td>
                 </tr>
                 {/section}
 
