@@ -1,12 +1,1 @@
-<form action="https://ookcash.com/index.php?page=sci" method="POST">
-        <input type="hidden" name="payee_account" value="U4185045">
-        <input type="hidden" name="payer_account" value="">
-        <input type="hidden" name="checkout_amount" value="200">
-        <input type="hidden" name="checkout_currency" value="USD">
-        <input type="hidden" name="cancel_url" value="https://ookcash.com/cancel.php">
-        <input type="hidden" name="fail_url" value="https://ookcash.com/fail.php">
-        <input type="hidden" name="success_url" value="https://ookcash.com/success.php">
-        <input type="hidden" name="status_url" value="https://ookcash.com/status.php">
-        <input type="hidden" name="status_method" value="GET">
-        <input type="submit" />
-</form>
+<a href="http://pmcart.lc/index.php?page=sci&payee_account=U3156245&payer_account=&checkout_amount=20&checkout_currency=USD&cancel_url=aHR0cDovL21haWxib3gxLmpwL29yZGVyL2NhbmNlbC5odG1s&fail_url=aHR0cDovL21haWxib3gxLmpwL29yZGVyL2Vycm9yLmh0bWw=&success_url=aHR0cDovL3d3dy5tYWlsYm94MS5qcC9pbmRleC5waHA/bW9kdWxlPW9yZGVyJnBhZ2U9Y29uZmlybQ==&status_url=&status_method=GET"><img src="http://pmcart.lc/images/ookcash-button.png"/></a>

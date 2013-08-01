@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-21 17:38:19
+<?php /* Smarty version 2.6.18, created on 2013-08-01 09:41:46
          compiled from account/sci_complete.html */ ?>
 <form name="frmTransfer" id="frmTransfer" method="get" action="<?php echo $this->_tpl_vars['url']; ?>
 " >
@@ -16,7 +16,7 @@
         <?php if (! empty ( $this->_tpl_vars['url'] )): ?>
         <p>you will redirect within 10 seconds.</p>
         <?php endif; ?>
-        <table cellspacing="0" cellpadding="0" bordercolor="#111111" border="0" style="border-collapse: collapse" class="form_content">
+        <table class="form">
             <tbody><tr>
                     <td class="form_label"><font size="2" face="Tahoma">Date:</font></td>
                     <td class="form_field"><font size="2" face="Tahoma"><?php echo $this->_tpl_vars['transaction']['transaction_time']; ?>
@@ -54,7 +54,8 @@
 
                     </td>
                     <td class="">
-                        <button type="submit">Return</button>
+                        <a href="<?php echo $this->_tpl_vars['url']; ?>
+" class="button">Return</a>
                     </td>
                 </tr>
                 <?php endif; ?>
@@ -70,7 +71,8 @@
 
                 </td>
                 <td class="">
-                    <button type="submit">Return</button>
+                    <a href="<?php echo $this->_tpl_vars['url']; ?>
+" class="button">Return</a>
                 </td>
             </tr>
         </table>
@@ -78,18 +80,22 @@
     </div>
 
     <?php if (! empty ( $this->_tpl_vars['url'] )): ?>
-    <?php echo '
+    
     <script>
         var interval = 1000;
-        var i = 3
-        setInterval(function(){
-            i--;
-            if(i == 0){
-                jQuery(\'form#frmTransfer\').submit();
-            }
-        }, interval);
-    </script>
-    '; ?>
+        var i = 3;
+        var url = '<?php echo $this->_tpl_vars['url']; ?>
+'
+        <?php echo '
+//        setInterval(function(){
+//            i--;
+//            if(i == 0){
+//                location= url;
+//            }
+//        }, interval);
+        '; ?>
 
+    </script>
+    
     <?php endif; ?>
 </form>

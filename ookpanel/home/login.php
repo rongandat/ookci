@@ -1,7 +1,9 @@
 <?php
 
 // updated by Minhmt - 09/15/2007  - force login
-
+if (tep_session_is_registered('admin_login_id')) {
+    tep_redirect(get_admin_link(PAGE_DEFAULT, '', 'SSL'));
+}
 $smarty->assign('action_login', get_admin_link(PAGE_ADMIN_LOGIN, 'action=access'));
 
 if ($_GET['action'] == 'access') {

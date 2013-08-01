@@ -26,6 +26,7 @@ tep_session_unregister('extra_fields');
 $history_query = db_query("SELECT * FROM " . _TABLE_TRANSACTIONS_HISTOTY . " WHERE history_id='" . $history_id . "'");
 
 $history = db_fetch_array($history_query);
+
 if (empty($history)) {
     tep_redirect(get_href_link(PAGE_LOGIN));
 }

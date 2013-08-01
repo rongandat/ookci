@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-08-01 06:09:55
+<?php /* Smarty version 2.6.18, created on 2013-08-01 06:15:08
          compiled from account/history.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'account/history.html', 5, false),array('function', 'html_options', 'account/history.html', 15, false),array('modifier', 'date_format', 'account/history.html', 76, false),)), $this); ?>
@@ -130,9 +130,6 @@ $this->_sections['transactionidx']['last']       = ($this->_sections['transactio
 </span><?php endif; ?></td>			  
                 <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
  currentcy" ><?php echo $this->_tpl_vars['transactions'][$this->_sections['transactionidx']['index']]['fee_text']; ?>
-&nbsp;</td>	
-                <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
-" ><?php echo $this->_tpl_vars['transactions'][$this->_sections['transactionidx']['index']]['transaction_memo']; ?>
 &nbsp;</td>	
                 <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 " align="center">

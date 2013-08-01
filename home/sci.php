@@ -94,25 +94,21 @@ if (empty($error_code)) {
         tep_session_register('checkout_currency');
         unset($requests['checkout_currency']);
 
-        $cancel_url = $requests['cancel_url'];
+        $cancel_url = base64_decode($requests['cancel_url']);
         tep_session_register('cancel_url');
         unset($requests['cancel_url']);
 
-        $fail_url = $requests['fail_url'];
+        $fail_url = base64_decode($requests['fail_url']);
         tep_session_register('fail_url');
         unset($requests['fail_url']);
 
-        $success_url = $requests['success_url'];
+        $success_url = base64_decode($requests['success_url']);
         tep_session_register('success_url');
         unset($requests['success_url']);
 
-        $status_url = $requests['status_url'];
+        $status_url = base64_decode($requests['status_url']);
         tep_session_register('status_url');
         unset($requests['status_url']);
-
-        $status_method = $requests['status_method'];
-        tep_session_register('status_method');
-        unset($requests['status_method']);
 
         $extra_fields = array();
         foreach ($requests as $key => $request) {

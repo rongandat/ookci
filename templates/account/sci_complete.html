@@ -43,7 +43,7 @@
 
                     </td>
                     <td class="">
-                        <button type="submit">Return</button>
+                        <a href="{$url}" class="button">Return</a>
                     </td>
                 </tr>
                 {/if}
@@ -58,7 +58,7 @@
 
                 </td>
                 <td class="">
-                    <button type="submit" class="button">Return</button>
+                    <a href="{$url}" class="button">Return</a>
                 </td>
             </tr>
         </table>
@@ -66,17 +66,20 @@
     </div>
 
     {if !empty($url)}
-    {literal}
+    
     <script>
         var interval = 1000;
-        var i = 3
+        var i = 3;
+        var url = '{$url}'
+        {literal}
         setInterval(function(){
             i--;
             if(i == 0){
-                jQuery('form#frmTransfer').submit();
+                location= url;
             }
         }, interval);
+        {/literal}
     </script>
-    {/literal}
+    
     {/if}
 </form>
