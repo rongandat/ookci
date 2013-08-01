@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-22 11:12:59
+<?php /* Smarty version 2.6.18, created on 2013-08-01 06:09:55
          compiled from account/history.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'account/history.html', 5, false),array('function', 'html_options', 'account/history.html', 15, false),array('modifier', 'date_format', 'account/history.html', 75, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'account/history.html', 5, false),array('function', 'html_options', 'account/history.html', 15, false),array('modifier', 'date_format', 'account/history.html', 76, false),)), $this); ?>
 <div class="simple-form">
     <h1>Transaction History</h1>
     <div class="line"></div>
@@ -75,6 +75,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
                 <td class="tableHeading">To Account</td>			  
                 <td class="tableHeading">Amount</td>			
                 <td class="tableHeading">Fee</td>			
+                <td class="tableHeading">Memo</td>			
                 <td class="tableHeading" align="center">
                     Currency</td>			  			  			    			    			  			    
                 <td class="tableHeading" align="center">
@@ -129,7 +130,10 @@ $this->_sections['transactionidx']['last']       = ($this->_sections['transactio
 </span><?php endif; ?></td>			  
                 <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
  currentcy" ><?php echo $this->_tpl_vars['transactions'][$this->_sections['transactionidx']['index']]['fee_text']; ?>
-&nbsp;</td>			  			  
+&nbsp;</td>	
+                <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
+" ><?php echo $this->_tpl_vars['transactions'][$this->_sections['transactionidx']['index']]['transaction_memo']; ?>
+&nbsp;</td>	
                 <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 " align="center">
                     <?php echo $this->_tpl_vars['transactions'][$this->_sections['transactionidx']['index']]['transaction_currency']; ?>

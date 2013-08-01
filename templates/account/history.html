@@ -60,6 +60,7 @@
                 <td class="tableHeading">To Account</td>			  
                 <td class="tableHeading">Amount</td>			
                 <td class="tableHeading">Fee</td>			
+                <td class="tableHeading">Memo</td>			
                 <td class="tableHeading" align="center">
                     Currency</td>			  			  			    			    			  			    
                 <td class="tableHeading" align="center">
@@ -77,7 +78,8 @@
                 <td class="{$rowstyle}">{$transactions[transactionidx].from_account}</td>			  			  			  
                 <td class="{$rowstyle}"><strong>{$transactions[transactionidx].to_account}</strong></td>			  			  
                 <td class="{$rowstyle} currentcy" >{if $transactions[transactionidx].from_userid == $smarty.session.login_userid}<span class="red">-{$transactions[transactionidx].amount_text}</span>{else} <span class="green">+{$transactions[transactionidx].amount_text}</span>{/if}</td>			  
-                <td class="{$rowstyle} currentcy" >{$transactions[transactionidx].fee_text}&nbsp;</td>			  			  
+                <td class="{$rowstyle} currentcy" >{$transactions[transactionidx].fee_text}&nbsp;</td>	
+                <td class="{$rowstyle}" >{$transactions[transactionidx].transaction_memo}&nbsp;</td>	
                 <td class="{$rowstyle}" align="center">
                     {$transactions[transactionidx].transaction_currency}</td>			  			  			  
                 <td width="17%"  class="{$rowstyle}"  align="center"><a href="javascript:getTransactionDetails({$transactions[transactionidx].transaction_id});" class="linkButton">

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-29 06:53:37
+<?php /* Smarty version 2.6.18, created on 2013-08-01 05:22:51
          compiled from emailtemplates/list.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_admin_page_link', 'emailtemplates/list.html', 7, false),)), $this); ?>
@@ -84,9 +84,9 @@ $this->_sections['emailtemplateidx']['last']       = ($this->_sections['emailtem
                             <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 "  align="center" style="padding-right:10px"><a href="<?php echo smarty_function_dev_get_admin_page_link(array('page' => 'PAGE_EMAILTEMPLATE_EDIT'), $this);?>
 &emailtemplateID=<?php echo $this->_tpl_vars['emailtemplates'][$this->_sections['emailtemplateidx']['index']]['emailtemplates_id']; ?>
-" class="linkButton"><?php echo $this->_tpl_vars['ACTION_EDIT']; ?>
+" class="linkButtonEdit"><?php echo $this->_tpl_vars['ACTION_EDIT']; ?>
 </a>&nbsp;<a href="javascript:getDeleteConfirmForm(<?php echo $this->_tpl_vars['emailtemplates'][$this->_sections['emailtemplateidx']['index']]['emailtemplates_id']; ?>
-);"  class="linkButton"><?php echo $this->_tpl_vars['ACTION_DELETE']; ?>
+);"  class="linkButtonDelete"><?php echo $this->_tpl_vars['ACTION_DELETE']; ?>
 </a></td>
                         </tr>
                         <?php endfor; endif; ?>
@@ -97,7 +97,7 @@ $this->_sections['emailtemplateidx']['last']       = ($this->_sections['emailtem
         </tr>
     </table>
     <?php if (count ( $this->_tpl_vars['emailtemplates'] ) > 0): ?>
-    <div align="center"><?php echo $this->_tpl_vars['TEXT_PAGES']; ?>
+    <div class="pages"><?php echo $this->_tpl_vars['TEXT_PAGES']; ?>
 <?php echo $this->_tpl_vars['page_links']; ?>
 </div>
     <?php endif; ?>
