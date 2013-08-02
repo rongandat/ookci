@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-30 09:27:48
+<?php /* Smarty version 2.6.18, created on 2013-08-01 10:43:01
          compiled from transactions/history.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_admin_page_link', 'transactions/history.html', 17, false),array('function', 'html_options', 'transactions/history.html', 22, false),array('modifier', 'date_format', 'transactions/history.html', 61, false),)), $this); ?>
@@ -127,9 +127,9 @@ $this->_sections['transactionidx']['last']       = ($this->_sections['transactio
 </td>			  			  			  
                 <td width="17%"  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 " ><a href="javascript:getTransactionDetails(<?php echo $this->_tpl_vars['transactions'][$this->_sections['transactionidx']['index']]['transaction_id']; ?>
-);" class="linkButton"><?php echo $this->_tpl_vars['ACTION_VIEW']; ?>
+);" class="linkButtonView" title="details"><?php echo $this->_tpl_vars['ACTION_VIEW']; ?>
 </a>&nbsp;<a href="javascript:getProcessForm(<?php echo $this->_tpl_vars['transactions'][$this->_sections['transactionidx']['index']]['transaction_id']; ?>
-);"  class="linkButton" >Process</a></td>
+);"  class="linkButtonProcess" title="process">Process</a></td>
             </tr>
             <?php endfor; endif; ?>
         </table>

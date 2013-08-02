@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-30 09:29:53
+<?php /* Smarty version 2.6.18, created on 2013-08-01 10:42:04
          compiled from currencies/list.html */ ?>
 <div class="page-title" style="z-index: 780;">
     <div class="in" style="z-index: 770;">
@@ -69,26 +69,26 @@ $this->_sections['currencyidx']['last']       = ($this->_sections['currencyidx']
 ?>	
         <?php if (( $this->_sections['currencyidx']['index'] % 2 ) == 0): ?> <?php $this->assign('rowstyle', 'tableNormalRow'); ?> <?php else: ?>  <?php $this->assign('rowstyle', 'tableAltRow'); ?>  <?php endif; ?>		  
         <tr>
-            <td width="22%" height="20"  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
+            <td height="20"  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 "><?php echo $this->_tpl_vars['currencies'][$this->_sections['currencyidx']['index']]['title']; ?>
 </td>
-            <td width="26%"  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
+            <td  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 "><?php echo $this->_tpl_vars['currencies'][$this->_sections['currencyidx']['index']]['code']; ?>
 </td>
-            <td width="26%"  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
+            <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 "><?php if ($this->_tpl_vars['currencies'][$this->_sections['currencyidx']['index']]['symbol_left'] != ''): ?> <?php echo $this->_tpl_vars['currencies'][$this->_sections['currencyidx']['index']]['symbol_left']; ?>
  <?php else: ?> <?php echo $this->_tpl_vars['currencies'][$this->_sections['currencyidx']['index']]['symbol_right']; ?>
  <?php endif; ?>&nbsp;</td>			  
-            <td width="26%"  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
+            <td  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 "><?php if ($this->_tpl_vars['currencies'][$this->_sections['currencyidx']['index']]['status'] == 1): ?> <?php echo $this->_tpl_vars['langs']['TEXT_ACTIVE']; ?>
  <?php else: ?> <?php echo $this->_tpl_vars['langs']['TEXT_INACTIVE']; ?>
  <?php endif; ?> </td>			  
-            <td width="17%"  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
+            <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 "  align="center"><a href="<?php echo $this->_tpl_vars['link_currency_edit']; ?>
 &cID=<?php echo $this->_tpl_vars['currencies'][$this->_sections['currencyidx']['index']]['currencies_id']; ?>
-" class="linkButton"><?php echo $this->_tpl_vars['ACTION_EDIT']; ?>
+" class="linkButtonEdit" title="Edit"><?php echo $this->_tpl_vars['ACTION_EDIT']; ?>
 </a>&nbsp;<a href="javascript:getDeleteConfirmForm(<?php echo $this->_tpl_vars['currencies'][$this->_sections['currencyidx']['index']]['currencies_id']; ?>
-);"  class="linkButton"><?php echo $this->_tpl_vars['ACTION_DELETE']; ?>
+);"  class="linkButtonDelete" title="Delete"><?php echo $this->_tpl_vars['ACTION_DELETE']; ?>
 </a></td>
         </tr>
         <?php endfor; endif; ?>

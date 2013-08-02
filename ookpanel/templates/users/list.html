@@ -107,14 +107,14 @@
                         <td   class="{$rowstyle}" id="status-{$users[useridx].user_id}">
                             {$users[useridx].status|status_user}
                         </td>
-                        <td width="17%"  class="{$rowstyle}"  align="center"><a href="javascript:editUser({$users[useridx].user_id});" class="linkButtonEdit">Edit</a>&nbsp;<a href="javascript:getUserDetails({$users[useridx].user_id});" class="linkButtonView">{$ACTION_VIEW}</a>
+                        <td width="17%"  class="{$rowstyle}"  align="center"><a href="javascript:editUser({$users[useridx].user_id});" class="linkButtonEdit" title="Edit">Edit</a>&nbsp;<a href="javascript:getUserDetails({$users[useridx].user_id});" title="view user" class="linkButtonView">{$ACTION_VIEW}</a>
                             &nbsp;
                             <span id="action-user-{$users[useridx].user_id}">
                                 {if $users[useridx].status == 1}
 
-                                <a class="linkButtonDeActive" id="" href="javascript:deactiveUser({$users[useridx].user_id});" >De-active</a></td>
+                                <a class="linkButtonDeActive" title="de-active user" id="" href="javascript:deactiveUser({$users[useridx].user_id});" >De-active</a></td>
                         {else}
-                    <a class="linkButtonActive" href="javascript:activeUser({$users[useridx].user_id});" >Active</a>
+                    <a class="linkButtonActive" title="active user" href="javascript:activeUser({$users[useridx].user_id});" >Active</a>
                     </span>
             </td>
             {/if}

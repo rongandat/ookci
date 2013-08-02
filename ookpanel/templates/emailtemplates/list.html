@@ -34,7 +34,7 @@
                         <tr >
                             <td class="{$rowstyle}">{$emailtemplates[emailtemplateidx].emailtemplate_title}</td>
                             <td class="{$rowstyle}">{if $emailtemplates[emailtemplateidx].emailtemplate_status==1} {$TEXT_ACTIVE} {else} {$TEXT_INACTIVE} {/if}</td>	
-                            <td class="{$rowstyle}"  align="center" style="padding-right:10px"><a href="{dev_get_admin_page_link page= PAGE_EMAILTEMPLATE_EDIT}&emailtemplateID={$emailtemplates[emailtemplateidx].emailtemplates_id}" class="linkButtonEdit">{$ACTION_EDIT}</a>&nbsp;<a href="javascript:getDeleteConfirmForm({$emailtemplates[emailtemplateidx].emailtemplates_id});"  class="linkButtonDelete">{$ACTION_DELETE}</a></td>
+                            <td class="{$rowstyle}"  align="center" style="padding-right:10px"><a href="{dev_get_admin_page_link page= PAGE_EMAILTEMPLATE_EDIT}&emailtemplateID={$emailtemplates[emailtemplateidx].emailtemplates_id}" class="linkButtonEdit" title="Edit">{$ACTION_EDIT}</a>&nbsp;<a href="javascript:getDeleteConfirmForm({$emailtemplates[emailtemplateidx].emailtemplates_id});"  class="linkButtonDelete" title="Delete">{$ACTION_DELETE}</a></td>
                         </tr>
                         {/section}
                     </table>

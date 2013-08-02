@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-27 06:16:29
+<?php /* Smarty version 2.6.18, created on 2013-08-01 10:40:24
          compiled from settings/list.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', 'settings/list.html', 9, false),)), $this); ?>
@@ -96,8 +96,8 @@ $this->_sections['settingidx']['last']       = ($this->_sections['settingidx']['
 "><?php echo $this->_tpl_vars['settings'][$this->_sections['settingidx']['index']]['configuration_value']; ?>
 </td>
                             <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
-"  align="right" style="padding-right:10px"><a href="javascript:ajaxGetEditForm(<?php echo $this->_tpl_vars['settings'][$this->_sections['settingidx']['index']]['configuration_id']; ?>
-)"  class="linkButton"><?php echo $this->_tpl_vars['ACTION_EDIT']; ?>
+"  align="center" style="padding-right:10px"><a href="javascript:ajaxGetEditForm(<?php echo $this->_tpl_vars['settings'][$this->_sections['settingidx']['index']]['configuration_id']; ?>
+)"  class="linkButtonEdit" title="Edit"><?php echo $this->_tpl_vars['ACTION_EDIT']; ?>
 </a></td>
                         </tr>
                         <?php endfor; endif; ?>
@@ -109,7 +109,7 @@ $this->_sections['settingidx']['last']       = ($this->_sections['settingidx']['
     </table>
     <?php if (count ( $this->_tpl_vars['settings'] ) > 0): ?>
     <br />
-    <div align="center"><?php echo $this->_tpl_vars['TEXT_PAGES']; ?>
+    <div class="pages"><?php echo $this->_tpl_vars['TEXT_PAGES']; ?>
 <?php echo $this->_tpl_vars['page_links']; ?>
 </div>
     <?php endif; ?>

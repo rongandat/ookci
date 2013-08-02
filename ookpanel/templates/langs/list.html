@@ -36,11 +36,11 @@
                         {section name=languageidx loop=$languages}	
                         {if ($smarty.section.languageidx.index  % 2) == 0 } {assign var="rowstyle"  value="tableNormalRow"} {else}  {assign var="rowstyle" value="tableAltRow"}  {/if}		  
                         <tr>
-                            <td width="22%" height="20"  class="{$rowstyle}">{$languages[languageidx].language_name}</td>
-                            <td width="26%"  class="{$rowstyle}">{$languages[languageidx].language_code}</td>
-                            <td width="35%"  class="{$rowstyle}"><img src="{dev_get_image_source name=$languages[languageidx].language_image}"  alt="{$languages[languageidx].language_name}"/></td>
-                            <td width="26%"  class="{$rowstyle}">{if $languages[languageidx].language_status==1} {$langs.TEXT_ACTIVE} {else} {$langs.TEXT_INACTIVE} {/if} </td>			  
-                            <td width="17%"  class="{$rowstyle}"  align="center"><a href="{$link_language_edit}&lID={$languages[languageidx].language_id}" class="linkButtonEdit">{$ACTION_EDIT}</a>&nbsp;<a href="javascript:getDeleteConfirmForm({$languages[languageidx].language_id});"  class="linkButtonDelete">{$ACTION_DELETE}</a></td>
+                            <td  height="20"  class="{$rowstyle}">{$languages[languageidx].language_name}</td>
+                            <td  class="{$rowstyle}">{$languages[languageidx].language_code}</td>
+                            <td class="{$rowstyle}"><img src="{dev_get_image_source name=$languages[languageidx].language_image}"  alt="{$languages[languageidx].language_name}"/></td>
+                            <td class="{$rowstyle}">{if $languages[languageidx].language_status==1} {$langs.TEXT_ACTIVE} {else} {$langs.TEXT_INACTIVE} {/if} </td>			  
+                            <td class="{$rowstyle}"  align="center"><a href="{$link_language_edit}&lID={$languages[languageidx].language_id}" class="linkButtonEdit" title="Edit">{$ACTION_EDIT}</a>&nbsp;<a href="javascript:getDeleteConfirmForm({$languages[languageidx].language_id});"  class="linkButtonDelete" title="Delete">{$ACTION_DELETE}</a></td>
                         </tr>
                         {/section}
                     </table>

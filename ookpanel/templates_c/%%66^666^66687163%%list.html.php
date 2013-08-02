@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-30 09:59:12
+<?php /* Smarty version 2.6.18, created on 2013-08-01 10:40:00
          compiled from admins/list.html */ ?>
 <div class="page-title" style="z-index: 780;">
     <div class="in" style="z-index: 770;">
@@ -93,9 +93,9 @@ $this->_sections['adminidx']['last']       = ($this->_sections['adminidx']['iter
                     <td width="17%"  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 "  align="center">
                         <a href="<?php echo $this->_tpl_vars['admins'][$this->_sections['adminidx']['index']]['admin_url']; ?>
-" class="linkButtonEdit"><?php echo $this->_tpl_vars['ACTION_EDIT']; ?>
+" class="linkButtonEdit" title="Edit"><?php echo $this->_tpl_vars['ACTION_EDIT']; ?>
 </a>&nbsp;<a href="javascript:getDeleteConfirmForm(<?php echo $this->_tpl_vars['admins'][$this->_sections['adminidx']['index']]['admin_id']; ?>
-);"  class="linkButtonDelete"><?php echo $this->_tpl_vars['ACTION_DELETE']; ?>
+);"  class="linkButtonDelete" title="Delete"><?php echo $this->_tpl_vars['ACTION_DELETE']; ?>
 </a></td>
                 </tr>
                 <?php endfor; endif; ?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-27 06:31:03
+<?php /* Smarty version 2.6.18, created on 2013-08-01 10:40:29
          compiled from langs/list.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_image_source', 'langs/list.html', 41, false),)), $this); ?>
@@ -81,26 +81,26 @@ $this->_sections['languageidx']['last']       = ($this->_sections['languageidx']
 ?>	
                         <?php if (( $this->_sections['languageidx']['index'] % 2 ) == 0): ?> <?php $this->assign('rowstyle', 'tableNormalRow'); ?> <?php else: ?>  <?php $this->assign('rowstyle', 'tableAltRow'); ?>  <?php endif; ?>		  
                         <tr>
-                            <td width="22%" height="20"  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
+                            <td  height="20"  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 "><?php echo $this->_tpl_vars['languages'][$this->_sections['languageidx']['index']]['language_name']; ?>
 </td>
-                            <td width="26%"  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
+                            <td  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 "><?php echo $this->_tpl_vars['languages'][$this->_sections['languageidx']['index']]['language_code']; ?>
 </td>
-                            <td width="35%"  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
+                            <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 "><img src="<?php echo smarty_function_dev_get_image_source(array('name' => $this->_tpl_vars['languages'][$this->_sections['languageidx']['index']]['language_image']), $this);?>
 "  alt="<?php echo $this->_tpl_vars['languages'][$this->_sections['languageidx']['index']]['language_name']; ?>
 "/></td>
-                            <td width="26%"  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
+                            <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 "><?php if ($this->_tpl_vars['languages'][$this->_sections['languageidx']['index']]['language_status'] == 1): ?> <?php echo $this->_tpl_vars['langs']['TEXT_ACTIVE']; ?>
  <?php else: ?> <?php echo $this->_tpl_vars['langs']['TEXT_INACTIVE']; ?>
  <?php endif; ?> </td>			  
-                            <td width="17%"  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
+                            <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 "  align="center"><a href="<?php echo $this->_tpl_vars['link_language_edit']; ?>
 &lID=<?php echo $this->_tpl_vars['languages'][$this->_sections['languageidx']['index']]['language_id']; ?>
-" class="linkButton"><?php echo $this->_tpl_vars['ACTION_EDIT']; ?>
+" class="linkButtonEdit" title="Edit"><?php echo $this->_tpl_vars['ACTION_EDIT']; ?>
 </a>&nbsp;<a href="javascript:getDeleteConfirmForm(<?php echo $this->_tpl_vars['languages'][$this->_sections['languageidx']['index']]['language_id']; ?>
-);"  class="linkButton"><?php echo $this->_tpl_vars['ACTION_DELETE']; ?>
+);"  class="linkButtonDelete" title="Delete"><?php echo $this->_tpl_vars['ACTION_DELETE']; ?>
 </a></td>
                         </tr>
                         <?php endfor; endif; ?>
@@ -110,7 +110,7 @@ $this->_sections['languageidx']['last']       = ($this->_sections['languageidx']
             </td>
         </tr>
     </table>
-    <div align="center"><?php echo $this->_tpl_vars['TEXT_PAGES']; ?>
+    <div class="pages"><?php echo $this->_tpl_vars['TEXT_PAGES']; ?>
 <?php echo $this->_tpl_vars['page_links']; ?>
 </div>
 </div>

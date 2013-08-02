@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-29 06:57:54
+<?php /* Smarty version 2.6.18, created on 2013-08-01 10:40:40
          compiled from security_questions/list.html */ ?>
 <div class="page-title" style="z-index: 780;">
     <div class="in" style="z-index: 770;">
@@ -88,9 +88,9 @@ $this->_sections['security_questionidx']['last']       = ($this->_sections['secu
                             <td class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 "  align="center" style="padding-right:10px"><a href="<?php echo $this->_tpl_vars['link_security_question_edit']; ?>
 &action=edit&security_questionID=<?php echo $this->_tpl_vars['security_questions'][$this->_sections['security_questionidx']['index']]['security_questions_id']; ?>
-" class="linkButton"><?php echo $this->_tpl_vars['ACTION_EDIT']; ?>
+" class="linkButtonEdit" title="Edit"><?php echo $this->_tpl_vars['ACTION_EDIT']; ?>
 </a>&nbsp;<a href="javascript:getDeleteConfirmForm(<?php echo $this->_tpl_vars['security_questions'][$this->_sections['security_questionidx']['index']]['security_questions_id']; ?>
-);"  class="linkButton"><?php echo $this->_tpl_vars['ACTION_DELETE']; ?>
+);"  class="linkButtonDelete" title="Delete"><?php echo $this->_tpl_vars['ACTION_DELETE']; ?>
 </a></td>
                         </tr>
                         <?php endfor; endif; ?>
@@ -101,7 +101,7 @@ $this->_sections['security_questionidx']['last']       = ($this->_sections['secu
         </tr>
     </table>
     <?php if (count ( $this->_tpl_vars['emailtemplates'] ) > 0): ?>
-    <div align="center"><?php echo $this->_tpl_vars['TEXT_PAGES']; ?>
+    <div class="pages"><?php echo $this->_tpl_vars['TEXT_PAGES']; ?>
 <?php echo $this->_tpl_vars['page_links']; ?>
 </div>
     <?php endif; ?>

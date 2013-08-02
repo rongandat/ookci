@@ -43,7 +43,7 @@
                             <td width="25%" height="20"  class="{$rowstyle}">{$settings[settingidx].configuration_title}</td>
                             <td width="35%"  class="{$rowstyle}">{$settings[settingidx].configuration_description}</td>			  
                             <td width="25%"  class="{$rowstyle}">{$settings[settingidx].configuration_value}</td>
-                            <td class="{$rowstyle}"  align="right" style="padding-right:10px"><a href="javascript:ajaxGetEditForm({$settings[settingidx].configuration_id})"  class="linkButtonEdit">{$ACTION_EDIT}</a></td>
+                            <td class="{$rowstyle}"  align="center" style="padding-right:10px"><a href="javascript:ajaxGetEditForm({$settings[settingidx].configuration_id})"  class="linkButtonEdit" title="Edit">{$ACTION_EDIT}</a></td>
                         </tr>
                         {/section}
                     </table>

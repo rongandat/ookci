@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-30 10:19:02
+<?php /* Smarty version 2.6.18, created on 2013-08-01 10:41:56
          compiled from users/list.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_admin_page_link', 'users/list.html', 18, false),array('function', 'html_options', 'users/list.html', 58, false),array('modifier', 'date_format', 'users/list.html', 106, false),array('modifier', 'status_user', 'users/list.html', 108, false),)), $this); ?>
@@ -174,18 +174,18 @@ $this->_sections['useridx']['last']       = ($this->_sections['useridx']['iterat
                         </td>
                         <td width="17%"  class="<?php echo $this->_tpl_vars['rowstyle']; ?>
 "  align="center"><a href="javascript:editUser(<?php echo $this->_tpl_vars['users'][$this->_sections['useridx']['index']]['user_id']; ?>
-);" class="linkButtonEdit">Edit</a>&nbsp;<a href="javascript:getUserDetails(<?php echo $this->_tpl_vars['users'][$this->_sections['useridx']['index']]['user_id']; ?>
-);" class="linkButtonView"><?php echo $this->_tpl_vars['ACTION_VIEW']; ?>
+);" class="linkButtonEdit" title="Edit">Edit</a>&nbsp;<a href="javascript:getUserDetails(<?php echo $this->_tpl_vars['users'][$this->_sections['useridx']['index']]['user_id']; ?>
+);" title="view user" class="linkButtonView"><?php echo $this->_tpl_vars['ACTION_VIEW']; ?>
 </a>
                             &nbsp;
                             <span id="action-user-<?php echo $this->_tpl_vars['users'][$this->_sections['useridx']['index']]['user_id']; ?>
 ">
                                 <?php if ($this->_tpl_vars['users'][$this->_sections['useridx']['index']]['status'] == 1): ?>
 
-                                <a class="linkButtonDeActive" id="" href="javascript:deactiveUser(<?php echo $this->_tpl_vars['users'][$this->_sections['useridx']['index']]['user_id']; ?>
+                                <a class="linkButtonDeActive" title="de-active user" id="" href="javascript:deactiveUser(<?php echo $this->_tpl_vars['users'][$this->_sections['useridx']['index']]['user_id']; ?>
 );" >De-active</a></td>
                         <?php else: ?>
-                    <a class="linkButtonActive" href="javascript:activeUser(<?php echo $this->_tpl_vars['users'][$this->_sections['useridx']['index']]['user_id']; ?>
+                    <a class="linkButtonActive" title="active user" href="javascript:activeUser(<?php echo $this->_tpl_vars['users'][$this->_sections['useridx']['index']]['user_id']; ?>
 );" >Active</a>
                     </span>
             </td>
