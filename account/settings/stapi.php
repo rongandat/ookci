@@ -30,8 +30,16 @@ if ($action == 'update_account') {
     $smarty->assign('api_hask', $api_hask);
 
     if ($validator->validateGeneral('Api name', $api_name, _ERROR_FIELD_EMPTY)) {
-        $validator->validateMaxLength('Api name', $api_name, 32, 'Api name litter than 17 character');
+        $validator->validateMaxLength('Api name', $api_name, 32, 'Api name litter than 32 character');
+
+        $check_api_sql = 'Select * from ' . _TABLE_API_CONFIGS . ' tac inner join ' . _TABLE_USERS . ' tu on (tac.user_id = tu.user_id) where api_name="' . $api_name . '" and tu.user_id != ' . $login_userid;
+        $check_api_query = db_query($check_api_sql);
+        
+        if(db_num_rows($check_api_query) > 0){
+            $validator->addError('Api name', 'Api name is exists');
+        }
     }
+
 
     if ($validator->validateGeneral('Api key', $api_key, _ERROR_FIELD_EMPTY)) {
         $validator->validateMaxLength('Api key', $api_key, 32, 'Api key litter than 33 character');
@@ -76,9 +84,9 @@ if ($action == 'view_info') {
         if ($master_key != getMasterKey())
             $validator->addError('Master Key', 'Invalid master key. Please try again.');
     }
-    
+
     if (count($validator->errors) == 0) {
-        
+
         if (!empty($api_info)) {
             $smarty->assign('view_api_status', $api_info['api_status']);
             $smarty->assign('view_api_name', $api_info['api_name']);
@@ -88,7 +96,7 @@ if ($action == 'view_info') {
             $smarty->assign('api_name', $api_info['api_name']);
             $smarty->assign('api_key', $api_info['api_key']);
             $smarty->assign('api_hask', $api_info['api_hask']);
-        }else{
+        } else {
             $smarty->assign('view_api_status', 'empty');
             $smarty->assign('view_api_name', 'empty');
             $smarty->assign('view_api_key', 'empty');

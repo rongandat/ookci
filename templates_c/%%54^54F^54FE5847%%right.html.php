@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-27 04:19:03
+<?php /* Smarty version 2.6.18, created on 2013-08-02 10:52:22
          compiled from right.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'right.html', 9, false),)), $this); ?>
@@ -73,6 +73,10 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
                 <a href="http://docs.ookcash.com/merchantapi">Merchant API</a>
             </li>
             <li>
+                <a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_QUICK_PAYMENT','ssl' => true), $this);?>
+">Quick Payment</a>
+            </li>
+            <li>
                 <a href="#">API Test Key</a>
             </li>
             <li>
@@ -98,6 +102,10 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
             <li>
                 <a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_ACCOUNT_TRANSFER','ssl' => true), $this);?>
 " <?php if ($this->_tpl_vars['CURRENT_MODULE'] == 'account' && $this->_tpl_vars['CURRENT_PAGE'] == 'transfer'): ?> class="active" <?php endif; ?>>Transfer Money</a>
+            </li>
+            <li>
+                <a href="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_ACCOUNT_TRANSFER_WALLET','ssl' => true), $this);?>
+" <?php if ($this->_tpl_vars['CURRENT_MODULE'] == 'account' && $this->_tpl_vars['CURRENT_PAGE'] == 'transfer_wallet'): ?> class="active" <?php endif; ?>>Transfer To Wallet</a>
             </li>
            
             <li>

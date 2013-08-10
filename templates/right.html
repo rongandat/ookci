@@ -58,6 +58,9 @@
                 <a href="http://docs.ookcash.com/merchantapi">Merchant API</a>
             </li>
             <li>
+                <a href="{dev_get_page_link page=PAGE_QUICK_PAYMENT ssl=true}">Quick Payment</a>
+            </li>
+            <li>
                 <a href="#">API Test Key</a>
             </li>
             <li>
@@ -81,6 +84,9 @@
             </li>
             <li>
                 <a href="{dev_get_page_link page=PAGE_ACCOUNT_TRANSFER ssl=true}" {if $CURRENT_MODULE == 'account' AND $CURRENT_PAGE == 'transfer' } class="active" {/if}>Transfer Money</a>
+            </li>
+            <li>
+                <a href="{dev_get_page_link page=PAGE_ACCOUNT_TRANSFER_WALLET ssl=true}" {if $CURRENT_MODULE == 'account' AND $CURRENT_PAGE == 'transfer_wallet' } class="active" {/if}>Transfer To Wallet</a>
             </li>
            
             <li>

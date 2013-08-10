@@ -27,8 +27,6 @@
 	define('PAGE_SETTING_SECURE_CODE','module=account&page=settings&psettings=security_code');
 	
         
-        
-        
 	define('PAGE_ACCOUNT_PUBLIC','module=account&page=public');
 	define('PAGE_ACCOUNT_TRANSACTIONS','module=account&page=history');
 	define('PAGE_ACCOUNT_TRANSFER','module=account&page=transfer');	
@@ -46,6 +44,8 @@
 	define('PAGE_AML','page=aml');
 	define('PAGE_CORPORATE','page=corporate');
 	define('PAGE_TRANSFER','module=account&page=transfer');
+	define('PAGE_ACCOUNT_TRANSFER_WALLET','module=account&page=transfer_wallet');
+	define('PAGE_QUICK_PAYMENT','module=account&page=quick_payment');
 	define('PAGE_SCI_TRANSFER','module=account&page=sci_transfer');
 	define('PAGE_SCI_TRANSFER_COMPLETE','module=account&page=sci_complete');
 	//Services

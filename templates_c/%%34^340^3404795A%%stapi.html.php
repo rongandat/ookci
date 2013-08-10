@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-19 05:11:18
+<?php /* Smarty version 2.6.18, created on 2013-08-06 09:55:21
          compiled from account/settings/stapi.html */ ?>
 <form name="frmPersonal" method="post" action="<?php echo $this->_tpl_vars['HREF_PAGE']; ?>
 "  >

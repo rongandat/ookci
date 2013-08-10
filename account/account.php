@@ -32,9 +32,8 @@ $smarty->assign('balances', $balance_info_array);
 $sql_wallets = "SELECT currency_code, balance FROM " . _TABLE_USER_WALLET . " WHERE user_id='" . $login_userid . "'";
 $wallets_query = db_query($sql_wallets);
 while ($wallet = db_fetch_array($wallets_query)) {
-    $wallets_array[$balance['currency_code']] = $wallet['balance'];
+    $wallets_array[$wallet['currency_code']] = $wallet['balance'];
 }
-
 foreach ($currencies_array as $currency_code => $currency_info) {
     $wallet_info_array[] = array('balance_code' => $currency_info['code'],
         'balance_name' => $currency_info['title'],

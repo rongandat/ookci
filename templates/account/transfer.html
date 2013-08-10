@@ -4,7 +4,9 @@
     
     {if $step=='confirm'}
     <div class="simple-form">
+        
         <h1>Transfer Confirmation</h1>
+        {include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }
         <div class="st-form-line">
             <span class="st-labeltext">From Account:</span>
             <span class="transfer_info">{$smarty.session.login_account_number}(<strong>{$user_login.account_name}</strong>)</span>
@@ -60,6 +62,7 @@
     </div>
     {elseif $step=='completed'}
     <div class="simple-form">
+        {include file="$_TEMPLATE_SOURCE_DIR/modules/validate_error.tpl" }
         <h1>Transfer Successful</h1>
         <p class="success">Your transfer was successful!</p>
         <div class="line"></div>
@@ -126,7 +129,6 @@
             <textarea name="transaction_memo"  cols="50" rows="3">{$transaction_memo}</textarea>
             <div class="clear"></div>
         </div>
-        <tr>
         <div class="st-form-line">
             <span class="st-labeltext"><i>*</i> Master Key(3 digits)</span>
             <input  name="master_key" type="password" id="master_key"  value="{$master_key}"  size="4"  maxlength="3"/> 

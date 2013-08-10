@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-19 05:57:22
+<?php /* Smarty version 2.6.18, created on 2013-08-06 09:55:17
          compiled from account/settings.html */ ?>
 <div class="simple-form">
     <h1>Settings</h1>

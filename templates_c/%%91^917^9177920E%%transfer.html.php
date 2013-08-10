@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-26 05:38:40
+<?php /* Smarty version 2.6.18, created on 2013-08-07 05:42:40
          compiled from account/transfer.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'account/transfer.html', 1, false),array('function', 'html_options', 'account/transfer.html', 110, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_page_link', 'account/transfer.html', 1, false),array('function', 'html_options', 'account/transfer.html', 113, false),)), $this); ?>
 <form name="frmTransfer" method="post" action="<?php echo smarty_function_dev_get_page_link(array('page' => 'PAGE_ACCOUNT_TRANSFER','ssl' => true), $this);?>
 "  >
     <input type="hidden" name="action" value="process"  />
@@ -10,7 +10,13 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
     
     <?php if ($this->_tpl_vars['step'] == 'confirm'): ?>
     <div class="simple-form">
+        
         <h1>Transfer Confirmation</h1>
+        <?php $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => ($this->_tpl_vars['_TEMPLATE_SOURCE_DIR'])."/modules/validate_error.tpl", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>
         <div class="st-form-line">
             <span class="st-labeltext">From Account:</span>
             <span class="transfer_info"><?php echo $_SESSION['login_account_number']; ?>
@@ -80,6 +86,11 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'dev_get_pag
     </div>
     <?php elseif ($this->_tpl_vars['step'] == 'completed'): ?>
     <div class="simple-form">
+        <?php $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => ($this->_tpl_vars['_TEMPLATE_SOURCE_DIR'])."/modules/validate_error.tpl", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>
         <h1>Transfer Successful</h1>
         <p class="success">Your transfer was successful!</p>
         <div class="line"></div>
@@ -164,7 +175,6 @@ unset($_smarty_tpl_vars);
 </textarea>
             <div class="clear"></div>
         </div>
-        <tr>
         <div class="st-form-line">
             <span class="st-labeltext"><i>*</i> Master Key(3 digits)</span>
             <input  name="master_key" type="password" id="master_key"  value="<?php echo $this->_tpl_vars['master_key']; ?>
