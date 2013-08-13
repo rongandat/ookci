@@ -1,0 +1,130 @@
+<form name="frmPersonal" method="post" action=""  >
+    <input class="inputtext" type="hidden" name="action" value="update_account"  />
+    <div class="simple-form">
+        <h1>{$heading_title}</h1>
+        <p>The following section can only be viewed after you enter your master key.</p>
+        <p>Fields 
+            marked with asterisk (<i>*</i>) are 
+            required.</p>
+        <div class="line"></div>
+        {include file="common/validate_error.html" }
+        {if !empty($success)}
+        <div class="success">Your acount information hava been updated successfully</div>
+        {/if}
+        <h3>Personal Information</h3>
+        <table class="form">
+            <tr>
+                <td>
+                    <i>*</i>Account Name:</td>
+                <td>
+                    <input class="inputtext" type="text" name="account_name" value="{$user_info.account_name}" size="20"></td>
+            </tr>  
+            <tr>
+                <td>
+                    <i>*</i>First Name:</td>
+                <td>
+                    <input class="inputtext" type="text" name="firstname" value="{$user_info.firstname}" size="20"></td>
+            </tr>  
+            <tr>
+                <td>
+                    <i>*</i>Last Name:</td>
+                <td>
+                    <input class="inputtext" type="text" name="lastname" value="{$user_info.lastname}" size="20"></td>
+            </tr>      
+            <tr>
+                <td>
+                    Company Name:</td>
+                <td>
+                    <input class="inputtext" type="text" name="company" value="{$user_info.company}" size="50"></td>
+            </tr>  
+            <tr>
+                <td>
+                    <i>*</i>Phone:</td>
+                <td>
+                    <input class="inputtext" type="text" name="phone" value="{$user_info.phone}" size="20"></td>
+            </tr>  
+            <tr>
+                <td>
+                    Mobile:</td>
+                <td>
+                    <input class="inputtext" type="text" name="mobile"  value="{$user_info.mobile}" size="20"></td>
+            </tr>          
+        </table>
+
+        <h3>Contact Information</h3>
+        <table class="form">
+            <tr>
+                <td>
+                    <i>*</i>Address:</td>
+                <td>
+                    <input class="inputtext" type="text" name="address" value="{$user_info.address}" size="50"></td>
+            </tr>  
+            <tr>
+                <td>
+                    <i>*</i>City:</td>
+                <td>
+                    <input class="inputtext" type="text" name="city" value="{$user_info.city}" size="50"></td>
+            </tr>    
+            <tr>
+                <td>
+                    <i>*</i>Country:</td>
+                <td>
+                    <select name="country"  class="inputtext"  onchange="getStates(this.value);">
+                        {html_options options=$countries_array selected=$user_info.country}</select></td>
+            </tr>  
+            <tr>
+                <td>
+                    <i>*</i>State:</td>
+                <td><select name="state"  id="state" class="state inputtext" >
+                        {html_options options=$zones_array selected=$user_info.state}</select></td>
+            </tr>      
+            <tr>
+                <td>
+                    <i>*</i>Zip/Postal Code:</td>
+                <td>
+                    <input class="inputtext" type="text" name="postcode" value="{$user_info.postcode}" size="20"></td>
+            </tr>    
+        </table>
+
+        <h3>Additional Information</h3>
+        <table class="form">
+            <tr>
+                <td>
+                    Additional Information:</td>
+                <td>
+                    <textarea  name="additional_information" value="{$user_info.additional_information}" cols="40" rows="2">{$user_info.additional_information}</textarea></td>
+            </tr> 
+            <tr>
+                <td>
+                    <i>*</i>Personal welcome message:</td>
+                <td>
+                    <textarea  name="welcome_message" value="{$user_info.welcome_message}" cols="40" rows="2">{$user_info.welcome_message}</textarea></td>
+            </tr> 
+            <tr>
+                <td   height="32">
+                    <i>*</i>Master Key:</td>
+                <td width="442"  height="32">
+                    <input class="inputtext" type="password" name="master_key" size="5" maxlength="3"></td>
+            </tr>
+        </table>    
+
+
+        <div class="buttons">
+            <input class="button" value="Apply Changes" type="submit" name="buttonUpdate">
+        </div>
+    </div>
+
+</form>
+
+<script type="text/javascript">
+    
+    function getStates(countryid) {
+        var url = '{site_url("home/zones")}'
+        {literal}
+        $.post(url, {country_id: countryid}, function(data) {
+            $("select:#state").html(data);
+        });
+        {/literal}
+    }
+    
+</script>

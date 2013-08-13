@@ -1,0 +1,36 @@
+<form name="frmLogin" action="" method="post" >
+    <div class="simple-form">
+        <h1>Login: Step 1</h1>
+        <p> You are now on the login page of your OOKCASH account. Please provide your login details to see your custom welcome message and to continue login process. </p>
+        <p>Fields marked with asterisk
+            <span class="required">(*)</span></p>
+        {include file="common/validate_error.html" }
+        <div class="line"></div>
+        <div class="st-form-line">
+            <span class="st-labeltext">Account Number <a href="{site_url('account/remind')}">(forgot it?)</a></span>
+            <input type="text" value="" autocomplete="off" id="account_number" class="st-forminput medium" size="20" name="account_number">
+            <div class="clear"></div>
+        </div>
+        <div class="st-form-line">
+            <span class="st-labeltext">Password  <a href="{site_url('account/forgot')}">(forgot it?)</a></span>
+            <input type="password" value="" autocomplete="off" id="password" class="st-forminput medium" size="20" name="password">
+            <div class="clear"></div>
+        </div>
+        {if $error_log_login > 3}
+        <div class="st-form-line captcha">
+            <span class="st-labeltext">Enter the code (turing number) shown on the image </span>
+            <div class="captcha-form">
+                <a href="javascript: refreshSecureImage();">
+                    <img id="secure_image" autocomplete="off" border="0" src="{site_url('secure_image?t=1')}">
+                </a>
+                <input type="text" value="" id="security_code" class="st-forminput medium" name="security_code">
+            </div>
+            <div class="clear"></div>
+        </div>
+        {/if}
+        <div class="st-form-line captcha">
+            <span class="st-labeltext"></span>
+            <input class="button" type="submit" value="Login" />
+        </div>
+    </div>
+</form>

@@ -1,0 +1,10 @@
+{if !empty($validerrors) && count($validerrors)>0 }
+<div class="error">
+    <div class="message">Error(s) Ocurred! Please check again your inputed fields.</div>
+    <ul>
+    {section name=error_index loop=$validerrors}
+    <li><strong>{$validerrors[error_index].field}:</strong>{$validerrors[error_index].message}</li>
+    {/section}
+    </ul>
+</div>
+{/if}
