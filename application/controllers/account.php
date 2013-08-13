@@ -159,7 +159,7 @@ class Account extends MY_Controller {
     }
 
     public function history() {
-        $action = $_POST['action'];
+        $action = $posts['action'];
 //bof: date
         $this_year = date('Y');
         $months_array[0] = '--';
@@ -190,8 +190,52 @@ class Account extends MY_Controller {
         $smarty->assign('todateDay', date('d'));
         $smarty->assign('todateMonth', date('m'));
         $smarty->assign('todateYear', date('Y'));
-        
-        
+
+        $posts = $this->input->post();
+        $dataWhere['status'] = 1;
+        switch ($action) {
+            case 'process_search':
+                $batch_number = ($posts['batch_number']);
+                $to_account = ($posts['to_account']);
+                $from_account = ($posts['from_account']);
+                $note = ($posts['transaction_note']);
+
+                $search_date_filter = (int) $posts['search_date_filter'];
+
+                if ($search_date_filter) {
+                    $fromdateDay = ($posts['fromdateDay']);
+                    $fromdateMonth = ($posts['fromdateMonth']);
+                    $fromdateYear = ($posts['fromdateYear']);
+                    $todateDay = ($posts['todateDay']);
+                    $todateMonth = ($posts['todateMonth']);
+                    $todateYear = ($posts['todateYear']);
+
+                    if ($fromdateDay != 0 && $fromdateMonth != 0 && $fromdateYear != 0) {
+                        $from_date = date('Y-m-d', strtotime($fromdateDay . '-' . $fromdateMonth . '-' . $fromdateYear));
+                        $where_filter .= " AND DATE_FORMAT(transaction_time,'%Y-%m-%d')>='" . $from_date . "' ";
+                    }
+
+                    if ($todateDay != 0 && $todateMonth != 0 && $todateYear != 0) {
+                        $to_date = date('Y-m-d', strtotime($todateDay . '-' . $todateMonth . '-' . $todateYear));
+                        $where_filter .= " AND DATE_FORMAT(transaction_time,'%Y-%m-%d')<='" . $to_date . "' ";
+                    }
+                }
+
+                if (tep_not_null($batch_number))
+                    $where_filter .= " AND batch_number='" . $batch_number . "' ";
+
+                if (tep_not_null($from_account)) {
+                    $where_filter .= " AND from_account LIKE '" . $from_account . "%' AND to_account='" . $login_account_number . "'";
+                } elseif (tep_not_null($to_account)) {
+                    $where_filter .= " AND to_account LIKE '" . $to_account . "%' AND from_account='" . $login_account_number . "' ";
+                }
+
+                if (tep_not_null($note))
+                    $where_filter .= " AND transaction_memo LIKE '%" . $note . "%' ";
+
+                postAssign($smarty);
+                break;
+        }
     }
 
 }
