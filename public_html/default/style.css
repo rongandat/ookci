@@ -1,7 +1,3 @@
-
-
-
-
 table.form tr td:first-child {
     display: block;
     float: left;
@@ -1665,4 +1661,39 @@ table.form tr td i{
     clear: both;
     color: #555555;
     margin: 0 5px 10px;
+}
+
+
+.nav-button{
+    float: left;
+    
+}
+
+.nav-button div.nav-page{
+    display: block;
+    float: left;
+}
+
+.nav-button a{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 1px 1px #EDEDED;
+    color: #666666;
+    font-weight: bold;
+    margin-left: 4px;
+    padding: 3px 8px;
+    float: left;
+}
+
+.nav-button div.nav-page-selected{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 1px 1px #EDEDED;
+    color: #666666;
+    font-weight: bold;
+    margin-left: 4px;
+    padding: 3px 8px;
+    opacity: 0.35;
 }

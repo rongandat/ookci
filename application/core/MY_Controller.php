@@ -58,12 +58,20 @@ class MY_Controller extends CI_Controller {
         $this->data['app_path'] = APPPATH;
         $this->data['system_path'] = SYSDIR;
     }
+    
+    public function assign($key,$value){
+        $this->data[$key] = $value;
+    }
 
     
 
     public function view($view, $template = 'common/default') {
         $this->data['body_html'] = $this->mysmarty->fetch($view . '.html', $this->data);
         $this->mysmarty->view($template . '.html', $this->data);
+    }
+    
+    public function view_ajax($view){
+       return $this->mysmarty->fetch($view . '.html', $this->data);
     }
 
 

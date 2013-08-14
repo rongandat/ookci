@@ -33,4 +33,9 @@ define('_ERROR_KEY_MIN_LENGTH', 'Required to be a minimum of 3 characters in len
 define('_ERROR_PIN', "Second Login PIN doesn't match first. Please enter same Login PIN in both fields.");
 
 define('_ERROR_MASTER_KEY', "Second Master Key doesn't match first. Please enter same Master Key in both fields.");
+
+$lang['first_link'] = 'First';
+$lang['last_link'] = 'Last';
+$lang['prev_link'] = 'Preview';
+$lang['next_link'] = 'Next';
 ?>

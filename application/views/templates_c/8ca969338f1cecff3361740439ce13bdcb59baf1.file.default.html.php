@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2013-08-13 09:57:59
+<?php /* Smarty version Smarty-3.1.14, created on 2013-08-14 05:16:02
          compiled from "application\views\templates\common\default.html" */ ?>
 <?php /*%%SmartyHeaderCode:225265209a9fe94a575-77749422%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8ca969338f1cecff3361740439ce13bdcb59baf1' => 
     array (
       0 => 'application\\views\\templates\\common\\default.html',
-      1 => 1376380677,
+      1 => 1376449910,
       2 => 'file',
     ),
   ),
@@ -33,6 +33,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <head>
         <meta http-equiv="Content-Language" content="en-us">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        
         <META NAME="Keywords" CONTENT="private, digital currency,ecurrency,e-currency,payment system, payment processor,payment gateway,api,merchant,merchant payment solution,online banking,money,transfer,finance service,payment service,safely store funds,buy,sell,exchange,forex,casino,sports betting,poker,on-line">
         <META name="description" content="Oldest, safest and most popular payment processor operating in World Wide and serving millions all around a world. Store your funds privately in gold, Euro or USD. Use e-GlobalCash digital money in on-line casinos, poker rooms, sports betting, forex or in any other on-line store.">
         <title><?php echo $_smarty_tpl->tpl_vars['page_title']->value;?>

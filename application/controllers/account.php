@@ -40,6 +40,10 @@ class Account extends MY_Controller {
         $this->data['balances'] = $balance_info_array;
 
         $wallets = $this->wallet->getBalanceByUserId($this->user_session['user_id']);
+        $wallets_array = array();
+        foreach ($wallets as $balance) {
+            $wallets_array[$balance['currency_code']] = $balance['balance'];
+        }
         $totals_info_array = array();
         $wallet_info_array = array();
         foreach ($currencies_array as $currency_code => $currency_info) {
@@ -51,7 +55,7 @@ class Account extends MY_Controller {
             $totals_info_array[] = array('balance_text' => get_currency_value_format(!empty($wallets_array[$currency_info['code']]) ? $wallets_array[$currency_info['code']] : 0 + !empty($balances_array[$currency_info['code']]) ? $balances_array[$currency_info['code']] : 0, $currency_info));
         }
 
-        $this->data['wallets'] = $totals_info_array;
+        $this->data['wallets'] = $wallet_info_array;
         $this->data['totals'] = $totals_info_array;
 
 
@@ -158,8 +162,8 @@ class Account extends MY_Controller {
         }
     }
 
-    public function history() {
-        $action = $posts['action'];
+    public function history($start = 0) {
+        $this->load->model('transaction_model', 'transaction');
 //bof: date
         $this_year = date('Y');
         $months_array[0] = '--';
@@ -173,69 +177,111 @@ class Account extends MY_Controller {
         }
 
 
-        $smarty->assign('days_array', $days_array);
+        $this->data['days_array'] = $days_array;
 // search years	
-        $smarty->assign('months_array', $months_array);
+        $this->data['months_array'] = $months_array;
 
         $years_array = array();
         $years_array[0] = '----';
         for ($i = $this_year - 3; $i < $this_year + 1; $i++) {
             $years_array[$i] = $i;
         }
-        $smarty->assign('years_array', $years_array);
+        $this->assign('years_array', $years_array);
 
-        $smarty->assign('fromdateDay', date('d'));
-        $smarty->assign('fromdateMonth', date('m'));
-        $smarty->assign('fromdateYear', date('Y'));
-        $smarty->assign('todateDay', date('d'));
-        $smarty->assign('todateMonth', date('m'));
-        $smarty->assign('todateYear', date('Y'));
+        $this->assign('fromdateDay', (int)date('d'));
+        $this->assign('fromdateMonth',(int) date('m'));
+        $this->assign('fromdateYear', date('Y'));
+        $this->assign('todateDay', (int)date('d'));
+        $this->assign('todateMonth', (int)date('m'));
+        $this->assign('todateYear', date('Y'));
 
         $posts = $this->input->post();
         $dataWhere['status'] = 1;
-        switch ($action) {
-            case 'process_search':
-                $batch_number = ($posts['batch_number']);
-                $to_account = ($posts['to_account']);
-                $from_account = ($posts['from_account']);
-                $note = ($posts['transaction_note']);
+        $dataWhere['(from_userid = ' . $this->user_session['user_id'] . ' OR to_userid = ' . $this->user_session['user_id'] . ')'] = NULL;
+        if ($posts) {
+            $action = $posts['action'];
+            switch ($action) {
+                case 'process_search':
+                    $batch_number = ($posts['batch_number']);
+                    $to_account = ($posts['to_account']);
+                    $from_account = ($posts['from_account']);
+                    $note = ($posts['transaction_note']);
 
-                $search_date_filter = (int) $posts['search_date_filter'];
+                    $search_date_filter = !empty($posts['search_date_filter']) ? $posts['search_date_filter'] : FALSE;
 
-                if ($search_date_filter) {
-                    $fromdateDay = ($posts['fromdateDay']);
-                    $fromdateMonth = ($posts['fromdateMonth']);
-                    $fromdateYear = ($posts['fromdateYear']);
-                    $todateDay = ($posts['todateDay']);
-                    $todateMonth = ($posts['todateMonth']);
-                    $todateYear = ($posts['todateYear']);
+                    if ($search_date_filter) {
+                        $fromdateDay = ($posts['fromdateDay']);
+                        $fromdateMonth = ($posts['fromdateMonth']);
+                        $fromdateYear = ($posts['fromdateYear']);
+                        $todateDay = ($posts['todateDay']);
+                        $todateMonth = ($posts['todateMonth']);
+                        $todateYear = ($posts['todateYear']);
 
-                    if ($fromdateDay != 0 && $fromdateMonth != 0 && $fromdateYear != 0) {
-                        $from_date = date('Y-m-d', strtotime($fromdateDay . '-' . $fromdateMonth . '-' . $fromdateYear));
-                        $where_filter .= " AND DATE_FORMAT(transaction_time,'%Y-%m-%d')>='" . $from_date . "' ";
+                        if ($fromdateDay != 0 && $fromdateMonth != 0 && $fromdateYear != 0) {
+                            $from_date = date('Y-m-d', strtotime($fromdateDay . '-' . $fromdateMonth . '-' . $fromdateYear));
+                            $dataWhere['DATE_FORMAT(transaction_time,"%Y-%m-%d")>='] = $from_date;
+                        }
+
+                        if ($todateDay != 0 && $todateMonth != 0 && $todateYear != 0) {
+                            $to_date = date('Y-m-d', strtotime($todateDay . '-' . $todateMonth . '-' . $todateYear));
+                            $dataWhere['DATE_FORMAT(transaction_time,"%Y-%m-%d")<='] = $to_date;
+                        }
                     }
 
-                    if ($todateDay != 0 && $todateMonth != 0 && $todateYear != 0) {
-                        $to_date = date('Y-m-d', strtotime($todateDay . '-' . $todateMonth . '-' . $todateYear));
-                        $where_filter .= " AND DATE_FORMAT(transaction_time,'%Y-%m-%d')<='" . $to_date . "' ";
+                    if (!empty($batch_number))
+                        $dataWhere['batch_number'] = $batch_number;
+
+                    if (!empty($from_account)) {
+                        $dataWhere['from_account LIKE'] = $from_account . '%';
+                        $dataWhere['to_account'] = $login_account_number;
+                    } elseif (!empty($to_account)) {
+                        $dataWhere['to_account LIKE'] = $to_account . "%";
+                        $dataWhere['from_account'] = $login_account_number;
                     }
-                }
 
-                if (tep_not_null($batch_number))
-                    $where_filter .= " AND batch_number='" . $batch_number . "' ";
+                    if (!empty($note))
+                        $dataWhere['transaction_memo LIKE'] = "%" . $note . "%";
 
-                if (tep_not_null($from_account)) {
-                    $where_filter .= " AND from_account LIKE '" . $from_account . "%' AND to_account='" . $login_account_number . "'";
-                } elseif (tep_not_null($to_account)) {
-                    $where_filter .= " AND to_account LIKE '" . $to_account . "%' AND from_account='" . $login_account_number . "' ";
-                }
-
-                if (tep_not_null($note))
-                    $where_filter .= " AND transaction_memo LIKE '%" . $note . "%' ";
-
-                postAssign($smarty);
-                break;
+                    $this->data['posts'] = $posts;
+                    break;
+            }
         }
+
+
+        //       Begin pagination
+        $limit = 25;
+        $this->load->library("pagination");
+        $config = array();
+        $config["total_rows"] = $this->transaction->totalTransactions($dataWhere);
+        $config["base_url"] = site_url('account/history');
+        $config["per_page"] = $limit;
+        $page = $start;
+        $config["uri_segment"] = 3;
+        $config['num_links'] = 2;
+
+        $config['first_link'] = $this->lang->line('first_link');
+        $config['first_tag_open'] = '<div class="nav-button">';
+        $config['first_tag_close'] = '</div>';
+        $config['last_link'] = $this->lang->line('last_link');
+        $config['last_tag_open'] = '<div class="nav-button">';
+        $config['last_tag_close'] = '</div>';
+        $config['cur_tag_open'] = "<div class='nav-button'><div class='nav-page nav-page-selected'>";
+        $config['cur_tag_close'] = '</div></div>';
+        $config['num_tag_open'] = "<div class='nav-button'><div class='nav-page'>";
+        $config['num_tag_close'] = '</div></div>';
+        $config['prev_tag_open'] = "<div class='nav-button'>";
+        $config['prev_link'] = $this->lang->line('prev_link');
+        $config['prev_tag_close'] = '</div>';
+        $config['next_link'] = $this->lang->line('next_link');
+        $config['next_tag_open'] = "<div class='nav-button'>";
+        $config['next_tag_close'] = '</div>';
+        $this->pagination->initialize($config);
+        $this->data["links"] = $this->pagination->create_links();
+//       End pagination
+
+        $transactions = $this->transaction->getTransactions($dataWhere, $limit, $start);
+        $this->data['transactions'] = $transactions;
+        $this->view('account/history');
     }
 
 }

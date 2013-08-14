@@ -6,6 +6,14 @@
 
 class Transaction_model extends CI_Model {
 
+    public function getTransactionById($id) {
+        $this->db->select("*");
+        $this->db->from('transactions');
+        $this->db->where('transaction_id', $id);
+        $result = $this->db->get()->result_array();
+        return !empty($result) ? $result[0] : array();
+    }
+
     public function getTransactions($data = array(), $limit = null, $start = null, $sort = array()) {
         $this->db->select("*");
         $this->db->from('transactions');
@@ -16,7 +24,7 @@ class Transaction_model extends CI_Model {
                     $this->db->where($where);
                 }
                 else
-                    $this->db->where($key, $value);
+                    $this->db->where($key, $value, FALSE);
             }
         }
         if ($limit)
