@@ -62,17 +62,9 @@ class Login extends MY_Controller {
                         $this->user->update($user['user_id'], $signup_data_array);
 
                         $this->load->model('email_model');
-                        $this->email_model->sendmail($key, $user_to, $email, $data, $user_from = null);
+                        
+                        $this->email_model->sendmail('VERIFYCATION_KEY', $user['firstname'], $user['email'], $user);
 
-
-
-
-                        $email_info = get_email_template('VERIFYCATION_KEY');
-
-                        $msg_subject = $email_info['emailtemplate_subject'];
-                        $msg_content = str_replace(array('[firstname]', '[verification_key]'), array($user_info['firstname'], $verification_key), $email_info['emailtemplate_content']);
-                        $msg_content = html_entity_decode($msg_content);
-                        tep_mail($user_info['firstname'] . ' ' . $user_info['lastname'], $user_info['email'], $msg_subject, $msg_content, SITE_NAME, SITE_CONTACT_EMAIL);
                     }
 
                     redirect(site_url('login/comfirm'));

@@ -160,12 +160,26 @@ if (!function_exists('tep_rand')) {
 
 }
 
+if (!function_exists('tep_convert_linefeeds')) {
+
+// nl2br() prior PHP 4.2.0 did not convert linefeeds on all OSs (it only converted \n)
+    function tep_convert_linefeeds($from, $to, $string) {
+        if ((PHP_VERSION < "4.0.5") && is_array($from)) {
+            return ereg_replace('(' . implode('|', $from) . ')', $to, $string);
+        } else {
+            return str_replace($from, $to, $string);
+        }
+    }
+
+}
+
 if (!function_exists('tep_mail')) {
 
     function tep_mail($to_name, $to_email_address, $email_subject, $email_text, $from_email_name, $from_email_address, $html_email = false) {
-
+        $CI = & get_instance();
+        $CI->load->library('email');
         // Instantiate a new mail object
-        $message = new email(array('X-Mailer: E-goldexJp Mailer'));
+        $message = new Email(array('X-Mailer: E-goldexJp Mailer'));
 
         // Build the text version
         $text = strip_tags($email_text); // edit by donghp 27/03/2012

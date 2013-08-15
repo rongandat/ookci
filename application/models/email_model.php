@@ -14,16 +14,23 @@ class Email_model extends CI_Model {
         
         $this->db->select("*");
         $this->db->from("emailtemplates");
-        $this->db->where('emailtemplate_key', $key);
+        
+        $this->db->join('emailtemplates_description', 'emailtemplates.emailtemplates_id = emailtemplates_description.emailtemplates_id');
+        $this->db->where('emailtemplates.emailtemplate_key', $key);
+        $this->db->where('emailtemplates_description.language_id', $this->session->userdata('languages_id'));
+        
+        
         $query = $this->db->get();
         $result = $query->result_array();
         $email_info = $result[0];
-
+        var_dump($email_info);
         $msg_subject = $email_info['emailtemplate_subject'];
         $msg_content = $email_info['emailtemplate_content'];
         foreach ($data as $key => $code) {
-            $msg_subject = str_replace('[' . $key . ']', $code, $$msg_subject);
+            $msg_subject = str_replace('[' . $key . ']', $code, $msg_subject);
+            $msg_content = str_replace('[' . $key . ']', $code, $msg_content);
         }
+        
         $msg_content = html_entity_decode($msg_content);
         tep_mail($user_to, $email_to, $msg_subject, $msg_content, $site_name, $site_contact_email);
     }

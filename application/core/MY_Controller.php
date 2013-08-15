@@ -57,6 +57,9 @@ class MY_Controller extends CI_Controller {
 
         $this->data['app_path'] = APPPATH;
         $this->data['system_path'] = SYSDIR;
+        $languages_id = 1; // EN by default
+        $this->session->set_userdata('languages_id', $languages_id);
+        
     }
     
     public function assign($key,$value){

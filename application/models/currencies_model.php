@@ -12,7 +12,11 @@ class Currencies_model extends CI_Model {
 
         $query = $this->db->get();
         $results = $query->result_array();
-        return $results;
+        $list = array();
+        foreach ($results as $result){
+            $list[$result['code']] = $result;
+        }
+        return $list;
     }
 
     function getCurrencyByCode($code) {

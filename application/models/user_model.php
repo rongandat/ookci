@@ -22,6 +22,20 @@ class User_model extends CI_Model {
             return $user;
         return FALSE;
     }
+    
+    public function getUser($data){
+        $this->db->select("*");
+        $this->db->from("users");
+        foreach ($data as $key => $value){
+            $this->db->where($key, $value);
+        }
+        
+
+        $query = $this->db->get();
+        $results = $query->result_array();
+
+        return $results ? $results[0] : array();
+    }
 
     public function getUserById($id) {
         $this->db->select("*");

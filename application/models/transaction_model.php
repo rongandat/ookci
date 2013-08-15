@@ -57,5 +57,10 @@ class Transaction_model extends CI_Model {
 
         return $query->num_rows();
     }
+    
+    public function insert($data){
+        $this->db->insert('transactions', $data);
+        return $this->db->insert_id();
+    }
 
 }
