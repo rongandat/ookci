@@ -6,7 +6,6 @@
 
 class Configs_model extends CI_Model {
 
-
     public function getConfig($code) {
         $this->db->select("*");
         $this->db->from("configuration");
@@ -14,7 +13,7 @@ class Configs_model extends CI_Model {
 
         $query = $this->db->get();
         $result = $query->result();
-        return (array) $result[0];
+        return $result ? $result[0]->configuration_value : null;
     }
 
     public function getConfigs() {

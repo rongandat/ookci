@@ -28,7 +28,7 @@ class Transfer extends MY_Controller {
         foreach ($balances as $balance) {
             $balances_array[$balance['currency_code']] = $balance['balance'];
         }
-        
+
         $balance_currencies = array();
         foreach ($currencies_array as $currency_code => $currency_info) {
             $balance_currencies[$currency_info['code']] = $currency_info['title'] . ' (' . get_currency_value_format(!empty($balances_array[$currency_info['code']]) ? $balances_array[$currency_info['code']] : 0, $currency_info) . ')';
@@ -72,8 +72,8 @@ class Transfer extends MY_Controller {
             if (count($this->validator->errors) == 0) {
                 unset($user_to['password']);
                 $transfer_info = $user_to;
-                $transfer_info['amount'] = $amount;
-                $transfer_info['fees'] = $fees;
+                $transfer_info['amount'] = get_currency_value($amount, $currencies_array[$balance_currency]);
+                $transfer_info['fees'] = get_currency_value($fees, $currencies_array[$balance_currency]);
                 $transfer_info['balance_currency'] = $balance_currency;
                 $transfer_info['amount_text'] = get_currency_value_format($amount, $currencies_array[$balance_currency]);
                 $transfer_info['fees_text'] = get_currency_value_format($fees, $currencies_array[$balance_currency]);
@@ -102,73 +102,106 @@ class Transfer extends MY_Controller {
         $transfer_info = $this->session->userdata('transfer_info');
         if (!$transfer_info)
             redirect(site_url('transfer'));
-
-        $batch_number = tep_create_random_value(11, 'digits');
-        $transaction_data_array = array(
-            'from_userid' => $this->user_session['user_id'],
-            'batch_number' => $batch_number,
-            'to_userid' => $transfer_info['user_id'],
-            'amount' => $transfer_info['amount'],
-            'fee' => $transfer_info['fees'],
-            'fee_text' => $transfer_info['fees_text'],
-            'transaction_time' => date('YmdHis'),
-            'transaction_memo' => $transfer_info['transaction_memo'],
-            'from_account' => $this->user_session['account_number'],
-            'to_account' => $transfer_info['account_number'],
-            'transaction_currency' => $transfer_info['balance_currency'],
-            'amount_text' => $transfer_info['amount_text'],
-            'transaction_status' => 'completed',
-        );
-
-        $this->transaction->insert($transaction_data_array);
-        $current_amount = $transfer_info['amount'] - $transfer_info['fees'];
-        $balanceFrom = array(
-            'user_id' => $this->user_session['user_id'],
-            'currency_code' => $transfer_info['balance_currency'],
-        );
-        $this->balance->updateBalance($balanceFrom, $transfer_info['amount'], '-');
-        $balanceTo = array(
-            'user_id' => $transfer_info['user_id'],
-            'currency_code' => $transfer_info['balance_currency'],
-        );
-        $this->balance->updateBalance($balanceTo, $current_amount, '+');
-
-        //admin transfer
-        $batch_number_admin = tep_create_random_value(11, 'digits');
-        $transaction_data_array_admin = array(
-            'from_userid' => $transfer_info['user_id'],
-            'batch_number' => $batch_number_admin,
-            'to_userid' => 1,
-            'amount' => $transfer_info['fees'],
-            'fee' => 0,
-            'transaction_time' => date('YmdHis'),
-            'transaction_memo' => 'transaction fees #' . $batch_number,
-            'from_account' => $transfer_info['account_number'],
-            'to_account' => 'OOKCASH',
-            'transaction_currency' => $transfer_info['balance_currency'],
-            'amount_text' => $transfer_info['fees_text'],
-            'transaction_status' => 'completed',
-            'status' => '0',
-        );
-        $this->transaction->insert($transaction_data_array_admin);
         
-        $balanceAdmin = array(
-            'user_id' => 1,
-            'currency_code' => $transfer_info['balance_currency'],
-        );
-        $this->balance->updateBalance($balanceAdmin, $transfer_info['fees'], '+');
+        $this->data['transfer_info'] = $transfer_info;
         
-        $this->load->model('email_model');
-        $dataEmail = array(
-            'firstname' => $transfer_info['firstname'],
-            'amount_text' => $transfer_info['fees_text'],
-            'batch_number' => $batch_number,
-            'balance_currency' => $transfer_info['balance_currency'],
-            'from_account' => $this->user_session['account_number'],
-            'fees_text' => $transfer_info['fees_text'],
-        );
-        $this->email_model->sendmail('TRANSFER_EMAIL', $transfer_info['firstname'], $transfer_info['email'], $dataEmail);
-        
+        $currencies_array = $this->currencies->getCurrencies();
+        $balance_currencies[''] = '-- Select Currency --';
+
+        $balances = $this->balance->getBalanceByUserId($this->user_session['user_id']);
+        $balances_array = array();
+        foreach ($balances as $balance) {
+            $balances_array[$balance['currency_code']] = $balance['balance'];
+        }
+
+        $balance_currencies = array();
+        foreach ($currencies_array as $currency_code => $currency_info) {
+            $balance_currencies[$currency_info['code']] = $currency_info['title'] . ' (' . get_currency_value_format(!empty($balances_array[$currency_info['code']]) ? $balances_array[$currency_info['code']] : 0, $currency_info) . ')';
+        }
+
+        if ($transfer_info['balance_currency'] == '')
+            $this->validator->addError('Currency', 'Please select the currency of balance that you want to use for the transaction.');
+        if ($transfer_info['amount'] <= 0) {
+            $this->validator->addError('Amount', 'Please input correct Amount .');
+        } else { // check if out of balance
+            if ($transfer_info['amount'] > $balances_array[$transfer_info['balance_currency']])
+                $this->validator->addError('Balance', 'You have not enough balance to transfer the amount(<strong>' . get_currency_value_format($amount, $currencies_array[$balance_currency]) . '</strong>). Please input difference amount.');
+        }
+        if (count($this->validator->errors) == 0) {
+            $batch_number = tep_create_random_value(11, 'digits');
+            $transaction_data_array = array(
+                'from_userid' => $this->user_session['user_id'],
+                'batch_number' => $batch_number,
+                'to_userid' => $transfer_info['user_id'],
+                'amount' => $transfer_info['amount'],
+                'fee' => $transfer_info['fees'],
+                'fee_text' => $transfer_info['fees_text'],
+                'transaction_time' => date('YmdHis'),
+                'transaction_memo' => $transfer_info['transaction_memo'],
+                'from_account' => $this->user_session['account_number'],
+                'to_account' => $transfer_info['account_number'],
+                'transaction_currency' => $transfer_info['balance_currency'],
+                'amount_text' => $transfer_info['amount_text'],
+                'transaction_status' => 'completed',
+            );
+            
+            $this->data['transaction_data'] = $transaction_data_array;
+            
+            $this->transaction->insert($transaction_data_array);
+            $current_amount = $transfer_info['amount'] - $transfer_info['fees'];
+            $balanceFrom = array(
+                'user_id' => $this->user_session['user_id'],
+                'currency_code' => $transfer_info['balance_currency'],
+            );
+            $this->balance->updateBalance($balanceFrom, $transfer_info['amount'], '-');
+            $balanceTo = array(
+                'user_id' => $transfer_info['user_id'],
+                'currency_code' => $transfer_info['balance_currency'],
+            );
+            $this->balance->updateBalance($balanceTo, $current_amount, '+');
+
+            //admin transfer
+            $batch_number_admin = tep_create_random_value(11, 'digits');
+            $transaction_data_array_admin = array(
+                'from_userid' => $transfer_info['user_id'],
+                'batch_number' => $batch_number_admin,
+                'to_userid' => 1,
+                'amount' => $transfer_info['fees'],
+                'fee' => 0,
+                'transaction_time' => date('YmdHis'),
+                'transaction_memo' => 'transaction fees #' . $batch_number,
+                'from_account' => $transfer_info['account_number'],
+                'to_account' => 'OOKCASH',
+                'transaction_currency' => $transfer_info['balance_currency'],
+                'amount_text' => $transfer_info['fees_text'],
+                'transaction_status' => 'completed',
+                'status' => '0',
+            );
+            
+            $this->transaction->insert($transaction_data_array_admin);
+
+            $balanceAdmin = array(
+                'user_id' => 1,
+                'currency_code' => $transfer_info['balance_currency'],
+            );
+            $this->balance->updateBalance($balanceAdmin, $transfer_info['fees'], '+');
+
+            $this->load->model('email_model');
+            $dataEmail = array(
+                'firstname' => $transfer_info['firstname'],
+                'amount_text' => $transfer_info['fees_text'],
+                'batch_number' => $batch_number,
+                'balance_currency' => $transfer_info['balance_currency'],
+                'from_account' => $this->user_session['account_number'],
+                'fees_text' => $transfer_info['fees_text'],
+            );
+            $this->email_model->sendmail('TRANSFER_EMAIL', $transfer_info['firstname'], $transfer_info['email'], $dataEmail);
+            $this->session->unset_userdata('transfer_info');
+            $this->data['success'] = true;
+        } else {
+            $this->data['validerrors'] = $this->validator->errors;
+        }
+        $this->view('transfer/success');
     }
 
 }

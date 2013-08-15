@@ -107,16 +107,17 @@ if (!function_exists('tep_create_random_value')) {
                 $char = chr(tep_rand(0, 255));
             }
             if ($type == 'mixed') {
-                if (eregi('^[a-z0-9]$', $char))
+                if (preg_match('/^[a-z0-9]$/i', $char))
                     $rand_value .= $char;
             } elseif ($type == 'chars') {
-                if (eregi('^[a-z]$', $char))
+                if (preg_match('/^[a-z]$/i', $char))
                     $rand_value .= $char;
             } elseif ($type == 'digits') {
-                if (ereg('^[0-9]$', $char))
+                if (preg_match('/^[0-9]$/', $char))
                     $rand_value .= $char;
             }
         }
+        
 
         return $rand_value;
     }
@@ -226,6 +227,16 @@ if (!function_exists('get_currency_value_format')) {
     // return formated string of value(amount) by currency
     function get_currency_value_format($amount, $currency_info) {
         $format_string = $currency_info['symbol_left'] . number_format(tep_round($amount, $currency_info['decimal_places']), $currency_info['decimal_places'], $currency_info['decimal_point'], $currency_info['thousands_point']) . $currency_info['symbol_right'];
+        return $format_string;
+    }
+
+}
+
+if (!function_exists('get_currency_value')) {
+
+    // return formated string of value(amount) by currency
+    function get_currency_value($amount, $currency_info) {
+        $format_string = number_format(tep_round($amount, $currency_info['decimal_places']), $currency_info['decimal_places'], $currency_info['decimal_point'], $currency_info['thousands_point']) . $currency_info['symbol_right'];
         return $format_string;
     }
 
