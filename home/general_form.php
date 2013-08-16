@@ -12,6 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     postAssign($smarty);
     $posts = $_POST;
     $string_input = '';
+    $security_code = db_prepare_input($_POST['security_code']);
+    unset($_POST['security_code']);
     foreach ($posts as $key => $post) {
         $posts[$key] = db_prepare_input($post);
         if ($key == 'cancel_url' || $key == 'fail_url' || $key == 'success_url' || $key == 'status_url') {
@@ -44,9 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $validator->addError('Amount', ERROR_AMOUNT);
         }
     }
+    
+    
+    if ($security_code != $secure_image_hash_string)
+            $validator->addError('Turing Number', ERROR_SECURE_CODE_WRONG);
 
     if (count($validator->errors) == 0) {
-
         $site_root = (ENABLE_SSL == true) ? _HTTP_SITE_ROOT : _HTTPS_SITE_ROOT;
 
         $zend_code_link = $site_root . '/index.php?' . PAGE_PROCESS . $string_input;
