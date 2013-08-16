@@ -56,8 +56,7 @@ if ($_POST['action'] == 'process') {
             $amount_text = get_currency_value_format($amount, $currencies_array[$balance_currency]);
             $fees_text = get_currency_value_format($fees, $currencies_array[$balance_currency]);
 
-            $transaction_data_array = array(
-                'from_userid' => $login_userid,
+            $transaction_data_array = array('from_userid' => $login_userid,
                 'batch_number' => $batch_number,
                 'to_userid' => $to_userid,
                 'amount' => $amount,

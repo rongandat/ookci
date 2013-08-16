@@ -14,9 +14,7 @@ function get_currencies() {
     $currencies_array = array();
     $currencies_query = db_query("select code, title, symbol_left, symbol_right, decimal_point, thousands_point, decimal_places, value from " . _TABLE_CURRENCIES . " where status=1 order by sort_order, code ");
     while ($currencies = db_fetch_array($currencies_query)) {
-        $currencies_array[
-                $currencies['code']] = array(
-            'code' => $currencies['code'],
+        $currencies_array[$currencies['code']] = array('code' => $currencies['code'],
             'title' => $currencies['title'],
             'symbol_left' => $currencies['symbol_left'],
             'symbol_right' => $currencies['symbol_right'],
@@ -25,6 +23,7 @@ function get_currencies() {
             'decimal_places' => $currencies['decimal_places'],
             'value' => $currencies['value']);
     }
+
     return $currencies_array;
 }
 
@@ -36,7 +35,6 @@ function get_currency($code) {
 
 // return formated string of value(amount) by currency
 function get_currency_value_format($amount, $currency_info) {
-
     $format_string = $currency_info['symbol_left'] . number_format(tep_round($amount, $currency_info['decimal_places']), $currency_info['decimal_places'], $currency_info['decimal_point'], $currency_info['thousands_point']) . $currency_info['symbol_right'];
     return $format_string;
 }
@@ -78,7 +76,7 @@ function curl_get($url, $fields) {
         $fields_string .= $key . '=' . $value . '&';
     }
     $fields_string = rtrim($fields_string, '&');
-
+    
 //open connection
     $ch = curl_init();
     $url .= '?' . $fields_string;
@@ -157,7 +155,7 @@ function transfer($transaction_data_array) {
 
     tep_mail($firstname, $user_info['email'], $msg_subject, $msg_content, SITE_NAME, SITE_CONTACT_EMAIL);
 
-
+    
     //admin transfer
     $batch_number_admin = tep_create_random_value(11, 'digits');
     $transaction_data_array_admin = array('from_userid' => $to_userid,
@@ -192,7 +190,7 @@ function transfer_admin($transaction_data_array) {
     $transaction_memo = $transaction_data_array['transaction_memo'];
     $from_account_number = $transaction_data_array['from_account'];
 
-
+   
     // check  user's balance currency init ?
     $check_balance = db_fetch_array(db_query("SELECT count(*) as total FROM " . _TABLE_USER_BALANCE . " WHERE user_id='" . $to_userid . "' and currency_code='" . $balance_currency . "'"));
 
@@ -216,6 +214,8 @@ function transfer_admin($transaction_data_array) {
         'memo' => $transaction_memo,
         'transaction_time' => date('d/m/Y H:i')
     );
+
+
 }
 
 ?>

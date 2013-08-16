@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-08-16 05:07:14
+<?php /* Smarty version 2.6.18, created on 2013-08-02 10:52:22
          compiled from bottom.html */ ?>
 <?php if ($this->_tpl_vars['CURRENT_PAGE'] == 'index' || empty ( $this->_tpl_vars['CURRENT_PAGE'] )): ?>
 <div class="clear"></div>

@@ -11,6 +11,7 @@ $account_info = db_fetch_array(db_query("SELECT account_name, account_type, refe
 //BOF: main account balances
 // get all currencies_list
 $currencies_array = get_currencies();
+
 // get main account balances
 $sql_balances = "SELECT currency_code, balance FROM " . _TABLE_USER_BALANCE . " WHERE user_id='" . $login_userid . "'";
 $balances_query = db_query($sql_balances);
