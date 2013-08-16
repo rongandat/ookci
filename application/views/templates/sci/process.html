@@ -1,0 +1,63 @@
+<div class="simple-form">
+    {if empty($errors)}
+    <h1>Pay with a OOKCASH Account</h1>
+    <p> OOKCASH is the secure payment processor for your merchant. </p>
+    <div class="line"></div>
+    <div class="clear"></div>
+    <form action="{site_url('login')}" method="post">
+        <table class="form">
+            <tbody>
+                <tr>
+                    <td >
+                        Pay to account
+                    </td>
+                    <td >
+                        {$user_info.account_number}(<strong>{$user_info.account_name}</strong>)
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        Amount
+                    </td>
+                    <td >
+                        {$sci_info.checkout_amount}
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        Currency
+                    </td>
+                    <td >
+                        {$sci_info.checkout_currency}
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <div class="buttons">
+                            <input class="button" type="submit" value="Login">
+                            {if !empty($sci_info.cancel_url)}
+                            <input  type="button" name="buttonCancel" class="button"  value="Cancel" onclick="redirect('{$sci_info.cancel_url|base64_decode}');" />
+                            {/if}
+                        </div>
+                    </td>
+                    <td >
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    {else}
+    <h1>Errors</h1>
+    <div class="line"></div>
+
+    <div class="error">
+        <ul>
+            {foreach from=$errors item=foo}
+            <li>{$foo}</li>
+            {/foreach}
+        </ul>
+    </div>
+
+    {/if}
+</div>
+

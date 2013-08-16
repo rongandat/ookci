@@ -1,0 +1,171 @@
+<div class="simple-form">
+    <h1>Global Checkout Button/Form Generator</h1>
+    <div class="line"></div>
+     {include file="common/validate_error.html" }
+    <form action="" method="post">
+        <h3>Checkout Information</h3>
+        <div class="st-form-line">
+            <span class="st-labeltext"><i>*</i> Your Account Number </span>
+            <div class="block">
+                <input type="text" class="st-forminput hurge" name="payee_account" value="{if !empty($posts.payee_account)}{$posts.payee_account}{/if}" >
+                <span class="information">(please input your account number that you want customer pay to. The field is required. Examples: 6868688)</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="st-form-line">
+            <span class="st-labeltext">Payer Account Number </span>
+            <div class="block">
+                <input type="text" class="st-forminput hurge" name="payer_account" value="{if !empty($posts.payer_account)}{$posts.payer_account}{/if}" >
+                <span class="information">please input account number of who you want to receive money from. The field is not required, leave it empty if you want anyone can send you money.<br/> Example: 988888 </span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="st-form-line">
+            <span class="st-labeltext"> Amount</span>
+            <div class="block">
+                <input type="text" class="st-forminput hurge" name="checkout_amount" value="{if !empty($posts.checkout_amount)}{$posts.checkout_amount}{/if}" >
+
+                <span class="information"> Amount is not required field, leave it empty if you want Payer pay any amount like donation. Example: 5,3.99 </span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="st-form-line">
+            <span class="st-labeltext"> Currency</span>
+            <div class="block">
+                {if !empty($posts.checkout_currency)}
+                {assign var="balance_currency" value=$posts.checkout_currency}
+                {else}
+                {assign var="balance_currency" value=0}
+                {/if}
+                <select id="" class="form" name="checkout_currency">
+                    {html_options options=$balance_currencies selected=$balance_currency}
+                </select>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="st-form-line">
+            <span class="st-labeltext">Cancel URL</span>
+            <div class="block">
+                <input type="text" class="st-forminput bighurge" name="cancel_url" value="{if !empty($posts.cancel_url)}{$posts.cancel_url}{/if}" >
+                <span class="information"> The field is not required but if you input the value, when your customer cancel their order, our serivce will help you to redirect them back to your site. Example: http://yourwebsite.com/cancel.html?param1=value1¶m2=value2 </span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="st-form-line">
+            <span class="st-labeltext">Fail URL</span>
+            <div class="block">
+                <input type="text" class="st-forminput bighurge" name="fail_url" value="{if !empty($posts.fail_url)}{$posts.fail_url}{/if}" >
+                <span class="information">  The field is not required but if you input a value, Payer will be redirect to Fail URL if any problem during progress on our service </span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="st-form-line">
+            <span class="st-labeltext"> Success URL:</span>
+            <div class="block">
+                <input type="text" class="st-forminput bighurge" name="success_url" value="{if !empty($posts.success_url)}{$posts.success_url}{/if}" >
+                <span class="information"> The field is not required but if the value is inputed, Payer will be redirect to the Success URL after he/she made payment </span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="st-form-line">
+            <span class="st-labeltext"> Status URL:</span>
+            <div class="block">
+                <input type="text" class="st-forminput bighurge" name="status_url" value="{if !empty($posts.status_url)}{$posts.status_url}{/if}" >
+                <span class="information">  The field is not required but it is very useful one. If you input the value, all of important transaction verification data will be reponse back to the URL to help you verify your order status on our service. This also help you to protect any frauds, hacking during business. </span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="st-form-line">
+            <span class="st-labeltext"> Status Method:</span>
+            <div class="block">
+                <select name="status_method">
+                    <option {if !empty($posts.status_method) && $posts.status_method == 'GET'}SELECTED{/if} value="GET">GET</option>
+                    <option {if !empty($posts.status_method) && $posts.status_method == 'POST'}SELECTED{/if} value="POST">POST</option>
+                </select>
+                <span class="information">The field used to define the postback method that our service will use to POST/GET response data to your Status URL </span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="line"></div>
+        <h3> Extra Fields</h3>
+        {section name=foo start=0 loop=$fields_extra step=1}
+        <table class="form">
+            <tr>
+                <td style=" width: 225px;"><input style="display: block;" type="text" name="extra_field[{$smarty.section.foo.index}]" value="{if !empty($posts.extra_field[$smarty.section.foo.index])}{$posts.extra_field[$smarty.section.foo.index]}{/if}" class="st-forminput large"></td>
+                <td>=</td>
+                <td style=" width: 225px;"><input style="display: block;float: right" type="text" name="extra_value[{$smarty.section.foo.index}]" value="{if !empty($posts.extra_value[{$smarty.section.foo.index}])}{$posts.extra_value[{$smarty.section.foo.index}]}{/if}" class="st-forminput large"></td>
+            </tr>
+        </table>
+        {/section}
+        <div class="st-form-line">
+            <span class="st-labeltext"></span>
+            <input type="submit" value="Submit" class="button">
+            <div class="clear"></div>
+        </div>
+
+    </form>
+    <div class="line"></div>
+    {if !empty($zend_code_link)}
+    <table border="0" bgcolor="#CCCCCC" style="padding: 20px 50px;" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber39">
+        <tr>
+            <td width="100%" height="30" valign="top"><b>
+                    <font size="2" face="Tahoma" color="#800000"> SCI Link:</font></b></td>
+        </tr>
+
+        <tr>
+            <td>
+                <textarea readonly="readonly" rows="8" cols="80">{$zend_code_link}</textarea>
+            </td>
+        </tr>
+    </table>
+
+    {/if}
+    {if !empty($zend_code_html)}
+
+    <table border="0" bgcolor="#CCCCCC" style="padding: 20px 50px;" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber39">
+        <tr>
+            <td width="100%" height="30" valign="top"><b>
+                    <font size="2" face="Tahoma" color="#800000"> SCI HTML:</font></b></td>
+        </tr>
+
+        <tr>
+            <td>
+                <textarea readonly="readonly" rows="8" cols="80">{$zend_code_html}</textarea>
+            </td>
+        </tr>
+    </table>
+
+    {/if}
+    {if !empty($zend_code_buton)}
+
+    <table border="0" bgcolor="#CCCCCC" style="padding: 20px 50px;" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber39">
+        <tr>
+            <td width="100%" height="30" valign="top"><b>
+                    <font size="2" face="Tahoma" color="#800000"> SCI Buttons:</font></b></td>
+        </tr>
+
+        <tr>
+            <td>
+                <textarea readonly="readonly" rows="8" cols="80">{$zend_code_buton}</textarea>
+            </td>
+        </tr>
+    </table>
+
+    {/if}
+    {if !empty($zend_code_form)}
+
+    <table border="0" bgcolor="#CCCCCC" style="padding: 20px 50px;" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber39">
+        <tr>
+            <td width="100%" height="30" valign="top"><b>
+                    <font size="2" face="Tahoma" color="#800000"> SCI Form:</font></b></td>
+        </tr>
+
+        <tr>
+            <td>
+                <textarea readonly="readonly" rows="8" cols="80">{$zend_code_form}</textarea>
+            </td>
+        </tr>
+    </table>
+    
+    {/if}
+</div>

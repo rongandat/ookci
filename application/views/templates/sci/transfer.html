@@ -1,0 +1,42 @@
+<div class="simple-form">
+    <form name="frmTransfer" method="post" action=""  >
+        <h1>Transfer</h1>
+
+        <p>Please use this form to transfer funds from your Gwebcash to another member.</p>
+        <p>Fields marked with asterisk (<i>*</i>) are required.</p>
+        <div class="line"></div>
+        {include file="common/validate_error.html" }
+        {if !empty($sci_info)}
+        <table class="form">
+
+            <tr>
+                <td class="form_label"><i>*</i> To Account:</td>
+                <td class="form_field">
+                    {$sci_info.payee_account} ({$sci_user.account_name})
+            </tr>		  
+            <tr>
+                <td class="form_label"><i>*</i> Amount ({$sci_info.checkout_currency})</td>
+                {if empty($sci_info.checkout_amount)}
+                <td class="form_field"><input type="text" name="checkout_amount" class="inputtext"/></td>
+                {else}
+                <td class="form_field">{$sci_info.checkout_amount}</td>
+                {/if}
+            </tr>	  
+            <tr>
+                <td class="form_label">Transaction Memo:</td>
+                <td  class="form_field"><textarea name="transaction_memo"  cols="50" rows="3"></textarea> </td>
+            </tr>
+            <tr>
+                <td class="form_label"><i>*</i> Master Key:</td>
+                <td  class="form_field"><input  name="master_key" type="password" id="master_key"  value=""  size="4"  maxlength="3"/> (3 digits)</td>
+            </tr>		  	  	  
+            <tr>
+                <td class="form_label"></td>
+                <td  class="form_field"><input  type="submit" name="buttonPreview" class="button"  value="Preview" /></td>
+            </tr>		  	  	  
+        </table>
+
+    </form>
+
+    {/if}
+</div>

@@ -1,0 +1,35 @@
+<div class="transaction_detail">
+    <h3>Transaction Details: #{$transaction_data.batch_number}</h3>
+    <table class="form">
+        <tr><td >Batch Number#</td><td>
+                {$transaction_data.batch_number}</td></tr>
+        <tr><td>Date</td><td>
+                {$transaction_data.transaction_time|date_format:"%m/%d/%Y %l:%M %p"}</td></tr>	
+        <tr><td>From Account</td><td><strong>
+                    {$transaction_data.from_account}</strong></td></tr>						
+        <tr><td>To Account</td><td><strong>
+                    {$transaction_data.to_account}</strong></td></tr>			
+        <tr><td>Balance Currency</td><td>
+                {$transaction_data.transaction_currency}</td></tr>				
+        <tr><td>Amount</td><td>
+                {if $transaction_data.from_userid == $user_session.user_id}-{$transaction_data.amount_text}{else} +{$transaction_data.amount_text}{/if}</td></tr>			
+        {if $transaction_data.fee_text !=''} 
+        <tr><td>Fee</td><td>
+                {$transaction_data.fee_text}</td></tr>					
+        {/if} 
+        <tr><td>Transaction Status</td><td><strong>
+                    {$transaction_data.transaction_status}</strong></td></tr>						
+        {if $transaction_data.transaction_memo !=''}
+
+        <tr><td>Transaction Memo</td><td>
+                {$transaction_data.transaction_memo}</td></tr>							
+        {/if} 
+        <tr><td></td><td>
+                <a href="javascript: closeTransactionDetailsContent();" class="button">
+                    Close
+                </a>
+            </td>
+        </tr>	
+    </table>
+    <div class="clear"></div>
+</div>

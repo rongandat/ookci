@@ -1,0 +1,41 @@
+<div class="simple-form">
+    <h1>Transfer Confirmation</h1>
+    <form name="frmTransfer" method="post" action="" >
+        <div class="line"></div>
+        {include file="common/validate_error.html" }
+        <table class="form">
+            <tr>
+                <td class="form_label">From Account:</td>
+                <td class="form_field">{$user_session.account_number}(<strong>{$user_session.account_name}</strong>)</td>
+            </tr>	
+            <tr>
+                <td class="form_label">To Account:</td>
+                <td class="form_field">{$sci_user.account_number}(<strong>{$sci_user.account_name}</strong>)</td>
+            </tr>	
+            <tr>
+                <td class="form_label">Amount:</td>
+                <td class="form_field">{$sci_info.balance}</td>
+
+            </tr>	
+            <tr>
+                <td class="form_label">Fee:</td>
+                <td class="form_field">{$sci_info.fees_text}</td>
+            </tr>  
+            {if $sci_info.transaction_memo !=''}
+
+            <tr>
+                <td class="form_label">Transaction Memo:</td>
+                <td class="form_field">{$sci_info.transaction_memo}</td>
+            </tr>  
+            {/if}   
+        </table>	  
+
+        <p>Please be aware that all OOKCASH payments are instant and irreversible. OOKCASH is not associated directly or indirectly with any other company or business. Our liability is limited to delivering your funds on time to the account of your choice specified above. Any issues that you may encounter as a result of this transaction that are not related to the transaction itself will have to be addressed and resolved with the recipient of your payment directly. Please confirm your payment details ONLY if you UNDERSTAND and AGREE with statements made in this paragraph and ACCEPT our <a href="http://docs.ookcash.com/tos/" target="_blank">Terms Of Service</a></p>
+        <div class="buttons">
+            <input  type="submit" name="buttonConfirm" class="button"  value="Confirm" />.
+            {if !empty($sci_info.cancel_url)}
+            <input  type="button" name="buttonCancel" class="button"  value="Cancel" onclick="redirect('{$sci_info.cancel_url|base64_decode}');" />
+            {/if}
+        </div>
+    </form>
+</div>
