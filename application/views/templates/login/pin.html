@@ -1,0 +1,22 @@
+<form name="frmLoginPIN" action="" method="post" >
+    <input name="action" value="process" type="hidden" />
+    <div class="simple-form">
+        <h1>Login: Step 4</h1>
+        <p>You must enter your login PIN in order to access your main account. </p>
+        {include file="common/validate_error.html" }
+        <div class="line"></div>
+        <div class="st-form-line">
+            <span class="st-labeltext"><span class="required">*</span>Login PIN (4-5 digits):</span>
+            <input type="password" autocomplete="off" size="6" maxlength="5" value="" class="st-forminput medium"  name="login_pin">
+            <div class="clear"></div>
+        </div>
+        <div class="st-form-line padding0">
+            <span class="st-labeltext"><a href="{site_url('acount/forgot')}">(forgot it?)</a></span>
+            <div class="clear"></div>
+        </div>
+        <div class="st-form-line captcha">
+            <span class="st-labeltext"></span>
+            <input class="button" type="submit" value="Login" />
+        </div>
+    </div>
+</form>

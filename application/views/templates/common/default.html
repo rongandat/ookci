@@ -1,0 +1,260 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Language" content="en-us">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        
+        <META NAME="Keywords" CONTENT="private, digital currency,ecurrency,e-currency,payment system, payment processor,payment gateway,api,merchant,merchant payment solution,online banking,money,transfer,finance service,payment service,safely store funds,buy,sell,exchange,forex,casino,sports betting,poker,on-line">
+        <META name="description" content="Oldest, safest and most popular payment processor operating in World Wide and serving millions all around a world. Store your funds privately in gold, Euro or USD. Use e-GlobalCash digital money in on-line casinos, poker rooms, sports betting, forex or in any other on-line store.">
+        <title>{$page_title}</title>
+        <script type="text/javascript" src="{base_url('public_html/default/js/general.js')}"></script>
+        <script type="text/javascript" src="{base_url('public_html/default/js/jquery.min.js')}"></script>
+
+        <link rel="stylesheet" type="text/css" href="{base_url('public_html/default/style.css')}" />
+        <!--[if IE]>
+        <link rel="stylesheet" type="text/css" href="{base_url('public_html/default/ie.css')}" />
+        <![endif]-->
+
+        <!--[if IE 7]>
+            <link rel="stylesheet" type="text/css" href="{base_url('public_html/default/ie7.css')}" />
+        <![endif]-->
+        <!--[if IE 8]><html class="ie8">
+            <link rel="stylesheet" type="text/css" href="{base_url('public_html/default/ie8.css')}" />
+        <![endif]-->
+    </head>
+    <body>
+        {if $user_session}
+        <div id="header-login">
+            <div class="top-header">
+                <a class="logo" href="{site_url('home')}"><img src="{base_url('public_html/images/logo.png')}"/></a>
+                <ul class="top-nav">
+                    <li>
+                        Welcome <strong>{$user_session.firstname}&nbsp;{$user_session.lastname}</strong>
+                    </li>
+                    <li>
+                        <a href="{site_url('account')}" style="text-transform: none"><strong>{$user_session.account_number} </strong>({$user_session.account_name})</a> 
+                    </li>
+                    <li><a href="{site_url('home/logout')}">Logout</a> </li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <div class="nav">
+                <div class="nav-content">
+                    <ul>
+                        <li>
+                            <a href="{site_url('home')}" {if $class == 'home'}  class="active" {/if}>Home</a>
+                        </li>
+                        <li>
+                            {if $class == 'account' && $action == 'index'}
+                            <a class="active" href="{site_url('account')}" >
+                                Account
+                            </a>
+                            {else}
+                            <a href="{site_url('account')}" >
+                                Account
+                            </a>
+                            {/if}
+                        </li>
+                        <li>
+                            {if $class == 'account' && $action == 'personal'}
+                            <a class="active" href="{site_url('account/personal')}" >
+                                Profile
+                            </a>
+                            {else}
+                            <a href="{site_url('account/personal')}" >
+                                Profile
+                            </a>
+                            {/if}
+                        </li>
+                        <li>
+                            {if $class == 'history'}
+                            <a class="active" href="{site_url('account/history')}" >
+                                History
+                            </a>
+                            {else}
+                            <a href="{site_url('account/history')}" >
+                                History
+                            </a>
+                            {/if}
+                        </li>
+                        <li>
+                            {if $class == 'transfer'}
+                            <a class="active" href="{site_url('transfer')}" >
+                                Transfer
+                            </a>
+                            {else}
+                            <a href="{site_url('transfer')}" >
+                                Transfer
+                            </a>
+                            {/if}
+                        </li>
+                    </ul>
+                    <div class="search">
+                        <form method="GET" action="">
+                            <span>Search</span>
+                            <input type="text" name="search" class="search-inut"/>
+                            <input type="submit" value="Go" class="btn-search"/>
+                        </form>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        {else}
+        {if ($class == 'home')}
+        <div id="header">
+            <div class="top-header">
+                <a href="{site_url('home')}" class="logo"><img src="{base_url('public_html/images/logo.png')}"/></a>
+                <ul class="top-nav">
+                    <li>
+                        <a href="{site_url('home')}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{site_url('register')}">Create Account</a>
+                    </li>
+                    <li>
+                        <a href="{site_url('login')}">Log in</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav">
+                <div class="nav-content">
+                    <ul>
+                        <li><a href="{site_url('home')}" class="active">Home</a></li>
+
+                        <li><a href="http://docs.ookcash.com/category/exchangers/">Exchangers</a></li>
+                        <li><a href="http://docs.ookcash.com/products">Products</a></li>
+                        <li><a href="http://docs.ookcash.com">Help</a></li>
+                    </ul>
+                    <div class="search">
+                        <form method="GET" action="http://docs.ookcash.com">
+                            <span>Search</span>
+                            <input type="text" name="s" class="search-inut"/>
+                            <input type="submit" value="Go" class="btn-search"/>
+                        </form>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="banner">
+                <div class="content-banner">
+                    <div class="left-banner">
+                        <h1>{$post_info.title}</h1>
+                        {$post_info.content}
+                        <a href="{site_url('register')}" class="button-create-account">Create free account</a>
+                    </div>
+                    <div class="right-banner">
+                        <form action="{site_url('login')}" method="post" > 
+                            <div class="heading blue">
+                                Member login
+                            </div>
+                            <div class="login-form-header">
+                                <input type="hidden" value="process" name="action">
+                                <input type="text" name="account_number" id="account_number" autocomplete="off" placeholder="Acount number" class="input-login"/>
+                                <input type="password" name="password" size="20" autocomplete="off" placeholder="Password" class="input-login"/>
+                                <a class="forgot" href="{site_url('forgot')}">Forgot password?</a>
+                                <input type="submit" class="btn-login" value="Login"/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        {else}
+        <div id="header-login">
+            <div class="top-header">
+                <a href="{site_url('home')}" class="logo"><img src="{base_url('public_html/images/logo.png')}"/></a>
+                <ul class="top-nav">
+                    <li>
+                        <a href="{site_url('home')}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{site_url('register')}">Create Account</a>
+                    </li>
+                    <li>
+                        <a href="{site_url('login')}">Log in</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav">
+                <div class="nav-content">
+                    <ul>
+                        <li><a href="{site_url('home')}" {if ($class == 'home')} class="active" {/if}>Home</a></li>
+
+                        <li><a href="http://docs.ookcash.com/category/exchangers/">Exchangers</a></li>
+                        <li><a href="http://docs.ookcash.com/products">Products</a></li>
+                        <li><a href="http://docs.ookcash.com">Help</a></li>
+                    </ul>
+                    <div class="search">
+                        <form method="GET" action="http://docs.ookcash.com">
+                            <span>Search</span>
+                            <input type="text" name="s" class="search-inut"/>
+                            <input type="submit" value="Go" class="btn-search"/>
+                        </form>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        </div>
+        {/if}
+        {/if}
+
+
+
+
+        <div class="wrapper" id="main">
+            <div class="main-container">
+                <div class="main-conent">
+                    <div class="main-content-center">
+                        {$body_html}
+                    </div>
+
+                </div>
+                <div class="right-content">
+                    {include file='common/right.html'}
+                </div>
+                <div class="clear"></div>
+                {include file='common/bottom.html'}
+            </div>
+
+        </div>
+        <div id="footer">
+            <div class="footer-content">
+                <div class="copyright">
+                    Copyright &copy; 2013 OOKCASH
+                </div>
+                <div class="footer-info">
+
+                    <h1>Customer word</h1>
+                    <ul>
+                        <li><a href="#">Promotions</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                        <li><a href="#">Participate in out suvery</a></li>
+                        <li><a href="#">Promotions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-info">
+                    <h1>Get in touch</h1>
+                    <ul>
+                        <li><a href="#">Becomne a partner</a></li>
+                        <li><a href="{site_url('contact_us')}">Contactus</a></li>
+                        <li><a href="#">Sponsorship &  Support</a></li>
+                        <li><a href="#">Prequest a callback</a></li>
+                        <li><a href="#">Customer Assistance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-info">
+                    <h1>Follow us</h1>
+                    <ul>
+                        <li><a href="#">Twiter</a></li>
+                        <li><a href="#">Google</a></li>
+                        <li><a href="#">Linkedin</a></li>
+                        <li><a href="#">Youtube</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
