@@ -45,7 +45,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user_transfer = db_fetch_array($user_check);
     $smarty->assign('user_transfer', $user_transfer);
 
-
     if ((int) $checkout_amount <= 0) {
         $amount = $_POST['checkout_amount'];
         if ($validator->validateNumber('Amount', $amount, _ERROR_FIELD_NOT_NUMBER)) {

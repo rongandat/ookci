@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-08-02 10:52:22
+<?php /* Smarty version 2.6.18, created on 2013-08-16 05:07:24
          compiled from F:%5Cpmcart/templates//modules/validate_error.tpl */ ?>
 <?php if (count ( $this->_tpl_vars['validerrors'] ) > 0): ?>
 <div class="error">

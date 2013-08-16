@@ -33,11 +33,13 @@ if ($action == 'process') {
     $firstname = db_prepare_input($_POST['firstname']);
     $lastname = db_prepare_input($_POST['lastname']);
     $additional_information = db_prepare_input($_POST['additional_information']);
+    $welcome_message = db_prepare_input($_POST['welcome_message']);
 
 
     $validator->validateGeneral('Account Name', $account_name, _ERROR_FIELD_EMPTY);
     $validator->validateGeneral('Company Name', $account_name, _ERROR_FIELD_EMPTY);
     $validator->validateGeneral('Address', $address, _ERROR_FIELD_EMPTY);
+    $validator->validateGeneral('Personal welcome message', $welcome_message, _ERROR_FIELD_EMPTY);
     if ($country == 0) {
         $validator->addError('Country', 'Please select country.');
     }
@@ -60,7 +62,8 @@ if ($action == 'process') {
 
     if (count($validator->errors) == 0) { // update user personal info	
         // create user data
-        $signup_data_array = array('firstname' => $firstname,
+        $signup_data_array = array(
+            'firstname' => $firstname,
             'lastname' => $lastname,
             'account_name' => $account_name,
             'company' => $company,
@@ -71,7 +74,8 @@ if ($action == 'process') {
             'phone' => $phone,
             'mobile' => $mobile,
             'postcode' => $postcode,
-            'additional_information' => $additional_information
+            'additional_information' => $additional_information,
+            'welcome_message' => $welcome_message
         );
         
         $login_main_account_info['account_name'] = $account_name;

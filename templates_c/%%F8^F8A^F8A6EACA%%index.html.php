@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-08-05 09:01:06
+<?php /* Smarty version 2.6.18, created on 2013-08-16 05:07:14
          compiled from home/index.html */ ?>
 <?php $_from = $this->_tpl_vars['posts']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['k'] => $this->_tpl_vars['post']):
