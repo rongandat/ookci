@@ -1,12 +1,1 @@
-<form action="http://ookcash.lc/sci/process" method="POST">
-        <input type="hidden" name="payee_account" value="U3156245">
-        <input type="hidden" name="payer_account" value="">
-        <input type="hidden" name="checkout_amount" value="200">
-        <input type="hidden" name="checkout_currency" value="USD">
-        <input type="hidden" name="cancel_url" value="aHR0cDovL3d3dy5mYWNlYm9vay5jb20v">
-        <input type="hidden" name="fail_url" value="aHR0cDovL21haWxib3gxLmpwL29yZGVyL2Vycm9yLmh0bWw=">
-        <input type="hidden" name="success_url" value="aHR0cDovL3pvZGlhLmxjL3N1Y2Nlc3MucGhw">
-        <input type="hidden" name="status_url" value="aHR0cDovL2dsb2JhbC5sYy9zdGF0dXMucGhw">
-        <input type="hidden" name="status_method" value="GET">
-        <input type="submit" />
-</form>
+<a href="http://sandbox.ookcash.com/sci/process?payee_account=U3156245&payer_account=&checkout_amount=30&checkout_currency=USD&cancel_url=aHR0cDovL3d3dy5mYWNlYm9vay5jb20v&fail_url=aHR0cDovL3pvZGlhLmxjL2ZhaWwucGhw&success_url=aHR0cDovL2dsb2JhbC5sYy9zdWNjZXNzLnBocA==&status_url=aHR0cDovL2VnY2FzaC5jeWFob3N0LmNvbS9zdGF0dXMucGhw&status_method=GET&fsdfs=1&name=2&pass=3"><img src="http://sandbox.ookcash.com//images/ookcash-button.png"/></a>

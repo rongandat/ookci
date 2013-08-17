@@ -133,15 +133,18 @@ class Sci extends MY_Controller {
 
         $custom_fields = array('payee_account', 'payer_account', 'checkout_amount', 'checkout_currency', 'cancel_url', 'fail_url', 'success_url', 'status_url', 'status_method');
         $i = 0;
+        $extra_field = '';
         foreach ($requests as $field => $value) {
             if (!in_array($field, $custom_fields)) {
+                $extra_field .= '&' . $field . '=' . $value;
+                unset($requests[$field]);
                 $i++;
             }
         }
+        $requests['extra_field'] = !empty($extra_field) ? substr($extra_field, 1) : '';
         if ($i > $this->configs['FIELDS_EXTRA_SCI_LIMIT']) {
             $error_code[] = sprintf($this->lang->line('ERR_005'), $this->configs['FIELDS_EXTRA_SCI_LIMIT']);
         }
-
         if (empty($error_code)) {
             $this->session->set_userdata('sci', $requests);
             $this->data['sci_info'] = $requests;
@@ -169,9 +172,8 @@ class Sci extends MY_Controller {
             $fees_text = get_currency_value_format($fees, $currency);
             $checkout_amount = get_currency_value($checkout_amount, $currency);
             $fees = get_currency_value($fees, $currency);
-            
-            $balance_current = $this->balance->
 
+            $balance_current = $this->balance->getBalance(array('user_id' => $this->user_session['user_id'], 'currency_code' => $sci_info['checkout_currency']));
 
             $this->data['sci_info'] = $sci_info;
             $sci_user = $this->user->getUser(array('account_number' => $sci_info['payee_account']));
@@ -186,7 +188,7 @@ class Sci extends MY_Controller {
                 if ($master_key != $this->user_session['master_key']) {
                     $this->validator->addError('Master Key', 'Invalid master key entered. Master Key is a three digit number you have selected at the time of registration. Please try again.');
                 }
-                
+
                 if ($checkout_amount <= 0) {
                     if (empty($posts['checkout_amount'])) {
                         $this->validator->addError('Amount', 'Amount greater than 0');
@@ -199,6 +201,9 @@ class Sci extends MY_Controller {
                             $fees_text = get_currency_value_format($fees, $currency);
                             $checkout_amount = get_currency_value($checkout_amount, $currency);
                             $fees = get_currency_value($fees, $currency);
+                            if ($checkout_amount > $balance_current['balance']) {
+                                $this->validator->addError('Amount', 'You don\'t have enough money to transfer');
+                            }
                         }
                     }
                 }
@@ -227,10 +232,8 @@ class Sci extends MY_Controller {
         if ($sci_info['master_key'] != $this->user_session['master_key']) {
             redirect('sci/transfer');
         }
-        
-        var_dump($sci_info);die;
 
-        if (empty($sci_info)) {
+        if (!$sci_info || empty($sci_info['checkout_currency'])) {
             $this->validator->addError('SCI Information', 'You haven\'t yet input sci info');
             $this->assign('validerrors', $this->validator->errors);
         } else {
@@ -243,23 +246,194 @@ class Sci extends MY_Controller {
             $this->data['sci_user'] = $sci_user;
         }
 
-        $posts = $this->input->post();
-        if ($posts) {
-            if (empty($sci_info['checkout_amount'])) {
-                $this->validator->addError('Master Key', 'Invalid master key entered. Master Key is a three digit number you have selected at the time of registration. Please try again.');
-            } else {
-                $amount = $posts['checkout_amount'];
-                if ($validator->validateNumber('Amount', $amount, 'Amount greater than 0')) {
-                    $checkout_amount = $amount;
-                    $balance = get_currency_value_format($checkout_amount, $currency);
-                    $fees = $checkout_amount * TRANSFER_FEES / 100;
-                    $fees_text = get_currency_value_format($fees, $currency);
-                    $checkout_amount = get_currency_value($checkout_amount, $currency);
-                    $fees = get_currency_value($fees, $currency);
+
+        $this->view('sci/preview');
+    }
+
+    public function complete() {
+        if (!$this->user_session)
+            redirect(site_url('login'));
+        $sci_info = $this->session->userdata('sci');
+        if ($sci_info['master_key'] != $this->user_session['master_key']) {
+            redirect('sci/transfer');
+        }
+
+        if (!$sci_info || empty($sci_info['checkout_currency'])) {
+            $this->validator->addError('SCI Information', 'You haven\'t yet input sci info');
+            $this->assign('validerrors', $this->validator->errors);
+        } else {
+            $this->data['sci_info'] = $sci_info;
+
+            $sci_user = $this->user->getUser(array('account_number' => $sci_info['payee_account']));
+            if (!$sci_user) {
+                redirect(site_url('transfer'));
+            }
+            $this->data['sci_user'] = $sci_user;
+
+            $posts = $this->input->post();
+            $balance_current = $this->balance->getBalance(array('user_id' => $this->user_session['user_id'], 'currency_code' => $sci_info['checkout_currency']));
+            if ($posts) {
+                if (empty($sci_info['checkout_amount']) || $sci_info['checkout_amount'] <= 0) {
+                    $this->validator->addError('Amount', 'Amount greater than 0');
+                } else {
+
+
+                    if ($sci_info['checkout_amount'] > $balance_current['balance']) {
+                        $this->validator->addError('Amount', 'You don\'t have enough money to transfer');
+                    }
+                }
+                $batch_number = tep_create_random_value(11, 'digits');
+                if (count($this->validator->errors) == 0) {
+                    $transaction_data_array = array(
+                        'from_userid' => $this->user_session['user_id'],
+                        'batch_number' => $batch_number,
+                        'to_userid' => $sci_user['user_id'],
+                        'amount' => $sci_info['checkout_amount'],
+                        'fee' => $sci_info['fees'],
+                        'fee_text' => $sci_info['fees_text'],
+                        'transaction_time' => date('YmdHis'),
+                        'transaction_memo' => $sci_info['transaction_memo'],
+                        'from_account' => $this->user_session['account_number'],
+                        'to_account' => $sci_user['account_number'],
+                        'transaction_currency' => $sci_info['checkout_currency'],
+                        'amount_text' => $sci_info['balance'],
+                        'transaction_status' => 'completed',
+                    );
+                    $this->data['transaction_data'] = $transaction_data_array;
+                    $transaction_id = $this->transaction->insert($transaction_data_array);
+
+                    $history = array(
+                        'from_userid' => $this->user_session['user_id'],
+                        'batch_number' => $batch_number,
+                        'transaction_id' => $transaction_id,
+                        'to_userid' => $sci_user['user_id'],
+                        'amount' => $sci_info['checkout_amount'],
+                        'fee' => $sci_info['fees'],
+                        'fee_text' => $sci_info['fees_text'],
+                        'transaction_time' => date('YmdHis'),
+                        'transaction_memo' => $sci_info['transaction_memo'],
+                        'from_account' => $this->user_session['account_number'],
+                        'to_account' => $sci_user['account_number'],
+                        'transaction_currency' => $sci_info['checkout_currency'],
+                        'amount_text' => $sci_info['balance'],
+                        'transaction_status' => 'completed',
+                        'description' => '',
+                        'fail_url' => $sci_info['fail_url'],
+                        'cancel_url' => $sci_info['cancel_url'],
+                        'status_url' => $sci_info['status_url'],
+                        'success_url' => $sci_info['success_url'],
+                        'extra_fields' => serialize($sci_info['extra_field']),
+                        'status_method' => $sci_info['status_method']
+                    );
+
+
+
+                    if (!empty($history['status_url'])) {
+                        $current_transaction = $this->transaction->getTransactionById($transaction_id);
+                        $dataPost = array(
+                            'payee_account' => $current_transaction['to_account'],
+                            'payer_account' => $current_transaction['from_account'],
+                            'checkout_amount' => $current_transaction['amount'],
+                            'checkout_currency' => $current_transaction['transaction_currency'],
+                            'batch_number' => $current_transaction['batch_number'],
+                            'transaction_status' => $current_transaction['transaction_status'],
+                            'transaction_currency' => $current_transaction['transaction_currency'],
+                        );
+                        if ($history['status_method'] == 'GET')
+                            $results = curl_get(base64_decode($history['status_url']), $dataPost);
+                        else
+                            $results = curl_post(base64_decode($history['status_url']), $dataPost);
+                        if ($results) {
+                            if (preg_match("/SUCCESS/i", $results)) {
+                                $this->assign('url', base64_decode($history['success_url']));
+                                $this->assign('success', true);
+                            } elseif (preg_match("/ERROR/i", $results) && !empty($history['fail_url'])) {
+                                $this->assign('url', base64_decode($history['fail_url']));
+                                $this->assign('success', FALSE);
+                            }
+                        } else {
+                            $history_id = $this->transaction->insertHistory($history);
+                        }
+                    } else {
+                        $this->assign('url', base64_decode($history['success_url']));
+                        $this->assign('success', true);
+                    }
+
+
+                    $current_amount = $sci_info['checkout_amount'] - $sci_info['fees'];
+                    $balanceFrom = array(
+                        'user_id' => $this->user_session['user_id'],
+                        'currency_code' => $sci_info['checkout_currency'],
+                    );
+                    $this->balance->updateBalance($balanceFrom, $sci_info['checkout_amount'], '-');
+
+                    $balanceTo = array(
+                        'user_id' => $sci_user['user_id'],
+                        'currency_code' => $sci_info['checkout_currency'],
+                    );
+                    $this->balance->updateBalance($balanceTo, $current_amount, '+');
+
+                    //admin transfer
+                    $batch_number_admin = tep_create_random_value(11, 'digits');
+                    $transaction_data_array_admin = array(
+                        'from_userid' => $sci_user['user_id'],
+                        'batch_number' => $batch_number_admin,
+                        'to_userid' => 1,
+                        'amount' => $sci_info['fees'],
+                        'fee' => 0,
+                        'transaction_time' => date('YmdHis'),
+                        'transaction_memo' => 'transaction fees #' . $batch_number,
+                        'from_account' => $sci_user['account_number'],
+                        'to_account' => 'OOKCASH',
+                        'transaction_currency' => $sci_info['checkout_currency'],
+                        'amount_text' => $sci_info['fees_text'],
+                        'transaction_status' => 'completed',
+                        'status' => '0',
+                    );
+
+                    $this->transaction->insert($transaction_data_array_admin);
+
+
+
+                    $balanceAdmin = array(
+                        'user_id' => 1,
+                        'currency_code' => $sci_info['checkout_currency'],
+                    );
+                    $this->balance->updateBalance($balanceAdmin, $sci_info['fees'], '+');
+
+
+                    $this->load->model('email_model');
+                    $dataEmail = array(
+                        'firstname' => $sci_user['firstname'],
+                        'amount_text' => $sci_info['fees_text'],
+                        'batch_number' => $batch_number,
+                        'balance_currency' => $sci_info['checkout_currency'],
+                        'from_account' => $this->user_session['account_number'],
+                        'fees_text' => $sci_info['fees_text'],
+                    );
+//                    $this->email_model->sendmail('TRANSFER_EMAIL', $sci_user['firstname'], $sci_user['email'], $dataEmail);
+                    $this->session->unset_userdata('sci');
+                    $this->data['success'] = true;
+                } else {
+                    $this->assign('validerrors', $this->validator->errors);
                 }
             }
         }
-        $this->view('sci/preview');
+        $this->view('sci/complete');
+    }
+
+    public function validate() {
+        $request = $this->input->post('validate');
+        if (empty($request)) {
+            echo 'ERROR';
+            die();
+        }
+        $validate = $this->transaction->sci_validate($request);
+        if ($validate)
+            echo 'SUCCESS';
+        else
+            echo 'ERROR';
+        die();
     }
 
 }

@@ -25,17 +25,18 @@ class MY_Input extends CI_Input {
      */
     function request($index = NULL, $xss_clean = FALSE) {
         // Check if a field has been provided
-        if ($index === NULL AND !empty($_REQUEST)) {
+        if ($index === NULL AND (!empty($_GET) || $_POST)) {
+            $rq_list = array_merge($_GET, $_POST);
             $request = array();
-
+            
             // Loop through the full _POST array and return it
-            foreach (array_keys($_REQUEST) as $key) {
+            foreach (array_keys($rq_list) as $key) {
                 $request[$key] = $this->_fetch_from_array($_REQUEST, $key, $xss_clean);
             }
             return $request;
         }
 
-        return $this->_fetch_from_array($_REQUEST, $index, $xss_clean);
+        return $this->_fetch_from_array($rq_list, $index, $xss_clean);
     }
 
 }

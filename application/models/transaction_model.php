@@ -62,5 +62,22 @@ class Transaction_model extends CI_Model {
         $this->db->insert('transactions', $data);
         return $this->db->insert_id();
     }
+    
+    public function insertHistory($data){
+        $this->db->insert('transactions_history', $data);
+        return $this->db->insert_id();
+    }
+    
+    public function sci_validate($data){
+        $this->db->select("*");
+        $this->db->from('transactions');
+        $this->db->where('MD5(CONCAT(to_account,from_account,amount,transaction_currency,batch_number,transaction_status))',"'{$data}'",FALSE);
+        
+        $result = $this->db->get()->num_rows();
+        if($result > 0)
+            return TRUE;
+        return FALSE;
+        
+    }
 
 }
