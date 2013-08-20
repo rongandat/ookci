@@ -1,0 +1,24 @@
+<form name="frmReset" action="" method="post" >
+    <div class="simple-form">
+        <h1>Account Reset Wizard: Step 3/3</h1>
+        <p><i>Please make sure this password is different than the one you use in your email. Do not use your email password on any web site!</i>
+            <br />Please use strong passwords. Here is an example: Av&amp;6l@3sBp</p>
+        <div class="line"></div>
+        {include file="common/validate_error.html"}
+        <div class="st-form-line">
+            <span class="st-labeltext"><i>*</i> New Password:</span>
+            <input  name="Password" type="password"  maxlength="32" value="" class="st-forminput large" />
+            <div class="clear"></div>
+        </div>
+        <div class="st-form-line">
+            <span class="st-labeltext"><i>*</i> Confirm New Password:</span>
+            <input  name="Password2" type="password" maxlength="32" value=""  class="st-forminput large"/>
+            <div class="clear"></div>
+        </div>
+        
+        <div class="st-form-line">
+            <span class="st-labeltext"></span>
+            <input  type="submit" name="buttonNext" class="button"/>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,34 @@
+<form name="frmReset" action="" method="post" >
+    <div class="simple-form">
+        <h1>Account Reset Wizard: Step 2/3</h1>
+        <p>Your account login reset code has been successfully sent to <strong>{$account_info.email}</strong></p>
+        <div class="line"></div>
+        {include file="common/validate_error.html"}
+        <div class="st-form-line">
+            <span class="st-labeltext">Your account number:</span>
+            <span class="entry">{$account_info.account_number}</span>
+            <div class="clear"></div>
+        </div>
+        <div class="st-form-line">
+            <span class="st-labeltext">Your E-mail address:</span>
+            <span class="entry">{$account_info.email}</span>
+            <div class="clear"></div>
+        </div>
+        <div class="st-form-line">
+            <span class="st-labeltext"><i>*</i> Reset Code:</span>
+            <input  name="reset_code" type="text"  value=""  class="st-forminput large" />
+            <div class="clear"></div>
+        </div>
+        <div class="st-form-line">
+            <span class="st-labeltext"><i>*</i> {$account_info.security_question}:</span>
+            <input  name="security_question" type="text"  value=""  class="st-forminput large"  />
+            <div class="clear"></div>
+        </div>
+
+        <div class="st-form-line">
+            <span class="st-labeltext"></span>
+            <input  type="submit" name="buttonNext" class="button"  value="Next"/>
+        </div>
+    </div>
+
+</form>
