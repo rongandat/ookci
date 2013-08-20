@@ -1,0 +1,41 @@
+<div class="simple-form">
+<h1>Registration: Finished</h1>
+<p>Your registration is <strong>NOT</strong> yet complete! You <strong>MUST</strong> login to activate your account and complete your registration!</p>
+<div class="line"></div>
+<div class="clear"></div>
+<p>An e-mail containing your new account number was sent to your e-mail address. 
+    Please check your spam folder if you cannot find our e-mail. You may try to open a new account with a different e-mail if you fail to receive our e-mail.
+
+</p>
+<p>Listed below is your login information. Please print it or write it down:</p>
+<table class="form">
+    <tr>
+        <td class="form_label">Password:</td> <td class="form_field">
+            {$secure_info.password}</td>
+    </tr>	
+    <tr>
+        <td class="form_label">Login PIN:</td> <td class="form_field">
+            {$secure_info.login_pin}</td>
+    </tr>	
+    <tr>
+        <td class="form_label">Master Key:</td> <td class="form_field">
+            {$secure_info.master_key}</td>
+    </tr>	
+    <tr>
+        <td class="form_label">Security Question:</td> <td class="form_field">
+            {$secure_info.security_question}</td>
+    </tr>	
+    <tr>
+        <td class="form_label">Answer:</td> <td class="form_field">
+            {$secure_info.security_answer}</td>
+    </tr>		  
+</table>
+
+<p>
+    The above information will not be e-mailed to you for security reasons.<br />
+    For increased security we recommend not to store this information on your computer.
+
+</p>
+<p>Please <a href="{site_url('login')}">login</a> to activate your account and complete the registration.</p>
+
+</div>

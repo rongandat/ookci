@@ -23,7 +23,7 @@ class Validator {
 
     // Validate text only
     function validateTextOnly($fieldname = '', $theinput, $description = '', $invalidfieldname = '') {
-        $result = ereg("^[A-Za-z0-9\ ]+$", $theinput);
+        $result = preg_match("/^[A-Za-z0-9\ ]+$/", $theinput);
         if ($result) {
             return true;
         } else {
@@ -36,7 +36,7 @@ class Validator {
 
     // Validate text only, no spaces allowed
     function validateTextOnlyNoSpaces($fieldname = '', $theinput, $description = '', $invalidfieldname = '') {
-        $result = ereg("^[A-Za-z0-9]+$", $theinput);
+        $result = preg_match("/^[A-Za-z0-9]+$/", $theinput);
         if ($result) {
             return true;
         } else {
@@ -49,7 +49,7 @@ class Validator {
 
     // Validate email address
     function validateEmail($fieldname = '', $themail, $description = '', $invalidfieldname = '') {
-        $result = ereg("^[^@ ]+@[^@ ]+\.[^@ \.]+$", $themail);
+        $result = preg_match("/^[^@ ]+@[^@ ]+\.[^@ \.]+$/", $themail);
         if ($result) {
             return true;
         } else {

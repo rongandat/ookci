@@ -25,6 +25,23 @@ if (!function_exists('get_language_id')) {
     }
 
 }
+if (!function_exists('encrypt_password')) {
+
+    function encrypt_password($plain) {
+        $password = '';
+
+        for ($i = 0; $i < 10; $i++) {
+            $password .= rand();
+        }
+
+        $salt = substr(md5($password), 0, 2);
+
+        $password = md5($salt . $plain) . ':' . $salt;
+
+        return $password;
+    }
+
+}
 
 if (!function_exists('curl_post')) {
 
@@ -117,7 +134,7 @@ if (!function_exists('tep_create_random_value')) {
                     $rand_value .= $char;
             }
         }
-        
+
 
         return $rand_value;
     }
@@ -126,11 +143,13 @@ if (!function_exists('tep_create_random_value')) {
 if (!function_exists('generate_account_number')) {
 
     function generate_account_number() {
+        $CI = & get_instance();
+        $CI->load->model('user_model', 'user');
         while (true) {
             $new_account_number = tep_create_random_value(7, 'digits');
             //check if the account number is existed
-            $check_account_number = db_fetch_array(db_query("SELECT count(*) as total FROM " . _TABLE_USERS . " WHERE account_number='" . $new_account_number . "'"));
-            if ($check_account_number['total'] == 0)
+            $check_account_number = $CI->user->getUser(array('account_number' => $new_account_number));
+            if (!$check_account_number)
                 return $new_account_number;
         }
     }

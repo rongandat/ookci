@@ -1,1 +1,3 @@
-<a href="http://sandbox.ookcash.com/sci/process?payee_account=U3156245&payer_account=&checkout_amount=30&checkout_currency=USD&cancel_url=aHR0cDovL3d3dy5mYWNlYm9vay5jb20v&fail_url=aHR0cDovL3pvZGlhLmxjL2ZhaWwucGhw&success_url=aHR0cDovL2dsb2JhbC5sYy9zdWNjZXNzLnBocA==&status_url=aHR0cDovL2VnY2FzaC5jeWFob3N0LmNvbS9zdGF0dXMucGhw&status_method=GET&fsdfs=1&name=2&pass=3"><img src="http://sandbox.ookcash.com//images/ookcash-button.png"/></a>
+<?php
+
+echo md5('shin123');

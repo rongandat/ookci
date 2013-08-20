@@ -1,0 +1,8 @@
+<pre>Array
+(
+    [bname] => fsfs
+    [bname3] => fsfs
+    [bname4] => fsfs
+    [bname5] => fsfs
+)
+</pre>

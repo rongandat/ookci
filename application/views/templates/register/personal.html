@@ -1,0 +1,72 @@
+<form name="frmSignup" method="post" action=""  >
+    <input type="hidden" name="action" value="process"  />
+    <div class="simple-form">
+        <h1>Registration: Part 2 of 2</h1>
+        <p>Your account is not yet active. Please complete this form to activate your account.</p>
+        <p>Fields marked with asterisk (<i>*</i>) are required.</p>
+        <div class="line"></div>
+        <div class="clear"></div>
+        {include file="common/validate_error.html"}
+        <h3>Personal Information</h3>
+        <table class="form">
+
+            <tr>
+                <td class="form_label"><i>*</i>Account Name:</td>
+                <td class="form_field">
+                    <input  name="account_name" type="text"  value="{if !empty($posts.account_name)}{$posts.account_name}{/if}"  class="inputtext" size="20"  /></td>
+            </tr>	
+            <tr>
+                <td class="form_label">Company Name:</td>
+                <td class="form_field">
+                    <input  name="company_name" type="text"  value="{if !empty($posts.company_name)}{$posts.company_name}{/if}"  class="inputtext" size="20"  /></td>
+            </tr>		  
+            <tr>
+                <td class="form_label"><i>*</i>Address:</td>
+                <td class="form_field">
+                    <input  name="address" type="text"  value="{if !empty($posts.address)}{$posts.address}{/if}"  class="inputtext" size="20"  /></td>
+            </tr>	
+
+            <tr> <td class="form_label">
+                    <i>*</i>Country:</td>	  
+                <td class="form_field"><select name="country_id"  class="inputselect"  onchange="getStates(this.value);">
+                        {html_options options=$countries_array selected=$country_id}</select>
+
+                </td></tr>	
+            <tr>
+                <td class="form_label"><i>*</i>City:</td>
+                <td class="form_field">
+                    <input  name="city" type="text"  value="{if !empty($posts.city)}{$posts.city}{/if}"  class="inputtext" size="20"  /></td>
+            </tr>	
+
+            <tr>
+                <td class="form_label"><i>*</i>Zip/Post Code:</td>
+                <td class="form_field">
+                    <input  name="postcode" type="text"  value="{if !empty($posts.postcode)}{$posts.postcode}{/if}"  class="inputtext" size="20"  /></td>
+            </tr>		  
+            <tr>
+                <td class="form_label"><i>*</i>Date of Birth:</td>
+                <td  class="form_field"><select name="dobMonth" class="inputselect">
+                        {html_options options=$months_array selected=$dobMonth}</select>&nbsp;<select name="dobDay" class="inputselect">
+                        {html_options options=$days_array selected=$dobDay}</select>&nbsp;&nbsp;
+
+                    <select name="dobYear" class="inputselect">
+                        {html_options options=$years_array selected=$dobYear}</select>&nbsp;(mm/dd/yy)
+
+                </td></tr>	 	  		
+            <tr>
+                <td class="form_label"><i>*</i>Phone:</td>
+                <td class="form_field">
+                    <input  name="phone" type="text"  value="{if !empty($posts.phone)}{$posts.phone}{/if}"  class="inputtext" size="20"  /></td>
+            </tr>		  
+            <tr>
+                <td class="form_label">Mobile:</td>
+                <td class="form_field">
+                    <input  name="mobile" type="text"  value="{if !empty($posts.mobile)}{$posts.mobile}{/if}"  class="inputtext" size="20"  /></td>
+            </tr>		  
+            <tr >
+                <td></td>
+                <td ><input  type="submit" name="buttonSubmit" class="button"  value="Submit" />&nbsp;
+                    <input  type="button" name="buttonCancel" onclick="window.location='{site_url('home')}';"  class="button"  value="Cancel"></td>
+            </tr>
+        </table>
+    </div>

@@ -120,22 +120,6 @@ class User_model extends CI_Model {
         }
 
         return false;
-    }
-
-////
-// This function makes a new password from a plaintext password. 
-    function encrypt_password($plain) {
-        $password = '';
-
-        for ($i = 0; $i < 10; $i++) {
-            $password .= rand();
-        }
-
-        $salt = substr(md5($password), 0, 2);
-
-        $password = md5($salt . $plain) . ':' . $salt;
-
-        return $password;
-    }
+    }    
 
 }

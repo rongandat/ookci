@@ -1,0 +1,39 @@
+<form name="frmTransfer" method="post" action=""  >
+    <div class="simple-form">
+        <h1>Transfer To Wallet</h1>
+        <p>Please use this form to transfer funds to wallet</p>
+        <p>Fields marked with asterisk (<i>*</i>) are required.</p>
+        <div class="line"></div>
+        {include file="common/validate_error.html" }
+        {if !empty($success)}
+        <div class="success">Transfer success</div>
+        {/if}
+        <div class="st-form-line">
+            <span class="st-labeltext"><i>*</i> Currency:</span>
+            {if !empty($posts.balance_currency)}
+            {assign var="balance_currency" value=$posts.balance_currency nocache}
+            {else}
+            {assign var="balance_currency" value=0 nocache}
+            {/if}
+            <select name="balance_currency" >
+                {html_options options=$balance_currencies selected=$balance_currency}
+            </select>
+            <div class="clear"></div>
+        </div>
+        <div class="st-form-line">
+            <span class="st-labeltext"><i>*</i> Amount:</span>
+            <input  name="amount" type="text" id="amount"  value="{if !empty($posts.amount)}{$posts.amount}{/if}"  size="10" />
+            <div class="clear"></div>
+        </div>
+
+        <div class="st-form-line">
+            <span class="st-labeltext"><i>*</i> Master Key(3 digits)</span>
+            <input  name="master_key" type="password" id="master_key"  value=""  size="4"  maxlength="3"/> 
+            <div class="clear"></div>
+        </div>
+        <div class="st-form-line captcha">
+            <span class="st-labeltext"></span>
+            <input  type="submit" class="button"  value="Transfer" />
+        </div>
+    </div>
+</form>

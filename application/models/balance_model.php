@@ -25,6 +25,8 @@ class Balance_model extends CI_Model {
         $results = $query->result_array();
         return !empty($results) ? $results[0] : array();
     }
+    
+
 
     public function updateBalance($data, $balance, $status = '+') {
         $balance_current = $this->getBalance($data);
@@ -48,5 +50,7 @@ class Balance_model extends CI_Model {
             $this->db->insert('user_balance', $dataBalance);
         }
     }
+
+    
 
 }

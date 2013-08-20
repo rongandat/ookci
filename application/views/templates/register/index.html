@@ -1,0 +1,112 @@
+<form name="frmSignup" method="post" action=""  >
+    <input type="hidden" name="action" value="process"  />
+    <div class="simple-form">
+        <h1>Registration: Part 1 of 2</h1>
+        <p>Thank you for deciding to open a 
+            OOKCASH account. Please follow directions carefully to avoid mistakes and delays during the registration process.</p>
+        <p>Fields marked with asterisk (<i>*</i>) are required.</p>
+        <div class="line"></div>
+        <div class="clear"></div>
+        {include file="common/validate_error.html"}
+        <table class="form">
+
+            <tr>
+                <td class="form_label"><i>*</i>First Name:</td>
+                <td class="form_field">
+                    <input  name="firstname" type="text"  value="{if !empty($posts.firstname)}{$posts.firstname}{/if}"  class="inputtext" size="20"  /></td>
+            </tr>	
+            <tr>
+                <td class="form_label"><i>*</i>Last Name:</td>
+                <td class="form_field">
+                    <input  name="lastname" type="text"  value="{if !empty($posts.lastname)}{$posts.lastname}{/if}"  class="inputtext" size="20"  /></td>
+            </tr>		  
+            <tr>
+                <td class="form_label"><i>*</i>E-mail:</td>
+                <td  class="form_field">
+                    <input  name="email" type="text" id="email"  value="{if !empty($posts.email)}{$posts.email}{/if}"   class="inputtext" size="20" />
+                </td>
+            </tr>	  
+            <tr>
+                <td class="form_label"><i>*</i>Re-enter e-mail:</td>
+                <td  class="form_field">
+                    <input  name="confirm_email" type="text" id="confirm_email"  value="{if !empty($posts.confirm_email)}{$posts.confirm_email}{/if}"   class="inputtext" size="20" />
+                </td>
+            </tr>	  
+
+        </table>	
+        <h3>Security Information </h3>
+        <p>Password, login PIN and master key will be automatically generated for your account</p>
+        <table class="form">
+            <tr>
+                <td class="form_label"><i>*</i>Security Question:</td>
+                {if !empty($posts.security_question)}
+                {assign var="security_question" value=$posts.security_question nocache}
+                {else}
+                {assign var="security_question" value=0 nocache}
+                {/if}
+                <td class="form_field"><select name="security_question" class="inputselect" onchange="checkSecurityQuestion(this.value);">
+                        {html_options options=$security_questions_array selected=$security_question}</select></td>
+            </tr>	
+            <tr id="content_custom_question" {if $security_question != -1} style="display: none;" {/if}>
+                <td class="form_label"><i>*</i>or write your own:</td>
+                <td class="form_field">
+                    <input  name="custom_question" type="text"  value="{if !empty($posts.firstname)}{$posts.firstname}{/if}"  class="inputtext" size="20"  /></td> 
+            </tr>	
+            <tr>
+                <td class="form_label"><i>*</i>Answer:</td>
+                <td class="form_field">
+                    <input  name="security_answer" type="text"  value="{if !empty($posts.security_answer)}{$posts.security_answer}{/if}"  class="inputtext" size="20"  /></td> </tr>		  
+            <tr>
+                <td class="form_label"><i>*</i>Personal welcome message:</td>
+                <td class="form_field">
+                    <textarea  name="welcome_message" rows="3" cols="50" class="inputtextarea">{if !empty($posts.security_answer)}{$posts.security_answer}{/if}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <strong>Enter the code (turing number) shown on the image</strong>	
+                    <br />Cannot read the numbers? Click on it to get a new one
+                </td>
+                <td>
+                    <a href="javascript: refreshSecureImage();"><img src="{site_url('secure_image')}"   border="0" id="secure_image" /></a><br />
+                    <input   name="security_code"   class="inputtext" size="20"/>
+                    <a  href="{site_url(contact_us)}" class="link">Cannot see Turing number at all?</a>
+
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    If you agree with <a href="http://docs.ookcash.com/tos/" target="_blank">Terms of Our Service</a> click "Agree" to continue the registration.
+                </td>
+
+            </tr>
+            <tr>
+                <td >
+
+                </td>
+                <td>
+                    <div class="buttons">
+                        <input  type="submit" name="buttonAgree" class="button"  value="Agree" />
+                        <input  type="button" name="buttonDisagree" onclick="window.location='{site_url('home')}';"  class="button"  value="Disagree">
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+</form>
+
+
+<script type="text/javascript">
+    {literal}
+    function checkSecurityQuestion(security_question_id) {
+        if (security_question_id==-1) {
+            $("#content_custom_question").show();
+        } else {
+            $("#content_custom_question").hide();	
+        }
+    }
+    {/literal}
+</script>
