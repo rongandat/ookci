@@ -90,8 +90,8 @@ class Wallet extends MY_Controller {
                     'currency_code' => $amount,
                 );
 
-                $this->balance->updateBalance($balanceFrom, $transfer_info['amount'], '-');
-                $this->wallet->updateWallet($balanceFrom, $transfer_info['amount'], '+');
+                $this->balance->updateBalance($balanceFrom, $amount, '-');
+                $this->wallet->updateWallet($balanceFrom, $amount, '+');
 
                 $dataEmail = array(
                     'firstname' => $this->user_session['firstname'],
@@ -115,6 +115,7 @@ class Wallet extends MY_Controller {
     }
 
     public function transfer() {
+        $this->load->model('email_model');
         $login_id = $this->session->userdata('login_id');
         if (!$this->user_session && !$login_id)
             redirect(site_url('login'));
@@ -146,15 +147,14 @@ class Wallet extends MY_Controller {
         if ($posts) {
             $balance_currency = ($posts['balance_currency']);
             $amount = ($posts['amount']);
-            $master_key = ($posts['master_key']);
 
             if ($balance_currency == '')
-                $validator->addError('Currency', 'Please select the currency of balance that you want to use for the transaction.');
+                $this->validator->addError('Currency', 'Please select the currency of balance that you want to use for the transaction.');
             if ($amount <= 0) {
-                $validator->addError('Amount', 'Please input correct Amount .');
+                $this->validator->addError('Amount', 'Please input correct Amount .');
             } else { // check if out of balance
                 if ($amount > $balances_array[$balance_currency])
-                    $validator->addError('Balance', 'You have not enough balance to transfer the amount(<strong>' . get_currency_value_format($amount, $currencies_array[$balance_currency]) . '</strong>). Please input difference amount.');
+                    $this->validator->addError('Balance', 'You have not enough balance to transfer the amount(<strong>' . get_currency_value_format($amount, $currencies_array[$balance_currency]) . '</strong>). Please input difference amount.');
             }
 
             $to_account = ($posts['to_account']);
@@ -162,17 +162,17 @@ class Wallet extends MY_Controller {
 
             $to_user_info = $this->user->getUser(array('account_number' => $posts['to_account']));
             if (!$to_user_info) {
-                $validator->addError('Account Number', 'Invalid account number. Please input correct account number of the user that you want to transfer to.');
-            } elseif (trim($to_account) == $login_account_number) {
-                $validator->addError('Account Number', 'Invalid account number. Please input correct account number of the user that you want to transfer to.');
+                $this->validator->addError('Account Number', 'Invalid account number. Please input correct account number of the user that you want to transfer to.');
+            } elseif (trim($to_account) == $user_info['account_number']) {
+                $this->validator->addError('Account Number', 'Invalid account number. Please input correct account number of the user that you want to transfer to.');
             }
 
-            if (count($validator->errors) == 0) {
+            if (count($this->validator->errors) == 0) {
                 $batch_number = tep_create_random_value(11, 'digits');
                 $amount_text = get_currency_value_format($amount, $currencies_array[$balance_currency]);
                 $transaction_memo = '';
 
-                $fees = $amount * TRANSFER_FEES / 100;
+                $fees = $amount * $this->configs['TRANSFER_FEES'] / 100;
                 $fees_text = get_currency_value_format($fees, $currencies_array[$balance_currency]);
 
                 $amount = get_currency_value($amount, $currencies_array[$balance_currency]);
@@ -202,12 +202,12 @@ class Wallet extends MY_Controller {
 
                 $balanceFrom = array(
                     'user_id' => $user_info['user_id'],
-                    'currency_code' => $transfer_info['balance_currency'],
+                    'currency_code' => $balance_currency,
                 );
-                $this->wallet->updateWallet($balanceFrom, $transfer_info['amount'], '-');
+                $this->wallet->updateWallet($balanceFrom, $amount, '-');
                 $balanceTo = array(
                     'user_id' => $to_user_info['user_id'],
-                    'currency_code' => $transfer_info['balance_currency'],
+                    'currency_code' => $balance_currency,
                 );
                 $this->balance->updateBalance($balanceTo, $current_amount, '+');
 
